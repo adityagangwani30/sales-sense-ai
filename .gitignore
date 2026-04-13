@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.vscode/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Generated outputs - don't commit CSV files, but keep the folder structure
+outputs/
+!outputs/cleaned/.gitkeep
