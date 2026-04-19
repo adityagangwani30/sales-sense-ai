@@ -158,26 +158,27 @@ def clean_data(
     required_columns: Sequence[str],
     numeric_columns: Sequence[str],
 ) -> tuple[pd.DataFrame, Dict[str, str]]:
-    """Standardize column names, clean rows, and prepare the dataset."""
+    """Standardize column names, improve data quality, and prepare the dataset."""
     cleaned = df.copy()
     cleaned.columns = [normalize_column_name(column_name) for column_name in cleaned.columns]
     cleaned = cleaned.loc[:, ~cleaned.columns.duplicated()]
 
-    for column_name in cleaned.select_dtypes(include=["object", "string"]).columns:
-        cleaned[column_name] = cleaned[column_name].astype("string").str.strip()
-        cleaned[column_name] = cleaned[column_name].replace({"": pd.NA})
-
     detected_columns = detect_columns(cleaned, column_map)
     cleaned = coalesce_standard_columns(cleaned, detected_columns)
 
-    if "sales" not in cleaned.columns and {"price", "quantity"}.issubset(cleaned.columns):
-        cleaned["sales"] = to_numeric_series(cleaned["price"]) * to_numeric_series(cleaned["quantity"])
-        detected_columns = dict(detected_columns)
-        detected_columns["sales"] = "derived_from_price_quantity"
-
     missing_required = [column_name for column_name in required_columns if column_name not in cleaned.columns]
     if missing_required:
-        raise ValueError(f"Missing required columns after mapping: {', '.join(missing_required)}")
+        available_columns = ", ".join(cleaned.columns)
+        raise ValueError(
+            "Missing required columns after mapping: "
+            f"{', '.join(missing_required)}. Available columns: {available_columns}"
+        )
+
+    for column_name in cleaned.select_dtypes(include=["object", "string"]).columns:
+        cleaned[column_name] = cleaned[column_name].astype("string")
+        cleaned[column_name] = cleaned[column_name].str.lower()
+        cleaned[column_name] = cleaned[column_name].str.replace(r"\s+", " ", regex=True).str.strip()
+        cleaned[column_name] = cleaned[column_name].replace({"": pd.NA})
 
     cleaned["date"] = parse_date_series(cleaned["date"])
 
@@ -185,25 +186,111 @@ def clean_data(
         if column_name in cleaned.columns:
             cleaned[column_name] = to_numeric_series(cleaned[column_name])
 
-    cleaned = cleaned.drop_duplicates().reset_index(drop=True)
-    cleaned = fill_missing_numeric_values(cleaned, numeric_columns)
-    cleaned = cleaned.dropna(subset=["date", "sales"]).reset_index(drop=True)
+    if "sales" not in cleaned.columns and {"price", "quantity"}.issubset(cleaned.columns):
+        cleaned["sales"] = cleaned["price"] * cleaned["quantity"]
+        detected_columns = dict(detected_columns)
+        detected_columns["sales"] = "derived_from_price_quantity"
 
-    for column_name in ("product", "customer"):
+    if "price" not in cleaned.columns and {"sales", "quantity"}.issubset(cleaned.columns):
+        cleaned["price"] = cleaned["sales"] / cleaned["quantity"].replace(0, pd.NA)
+        detected_columns = dict(detected_columns)
+        detected_columns["price"] = "derived_from_sales_quantity"
+
+    if {"sales", "price", "quantity"}.issubset(cleaned.columns):
+        cleaned["sales"] = cleaned["sales"].fillna(cleaned["price"] * cleaned["quantity"])
+        derived_price = cleaned["sales"] / cleaned["quantity"].replace(0, pd.NA)
+        cleaned["price"] = cleaned["price"].fillna(derived_price)
+
+    for column_name in ("customer", "product"):
+        if column_name not in cleaned.columns:
+            cleaned[column_name] = "unknown"
+
+    duplicate_subset = [column_name for column_name in ["date", "product", "customer"] if column_name in cleaned.columns]
+    duplicate_count = int(cleaned.duplicated(subset=duplicate_subset).sum()) if duplicate_subset else 0
+    if duplicate_subset:
+        cleaned = cleaned.drop_duplicates(subset=duplicate_subset).reset_index(drop=True)
+
+    missing_before_fill = cleaned.isna().sum()
+
+    cleaned = fill_missing_numeric_values(cleaned, numeric_columns)
+
+    for column_name in cleaned.select_dtypes(include=["object", "string"]).columns:
         if column_name in cleaned.columns:
             cleaned[column_name] = cleaned[column_name].fillna("unknown")
+
+    missing_after_fill = cleaned.isna().sum()
+    handled_missing = (missing_before_fill - missing_after_fill).clip(lower=0)
+
+    invalid_date_rows = int(cleaned["date"].isna().sum())
+    invalid_sales_rows = int((cleaned["sales"].isna() | (cleaned["sales"] <= 0)).sum())
+    invalid_quantity_rows = 0
+
+    valid_rows = cleaned["date"].notna() & cleaned["sales"].notna() & (cleaned["sales"] > 0)
+    if "quantity" in cleaned.columns:
+        invalid_quantity_rows = int((cleaned["quantity"].isna() | (cleaned["quantity"] <= 0)).sum())
+        valid_rows &= cleaned["quantity"].notna() & (cleaned["quantity"] > 0)
+
+    rows_before_filter = len(cleaned)
+    cleaned = cleaned.loc[valid_rows].reset_index(drop=True)
+    invalid_rows_removed = rows_before_filter - len(cleaned)
+
+    outlier_rows_removed = 0
+    if not cleaned.empty:
+        q1 = cleaned["sales"].quantile(0.25)
+        q3 = cleaned["sales"].quantile(0.75)
+        iqr = q3 - q1
+
+        if pd.notna(iqr) and iqr > 0:
+            lower_bound = q1 - 1.5 * iqr
+            upper_bound = q3 + 1.5 * iqr
+            outlier_mask = (cleaned["sales"] < lower_bound) | (cleaned["sales"] > upper_bound)
+            outlier_rows_removed = int(outlier_mask.sum())
+            cleaned = cleaned.loc[~outlier_mask].reset_index(drop=True)
+
+    print("\nMissing values handled:")
+    handled_missing = handled_missing[handled_missing > 0]
+    if handled_missing.empty:
+        print("  No missing values needed filling.")
+    else:
+        for column_name, filled_count in handled_missing.items():
+            print(f"  {column_name}: {int(filled_count)} values filled")
+
+    print(f"Duplicates removed: {duplicate_count}")
+    print(f"Rows removed for invalid dates: {invalid_date_rows}")
+    print(f"Rows removed for invalid sales: {invalid_sales_rows}")
+    if "quantity" in cleaned.columns:
+        print(f"Rows removed for invalid quantity: {invalid_quantity_rows}")
+    print(f"Total invalid rows removed: {invalid_rows_removed}")
+    print(f"Outlier rows removed from sales: {outlier_rows_removed}")
 
     return cleaned, dict(detected_columns)
 
 
 def feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
-    """Add basic time and revenue features."""
+    """Add time, business, customer, and product features."""
     featured = df.copy()
     featured["month"] = featured["date"].dt.month
     featured["year"] = featured["date"].dt.year
+    featured["day_of_week"] = featured["date"].dt.day_name().str.lower()
+    featured["is_weekend"] = featured["date"].dt.dayofweek >= 5
 
     if "revenue" not in featured.columns:
-        featured["revenue"] = featured["sales"]
+        if {"price", "quantity"}.issubset(featured.columns):
+            featured["revenue"] = featured["price"] * featured["quantity"]
+        else:
+            featured["revenue"] = featured["sales"]
+
+    if "customer" in featured.columns:
+        featured["total_spend"] = featured.groupby("customer")["sales"].transform("sum")
+        featured["order_count"] = featured.groupby("customer")["date"].transform("count")
+    else:
+        featured["total_spend"] = featured["sales"]
+        featured["order_count"] = 1
+
+    if "product" in featured.columns:
+        featured["product_total_sales"] = featured.groupby("product")["sales"].transform("sum")
+    else:
+        featured["product_total_sales"] = featured["sales"]
 
     return featured
 
@@ -226,13 +313,54 @@ def main(dataset_choice: str | None = None) -> pd.DataFrame:
         numeric_columns=NUMERIC_COLUMNS,
     )
     cleaned_df = feature_engineering(cleaned_df)
-    cleaned_df["source_dataset"] = dataset_name
+    cleaned_df["source"] = dataset_name
+
+    required_final_columns = ["date", "customer", "product", "quantity", "price", "sales", "month", "year"]
+    default_values = {
+        "customer": "unknown",
+        "product": "unknown",
+        "quantity": pd.NA,
+        "price": pd.NA,
+        "sales": pd.NA,
+        "month": pd.NA,
+        "year": pd.NA,
+    }
+
+    for column_name in required_final_columns:
+        if column_name not in cleaned_df.columns:
+            cleaned_df[column_name] = default_values.get(column_name, pd.NA)
+
+    ordered_columns = required_final_columns + [
+        column_name for column_name in cleaned_df.columns if column_name not in required_final_columns
+    ]
+    cleaned_df = cleaned_df[ordered_columns]
 
     print(f"\nMapping results for {dataset_name}:")
     for standard_name in sorted(mapping):
         print(f"  {standard_name:<10} -> {mapping[standard_name]}")
 
     print(f"Cleaned shape: {cleaned_df.shape}")
+
+    print("\nData quality report:")
+    print("Missing values summary:")
+    missing_summary = cleaned_df.isna().sum()
+    print(missing_summary[missing_summary > 0].to_string() if (missing_summary > 0).any() else "  No missing values.")
+
+    duplicate_subset = [column_name for column_name in ["date", "product", "customer"] if column_name in cleaned_df.columns]
+    duplicate_count = int(cleaned_df.duplicated(subset=duplicate_subset).sum()) if duplicate_subset else 0
+    print(f"Duplicate count: {duplicate_count}")
+
+    print("Data types:")
+    print(cleaned_df.dtypes.to_string())
+
+    total_revenue = float(cleaned_df["revenue"].sum()) if "revenue" in cleaned_df.columns else float(cleaned_df["sales"].sum())
+    total_orders = int(len(cleaned_df))
+    average_order_value = total_revenue / total_orders if total_orders else 0.0
+
+    print("\nBusiness metrics:")
+    print(f"Total Revenue: {total_revenue:.2f}")
+    print(f"Total Orders: {total_orders}")
+    print(f"Average Order Value (AOV): {average_order_value:.2f}")
 
     output_path = save_cleaned_data(cleaned_df, dataset_name)
     print(f"Saved cleaned dataset to: {output_path.resolve()}")
