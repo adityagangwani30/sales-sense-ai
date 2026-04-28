@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 import os
 from typing import Iterable
 
@@ -79,11 +80,20 @@ def _normalize_source_series(
     return source_series.replace({"": default_source, "<na>": default_source})
 
 
+def _is_missing_scalar(value: object) -> bool:
+    """Keep missing-value checks scalar-only so pandas typing stays predictable."""
+    if value is None or value is pd.NA:
+        return True
+    if isinstance(value, float):
+        return math.isnan(value)
+    return False
+
+
 def _merge_unique_sources(values: Iterable[object]) -> str:
     merged_sources: list[str] = []
 
     for value in values:
-        if pd.isna(value):
+        if _is_missing_scalar(value):
             continue
 
         for part in str(value).split("|"):
@@ -92,6 +102,11 @@ def _merge_unique_sources(values: Iterable[object]) -> str:
                 merged_sources.append(normalized_part)
 
     return "|".join(merged_sources) if merged_sources else "unknown"
+
+
+def _set_autocommit(connection: object, enabled: bool) -> None:
+    """Use setattr because mysql connector stubs do not expose autocommit consistently."""
+    setattr(connection, "autocommit", enabled)
 
 
 def _combine_cleaned_datasets(
@@ -120,11 +135,14 @@ def _combine_cleaned_datasets(
 
     # Deduplicate cleaned rows before insert while still keeping a merged source trail.
     dedupe_columns = [column_name for column_name in combined.columns if column_name != "source"]
-    combined = (
-        combined.groupby(dedupe_columns, dropna=False, as_index=False)["source"]
-        .agg(_merge_unique_sources)
-        .reset_index(drop=True)
-    )
+    if dedupe_columns:
+        combined = (
+            combined.groupby(dedupe_columns, dropna=False, as_index=False)
+            .agg(source=("source", _merge_unique_sources))
+            .reset_index(drop=True)
+        )
+    else:
+        combined = pd.DataFrame({"source": [_merge_unique_sources(combined["source"])]})
 
     return combined, {
         "datasets": len(frames),
@@ -256,7 +274,7 @@ def connect_db(
         password=password,
         port=port,
     )
-    server_connection.autocommit = False
+    _set_autocommit(server_connection, False)
     server_cursor = server_connection.cursor()
     server_cursor.execute(f"CREATE DATABASE IF NOT EXISTS `{database}`")
     server_connection.commit()
@@ -271,7 +289,7 @@ def connect_db(
         database=database,
     )
     # Keep transaction boundaries explicit so repeated runs behave predictably.
-    connection.autocommit = False
+    _set_autocommit(connection, False)
     return connection
 
 
@@ -413,8 +431,8 @@ def prepare_orders(
             ["customer_id", "product_id", "quantity", "order_date"],
             as_index=False,
             dropna=False,
-        )["source"]
-        .agg(_merge_unique_sources)
+        )
+        .agg(source=("source", _merge_unique_sources))
         .reset_index(drop=True)
     )
     prepared_orders["customer_id"] = prepared_orders["customer_id"].astype(int)
