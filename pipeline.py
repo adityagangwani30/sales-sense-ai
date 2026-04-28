@@ -8,6 +8,7 @@ import pandas as pd
 
 from database_loader import load_cleaned_data_to_mysql
 from sql_analysis import run_sql_analysis
+from visualization import run_visualizations
 
 
 DATA_DIR = Path("original_dataset")
@@ -318,6 +319,7 @@ def main(
     load_to_db: bool = True,
     reset_db: bool = RESET_DB,
     run_sql: bool = True,
+    run_visuals: bool = True,
 ) -> pd.DataFrame:
     """Run the preprocessing pipeline for one dataset or both datasets together."""
     loaded_datasets = load_data(dataset_choice)
@@ -406,6 +408,12 @@ def main(
                     run_sql_analysis()
                 except Exception as error:
                     print(f"SQL analysis failed: {error}")
+                else:
+                    if run_visuals:
+                        try:
+                            run_visualizations()
+                        except Exception as error:
+                            print(f"Visualization generation failed: {error}")
 
     return combined_cleaned_df
 
