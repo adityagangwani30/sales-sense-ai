@@ -6,6 +6,8 @@ from typing import Dict, Mapping, Sequence
 
 import pandas as pd
 
+from database_loader import load_cleaned_data_to_mysql
+
 
 DATA_DIR = Path("original_dataset")
 OUTPUT_DIR = Path("outputs")
@@ -303,7 +305,7 @@ def save_cleaned_data(df: pd.DataFrame, dataset_name: str) -> Path:
     return output_path
 
 
-def main(dataset_choice: str | None = None) -> pd.DataFrame:
+def main(dataset_choice: str | None = None, load_to_db: bool = True) -> pd.DataFrame:
     """Run the preprocessing pipeline for one selected dataset."""
     dataset_name, raw_df = load_data(dataset_choice)
     cleaned_df, mapping = clean_data(
@@ -364,6 +366,13 @@ def main(dataset_choice: str | None = None) -> pd.DataFrame:
 
     output_path = save_cleaned_data(cleaned_df, dataset_name)
     print(f"Saved cleaned dataset to: {output_path.resolve()}")
+
+    if load_to_db:
+        print("\nStarting Week 3 database load...")
+        try:
+            load_cleaned_data_to_mysql(cleaned_df)
+        except Exception as error:
+            print(f"Database load failed: {error}")
 
     return cleaned_df
 

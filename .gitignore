@@ -8,7 +8,7 @@ __pycache__/
 dist/
 build/
 .pytest_cache/
-
+.env
 # Generated outputs - don't commit CSV files, but keep the folder structure
 outputs/
 !outputs/cleaned/.gitkeep
