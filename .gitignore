@@ -15,5 +15,3 @@ outputs/global_ecommerce_sales_cleaned.csv
 outputs/retail_supply_chain_sales_cleaned.csv
 
 !outputs/cleaned/.gitkeep
-
-frontend

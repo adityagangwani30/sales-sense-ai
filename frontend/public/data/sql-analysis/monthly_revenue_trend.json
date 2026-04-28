@@ -1,0 +1,218 @@
+[
+  {
+    "year": 2023,
+    "month": 1,
+    "month_start": "2023-01-01",
+    "monthly_revenue": 5011.53
+  },
+  {
+    "year": 2023,
+    "month": 2,
+    "month_start": "2023-02-01",
+    "monthly_revenue": 7361.32
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "month_start": "2023-03-01",
+    "monthly_revenue": 6982.34
+  },
+  {
+    "year": 2023,
+    "month": 4,
+    "month_start": "2023-04-01",
+    "monthly_revenue": 6935.65
+  },
+  {
+    "year": 2023,
+    "month": 5,
+    "month_start": "2023-05-01",
+    "monthly_revenue": 6608.74
+  },
+  {
+    "year": 2023,
+    "month": 6,
+    "month_start": "2023-06-01",
+    "monthly_revenue": 10080.92
+  },
+  {
+    "year": 2023,
+    "month": 7,
+    "month_start": "2023-07-01",
+    "monthly_revenue": 6457.8
+  },
+  {
+    "year": 2023,
+    "month": 8,
+    "month_start": "2023-08-01",
+    "monthly_revenue": 10629.66
+  },
+  {
+    "year": 2023,
+    "month": 9,
+    "month_start": "2023-09-01",
+    "monthly_revenue": 10215.48
+  },
+  {
+    "year": 2023,
+    "month": 10,
+    "month_start": "2023-10-01",
+    "monthly_revenue": 9141.44
+  },
+  {
+    "year": 2023,
+    "month": 11,
+    "month_start": "2023-11-01",
+    "monthly_revenue": 6329.16
+  },
+  {
+    "year": 2023,
+    "month": 12,
+    "month_start": "2023-12-01",
+    "monthly_revenue": 12496.1
+  },
+  {
+    "year": 2024,
+    "month": 1,
+    "month_start": "2024-01-01",
+    "monthly_revenue": 6128.36
+  },
+  {
+    "year": 2024,
+    "month": 2,
+    "month_start": "2024-02-01",
+    "monthly_revenue": 5142.11
+  },
+  {
+    "year": 2024,
+    "month": 3,
+    "month_start": "2024-03-01",
+    "monthly_revenue": 8438.56
+  },
+  {
+    "year": 2024,
+    "month": 4,
+    "month_start": "2024-04-01",
+    "monthly_revenue": 8855.07
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "month_start": "2024-05-01",
+    "monthly_revenue": 7863.15
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "month_start": "2024-06-01",
+    "monthly_revenue": 7235.49
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "month_start": "2024-07-01",
+    "monthly_revenue": 6194.76
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "month_start": "2024-08-01",
+    "monthly_revenue": 7090.06
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "month_start": "2024-09-01",
+    "monthly_revenue": 7996.52
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "month_start": "2024-10-01",
+    "monthly_revenue": 11287.01
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "month_start": "2024-11-01",
+    "monthly_revenue": 9178.35
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "month_start": "2024-12-01",
+    "monthly_revenue": 6124.49
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "month_start": "2025-01-01",
+    "monthly_revenue": 7003.46
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "month_start": "2025-02-01",
+    "monthly_revenue": 5737.69
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "month_start": "2025-03-01",
+    "monthly_revenue": 7052.47
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "month_start": "2025-04-01",
+    "monthly_revenue": 8651.44
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "month_start": "2025-05-01",
+    "monthly_revenue": 8668.27
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "month_start": "2025-06-01",
+    "monthly_revenue": 6557.66
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "month_start": "2025-07-01",
+    "monthly_revenue": 8343.54
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "month_start": "2025-08-01",
+    "monthly_revenue": 7290.75
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "month_start": "2025-09-01",
+    "monthly_revenue": 9946.11
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "month_start": "2025-10-01",
+    "monthly_revenue": 10154.79
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "month_start": "2025-11-01",
+    "monthly_revenue": 9332.15
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "month_start": "2025-12-01",
+    "monthly_revenue": 8389.9
+  }
+]

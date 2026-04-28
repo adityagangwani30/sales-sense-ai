@@ -1,0 +1,67 @@
+{
+  "defaultDatasetId": "global_ecommerce_sales",
+  "datasets": [
+    {
+      "id": "global_ecommerce_sales",
+      "label": "Dataset 1",
+      "description": "Global E-Commerce Sales",
+      "dataPath": "/data/datasets/global_ecommerce_sales.json"
+    },
+    {
+      "id": "retail_supply_chain_sales",
+      "label": "Dataset 2",
+      "description": "Retail Supply Chain Sales",
+      "dataPath": "/data/datasets/retail_supply_chain_sales.json"
+    }
+  ],
+  "sqlAnalysis": {
+    "category_performance": "/data/sql-analysis/category_performance.json",
+    "customer_lifetime_value": "/data/sql-analysis/customer_lifetime_value.json",
+    "customer_segmentation": "/data/sql-analysis/customer_segmentation.json",
+    "inactive_customers": "/data/sql-analysis/inactive_customers.json",
+    "monthly_revenue_trend": "/data/sql-analysis/monthly_revenue_trend.json",
+    "overall_metrics": "/data/sql-analysis/overall_metrics.json",
+    "product_ranking": "/data/sql-analysis/product_ranking.json",
+    "regional_performance": "/data/sql-analysis/regional_performance.json",
+    "repeat_purchase_rate": "/data/sql-analysis/repeat_purchase_rate.json",
+    "revenue_growth": "/data/sql-analysis/revenue_growth.json",
+    "top_products": "/data/sql-analysis/top_products.json"
+  },
+  "visualizations": [
+    {
+      "title": "Category Revenue Distribution",
+      "src": "/visualizations/category_distribution.png",
+      "filename": "category_distribution.png"
+    },
+    {
+      "title": "Customer Segmentation Overview",
+      "src": "/visualizations/customer_segmentation.png",
+      "filename": "customer_segmentation.png"
+    },
+    {
+      "title": "Monthly Revenue Trend",
+      "src": "/visualizations/monthly_revenue_trend.png",
+      "filename": "monthly_revenue_trend.png"
+    },
+    {
+      "title": "Order Value Distribution",
+      "src": "/visualizations/order_value_distribution.png",
+      "filename": "order_value_distribution.png"
+    },
+    {
+      "title": "Price vs Sales Correlation",
+      "src": "/visualizations/price_vs_sales_scatter.png",
+      "filename": "price_vs_sales_scatter.png"
+    },
+    {
+      "title": "Executive Analytics Dashboard",
+      "src": "/visualizations/sales_dashboard.png",
+      "filename": "sales_dashboard.png"
+    },
+    {
+      "title": "Top Products Performance",
+      "src": "/visualizations/top_products.png",
+      "filename": "top_products.png"
+    }
+  ]
+}

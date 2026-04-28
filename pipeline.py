@@ -7,6 +7,7 @@ from typing import Dict, Mapping, Sequence
 import pandas as pd
 
 from database_loader import load_cleaned_data_to_mysql
+from frontend_export import export_frontend_dashboard_assets
 from sql_analysis import run_sql_analysis
 from visualization import run_visualizations
 
@@ -320,6 +321,7 @@ def main(
     reset_db: bool = RESET_DB,
     run_sql: bool = True,
     run_visuals: bool = True,
+    sync_frontend_assets: bool = True,
 ) -> pd.DataFrame:
     """Run the preprocessing pipeline for one dataset or both datasets together."""
     loaded_datasets = load_data(dataset_choice)
@@ -414,6 +416,12 @@ def main(
                             run_visualizations()
                         except Exception as error:
                             print(f"Visualization generation failed: {error}")
+                        else:
+                            if sync_frontend_assets:
+                                try:
+                                    export_frontend_dashboard_assets()
+                                except Exception as error:
+                                    print(f"Frontend asset export failed: {error}")
 
     return combined_cleaned_df
 

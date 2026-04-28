@@ -1,0 +1,60 @@
+'use client'
+
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
+
+import type { RevenueTrendPoint } from '@/lib/dashboard-types'
+import { formatCompactCurrency, formatCurrency } from '@/lib/formatters'
+
+interface RevenueTrendChartProps {
+  data: RevenueTrendPoint[]
+}
+
+export function RevenueTrendChart({ data }: RevenueTrendChartProps) {
+  return (
+    <section className="rounded-2xl border border-border/70 bg-card/90 p-6 shadow-sm">
+      <div className="mb-5">
+        <h2 className="text-lg font-semibold text-foreground">Revenue Trend</h2>
+        <p className="text-sm text-foreground/60">
+          Monthly revenue movement based on the exported dataset snapshot.
+        </p>
+      </div>
+
+      <ResponsiveContainer width="100%" height={320}>
+        <LineChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" opacity={0.25} />
+          <XAxis dataKey="month" tickLine={false} axisLine={false} minTickGap={20} />
+          <YAxis
+            tickLine={false}
+            axisLine={false}
+            tickFormatter={(value: number) => formatCompactCurrency(value)}
+          />
+          <Tooltip
+            formatter={(value: number) => [formatCurrency(value), 'Revenue']}
+            labelFormatter={(label) => `Month: ${label}`}
+            contentStyle={{
+              borderRadius: '16px',
+              border: '1px solid rgba(46, 134, 171, 0.15)',
+              background: 'rgba(255,255,255,0.98)',
+            }}
+          />
+          <Line
+            type="monotone"
+            dataKey="revenue"
+            stroke="#2E86AB"
+            strokeWidth={3}
+            dot={{ r: 4, strokeWidth: 2, fill: '#ffffff' }}
+            activeDot={{ r: 6 }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
+    </section>
+  )
+}

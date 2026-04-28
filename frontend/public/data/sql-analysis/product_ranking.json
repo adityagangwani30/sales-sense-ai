@@ -1,0 +1,322 @@
+[
+  {
+    "category": "clothing & accessories",
+    "product_id": 34,
+    "product_name": "travel backpack 30l",
+    "order_count": 52,
+    "total_revenue": 10885.94,
+    "revenue_rank": 1
+  },
+  {
+    "category": "clothing & accessories",
+    "product_id": 23,
+    "product_name": "polarized sunglasses",
+    "order_count": 42,
+    "total_revenue": 8419.84,
+    "revenue_rank": 2
+  },
+  {
+    "category": "clothing & accessories",
+    "product_id": 4,
+    "product_name": "business casual blazer",
+    "order_count": 33,
+    "total_revenue": 8400.07,
+    "revenue_rank": 3
+  },
+  {
+    "category": "clothing & accessories",
+    "product_id": 7,
+    "product_name": "cotton formal shirt",
+    "order_count": 52,
+    "total_revenue": 7625.28,
+    "revenue_rank": 4
+  },
+  {
+    "category": "clothing & accessories",
+    "product_id": 17,
+    "product_name": "leather wallet minimalist",
+    "order_count": 42,
+    "total_revenue": 6193.85,
+    "revenue_rank": 5
+  },
+  {
+    "category": "clothing & accessories",
+    "product_id": 5,
+    "product_name": "canvas messenger bag",
+    "order_count": 37,
+    "total_revenue": 5846.43,
+    "revenue_rank": 6
+  },
+  {
+    "category": "clothing & accessories",
+    "product_id": 16,
+    "product_name": "leather belt classic",
+    "order_count": 43,
+    "total_revenue": 5699.58,
+    "revenue_rank": 7
+  },
+  {
+    "category": "clothing & accessories",
+    "product_id": 40,
+    "product_name": "wool blend scarf",
+    "order_count": 31,
+    "total_revenue": 4689.81,
+    "revenue_rank": 8
+  },
+  {
+    "category": "clothing & accessories",
+    "product_id": 28,
+    "product_name": "sports water bottle 750ml",
+    "order_count": 40,
+    "total_revenue": 3136.18,
+    "revenue_rank": 9
+  },
+  {
+    "category": "clothing & accessories",
+    "product_id": 26,
+    "product_name": "silk tie collection",
+    "order_count": 27,
+    "total_revenue": 2599.59,
+    "revenue_rank": 10
+  },
+  {
+    "category": "furniture",
+    "product_id": 19,
+    "product_name": "mesh back task chair",
+    "order_count": 41,
+    "total_revenue": 16320.85,
+    "revenue_rank": 1
+  },
+  {
+    "category": "furniture",
+    "product_id": 3,
+    "product_name": "bookshelf 5-tier",
+    "order_count": 48,
+    "total_revenue": 13312.11,
+    "revenue_rank": 2
+  },
+  {
+    "category": "furniture",
+    "product_id": 12,
+    "product_name": "floating wall shelves set",
+    "order_count": 57,
+    "total_revenue": 12694.4,
+    "revenue_rank": 3
+  },
+  {
+    "category": "furniture",
+    "product_id": 13,
+    "product_name": "folding table portable",
+    "order_count": 50,
+    "total_revenue": 12557.1,
+    "revenue_rank": 4
+  },
+  {
+    "category": "furniture",
+    "product_id": 11,
+    "product_name": "filing cabinet 3-drawer",
+    "order_count": 29,
+    "total_revenue": 10388.52,
+    "revenue_rank": 5
+  },
+  {
+    "category": "furniture",
+    "product_id": 20,
+    "product_name": "monitor riser wood",
+    "order_count": 47,
+    "total_revenue": 9135.33,
+    "revenue_rank": 6
+  },
+  {
+    "category": "furniture",
+    "product_id": 29,
+    "product_name": "standing desk converter",
+    "order_count": 25,
+    "total_revenue": 7238.8,
+    "revenue_rank": 7
+  },
+  {
+    "category": "furniture",
+    "product_id": 6,
+    "product_name": "corner l-shaped desk",
+    "order_count": 16,
+    "total_revenue": 6059.63,
+    "revenue_rank": 8
+  },
+  {
+    "category": "furniture",
+    "product_id": 9,
+    "product_name": "desk organizer set",
+    "order_count": 49,
+    "total_revenue": 6026.66,
+    "revenue_rank": 9
+  },
+  {
+    "category": "furniture",
+    "product_id": 10,
+    "product_name": "ergonomic office chair",
+    "order_count": 15,
+    "total_revenue": 5775.22,
+    "revenue_rank": 10
+  },
+  {
+    "category": "office supplies",
+    "product_id": 33,
+    "product_name": "tape dispenser heavy duty",
+    "order_count": 53,
+    "total_revenue": 3369.95,
+    "revenue_rank": 1
+  },
+  {
+    "category": "office supplies",
+    "product_id": 30,
+    "product_name": "stapler full-size",
+    "order_count": 58,
+    "total_revenue": 2883.77,
+    "revenue_rank": 2
+  },
+  {
+    "category": "office supplies",
+    "product_id": 8,
+    "product_name": "desk calendar 2025",
+    "order_count": 59,
+    "total_revenue": 2736.25,
+    "revenue_rank": 3
+  },
+  {
+    "category": "office supplies",
+    "product_id": 25,
+    "product_name": "premium notebook set a5",
+    "order_count": 53,
+    "total_revenue": 2726.85,
+    "revenue_rank": 4
+  },
+  {
+    "category": "office supplies",
+    "product_id": 37,
+    "product_name": "whiteboard markers set 8",
+    "order_count": 59,
+    "total_revenue": 2354.57,
+    "revenue_rank": 5
+  },
+  {
+    "category": "office supplies",
+    "product_id": 2,
+    "product_name": "binder clips assorted 48pc",
+    "order_count": 58,
+    "total_revenue": 2109.45,
+    "revenue_rank": 6
+  },
+  {
+    "category": "office supplies",
+    "product_id": 1,
+    "product_name": "ballpoint pen pack 12",
+    "order_count": 50,
+    "total_revenue": 1941.01,
+    "revenue_rank": 7
+  },
+  {
+    "category": "office supplies",
+    "product_id": 31,
+    "product_name": "sticky notes multicolor 6-pack",
+    "order_count": 39,
+    "total_revenue": 1173.48,
+    "revenue_rank": 8
+  },
+  {
+    "category": "office supplies",
+    "product_id": 14,
+    "product_name": "highlighters neon pack 6",
+    "order_count": 39,
+    "total_revenue": 1012.94,
+    "revenue_rank": 9
+  },
+  {
+    "category": "office supplies",
+    "product_id": 22,
+    "product_name": "paper clips box 500pc",
+    "order_count": 45,
+    "total_revenue": 960.07,
+    "revenue_rank": 10
+  },
+  {
+    "category": "technology",
+    "product_id": 24,
+    "product_name": "portable external ssd 1tb",
+    "order_count": 50,
+    "total_revenue": 14248.54,
+    "revenue_rank": 1
+  },
+  {
+    "category": "technology",
+    "product_id": 36,
+    "product_name": "webcam hd 1080p",
+    "order_count": 60,
+    "total_revenue": 11923.35,
+    "revenue_rank": 2
+  },
+  {
+    "category": "technology",
+    "product_id": 18,
+    "product_name": "mechanical gaming keyboard",
+    "order_count": 44,
+    "total_revenue": 11625.83,
+    "revenue_rank": 3
+  },
+  {
+    "category": "technology",
+    "product_id": 39,
+    "product_name": "wireless ergonomic mouse",
+    "order_count": 67,
+    "total_revenue": 10887.76,
+    "revenue_rank": 4
+  },
+  {
+    "category": "technology",
+    "product_id": 38,
+    "product_name": "wireless bluetooth headphones",
+    "order_count": 38,
+    "total_revenue": 10885.2,
+    "revenue_rank": 5
+  },
+  {
+    "category": "technology",
+    "product_id": 21,
+    "product_name": "noise cancelling earbuds",
+    "order_count": 42,
+    "total_revenue": 10379.78,
+    "revenue_rank": 6
+  },
+  {
+    "category": "technology",
+    "product_id": 15,
+    "product_name": "laptop stand adjustable",
+    "order_count": 50,
+    "total_revenue": 10365.83,
+    "revenue_rank": 7
+  },
+  {
+    "category": "technology",
+    "product_id": 27,
+    "product_name": "smart led desk lamp",
+    "order_count": 60,
+    "total_revenue": 9485.13,
+    "revenue_rank": 8
+  },
+  {
+    "category": "technology",
+    "product_id": 32,
+    "product_name": "tablet stand holder",
+    "order_count": 66,
+    "total_revenue": 6696.98,
+    "revenue_rank": 9
+  },
+  {
+    "category": "technology",
+    "product_id": 35,
+    "product_name": "usb-c hub multiport adapter",
+    "order_count": 44,
+    "total_revenue": 6140.37,
+    "revenue_rank": 10
+  }
+]
