@@ -10,5 +10,8 @@ build/
 .pytest_cache/
 .env
 # Generated outputs - don't commit CSV files, but keep the folder structure
-outputs/
+
+outputs/global_ecommerce_sales_cleaned.csv
+outputs/retail_supply_chain_sales_cleaned.csv
+
 !outputs/cleaned/.gitkeep

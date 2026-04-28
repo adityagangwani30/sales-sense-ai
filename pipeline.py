@@ -7,6 +7,7 @@ from typing import Dict, Mapping, Sequence
 import pandas as pd
 
 from database_loader import load_cleaned_data_to_mysql
+from sql_analysis import run_sql_analysis
 
 
 DATA_DIR = Path("original_dataset")
@@ -316,6 +317,7 @@ def main(
     dataset_choice: str | None = None,
     load_to_db: bool = True,
     reset_db: bool = RESET_DB,
+    run_sql: bool = True,
 ) -> pd.DataFrame:
     """Run the preprocessing pipeline for one dataset or both datasets together."""
     loaded_datasets = load_data(dataset_choice)
@@ -398,6 +400,12 @@ def main(
             load_cleaned_data_to_mysql(cleaned_datasets, reset_db=reset_db)
         except Exception as error:
             print(f"Database load failed: {error}")
+        else:
+            if run_sql:
+                try:
+                    run_sql_analysis()
+                except Exception as error:
+                    print(f"SQL analysis failed: {error}")
 
     return combined_cleaned_df
 

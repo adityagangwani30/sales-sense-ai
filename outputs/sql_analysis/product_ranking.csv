@@ -1,0 +1,41 @@
+category,product_id,product_name,order_count,total_revenue,revenue_rank
+clothing & accessories,34,travel backpack 30l,52,10885.94,1
+clothing & accessories,23,polarized sunglasses,42,8419.84,2
+clothing & accessories,4,business casual blazer,33,8400.07,3
+clothing & accessories,7,cotton formal shirt,52,7625.28,4
+clothing & accessories,17,leather wallet minimalist,42,6193.85,5
+clothing & accessories,5,canvas messenger bag,37,5846.43,6
+clothing & accessories,16,leather belt classic,43,5699.58,7
+clothing & accessories,40,wool blend scarf,31,4689.81,8
+clothing & accessories,28,sports water bottle 750ml,40,3136.18,9
+clothing & accessories,26,silk tie collection,27,2599.59,10
+furniture,19,mesh back task chair,41,16320.85,1
+furniture,3,bookshelf 5-tier,48,13312.11,2
+furniture,12,floating wall shelves set,57,12694.40,3
+furniture,13,folding table portable,50,12557.10,4
+furniture,11,filing cabinet 3-drawer,29,10388.52,5
+furniture,20,monitor riser wood,47,9135.33,6
+furniture,29,standing desk converter,25,7238.80,7
+furniture,6,corner l-shaped desk,16,6059.63,8
+furniture,9,desk organizer set,49,6026.66,9
+furniture,10,ergonomic office chair,15,5775.22,10
+office supplies,33,tape dispenser heavy duty,53,3369.95,1
+office supplies,30,stapler full-size,58,2883.77,2
+office supplies,8,desk calendar 2025,59,2736.25,3
+office supplies,25,premium notebook set a5,53,2726.85,4
+office supplies,37,whiteboard markers set 8,59,2354.57,5
+office supplies,2,binder clips assorted 48pc,58,2109.45,6
+office supplies,1,ballpoint pen pack 12,50,1941.01,7
+office supplies,31,sticky notes multicolor 6-pack,39,1173.48,8
+office supplies,14,highlighters neon pack 6,39,1012.94,9
+office supplies,22,paper clips box 500pc,45,960.07,10
+technology,24,portable external ssd 1tb,50,14248.54,1
+technology,36,webcam hd 1080p,60,11923.35,2
+technology,18,mechanical gaming keyboard,44,11625.83,3
+technology,39,wireless ergonomic mouse,67,10887.76,4
+technology,38,wireless bluetooth headphones,38,10885.20,5
+technology,21,noise cancelling earbuds,42,10379.78,6
+technology,15,laptop stand adjustable,50,10365.83,7
+technology,27,smart led desk lamp,60,9485.13,8
+technology,32,tablet stand holder,66,6696.98,9
+technology,35,usb-c hub multiport adapter,44,6140.37,10

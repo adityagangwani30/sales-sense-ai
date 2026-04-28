@@ -1,0 +1,1771 @@
+customer_id,customer_name,segment,region,city,order_count,total_spent,avg_order_value,last_purchase_date
+601,ingrid zhang,corporate,asia pacific,unknown,2,942.46,471.23,2025-12-22
+35,ali johnson,corporate,north america,unknown,1,861.56,861.56,2023-09-14
+347,elizabeth johnson,home office,north america,unknown,2,802.61,401.31,2025-06-27
+127,ayumi khan,consumer,north america,unknown,2,725.33,362.67,2025-01-01
+1539,sarah weber,home office,north america,unknown,1,709.26,709.26,2025-09-23
+171,barbara sharma,corporate,europe,unknown,2,688.55,344.28,2023-12-25
+80,amir chen,consumer,north america,unknown,1,688.41,688.41,2023-06-10
+297,david clark,consumer,europe,unknown,1,671.00,671.00,2023-09-03
+1198,olga nilsson,consumer,north america,unknown,1,669.87,669.87,2023-06-29
+970,lucas moreau,home office,north america,unknown,1,669.06,669.06,2025-06-22
+33,ali johansson,corporate,north america,unknown,1,668.00,668.00,2023-09-17
+1362,priya costa,corporate,asia pacific,unknown,1,666.84,666.84,2023-12-23
+920,liam laurent,consumer,north america,unknown,1,663.54,663.54,2023-09-16
+520,hanna hassan,home office,europe,unknown,1,663.24,663.24,2025-11-03
+836,kenji davis,home office,europe,unknown,1,658.55,658.55,2024-03-03
+1501,sakura thomas,corporate,north america,unknown,1,656.88,656.88,2024-11-30
+1087,mia romano,corporate,asia pacific,unknown,1,647.97,647.97,2024-07-23
+467,felix müller,corporate,asia pacific,unknown,2,647.75,323.88,2024-03-30
+574,hans singh,home office,europe,unknown,1,647.72,647.72,2023-07-15
+1558,sophie martin,corporate,north america,unknown,1,642.05,642.05,2024-05-20
+513,hanna ahmed,consumer,middle east & africa,unknown,1,641.04,641.04,2023-02-12
+1701,xiao brown,corporate,south america,unknown,1,640.56,640.56,2025-07-23
+1297,oscar nilsson,consumer,europe,unknown,1,635.15,635.15,2025-01-04
+1065,mary white,consumer,north america,unknown,1,632.67,632.67,2024-10-30
+877,layla johansson,consumer,europe,unknown,1,629.60,629.60,2024-09-10
+1335,pierre anderson,corporate,asia pacific,unknown,1,617.10,617.10,2025-09-02
+1110,michael khan,corporate,north america,unknown,2,611.91,305.96,2023-08-27
+728,jennifer robinson,consumer,europe,unknown,1,604.80,604.80,2025-08-29
+158,barbara hassan,consumer,asia pacific,unknown,1,603.68,603.68,2023-08-12
+1190,olga garcia,corporate,north america,unknown,1,602.88,602.88,2025-10-05
+8,ahmed harris,consumer,south america,unknown,1,598.14,598.14,2023-03-08
+648,ivan sato,consumer,europe,unknown,1,595.68,595.68,2025-11-03
+837,kenji dubois,home office,europe,unknown,1,595.60,595.60,2024-02-03
+551,hans harris,consumer,north america,unknown,1,595.02,595.02,2024-03-27
+795,joseph martinez,consumer,asia pacific,unknown,2,594.72,297.36,2024-06-01
+504,giulia rossi,corporate,asia pacific,unknown,1,590.48,590.48,2023-11-18
+966,lucas khan,consumer,north america,unknown,1,590.48,590.48,2023-05-18
+760,jessica suzuki,corporate,asia pacific,unknown,1,589.12,589.12,2024-08-13
+1666,wei suzuki,consumer,south america,unknown,1,588.00,588.00,2024-08-16
+1507,sarah clark,consumer,south america,unknown,1,586.86,586.86,2025-09-08
+1252,omar costa,corporate,north america,unknown,2,586.72,293.36,2024-09-13
+191,carlos rodriguez,corporate,south america,unknown,1,583.71,583.71,2025-12-10
+818,karen robinson,home office,asia pacific,unknown,1,581.90,581.90,2023-10-24
+677,jamal schmidt,consumer,north america,unknown,1,579.48,579.48,2023-01-14
+1343,pierre leroy,home office,north america,unknown,1,578.97,578.97,2025-03-16
+1002,marco taylor,consumer,north america,unknown,1,577.65,577.65,2023-04-26
+537,hanna taylor,home office,north america,unknown,1,577.59,577.59,2024-01-09
+129,ayumi laurent,consumer,south america,unknown,1,577.02,577.02,2024-11-09
+243,christopher jones,consumer,north america,unknown,1,576.16,576.16,2025-05-06
+1631,thomas weber,home office,middle east & africa,unknown,1,575.80,575.80,2025-05-30
+1333,patricia zhang,corporate,north america,unknown,1,574.90,574.90,2025-05-29
+750,jessica moreau,corporate,europe,unknown,1,573.79,573.79,2024-11-30
+973,lucas nilsson,consumer,europe,unknown,1,570.36,570.36,2024-10-03
+1610,thomas hassan,corporate,middle east & africa,unknown,1,570.15,570.15,2025-09-29
+652,ivan williams,corporate,asia pacific,unknown,1,568.75,568.75,2024-10-04
+322,diego kim,consumer,europe,unknown,1,568.40,568.40,2025-01-12
+1217,olga yamamoto,corporate,europe,unknown,1,567.96,567.96,2025-08-16
+1165,noah clark,corporate,middle east & africa,unknown,1,562.65,562.65,2024-03-05
+528,hanna müller,consumer,middle east & africa,unknown,1,561.48,561.48,2024-03-16
+424,fatima fischer,corporate,north america,unknown,1,561.08,561.08,2025-11-18
+349,elizabeth miller,home office,north america,unknown,1,560.56,560.56,2025-08-31
+619,isabella sato,consumer,south america,unknown,1,557.88,557.88,2025-11-01
+173,barbara singh,consumer,north america,unknown,1,557.76,557.76,2025-01-26
+1161,nadia zhang,consumer,asia pacific,unknown,2,556.05,278.03,2024-06-23
+170,barbara sato,consumer,north america,unknown,1,555.27,555.27,2024-03-17
+1502,sakura thomas,corporate,south america,unknown,1,554.61,554.61,2023-02-04
+1139,nadia harris,corporate,asia pacific,unknown,1,553.25,553.25,2024-03-07
+387,emma pereira,consumer,north america,unknown,2,551.95,275.98,2023-06-23
+1292,oscar martinez,corporate,asia pacific,unknown,1,548.10,548.10,2025-02-17
+826,karen smith,consumer,europe,unknown,1,547.75,547.75,2023-12-13
+1177,noah oliveira,consumer,europe,unknown,1,547.53,547.53,2023-08-01
+1403,raj johnson,consumer,asia pacific,unknown,1,545.34,545.34,2024-11-26
+943,linda kumar,consumer,north america,unknown,1,544.20,544.20,2023-11-26
+97,amir williams,consumer,north america,unknown,1,543.78,543.78,2025-10-07
+895,li khan,home office,europe,unknown,1,543.41,543.41,2024-06-02
+1759,zara patel,corporate,middle east & africa,unknown,1,542.43,542.43,2023-04-22
+713,jennifer costa,consumer,north america,unknown,1,540.30,540.30,2023-05-16
+1073,mia costa,consumer,europe,unknown,1,539.30,539.30,2024-10-06
+598,ingrid weber,corporate,north america,unknown,1,537.30,537.30,2023-09-13
+1,ahmed ali,consumer,north america,unknown,1,535.92,535.92,2024-12-13
+1209,olga suzuki,consumer,north america,unknown,1,529.98,529.98,2024-06-20
+1182,noah tanaka,consumer,asia pacific,unknown,1,529.38,529.38,2025-06-28
+1433,richard leroy,corporate,asia pacific,unknown,1,528.56,528.56,2025-06-05
+751,jessica müller,consumer,asia pacific,unknown,1,526.75,526.75,2024-11-25
+1561,sophie martinez,corporate,europe,unknown,1,524.44,524.44,2023-10-10
+947,linda nilsson,consumer,europe,unknown,1,523.65,523.65,2025-12-31
+1636,wei chen,consumer,middle east & africa,unknown,1,523.38,523.38,2023-03-17
+1142,nadia laurent,consumer,asia pacific,unknown,1,521.80,521.80,2024-03-31
+461,felix kim,corporate,north america,unknown,1,519.20,519.20,2023-10-05
+246,christopher leroy,corporate,europe,unknown,1,516.40,516.40,2023-11-13
+337,diego weber,home office,europe,unknown,1,514.80,514.80,2025-04-10
+645,ivan pereira,home office,middle east & africa,unknown,1,514.36,514.36,2023-08-24
+1750,zara kim,corporate,north america,unknown,1,513.12,513.12,2023-06-05
+1465,robert martinez,consumer,north america,unknown,1,513.04,513.04,2025-12-07
+1522,sarah leroy,corporate,north america,unknown,1,510.95,510.95,2025-05-07
+329,diego robinson,corporate,asia pacific,unknown,1,509.80,509.80,2023-11-06
+305,david schmidt,consumer,europe,unknown,1,507.00,507.00,2024-10-31
+1341,pierre jackson,corporate,south america,unknown,1,506.76,506.76,2024-06-18
+1032,maria yamamoto,consumer,asia pacific,unknown,2,506.00,253.00,2025-05-31
+1437,richard müller,consumer,north america,unknown,1,505.36,505.36,2023-04-05
+693,james johansson,corporate,europe,unknown,1,505.12,505.12,2024-12-02
+639,ivan martinez,home office,asia pacific,unknown,1,503.31,503.31,2024-08-10
+147,ayumi thomas,consumer,middle east & africa,unknown,1,500.00,500.00,2024-09-15
+494,giulia johnson,corporate,asia pacific,unknown,1,499.89,499.89,2023-12-17
+1641,wei harris,consumer,asia pacific,unknown,1,496.80,496.80,2023-06-12
+471,felix robinson,corporate,asia pacific,unknown,1,494.79,494.79,2025-10-10
+595,ingrid schmidt,consumer,europe,unknown,1,493.80,493.80,2023-02-26
+86,amir khan,consumer,asia pacific,unknown,1,493.12,493.12,2024-03-21
+549,hans fischer,corporate,north america,unknown,1,489.56,489.56,2023-04-13
+1640,wei harris,corporate,asia pacific,unknown,1,488.43,488.43,2025-05-30
+730,jennifer romano,corporate,europe,unknown,1,486.54,486.54,2023-11-14
+1466,robert park,consumer,north america,unknown,2,486.40,243.20,2025-10-22
+756,jessica patel,home office,north america,unknown,1,485.64,485.64,2024-03-28
+1039,mary davis,consumer,south america,unknown,1,485.00,485.00,2023-01-20
+1659,wei rodriguez,consumer,asia pacific,unknown,1,484.50,484.50,2024-04-28
+120,ayumi clark,home office,north america,unknown,1,479.86,479.86,2025-02-28
+441,fatima smith,consumer,south america,unknown,1,479.70,479.70,2024-05-28
+1141,nadia johansson,home office,middle east & africa,unknown,1,478.64,478.64,2024-03-13
+573,hans sharma,consumer,middle east & africa,unknown,1,477.96,477.96,2025-04-16
+1521,sarah kim,corporate,europe,unknown,1,475.65,475.65,2023-06-12
+706,james tanaka,consumer,middle east & africa,unknown,1,473.15,473.15,2023-06-27
+362,elizabeth weber,consumer,europe,unknown,1,472.71,472.71,2023-12-08
+1113,michael li,corporate,north america,unknown,1,472.71,472.71,2023-09-17
+1594,susan wang,consumer,south america,unknown,1,472.62,472.62,2023-08-16
+1764,zara suzuki,consumer,north america,unknown,1,472.08,472.08,2023-02-09
+588,ingrid martinez,home office,north america,unknown,1,470.20,470.20,2024-10-23
+816,karen nilsson,consumer,asia pacific,unknown,1,469.35,469.35,2024-04-20
+69,amina singh,consumer,north america,unknown,1,466.65,466.65,2025-04-22
+1535,sarah suzuki,home office,north america,unknown,1,466.16,466.16,2023-10-28
+790,joseph johansson,consumer,north america,unknown,1,465.30,465.30,2024-06-04
+1225,olivia ferrari,home office,asia pacific,unknown,1,465.06,465.06,2023-09-26
+1135,nadia costa,consumer,north america,unknown,2,464.42,232.21,2024-05-05
+1311,oscar zhang,consumer,europe,unknown,1,464.30,464.30,2024-11-22
+1098,mia white,corporate,north america,unknown,1,460.47,460.47,2024-07-15
+1518,sarah khan,home office,south america,unknown,1,460.02,460.02,2023-09-21
+984,lucas tanaka,home office,middle east & africa,unknown,1,457.92,457.92,2025-03-30
+832,karen wang,corporate,middle east & africa,unknown,1,456.04,456.04,2023-06-19
+288,clara sharma,consumer,middle east & africa,unknown,1,455.58,455.58,2025-07-06
+126,ayumi johnson,consumer,north america,unknown,1,453.36,453.36,2023-03-29
+124,ayumi harris,consumer,north america,unknown,1,452.88,452.88,2025-05-06
+1751,zara leroy,corporate,asia pacific,unknown,1,449.84,449.84,2023-12-03
+1738,yuki thomas,corporate,south america,unknown,1,446.58,446.58,2024-12-03
+1401,raj garcia,consumer,south america,unknown,1,446.04,446.04,2025-01-29
+631,ivan costa,home office,europe,unknown,1,445.56,445.56,2025-08-30
+1452,robert chen,consumer,asia pacific,unknown,1,443.48,443.48,2024-04-18
+244,christopher khan,consumer,asia pacific,unknown,1,441.36,441.36,2023-12-01
+624,isabella thomas,home office,asia pacific,unknown,1,440.70,440.70,2025-12-25
+904,li sharma,consumer,middle east & africa,unknown,1,440.55,440.55,2023-10-20
+1172,noah khan,home office,north america,unknown,1,440.15,440.15,2023-06-11
+564,hans müller,consumer,middle east & africa,unknown,2,439.19,219.60,2025-03-10
+637,ivan li,home office,south america,unknown,1,437.52,437.52,2023-05-16
+1753,zara miller,consumer,europe,unknown,1,437.19,437.19,2023-11-01
+1570,sophie tanaka,consumer,europe,unknown,1,436.17,436.17,2025-10-05
+1601,susan zhang,consumer,middle east & africa,unknown,1,435.84,435.84,2024-02-14
+492,giulia harris,home office,europe,unknown,1,435.04,435.04,2025-10-31
+1013,maria leroy,consumer,europe,unknown,1,431.76,431.76,2025-12-29
+15,ahmed rodriguez,home office,middle east & africa,unknown,1,430.96,430.96,2025-10-16
+271,clara laurent,corporate,north america,unknown,1,430.86,430.86,2025-01-17
+1523,sarah li,consumer,middle east & africa,unknown,1,429.55,429.55,2023-10-08
+332,diego schmidt,corporate,middle east & africa,unknown,1,429.04,429.04,2023-05-18
+1727,yuki ferrari,corporate,north america,unknown,1,428.84,428.84,2024-02-04
+1129,michael yamamoto,consumer,north america,unknown,1,424.92,424.92,2024-06-04
+295,david anderson,consumer,middle east & africa,unknown,1,424.26,424.26,2023-01-27
+591,ingrid nilsson,corporate,asia pacific,unknown,1,420.72,420.72,2025-08-17
+692,james harris,consumer,asia pacific,unknown,1,418.10,418.10,2024-11-02
+1094,mia tanaka,home office,europe,unknown,1,416.05,416.05,2025-12-11
+1723,xiao white,corporate,europe,unknown,1,415.65,415.65,2025-04-22
+679,jamal singh,home office,south america,unknown,1,413.98,413.98,2025-02-27
+1597,susan white,home office,south america,unknown,1,413.55,413.55,2025-03-12
+384,emma müller,corporate,europe,unknown,1,412.45,412.45,2025-01-16
+1068,mia anderson,consumer,europe,unknown,1,412.41,412.41,2025-03-17
+1667,wei taylor,home office,asia pacific,unknown,1,410.96,410.96,2024-06-03
+771,john ferrari,consumer,europe,unknown,1,409.56,409.56,2024-07-14
+1010,maria johnson,corporate,north america,unknown,1,409.32,409.32,2024-10-17
+94,amir thompson,corporate,south america,unknown,1,408.55,408.55,2025-08-01
+1674,william ali,home office,asia pacific,unknown,1,408.32,408.32,2025-11-07
+862,kenji wang,consumer,asia pacific,unknown,1,407.81,407.81,2025-11-29
+1499,sakura smith,corporate,north america,unknown,1,407.52,407.52,2024-05-17
+697,james li,home office,north america,unknown,1,407.25,407.25,2024-01-01
+562,hans miller,consumer,europe,unknown,1,406.05,406.05,2024-10-09
+1603,thomas chen,consumer,europe,unknown,1,405.87,405.87,2023-03-27
+1046,mary johansson,consumer,asia pacific,unknown,1,405.86,405.86,2023-06-24
+1237,olivia patel,home office,europe,unknown,1,405.50,405.50,2023-12-24
+350,elizabeth moreau,home office,asia pacific,unknown,1,402.64,402.64,2023-03-02
+1664,wei sharma,consumer,middle east & africa,unknown,1,398.50,398.50,2025-08-16
+773,john laurent,consumer,north america,unknown,1,398.40,398.40,2023-09-03
+646,ivan robinson,consumer,europe,unknown,1,397.98,397.98,2024-11-17
+1564,sophie pereira,home office,europe,unknown,1,395.80,395.80,2024-11-21
+633,ivan davis,corporate,asia pacific,unknown,1,395.55,395.55,2023-08-10
+166,barbara nilsson,corporate,asia pacific,unknown,1,393.40,393.40,2024-04-21
+979,lucas russo,home office,europe,unknown,1,392.80,392.80,2024-05-04
+1099,michael ahmed,consumer,north america,unknown,1,392.02,392.02,2025-07-19
+772,john johansson,corporate,europe,unknown,1,391.72,391.72,2023-01-02
+423,fatima ferrari,corporate,asia pacific,unknown,1,391.44,391.44,2023-12-02
+252,christopher rodriguez,consumer,europe,unknown,1,391.20,391.20,2025-09-16
+326,diego miller,home office,asia pacific,unknown,1,390.34,390.34,2025-09-07
+1234,olivia nilsson,consumer,south america,unknown,1,389.85,389.85,2024-04-07
+336,diego thomas,consumer,middle east & africa,unknown,1,389.16,389.16,2023-12-20
+1080,mia jones,home office,europe,unknown,1,388.48,388.48,2024-10-09
+21,ahmed singh,corporate,north america,unknown,1,386.36,386.36,2024-02-04
+456,felix costa,home office,middle east & africa,unknown,1,386.00,386.00,2023-07-31
+1618,thomas oliveira,corporate,europe,unknown,1,386.00,386.00,2025-07-13
+1294,oscar martinez,corporate,north america,unknown,1,385.90,385.90,2023-12-10
+1247,olivia williams,consumer,asia pacific,unknown,1,385.80,385.80,2024-05-04
+727,jennifer pereira,consumer,middle east & africa,unknown,1,385.52,385.52,2025-09-08
+1044,mary hassan,home office,north america,unknown,1,385.02,385.02,2023-08-19
+829,karen suzuki,consumer,europe,unknown,1,384.96,384.96,2025-09-17
+1351,pierre wang,consumer,europe,unknown,1,384.88,384.88,2023-08-09
+807,karen anderson,corporate,north america,unknown,1,383.98,383.98,2024-07-11
+709,james williams,corporate,north america,unknown,1,381.78,381.78,2025-10-16
+1037,mary chen,home office,europe,unknown,1,381.45,381.45,2023-08-31
+375,emma johnson,corporate,asia pacific,unknown,1,381.16,381.16,2025-10-01
+1299,oscar santos,corporate,north america,unknown,1,378.84,378.84,2023-06-01
+611,isabella johnson,consumer,middle east & africa,unknown,1,378.76,378.76,2023-12-20
+1662,wei santos,consumer,asia pacific,unknown,1,378.21,378.21,2023-12-11
+1194,olga leroy,corporate,middle east & africa,unknown,1,377.92,377.92,2025-08-25
+346,elizabeth harris,corporate,north america,unknown,1,377.58,377.58,2023-07-11
+570,hans rossi,consumer,europe,unknown,1,376.72,376.72,2025-10-27
+839,kenji hassan,corporate,asia pacific,unknown,1,376.72,376.72,2025-11-19
+1532,sarah santos,consumer,south america,unknown,1,375.54,375.54,2024-12-01
+1514,sarah jackson,corporate,middle east & africa,unknown,1,374.90,374.90,2024-06-14
+535,hanna sato,consumer,europe,unknown,2,373.46,186.73,2025-08-27
+884,layla patel,consumer,north america,unknown,1,371.21,371.21,2024-10-09
+382,emma moreau,consumer,europe,unknown,1,369.25,369.25,2024-03-10
+1009,maria hassan,consumer,europe,unknown,1,367.50,367.50,2024-06-28
+828,karen suzuki,home office,asia pacific,unknown,1,365.02,365.02,2025-02-26
+167,barbara robinson,consumer,north america,unknown,1,364.88,364.88,2025-07-29
+821,karen rossi,consumer,asia pacific,unknown,1,364.60,364.60,2024-08-28
+701,james rossi,consumer,europe,unknown,1,364.55,364.55,2025-11-08
+20,ahmed singh,home office,europe,unknown,1,362.67,362.67,2023-08-08
+381,emma miller,consumer,europe,unknown,1,361.12,361.12,2025-10-30
+364,elizabeth williams,corporate,europe,unknown,2,360.94,180.47,2025-08-23
+1371,priya laurent,consumer,europe,unknown,1,360.16,360.16,2024-02-07
+217,chen patel,home office,asia pacific,unknown,2,357.04,178.52,2024-11-05
+906,li suzuki,consumer,north america,unknown,1,356.28,356.28,2025-07-17
+1567,sophie schmidt,home office,south america,unknown,1,356.10,356.10,2025-11-01
+842,kenji jones,consumer,asia pacific,unknown,1,355.20,355.20,2023-04-26
+872,layla garcia,corporate,north america,unknown,1,355.08,355.08,2024-10-31
+339,elizabeth ahmed,corporate,south america,unknown,1,354.67,354.67,2023-03-08
+390,emma sharma,consumer,middle east & africa,unknown,1,350.64,350.64,2025-07-16
+1052,mary martin,corporate,asia pacific,unknown,1,350.28,350.28,2023-08-31
+269,clara jackson,consumer,asia pacific,unknown,1,349.68,349.68,2023-05-18
+1644,wei johnson,home office,asia pacific,unknown,1,349.29,349.29,2024-04-15
+1467,robert rodriguez,consumer,asia pacific,unknown,1,349.16,349.16,2025-01-19
+303,david park,consumer,middle east & africa,unknown,1,347.27,347.27,2025-04-11
+484,felix yamamoto,consumer,asia pacific,unknown,1,346.74,346.74,2023-02-07
+1100,michael ali,consumer,europe,unknown,1,346.06,346.06,2023-09-02
+1554,sophie khan,consumer,middle east & africa,unknown,1,343.95,343.95,2025-12-17
+1150,nadia robinson,home office,asia pacific,unknown,1,343.63,343.63,2024-12-27
+1758,zara oliveira,home office,europe,unknown,1,343.10,343.10,2025-10-02
+279,clara oliveira,consumer,north america,unknown,1,342.64,342.64,2023-04-19
+888,layla sharma,corporate,middle east & africa,unknown,1,342.36,342.36,2025-09-26
+752,jessica müller,home office,europe,unknown,1,342.10,342.10,2023-10-08
+1441,richard romano,corporate,south america,unknown,1,340.77,340.77,2023-10-05
+1156,nadia tanaka,corporate,europe,unknown,1,340.75,340.75,2023-10-20
+404,ethan johnson,consumer,middle east & africa,unknown,1,338.64,338.64,2024-12-13
+926,liam rodriguez,consumer,middle east & africa,unknown,1,338.60,338.60,2025-01-18
+921,liam martin,consumer,south america,unknown,1,337.02,337.02,2025-11-19
+948,linda patel,consumer,europe,unknown,1,335.32,335.32,2024-07-27
+198,carlos smith,home office,north america,unknown,1,335.28,335.28,2023-03-25
+1205,olga robinson,corporate,asia pacific,unknown,1,333.36,333.36,2025-11-09
+483,felix white,consumer,asia pacific,unknown,1,332.12,332.12,2024-04-23
+1450,richard yamamoto,corporate,south america,unknown,1,331.42,331.42,2025-04-14
+1432,richard kumar,consumer,asia pacific,unknown,1,329.67,329.67,2024-04-08
+1124,michael tanaka,consumer,europe,unknown,1,327.52,327.52,2025-04-27
+449,fatima williams,corporate,europe,unknown,1,327.18,327.18,2024-10-26
+1756,zara nilsson,consumer,north america,unknown,1,327.10,327.10,2023-11-12
+951,linda russo,consumer,asia pacific,unknown,1,326.88,326.88,2023-10-23
+1101,michael davis,consumer,asia pacific,unknown,1,326.34,326.34,2023-02-21
+1096,mia weber,consumer,europe,unknown,1,324.87,324.87,2025-02-03
+547,hans costa,consumer,north america,unknown,1,322.78,322.78,2024-01-08
+280,clara robinson,consumer,europe,unknown,1,322.04,322.04,2025-09-02
+1020,maria rodriguez,consumer,europe,unknown,1,321.33,321.33,2025-07-31
+740,jessica anderson,consumer,middle east & africa,unknown,1,320.50,320.50,2023-03-21
+1602,thomas brown,home office,europe,unknown,1,319.30,319.30,2025-06-03
+864,kenji williams,home office,europe,unknown,1,317.35,317.35,2025-08-16
+715,jennifer ferrari,consumer,north america,unknown,2,317.14,158.57,2025-06-27
+503,giulia rodriguez,home office,middle east & africa,unknown,1,317.00,317.00,2025-01-26
+1748,zara harris,corporate,north america,unknown,1,314.50,314.50,2024-09-16
+1741,zara anderson,corporate,europe,unknown,1,313.98,313.98,2024-08-14
+999,marco sato,consumer,europe,unknown,1,313.64,313.64,2025-11-10
+1589,susan li,corporate,europe,unknown,1,313.40,313.40,2024-02-27
+913,liam clark,consumer,middle east & africa,unknown,1,313.00,313.00,2025-04-25
+1673,william ahmed,home office,north america,unknown,1,311.74,311.74,2024-01-10
+1592,susan russo,home office,asia pacific,unknown,1,310.97,310.97,2025-12-31
+1144,nadia martin,home office,asia pacific,unknown,1,310.50,310.50,2024-01-11
+532,hanna rodriguez,consumer,europe,unknown,1,310.36,310.36,2025-05-01
+1233,olivia miller,consumer,north america,unknown,1,308.82,308.82,2024-01-13
+338,diego williams,consumer,asia pacific,unknown,1,307.89,307.89,2025-11-18
+955,linda suzuki,corporate,north america,unknown,1,307.20,307.20,2024-06-18
+1770,zara williams,consumer,europe,unknown,1,306.60,306.60,2025-09-26
+1619,thomas patel,consumer,south america,unknown,1,305.90,305.90,2023-03-16
+1258,omar hassan,consumer,asia pacific,unknown,1,305.70,305.70,2023-08-29
+1648,wei li,corporate,south america,unknown,1,305.60,305.60,2025-04-20
+479,felix smith,corporate,south america,unknown,1,305.16,305.16,2023-02-03
+354,elizabeth sato,consumer,middle east & africa,unknown,1,303.60,303.60,2023-07-27
+698,james miller,home office,north america,unknown,1,303.57,303.57,2025-04-11
+195,carlos sharma,corporate,north america,unknown,1,303.50,303.50,2024-11-24
+95,amir thompson,corporate,middle east & africa,unknown,1,302.85,302.85,2023-06-17
+84,amir hassan,consumer,north america,unknown,2,302.81,151.41,2024-06-09
+1649,wei li,corporate,north america,unknown,1,302.14,302.14,2023-08-04
+1453,robert chen,consumer,north america,unknown,1,302.08,302.08,2025-02-12
+250,christopher park,consumer,europe,unknown,2,301.40,150.70,2025-07-15
+154,barbara davis,home office,europe,unknown,1,301.32,301.32,2023-10-22
+258,christopher williams,home office,asia pacific,unknown,1,301.23,301.23,2023-08-22
+26,ahmed thompson,consumer,europe,unknown,1,301.21,301.21,2023-07-07
+1348,pierre rodriguez,home office,north america,unknown,1,300.54,300.54,2024-07-15
+708,james wang,home office,asia pacific,unknown,1,298.56,298.56,2024-03-13
+827,karen suzuki,corporate,north america,unknown,1,298.29,298.29,2023-01-02
+25,ahmed taylor,home office,asia pacific,unknown,1,298.08,298.08,2023-05-23
+716,jennifer garcia,consumer,south america,unknown,1,297.10,297.10,2023-08-16
+563,hans miller,home office,north america,unknown,1,297.04,297.04,2024-11-14
+774,john laurent,consumer,europe,unknown,1,296.60,296.60,2024-05-18
+700,james patel,corporate,north america,unknown,1,296.08,296.08,2025-02-05
+1696,william sato,corporate,europe,unknown,1,292.81,292.81,2025-11-17
+1612,thomas johnson,corporate,north america,unknown,1,292.37,292.37,2024-10-19
+1170,noah jones,home office,asia pacific,unknown,1,291.93,291.93,2023-07-01
+1684,william kim,consumer,north america,unknown,1,291.78,291.78,2023-08-11
+1761,zara rodriguez,corporate,europe,unknown,1,291.76,291.76,2023-06-07
+680,jamal taylor,consumer,north america,unknown,2,291.54,145.77,2025-07-21
+846,kenji martin,consumer,europe,unknown,1,291.52,291.52,2025-01-30
+206,chen chen,consumer,asia pacific,unknown,1,289.88,289.88,2025-09-23
+873,layla garcia,consumer,europe,unknown,1,289.52,289.52,2024-11-02
+263,clara dubois,corporate,asia pacific,unknown,1,288.33,288.33,2025-07-20
+52,ali weber,corporate,asia pacific,unknown,1,287.95,287.95,2023-12-26
+684,james ahmed,corporate,north america,unknown,1,286.90,286.90,2024-05-12
+427,fatima johnson,consumer,europe,unknown,1,286.32,286.32,2025-09-02
+309,david suzuki,consumer,middle east & africa,unknown,1,286.30,286.30,2024-09-06
+866,kenji zhang,corporate,north america,unknown,1,286.30,286.30,2023-02-15
+1005,maria costa,consumer,asia pacific,unknown,1,285.60,285.60,2024-09-10
+1211,olga taylor,consumer,north america,unknown,1,284.82,284.82,2023-09-08
+1228,olivia jones,consumer,europe,unknown,1,284.70,284.70,2024-09-28
+396,emma wang,consumer,asia pacific,unknown,1,284.55,284.55,2025-08-28
+1577,susan ali,consumer,asia pacific,unknown,1,284.20,284.20,2025-11-18
+541,hanna williams,corporate,north america,unknown,1,284.08,284.08,2025-03-05
+1318,patricia jackson,corporate,europe,unknown,2,284.01,142.01,2025-06-27
+233,chen thompson,consumer,south america,unknown,1,283.83,283.83,2023-05-12
+674,jamal rossi,consumer,north america,unknown,1,283.56,283.56,2025-10-31
+416,ethan wang,corporate,europe,unknown,1,282.16,282.16,2023-11-07
+1699,william wang,home office,middle east & africa,unknown,1,279.84,279.84,2025-04-10
+940,linda hassan,corporate,asia pacific,unknown,1,279.65,279.65,2025-07-24
+1178,noah rodriguez,consumer,europe,unknown,1,279.54,279.54,2025-08-09
+517,hanna dubois,corporate,asia pacific,unknown,1,279.34,279.34,2023-12-27
+417,ethan wang,corporate,south america,unknown,1,278.70,278.70,2025-08-10
+102,ava ferrari,home office,south america,unknown,1,278.30,278.30,2023-04-04
+838,kenji harris,consumer,europe,unknown,1,277.25,277.25,2025-12-23
+1069,mia brown,consumer,south america,unknown,1,275.79,275.79,2025-06-06
+468,felix park,consumer,south america,unknown,1,275.32,275.32,2023-03-23
+871,layla fischer,corporate,asia pacific,unknown,1,274.64,274.64,2023-09-21
+937,linda brown,consumer,north america,unknown,1,273.54,273.54,2023-08-08
+1229,olivia kim,consumer,middle east & africa,unknown,1,272.96,272.96,2025-03-27
+1599,susan yamamoto,home office,europe,unknown,1,272.64,272.64,2025-11-08
+718,jennifer harris,corporate,south america,unknown,1,272.00,272.00,2025-05-01
+1472,robert sharma,consumer,asia pacific,unknown,1,271.69,271.69,2023-06-01
+508,giulia taylor,consumer,europe,unknown,1,271.38,271.38,2025-03-15
+905,li smith,consumer,asia pacific,unknown,1,271.05,271.05,2025-07-25
+485,giulia ali,consumer,asia pacific,unknown,1,270.58,270.58,2023-03-01
+1325,patricia müller,consumer,north america,unknown,1,270.50,270.50,2023-05-23
+1635,wei anderson,consumer,asia pacific,unknown,1,269.96,269.96,2025-04-19
+325,diego miller,consumer,europe,unknown,1,269.60,269.60,2024-09-18
+1731,yuki martin,consumer,europe,unknown,1,269.56,269.56,2024-02-08
+1451,richard zhang,corporate,middle east & africa,unknown,1,269.48,269.48,2025-03-18
+1691,william nilsson,corporate,europe,unknown,1,268.98,268.98,2023-04-03
+1550,sophie jackson,consumer,asia pacific,unknown,1,268.81,268.81,2025-03-29
+1266,omar patel,home office,europe,unknown,1,268.50,268.50,2025-05-04
+941,linda johnson,consumer,asia pacific,unknown,1,267.44,267.44,2025-06-05
+1029,maria weber,consumer,middle east & africa,unknown,1,267.28,267.28,2025-10-12
+1444,richard santos,consumer,asia pacific,unknown,1,266.90,266.90,2024-10-13
+1176,noah nilsson,consumer,north america,unknown,1,266.46,266.46,2025-05-21
+89,amir rodriguez,consumer,middle east & africa,unknown,1,266.33,266.33,2025-01-21
+1277,omar yamamoto,home office,europe,unknown,1,265.40,265.40,2024-11-15
+146,ayumi taylor,home office,europe,unknown,1,264.76,264.76,2024-12-17
+254,christopher schmidt,consumer,north america,unknown,1,264.50,264.50,2024-07-29
+841,kenji johnson,home office,north america,unknown,1,264.50,264.50,2025-12-18
+229,chen tanaka,corporate,asia pacific,unknown,1,263.68,263.68,2024-06-12
+1411,raj rossi,consumer,north america,unknown,1,263.68,263.68,2023-05-15
+1320,patricia kim,consumer,asia pacific,unknown,1,263.36,263.36,2023-10-06
+304,david rodriguez,consumer,asia pacific,unknown,1,263.25,263.25,2024-10-27
+732,jennifer santos,consumer,north america,unknown,1,263.21,263.21,2023-12-05
+1454,robert clark,corporate,middle east & africa,unknown,1,262.56,262.56,2023-10-18
+1208,olga suzuki,corporate,north america,unknown,1,262.14,262.14,2024-07-12
+530,hanna park,corporate,middle east & africa,unknown,1,261.87,261.87,2025-07-23
+1199,olga nilsson,home office,north america,unknown,1,261.14,261.14,2025-12-09
+705,james suzuki,corporate,north america,unknown,1,260.88,260.88,2023-06-12
+361,elizabeth wang,corporate,north america,unknown,1,258.60,258.60,2024-11-07
+409,ethan kumar,corporate,north america,unknown,1,258.48,258.48,2024-05-15
+111,ava miller,consumer,asia pacific,unknown,1,257.05,257.05,2024-10-27
+858,kenji sharma,corporate,south america,unknown,1,256.98,256.98,2024-04-24
+1162,noah ali,consumer,asia pacific,unknown,1,256.02,256.02,2023-12-26
+1651,wei martinez,corporate,europe,unknown,1,255.99,255.99,2024-05-04
+150,barbara ali,consumer,south america,unknown,1,255.92,255.92,2023-08-23
+1479,robert wang,home office,north america,unknown,1,255.50,255.50,2025-02-10
+1363,priya ferrari,consumer,north america,unknown,1,255.24,255.24,2024-08-13
+968,lucas laurent,consumer,south america,unknown,1,254.28,254.28,2024-08-18
+54,ali yamamoto,consumer,asia pacific,unknown,1,251.36,251.36,2025-06-21
+137,ayumi robinson,corporate,asia pacific,unknown,1,250.47,250.47,2023-06-23
+901,li pereira,corporate,asia pacific,unknown,1,250.38,250.38,2023-04-06
+1604,thomas chen,corporate,south america,unknown,1,250.32,250.32,2023-08-01
+318,diego jackson,corporate,asia pacific,unknown,1,250.28,250.28,2023-05-13
+323,diego kim,home office,europe,unknown,1,250.05,250.05,2023-07-08
+1355,pierre weber,consumer,asia pacific,unknown,1,249.90,249.90,2025-10-27
+202,carlos wang,corporate,north america,unknown,1,248.79,248.79,2023-04-19
+932,liam tanaka,corporate,north america,unknown,1,248.55,248.55,2024-01-24
+257,christopher thompson,consumer,asia pacific,unknown,1,248.34,248.34,2023-10-10
+797,joseph russo,consumer,asia pacific,unknown,1,248.10,248.10,2024-06-12
+209,chen johansson,corporate,south america,unknown,1,246.96,246.96,2024-01-04
+1573,sophie white,corporate,south america,unknown,1,246.74,246.74,2024-04-21
+823,karen russo,consumer,europe,unknown,1,246.69,246.69,2023-08-15
+1008,maria ferrari,corporate,north america,unknown,1,246.49,246.49,2024-02-21
+961,lucas brown,consumer,middle east & africa,unknown,1,245.56,245.56,2025-05-14
+1510,sarah davis,consumer,middle east & africa,unknown,2,245.34,122.67,2024-12-21
+251,christopher robinson,consumer,asia pacific,unknown,1,245.08,245.08,2023-06-11
+49,ali taylor,consumer,north america,unknown,1,244.77,244.77,2025-03-19
+678,jamal sharma,corporate,europe,unknown,1,243.34,243.34,2024-08-18
+656,jamal brown,corporate,asia pacific,unknown,1,242.76,242.76,2025-10-20
+131,ayumi martinez,consumer,middle east & africa,unknown,1,242.69,242.69,2024-01-16
+1275,omar williams,consumer,asia pacific,unknown,1,241.70,241.70,2024-02-17
+1616,thomas oliveira,corporate,middle east & africa,unknown,1,241.54,241.54,2025-09-05
+407,ethan khan,corporate,north america,unknown,1,241.32,241.32,2023-11-25
+74,amina taylor,home office,europe,unknown,1,239.80,239.80,2023-12-18
+782,john suzuki,corporate,europe,unknown,1,239.62,239.62,2025-07-15
+658,jamal clark,consumer,asia pacific,unknown,1,239.54,239.54,2023-05-18
+975,lucas park,consumer,middle east & africa,unknown,1,239.53,239.53,2024-10-19
+881,layla li,consumer,south america,unknown,1,239.46,239.46,2024-04-23
+45,ali patel,consumer,middle east & africa,unknown,1,239.20,239.20,2024-09-04
+931,liam smith,consumer,europe,unknown,1,238.40,238.40,2025-10-19
+981,lucas schmidt,home office,asia pacific,unknown,1,238.37,238.37,2023-02-17
+1547,sophie clark,home office,asia pacific,unknown,1,238.24,238.24,2023-09-29
+554,hans johnson,consumer,europe,unknown,1,237.36,237.36,2024-08-10
+994,marco martin,consumer,asia pacific,unknown,1,237.16,237.16,2023-06-06
+802,joseph wang,home office,europe,unknown,1,237.11,237.11,2025-09-19
+890,layla yamamoto,home office,asia pacific,unknown,1,236.40,236.40,2025-11-25
+67,amina russo,corporate,asia pacific,unknown,1,236.36,236.36,2024-05-25
+433,fatima martin,home office,asia pacific,unknown,1,236.04,236.04,2023-09-30
+1191,olga hassan,corporate,asia pacific,unknown,1,235.28,235.28,2023-04-09
+1095,mia wang,corporate,asia pacific,unknown,1,233.73,233.73,2025-07-26
+1243,olivia sharma,consumer,north america,unknown,1,233.52,233.52,2024-10-09
+1560,sophie martinez,corporate,middle east & africa,unknown,1,233.00,233.00,2025-09-29
+1692,william robinson,consumer,asia pacific,unknown,1,232.96,232.96,2025-07-26
+1353,pierre weber,consumer,europe,unknown,1,232.92,232.92,2024-12-03
+810,karen hassan,home office,europe,unknown,1,232.20,232.20,2025-05-01
+626,isabella white,corporate,asia pacific,unknown,2,232.02,116.01,2025-09-26
+1721,xiao wang,consumer,south america,unknown,1,231.96,231.96,2023-09-21
+1540,sarah zhang,home office,middle east & africa,unknown,1,231.48,231.48,2023-01-24
+425,fatima fischer,home office,europe,unknown,1,231.11,231.11,2024-04-01
+205,chen anderson,corporate,north america,unknown,1,231.08,231.08,2024-08-07
+1175,noah müller,consumer,south america,unknown,1,230.60,230.60,2024-03-17
+685,james ahmed,home office,north america,unknown,1,230.10,230.10,2025-02-15
+91,amir smith,home office,north america,unknown,1,228.99,228.99,2024-08-07
+1083,mia li,corporate,north america,unknown,1,228.48,228.48,2024-12-11
+911,li white,corporate,asia pacific,unknown,1,228.36,228.36,2023-04-20
+1167,noah ferrari,consumer,north america,unknown,1,228.08,228.08,2024-11-09
+868,layla anderson,home office,asia pacific,unknown,1,227.90,227.90,2023-10-26
+267,clara hassan,corporate,europe,unknown,1,226.65,226.65,2025-11-26
+1671,wei yamamoto,corporate,europe,unknown,1,226.41,226.41,2023-08-07
+1092,mia smith,consumer,europe,unknown,1,226.40,226.40,2024-04-04
+510,giulia white,consumer,asia pacific,unknown,1,225.85,225.85,2025-03-31
+1442,richard romano,corporate,middle east & africa,unknown,1,225.84,225.84,2025-12-08
+1593,susan schmidt,consumer,europe,unknown,1,225.15,225.15,2024-08-03
+1730,yuki kim,corporate,north america,unknown,1,224.97,224.97,2024-08-26
+12,ahmed johansson,corporate,europe,unknown,1,224.88,224.88,2025-08-21
+885,layla rodriguez,consumer,asia pacific,unknown,1,224.55,224.55,2025-10-28
+418,ethan williams,consumer,north america,unknown,1,224.52,224.52,2024-09-03
+1425,richard brown,consumer,europe,unknown,1,223.56,223.56,2024-05-24
+343,elizabeth fischer,home office,europe,unknown,1,223.52,223.52,2025-12-21
+1440,richard rodriguez,corporate,europe,unknown,1,223.38,223.38,2024-01-21
+1364,priya garcia,corporate,asia pacific,unknown,1,222.71,222.71,2023-09-29
+690,james clark,consumer,middle east & africa,unknown,1,222.36,222.36,2023-09-20
+1262,omar nilsson,corporate,north america,unknown,1,221.46,221.46,2025-11-15
+844,kenji leroy,corporate,asia pacific,unknown,1,220.92,220.92,2023-06-04
+1358,priya brown,corporate,asia pacific,unknown,1,220.77,220.77,2025-05-24
+1498,sakura rossi,consumer,europe,unknown,1,220.72,220.72,2025-09-30
+1244,olivia sharma,corporate,middle east & africa,unknown,1,220.62,220.62,2023-07-30
+722,jennifer leroy,corporate,asia pacific,unknown,1,220.44,220.44,2025-04-12
+939,linda harris,consumer,middle east & africa,unknown,1,220.36,220.36,2024-12-09
+388,emma romano,home office,europe,unknown,1,219.67,219.67,2025-04-06
+1541,sophie ahmed,corporate,europe,unknown,1,219.57,219.57,2025-01-10
+36,ali jones,consumer,north america,unknown,1,218.48,218.48,2023-07-12
+283,clara romano,consumer,europe,unknown,1,218.43,218.43,2024-04-26
+1344,pierre leroy,corporate,south america,unknown,1,218.35,218.35,2023-11-28
+942,linda khan,consumer,middle east & africa,unknown,1,218.34,218.34,2025-10-01
+1624,thomas suzuki,corporate,middle east & africa,unknown,1,218.32,218.32,2025-11-27
+1338,pierre fischer,corporate,middle east & africa,unknown,1,217.82,217.82,2023-05-18
+1563,sophie park,consumer,north america,unknown,1,217.60,217.60,2023-02-20
+784,john zhang,home office,europe,unknown,1,216.25,216.25,2024-02-10
+1455,robert davis,consumer,asia pacific,unknown,1,215.75,215.75,2025-05-07
+1416,raj thomas,consumer,north america,unknown,1,215.52,215.52,2023-05-03
+310,david thompson,consumer,europe,unknown,1,214.90,214.90,2023-07-16
+1652,wei moreau,corporate,asia pacific,unknown,1,214.84,214.84,2025-04-05
+849,kenji moreau,consumer,north america,unknown,1,214.56,214.56,2025-10-09
+201,carlos thompson,consumer,south america,unknown,1,214.30,214.30,2024-06-19
+156,barbara dubois,corporate,north america,unknown,1,213.76,213.76,2024-06-18
+1017,maria moreau,consumer,europe,unknown,1,211.74,211.74,2025-02-05
+1239,olivia robinson,consumer,asia pacific,unknown,1,211.02,211.02,2024-04-07
+16,ahmed russo,consumer,asia pacific,unknown,1,210.96,210.96,2025-09-15
+1584,susan kim,consumer,middle east & africa,unknown,1,210.93,210.93,2023-03-13
+28,ahmed zhang,corporate,north america,unknown,1,209.79,209.79,2025-03-20
+1546,sophie clark,consumer,europe,unknown,1,209.00,209.00,2024-07-10
+341,elizabeth dubois,consumer,asia pacific,unknown,1,208.84,208.84,2023-12-09
+1241,olivia sato,consumer,north america,unknown,1,208.77,208.77,2024-03-08
+215,chen miller,consumer,europe,unknown,1,208.29,208.29,2023-06-17
+1119,michael rodriguez,consumer,south america,unknown,1,206.62,206.62,2023-08-05
+1345,pierre patel,consumer,europe,unknown,1,205.26,205.26,2024-09-06
+247,christopher martinez,consumer,asia pacific,unknown,1,204.06,204.06,2025-01-25
+117,ava yamamoto,corporate,asia pacific,unknown,1,203.19,203.19,2023-12-23
+703,james schmidt,consumer,asia pacific,unknown,1,202.05,202.05,2023-08-06
+1463,robert leroy,home office,europe,unknown,1,199.77,199.77,2024-10-01
+1598,susan white,corporate,asia pacific,unknown,1,199.74,199.74,2023-03-31
+1370,priya kumar,consumer,europe,unknown,1,199.44,199.44,2024-05-15
+101,ava clark,corporate,middle east & africa,unknown,2,199.41,99.71,2024-03-27
+1711,xiao martin,home office,north america,unknown,1,199.38,199.38,2024-09-15
+1187,olga anderson,home office,asia pacific,unknown,1,198.87,198.87,2024-04-10
+1449,richard yamamoto,consumer,middle east & africa,unknown,1,198.84,198.84,2023-12-06
+340,elizabeth chen,home office,north america,unknown,1,198.36,198.36,2024-09-12
+1189,olga davis,corporate,asia pacific,unknown,1,198.02,198.02,2025-11-18
+879,layla kumar,corporate,asia pacific,unknown,1,197.76,197.76,2024-04-19
+1755,zara müller,corporate,asia pacific,unknown,1,197.67,197.67,2024-01-21
+1047,mary khan,home office,north america,unknown,1,197.44,197.44,2025-01-24
+235,christopher brown,corporate,north america,unknown,2,197.09,98.55,2024-08-09
+1697,william sharma,corporate,europe,unknown,1,196.32,196.32,2023-02-02
+153,barbara davis,consumer,europe,unknown,1,196.10,196.10,2023-02-17
+612,isabella jones,corporate,europe,unknown,1,195.88,195.88,2024-09-25
+1296,oscar müller,consumer,north america,unknown,1,195.30,195.30,2025-08-04
+221,chen romano,home office,europe,unknown,1,195.08,195.08,2023-05-19
+1744,zara clark,consumer,south america,unknown,1,194.82,194.82,2024-09-16
+421,fatima costa,corporate,asia pacific,unknown,1,194.67,194.67,2023-07-19
+24,ahmed taylor,consumer,south america,unknown,1,194.25,194.25,2023-11-06
+538,hanna thomas,corporate,europe,unknown,1,193.94,193.94,2024-10-25
+1625,thomas suzuki,corporate,north america,unknown,1,193.94,193.94,2024-01-31
+107,ava jones,consumer,asia pacific,unknown,1,193.65,193.65,2023-02-08
+1382,priya patel,home office,south america,unknown,1,193.39,193.39,2025-04-11
+977,lucas romano,consumer,europe,unknown,1,193.30,193.30,2025-09-01
+991,marco harris,consumer,middle east & africa,unknown,1,192.58,192.58,2023-07-01
+1188,olga davis,consumer,asia pacific,unknown,2,192.57,96.29,2025-12-15
+273,clara martin,consumer,north america,unknown,1,192.45,192.45,2025-07-13
+1206,olga romano,consumer,north america,unknown,1,191.58,191.58,2024-06-09
+1365,priya harris,home office,north america,unknown,1,191.20,191.20,2025-10-19
+1116,michael nilsson,corporate,south america,unknown,1,190.92,190.92,2025-01-20
+161,barbara jones,consumer,europe,unknown,1,190.74,190.74,2025-12-31
+1629,thomas thompson,consumer,asia pacific,unknown,1,190.35,190.35,2023-07-18
+1022,maria schmidt,consumer,asia pacific,unknown,1,190.20,190.20,2023-04-10
+1255,omar fischer,corporate,asia pacific,unknown,1,189.66,189.66,2024-04-23
+302,david nilsson,consumer,asia pacific,unknown,1,189.18,189.18,2025-07-16
+1569,sophie sharma,consumer,europe,unknown,1,188.94,188.94,2025-09-08
+545,hans chen,consumer,europe,unknown,1,188.93,188.93,2023-02-05
+908,li taylor,consumer,north america,unknown,1,188.86,188.86,2023-04-16
+136,ayumi robinson,corporate,north america,unknown,1,188.31,188.31,2024-11-20
+1386,priya schmidt,corporate,europe,unknown,1,187.86,187.86,2023-07-01
+604,isabella davis,consumer,europe,unknown,1,187.53,187.53,2025-02-01
+249,christopher müller,consumer,north america,unknown,1,187.47,187.47,2024-09-06
+372,emma jackson,consumer,north america,unknown,1,187.30,187.30,2023-11-10
+880,layla leroy,corporate,middle east & africa,unknown,1,186.80,186.80,2025-04-20
+238,christopher davis,consumer,asia pacific,unknown,1,186.36,186.36,2025-10-17
+151,barbara ali,home office,asia pacific,unknown,1,186.21,186.21,2024-05-27
+1222,olivia anderson,corporate,europe,unknown,1,186.06,186.06,2024-02-18
+1475,robert taylor,home office,south america,unknown,1,184.60,184.60,2023-10-09
+360,elizabeth taylor,home office,asia pacific,unknown,1,184.32,184.32,2025-07-08
+1276,omar williams,corporate,asia pacific,unknown,1,183.96,183.96,2023-04-25
+1173,noah leroy,corporate,europe,unknown,1,183.40,183.40,2024-01-22
+181,carlos anderson,home office,middle east & africa,unknown,1,183.12,183.12,2023-03-29
+1210,olga taylor,home office,north america,unknown,1,183.08,183.08,2025-03-01
+443,fatima suzuki,home office,south america,unknown,1,182.97,182.97,2023-02-23
+1322,patricia leroy,consumer,asia pacific,unknown,1,182.91,182.91,2025-05-09
+608,isabella jackson,consumer,europe,unknown,1,181.74,181.74,2023-06-11
+1356,pierre yamamoto,consumer,middle east & africa,unknown,1,181.74,181.74,2023-03-23
+761,jessica tanaka,consumer,north america,unknown,1,181.53,181.53,2023-09-24
+1483,sakura costa,consumer,north america,unknown,1,181.04,181.04,2025-01-08
+9,ahmed hassan,corporate,north america,unknown,1,180.03,180.03,2025-04-12
+689,james chen,home office,europe,unknown,1,179.64,179.64,2023-03-08
+540,hanna white,consumer,europe,unknown,1,179.46,179.46,2024-07-09
+1543,sophie chen,corporate,north america,unknown,1,179.20,179.20,2025-06-14
+100,ava clark,consumer,europe,unknown,1,178.72,178.72,2025-06-18
+328,diego pereira,home office,middle east & africa,unknown,1,178.65,178.65,2023-10-04
+1088,mia santos,consumer,north america,unknown,1,178.50,178.50,2025-07-23
+1143,nadia martin,consumer,asia pacific,unknown,1,178.42,178.42,2024-02-10
+726,jennifer oliveira,consumer,asia pacific,unknown,1,177.90,177.90,2025-12-30
+655,jamal ahmed,corporate,north america,unknown,1,177.76,177.76,2023-08-08
+282,clara rodriguez,corporate,north america,unknown,1,177.21,177.21,2024-01-27
+618,isabella russo,corporate,europe,unknown,1,177.19,177.19,2025-06-12
+617,isabella patel,consumer,north america,unknown,1,177.12,177.12,2023-09-26
+1581,susan hassan,home office,europe,unknown,1,176.64,176.64,2024-04-08
+370,emma dubois,home office,europe,unknown,1,176.46,176.46,2024-05-23
+1654,wei müller,consumer,asia pacific,unknown,1,175.52,175.52,2024-04-10
+952,linda santos,corporate,europe,unknown,1,174.88,174.88,2024-09-14
+228,chen smith,corporate,europe,unknown,1,174.48,174.48,2023-06-03
+1607,thomas costa,consumer,europe,unknown,1,174.45,174.45,2024-11-09
+1402,raj harris,consumer,north america,unknown,1,173.92,173.92,2025-03-30
+1195,olga leroy,home office,europe,unknown,1,173.67,173.67,2023-04-07
+628,ivan ahmed,home office,north america,unknown,1,173.46,173.46,2024-07-09
+272,clara leroy,consumer,asia pacific,unknown,1,173.44,173.44,2024-07-25
+115,ava rossi,consumer,europe,unknown,1,173.33,173.33,2024-12-16
+1337,pierre fischer,consumer,europe,unknown,2,173.26,86.63,2025-10-25
+1367,priya johansson,consumer,asia pacific,unknown,1,172.70,172.70,2023-12-28
+410,ethan li,home office,north america,unknown,1,172.62,172.62,2024-04-24
+592,ingrid robinson,home office,south america,unknown,1,172.20,172.20,2025-04-26
+1585,susan kumar,consumer,north america,unknown,1,171.98,171.98,2024-05-30
+974,lucas oliveira,consumer,europe,unknown,1,171.76,171.76,2023-09-26
+11,ahmed jackson,consumer,south america,unknown,1,171.66,171.66,2023-12-27
+1293,oscar martinez,corporate,south america,unknown,1,171.20,171.20,2024-10-06
+1181,noah suzuki,consumer,asia pacific,unknown,1,171.15,171.15,2025-02-08
+112,ava oliveira,consumer,europe,unknown,1,170.58,170.58,2025-05-29
+1474,robert tanaka,corporate,europe,unknown,1,170.44,170.44,2025-09-19
+1720,xiao taylor,corporate,middle east & africa,unknown,1,169.08,169.08,2023-06-20
+1545,sophie clark,consumer,south america,unknown,1,168.28,168.28,2025-12-29
+1126,michael taylor,corporate,asia pacific,unknown,1,168.24,168.24,2024-04-11
+216,chen nilsson,home office,europe,unknown,1,168.04,168.04,2023-12-03
+1421,raj yamamoto,consumer,asia pacific,unknown,1,167.77,167.77,2025-02-21
+212,chen laurent,consumer,north america,unknown,1,167.57,167.57,2023-01-26
+1070,mia chen,consumer,europe,unknown,1,167.54,167.54,2024-09-24
+268,clara hassan,consumer,asia pacific,unknown,1,167.52,167.52,2025-09-19
+1418,raj thompson,home office,asia pacific,unknown,1,167.46,167.46,2024-10-03
+1003,maria ahmed,consumer,europe,unknown,1,167.44,167.44,2025-09-29
+275,clara miller,consumer,north america,unknown,1,167.36,167.36,2023-03-07
+1583,susan johansson,consumer,north america,unknown,1,167.34,167.34,2023-01-28
+734,jennifer thomas,consumer,south america,unknown,1,166.98,166.98,2025-03-05
+320,diego johansson,consumer,asia pacific,unknown,1,166.48,166.48,2023-04-05
+1645,wei jones,home office,asia pacific,unknown,1,166.47,166.47,2024-03-18
+605,isabella ferrari,corporate,europe,unknown,1,166.44,166.44,2024-09-15
+1480,sakura ahmed,corporate,europe,unknown,1,166.29,166.29,2024-11-05
+500,giulia nilsson,consumer,asia pacific,unknown,1,166.21,166.21,2024-03-19
+671,jamal pereira,corporate,asia pacific,unknown,1,166.05,166.05,2025-05-15
+1524,sarah miller,corporate,south america,unknown,1,165.96,165.96,2024-09-23
+1232,olivia leroy,home office,asia pacific,unknown,1,165.86,165.86,2025-11-08
+1227,olivia johnson,corporate,south america,unknown,1,165.01,165.01,2024-09-30
+355,elizabeth schmidt,corporate,north america,unknown,1,165.00,165.00,2025-10-25
+177,barbara williams,corporate,north america,unknown,1,164.40,164.40,2025-12-19
+1633,thomas zhang,home office,asia pacific,unknown,1,163.92,163.92,2025-05-13
+557,hans kim,corporate,asia pacific,unknown,1,163.16,163.16,2023-02-10
+733,jennifer tanaka,consumer,north america,unknown,1,162.82,162.82,2024-02-23
+1482,sakura chen,corporate,asia pacific,unknown,1,162.69,162.69,2025-03-31
+40,ali li,corporate,europe,unknown,1,162.38,162.38,2023-10-26
+634,ivan dubois,consumer,europe,unknown,1,162.32,162.32,2024-01-14
+976,lucas rodriguez,consumer,north america,unknown,1,162.32,162.32,2024-02-14
+1163,noah chen,consumer,north america,unknown,1,162.12,162.12,2025-06-10
+1517,sarah johnson,consumer,europe,unknown,1,162.05,162.05,2023-12-31
+363,elizabeth williams,consumer,north america,unknown,1,161.63,161.63,2025-04-05
+759,jessica schmidt,consumer,asia pacific,unknown,1,161.22,161.22,2025-02-19
+1042,mary fischer,consumer,middle east & africa,unknown,1,160.95,160.95,2025-11-08
+625,isabella thompson,consumer,asia pacific,unknown,1,160.72,160.72,2025-04-02
+1605,thomas chen,home office,north america,unknown,1,160.45,160.45,2024-10-02
+721,jennifer kim,consumer,north america,unknown,1,160.41,160.41,2023-11-09
+1107,michael garcia,consumer,north america,unknown,1,160.20,160.20,2024-03-05
+374,emma johnson,corporate,middle east & africa,unknown,1,160.04,160.04,2025-06-28
+702,james santos,home office,asia pacific,unknown,1,159.96,159.96,2025-10-01
+482,felix white,home office,europe,unknown,1,159.95,159.95,2024-08-09
+1471,robert schmidt,consumer,europe,unknown,1,159.75,159.75,2024-04-10
+1166,noah dubois,consumer,north america,unknown,1,159.68,159.68,2024-09-05
+531,hanna robinson,consumer,europe,unknown,1,159.48,159.48,2024-05-18
+1377,priya martinez,consumer,asia pacific,unknown,1,159.42,159.42,2023-07-09
+1460,robert jackson,corporate,europe,unknown,1,159.30,159.30,2023-05-16
+1261,omar li,corporate,south america,unknown,1,159.26,159.26,2023-10-02
+1004,maria anderson,consumer,asia pacific,unknown,1,158.64,158.64,2024-05-08
+1147,nadia oliveira,consumer,north america,unknown,1,158.58,158.58,2025-01-05
+77,amir ali,consumer,asia pacific,unknown,1,158.32,158.32,2024-08-03
+1330,patricia wang,corporate,europe,unknown,1,157.60,157.60,2025-03-22
+1623,thomas smith,home office,north america,unknown,1,157.20,157.20,2025-10-14
+1477,robert thomas,consumer,europe,unknown,1,156.92,156.92,2025-08-10
+995,marco moreau,corporate,asia pacific,unknown,1,155.76,155.76,2023-01-13
+1621,thomas rodriguez,corporate,south america,unknown,2,155.71,77.86,2024-06-26
+578,hans yamamoto,consumer,asia pacific,unknown,1,155.48,155.48,2023-06-08
+1447,richard weber,consumer,north america,unknown,1,155.22,155.22,2025-04-14
+762,jessica taylor,consumer,middle east & africa,unknown,1,155.18,155.18,2024-10-14
+629,ivan ali,home office,north america,unknown,1,155.08,155.08,2024-12-16
+1230,olivia kumar,corporate,asia pacific,unknown,1,154.98,154.98,2023-05-15
+480,felix smith,consumer,north america,unknown,1,154.88,154.88,2024-07-06
+1021,maria rossi,consumer,asia pacific,unknown,1,154.80,154.80,2024-07-02
+1512,sarah harris,consumer,asia pacific,unknown,1,154.80,154.80,2025-12-04
+1394,priya weber,consumer,asia pacific,unknown,1,154.62,154.62,2024-07-27
+1346,pierre pereira,consumer,asia pacific,unknown,1,153.88,153.88,2025-04-24
+1669,wei thompson,consumer,north america,unknown,1,153.82,153.82,2025-08-29
+1428,richard harris,corporate,europe,unknown,1,153.78,153.78,2023-04-04
+1736,yuki sharma,corporate,north america,unknown,1,153.69,153.69,2024-10-10
+820,karen romano,consumer,north america,unknown,1,152.40,152.40,2024-12-23
+1735,yuki rodriguez,corporate,north america,unknown,1,152.34,152.34,2023-09-06
+1236,olivia patel,consumer,asia pacific,unknown,1,151.50,151.50,2024-07-13
+1164,noah chen,consumer,europe,unknown,1,151.35,151.35,2023-12-11
+1011,maria khan,home office,middle east & africa,unknown,1,151.34,151.34,2024-01-13
+1728,yuki johnson,corporate,europe,unknown,1,150.99,150.99,2024-05-28
+1026,maria tanaka,corporate,middle east & africa,unknown,1,150.68,150.68,2023-10-11
+534,hanna santos,home office,asia pacific,unknown,1,149.93,149.93,2023-09-11
+65,amina nilsson,consumer,asia pacific,unknown,1,149.80,149.80,2025-09-07
+1307,oscar thompson,consumer,europe,unknown,1,149.40,149.40,2023-10-13
+1655,wei müller,consumer,north america,unknown,1,148.72,148.72,2023-01-23
+1028,maria thomas,corporate,asia pacific,unknown,1,148.47,148.47,2024-09-21
+413,ethan rodriguez,corporate,europe,unknown,1,148.08,148.08,2023-08-25
+106,ava harris,consumer,europe,unknown,1,148.04,148.04,2024-05-11
+566,hans park,corporate,europe,unknown,1,147.72,147.72,2024-08-31
+1660,wei romano,consumer,middle east & africa,unknown,1,147.72,147.72,2023-06-07
+736,jennifer white,home office,europe,unknown,1,147.12,147.12,2025-07-27
+48,ali sato,corporate,north america,unknown,1,146.90,146.90,2024-06-20
+380,emma martinez,home office,middle east & africa,unknown,1,146.44,146.44,2023-09-29
+1024,maria suzuki,corporate,north america,unknown,1,146.44,146.44,2024-11-30
+93,amir taylor,consumer,europe,unknown,1,146.20,146.20,2025-02-22
+610,isabella johansson,corporate,middle east & africa,unknown,1,146.14,146.14,2024-09-16
+1340,pierre hassan,home office,north america,unknown,1,146.12,146.12,2024-11-18
+1246,olivia white,consumer,asia pacific,unknown,1,145.98,145.98,2025-03-20
+493,giulia johnson,corporate,north america,unknown,1,145.77,145.77,2023-07-01
+7,ahmed garcia,corporate,middle east & africa,unknown,1,145.70,145.70,2023-06-23
+544,hans anderson,consumer,asia pacific,unknown,1,145.65,145.65,2024-08-26
+447,fatima williams,home office,asia pacific,unknown,1,145.64,145.64,2024-03-07
+426,fatima jackson,home office,europe,unknown,1,145.56,145.56,2023-06-21
+924,liam pereira,home office,asia pacific,unknown,1,145.41,145.41,2023-08-18
+18,ahmed sharma,consumer,asia pacific,unknown,1,145.28,145.28,2024-12-18
+1580,susan harris,consumer,europe,unknown,1,144.89,144.89,2025-06-23
+98,amir yamamoto,consumer,europe,unknown,1,144.60,144.60,2024-05-05
+764,jessica wang,corporate,asia pacific,unknown,1,144.46,144.46,2023-02-18
+1086,mia müller,home office,europe,unknown,1,144.04,144.04,2023-02-22
+385,emma nilsson,corporate,asia pacific,unknown,1,143.84,143.84,2024-05-27
+255,christopher tanaka,home office,middle east & africa,unknown,1,142.96,142.96,2025-04-28
+256,christopher taylor,consumer,north america,unknown,1,142.59,142.59,2023-05-11
+58,amina clark,home office,north america,unknown,1,142.45,142.45,2024-07-10
+696,james kumar,corporate,north america,unknown,1,142.20,142.20,2024-01-20
+210,chen johnson,consumer,middle east & africa,unknown,1,142.02,142.02,2023-07-24
+301,david leroy,corporate,middle east & africa,unknown,1,141.72,141.72,2023-12-23
+477,felix smith,consumer,middle east & africa,unknown,1,141.70,141.70,2025-10-10
+274,clara martinez,home office,north america,unknown,1,141.68,141.68,2025-06-24
+1492,sakura müller,corporate,europe,unknown,1,141.50,141.50,2024-06-22
+1369,priya jones,consumer,asia pacific,unknown,1,141.48,141.48,2024-07-11
+200,carlos thomas,consumer,europe,unknown,1,141.36,141.36,2025-12-23
+351,elizabeth park,corporate,europe,unknown,1,141.36,141.36,2025-07-03
+945,linda martin,consumer,north america,unknown,1,141.24,141.24,2023-12-13
+1334,pierre ahmed,corporate,europe,unknown,1,141.05,141.05,2024-12-30
+196,carlos sharma,corporate,asia pacific,unknown,1,140.24,140.24,2025-08-07
+1571,sophie weber,consumer,north america,unknown,1,139.65,139.65,2024-05-31
+225,chen santos,corporate,asia pacific,unknown,1,139.51,139.51,2025-04-28
+17,ahmed santos,home office,asia pacific,unknown,1,139.44,139.44,2024-04-21
+907,li suzuki,consumer,europe,unknown,1,139.38,139.38,2025-02-18
+748,jessica martin,consumer,asia pacific,unknown,1,139.04,139.04,2024-04-28
+401,ethan chen,corporate,north america,unknown,1,138.60,138.60,2023-07-22
+569,hans rossi,home office,asia pacific,unknown,1,138.60,138.60,2023-12-22
+1314,patricia costa,home office,europe,unknown,1,138.60,138.60,2024-12-23
+415,ethan thomas,corporate,middle east & africa,unknown,1,138.21,138.21,2025-07-14
+1396,priya williams,corporate,north america,unknown,1,138.10,138.10,2024-04-28
+386,emma oliveira,consumer,europe,unknown,1,137.97,137.97,2023-02-10
+902,li rossi,corporate,south america,unknown,1,137.85,137.85,2024-10-29
+1089,mia santos,consumer,asia pacific,unknown,2,137.64,68.82,2024-09-29
+971,lucas moreau,home office,europe,unknown,1,137.60,137.60,2024-08-16
+1306,oscar thompson,home office,asia pacific,unknown,1,137.49,137.49,2024-04-28
+635,ivan laurent,home office,europe,unknown,1,137.39,137.39,2025-07-28
+1528,sarah robinson,home office,europe,unknown,1,137.26,137.26,2023-04-24
+651,ivan thomas,home office,south america,unknown,1,136.80,136.80,2024-09-10
+1408,raj pereira,consumer,north america,unknown,1,136.78,136.78,2025-04-30
+1717,xiao romano,corporate,asia pacific,unknown,1,136.68,136.68,2025-12-02
+43,ali müller,consumer,asia pacific,unknown,1,136.45,136.45,2025-04-10
+1634,wei ali,corporate,europe,unknown,1,136.29,136.29,2024-12-08
+1642,wei hassan,corporate,asia pacific,unknown,1,136.28,136.28,2023-12-07
+335,diego thomas,consumer,north america,unknown,1,136.14,136.14,2024-08-28
+122,ayumi garcia,consumer,north america,unknown,1,135.92,135.92,2023-10-24
+1504,sakura zhang,consumer,europe,unknown,1,135.82,135.82,2025-03-22
+641,ivan nilsson,corporate,europe,unknown,1,135.57,135.57,2025-08-20
+38,ali kim,home office,europe,unknown,1,135.46,135.46,2025-08-28
+824,karen sato,corporate,europe,unknown,1,135.30,135.30,2023-06-27
+242,christopher jackson,consumer,asia pacific,unknown,1,135.24,135.24,2025-01-11
+1672,wei zhang,consumer,europe,unknown,1,135.12,135.12,2025-10-04
+1153,nadia rossi,consumer,asia pacific,unknown,1,135.00,135.00,2023-12-05
+643,ivan patel,home office,asia pacific,unknown,1,134.93,134.93,2025-06-14
+1491,sakura martinez,home office,asia pacific,unknown,1,134.76,134.76,2023-01-20
+1575,sophie yamamoto,consumer,north america,unknown,1,134.20,134.20,2023-05-20
+1388,priya singh,consumer,europe,unknown,1,133.95,133.95,2025-02-05
+1259,omar jackson,home office,north america,unknown,1,133.88,133.88,2024-10-11
+236,christopher chen,consumer,asia pacific,unknown,2,133.74,66.87,2025-07-07
+2,ahmed anderson,home office,asia pacific,unknown,1,133.68,133.68,2024-08-25
+553,hans johnson,consumer,asia pacific,unknown,1,133.63,133.63,2023-02-21
+1015,maria martinez,consumer,north america,unknown,1,133.59,133.59,2023-04-10
+1128,michael yamamoto,corporate,south america,unknown,1,133.59,133.59,2023-04-07
+867,layla ahmed,home office,asia pacific,unknown,1,133.35,133.35,2025-01-02
+1712,xiao robinson,corporate,north america,unknown,1,133.06,133.06,2024-12-08
+475,felix schmidt,corporate,north america,unknown,1,132.41,132.41,2024-08-25
+609,isabella johansson,consumer,middle east & africa,unknown,1,132.33,132.33,2023-12-11
+825,karen smith,consumer,south america,unknown,1,132.33,132.33,2024-06-12
+1542,sophie brown,corporate,north america,unknown,1,132.16,132.16,2023-09-10
+63,amina jones,consumer,north america,unknown,1,132.12,132.12,2023-12-06
+192,carlos santos,corporate,middle east & africa,unknown,1,131.91,131.91,2023-10-02
+654,ivan zhang,home office,north america,unknown,1,131.53,131.53,2024-03-31
+226,chen santos,corporate,north america,unknown,1,131.16,131.16,2024-02-21
+448,fatima williams,home office,north america,unknown,1,131.16,131.16,2024-04-21
+497,giulia li,consumer,middle east & africa,unknown,1,130.63,130.63,2024-10-26
+511,giulia williams,corporate,europe,unknown,1,130.11,130.11,2023-12-11
+76,amina wang,consumer,north america,unknown,1,129.68,129.68,2024-08-28
+1496,sakura rodriguez,corporate,north america,unknown,1,129.24,129.24,2023-10-20
+546,hans costa,consumer,middle east & africa,unknown,1,129.14,129.14,2025-05-04
+1505,sarah brown,consumer,north america,unknown,1,128.97,128.97,2025-04-02
+882,layla park,corporate,north america,unknown,1,128.96,128.96,2024-03-13
+1676,william chen,consumer,europe,unknown,1,128.96,128.96,2023-12-14
+1327,patricia pereira,corporate,middle east & africa,unknown,1,128.76,128.76,2025-09-16
+116,ava rossi,corporate,asia pacific,unknown,1,128.66,128.66,2025-10-05
+348,elizabeth martin,consumer,europe,unknown,1,128.65,128.65,2023-09-16
+189,carlos robinson,corporate,south america,unknown,1,128.34,128.34,2024-04-28
+1285,oscar johnson,consumer,north america,unknown,1,127.56,127.56,2023-07-10
+79,amir anderson,corporate,europe,unknown,1,127.32,127.32,2024-09-27
+366,emma anderson,home office,north america,unknown,1,127.30,127.30,2025-03-26
+1500,sakura smith,corporate,south america,unknown,1,127.07,127.07,2024-03-06
+996,marco nilsson,consumer,asia pacific,unknown,1,126.55,126.55,2023-09-27
+469,felix patel,consumer,europe,unknown,1,126.48,126.48,2025-06-10
+1154,nadia santos,consumer,asia pacific,unknown,1,126.36,126.36,2024-12-11
+1732,yuki miller,consumer,asia pacific,unknown,1,126.06,126.06,2025-09-30
+453,fatima zhang,consumer,asia pacific,unknown,1,125.82,125.82,2025-09-28
+1279,oscar ali,corporate,europe,unknown,1,125.15,125.15,2025-05-10
+1461,robert khan,consumer,south america,unknown,2,125.02,62.51,2025-10-11
+1566,sophie sato,consumer,north america,unknown,1,124.65,124.65,2025-08-06
+334,diego suzuki,corporate,north america,unknown,1,123.96,123.96,2025-11-02
+737,jennifer yamamoto,consumer,europe,unknown,1,123.94,123.94,2024-09-28
+863,kenji white,corporate,north america,unknown,1,123.90,123.90,2024-01-22
+869,layla chen,corporate,europe,unknown,1,123.75,123.75,2025-05-30
+293,clara taylor,corporate,europe,unknown,1,123.72,123.72,2023-01-03
+1600,susan zhang,consumer,north america,unknown,1,123.36,123.36,2024-01-19
+950,linda russo,corporate,europe,unknown,1,123.28,123.28,2023-01-25
+411,ethan li,consumer,asia pacific,unknown,1,123.08,123.08,2025-02-22
+1038,mary clark,consumer,north america,unknown,2,122.83,61.42,2024-12-25
+1481,sakura ali,consumer,middle east & africa,unknown,1,122.52,122.52,2023-09-09
+51,ali wang,consumer,asia pacific,unknown,1,122.49,122.49,2025-09-09
+365,elizabeth zhang,corporate,north america,unknown,1,122.40,122.40,2025-09-22
+606,isabella harris,consumer,south america,unknown,1,122.35,122.35,2023-11-26
+1056,mary oliveira,consumer,asia pacific,unknown,1,121.95,121.95,2024-08-08
+1291,oscar martin,consumer,asia pacific,unknown,1,121.88,121.88,2025-12-06
+1315,patricia dubois,corporate,north america,unknown,1,121.55,121.55,2023-05-15
+938,linda fischer,consumer,north america,unknown,1,121.36,121.36,2024-09-09
+870,layla ferrari,corporate,asia pacific,unknown,1,121.20,121.20,2025-05-03
+749,jessica moreau,consumer,north america,unknown,1,121.18,121.18,2025-02-14
+1702,xiao davis,consumer,middle east & africa,unknown,1,121.12,121.12,2025-12-24
+420,fatima brown,consumer,europe,unknown,1,120.63,120.63,2023-11-02
+1076,mia harris,corporate,north america,unknown,1,120.54,120.54,2023-06-28
+1586,susan laurent,home office,south america,unknown,1,120.24,120.24,2025-09-19
+923,liam patel,home office,south america,unknown,1,120.19,120.19,2024-11-28
+452,fatima yamamoto,consumer,south america,unknown,1,120.12,120.12,2025-05-08
+241,christopher harris,corporate,europe,unknown,1,119.46,119.46,2025-05-02
+893,li harris,consumer,asia pacific,unknown,1,119.38,119.38,2025-02-08
+1503,sakura thomas,consumer,europe,unknown,1,118.59,118.59,2024-04-06
+1174,noah martinez,home office,north america,unknown,1,118.45,118.45,2024-04-05
+1312,patricia chen,home office,europe,unknown,1,118.34,118.34,2023-06-01
+204,chen ali,corporate,south america,unknown,1,117.46,117.46,2025-07-12
+560,hans laurent,consumer,middle east & africa,unknown,2,117.25,58.63,2025-09-24
+377,emma kim,consumer,asia pacific,unknown,1,116.53,116.53,2024-04-04
+1695,william romano,consumer,north america,unknown,1,116.28,116.28,2024-09-15
+1384,priya romano,home office,europe,unknown,1,116.20,116.20,2025-04-09
+1302,oscar taylor,home office,asia pacific,unknown,1,116.12,116.12,2023-03-29
+1288,oscar kim,home office,south america,unknown,1,116.08,116.08,2024-03-31
+1207,olga russo,consumer,europe,unknown,1,115.93,115.93,2025-04-11
+739,jessica anderson,corporate,north america,unknown,1,115.76,115.76,2025-01-03
+105,ava garcia,consumer,north america,unknown,1,115.54,115.54,2023-12-07
+585,ingrid laurent,consumer,north america,unknown,1,115.42,115.42,2024-08-30
+356,elizabeth sharma,consumer,europe,unknown,1,115.40,115.40,2024-03-08
+44,ali oliveira,consumer,north america,unknown,1,115.30,115.30,2024-07-16
+766,jessica weber,home office,middle east & africa,unknown,1,115.26,115.26,2023-10-18
+1734,yuki robinson,consumer,middle east & africa,unknown,1,115.18,115.18,2025-08-02
+1123,michael smith,corporate,north america,unknown,1,115.14,115.14,2025-10-12
+958,linda zhang,consumer,north america,unknown,1,114.60,114.60,2025-10-26
+75,amina thomas,consumer,north america,unknown,1,114.38,114.38,2024-08-20
+1493,sakura nilsson,corporate,middle east & africa,unknown,1,114.20,114.20,2025-09-11
+1106,michael ferrari,consumer,asia pacific,unknown,1,114.00,114.00,2024-05-26
+312,david williams,consumer,north america,unknown,1,113.98,113.98,2025-10-03
+1061,mary smith,home office,north america,unknown,1,113.52,113.52,2023-03-02
+1544,sophie chen,home office,europe,unknown,1,113.36,113.36,2025-06-20
+1273,omar thomas,consumer,europe,unknown,1,113.12,113.12,2024-10-29
+1151,nadia rodriguez,consumer,north america,unknown,1,113.10,113.10,2025-05-09
+1064,mary weber,corporate,north america,unknown,1,113.08,113.08,2023-07-19
+687,james anderson,corporate,north america,unknown,1,113.07,113.07,2023-04-01
+1430,richard jackson,home office,europe,unknown,1,112.84,112.84,2024-10-25
+889,layla thomas,corporate,asia pacific,unknown,1,112.77,112.77,2024-05-07
+803,joseph weber,consumer,north america,unknown,1,112.70,112.70,2025-03-05
+1254,omar dubois,home office,europe,unknown,1,112.68,112.68,2024-10-03
+1726,yuki costa,consumer,middle east & africa,unknown,1,112.55,112.55,2024-12-31
+1278,omar yamamoto,consumer,middle east & africa,unknown,1,112.48,112.48,2025-02-10
+31,ali hassan,home office,north america,unknown,1,112.44,112.44,2024-11-10
+572,hans schmidt,consumer,north america,unknown,1,112.40,112.40,2024-06-29
+765,jessica wang,home office,north america,unknown,1,112.29,112.29,2023-09-24
+561,hans martin,consumer,asia pacific,unknown,1,111.88,111.88,2023-12-04
+989,marco davis,consumer,asia pacific,unknown,1,111.40,111.40,2025-02-05
+188,carlos patel,corporate,middle east & africa,unknown,1,111.18,111.18,2024-09-29
+1559,sophie martin,consumer,north america,unknown,1,111.03,111.03,2025-08-03
+775,john martin,home office,europe,unknown,1,110.62,110.62,2025-03-26
+1678,william clark,corporate,north america,unknown,1,110.40,110.40,2023-06-22
+1071,mia clark,consumer,asia pacific,unknown,1,110.20,110.20,2024-01-17
+163,barbara leroy,home office,north america,unknown,1,109.88,109.88,2023-03-15
+1647,wei laurent,consumer,europe,unknown,1,109.84,109.84,2025-07-15
+182,carlos davis,home office,asia pacific,unknown,1,108.68,108.68,2024-10-31
+1357,priya ali,home office,europe,unknown,1,108.60,108.60,2023-07-16
+552,hans hassan,corporate,south america,unknown,1,108.48,108.48,2024-08-05
+1091,mia sharma,consumer,europe,unknown,1,108.48,108.48,2024-05-16
+41,ali miller,home office,north america,unknown,1,108.24,108.24,2024-01-03
+1468,robert rodriguez,consumer,europe,unknown,1,108.24,108.24,2025-09-23
+1158,nadia thomas,consumer,asia pacific,unknown,1,107.58,107.58,2025-06-25
+1212,olga thompson,consumer,south america,unknown,1,107.24,107.24,2023-11-20
+1381,priya park,consumer,north america,unknown,1,107.16,107.16,2023-04-09
+1413,raj sato,corporate,south america,unknown,1,107.01,107.01,2024-10-30
+10,ahmed jackson,corporate,middle east & africa,unknown,1,106.98,106.98,2025-04-01
+683,jamal zhang,consumer,middle east & africa,unknown,1,106.80,106.80,2023-02-19
+1265,omar park,consumer,europe,unknown,1,106.50,106.50,2023-08-27
+253,christopher rossi,corporate,asia pacific,unknown,1,106.47,106.47,2023-08-05
+987,lucas williams,corporate,europe,unknown,1,106.47,106.47,2024-05-27
+294,clara williams,consumer,south america,unknown,1,106.36,106.36,2023-07-22
+1260,omar leroy,corporate,north america,unknown,1,105.78,105.78,2023-03-25
+455,felix ahmed,consumer,europe,unknown,1,105.62,105.62,2024-07-05
+1215,olga weber,consumer,asia pacific,unknown,1,105.62,105.62,2025-09-16
+664,jamal khan,corporate,south america,unknown,1,105.54,105.54,2024-04-29
+92,amir tanaka,home office,asia pacific,unknown,1,105.27,105.27,2025-10-11
+155,barbara davis,home office,north america,unknown,1,105.15,105.15,2024-01-16
+657,jamal chen,corporate,middle east & africa,unknown,1,105.02,105.02,2024-12-26
+1670,wei wang,consumer,asia pacific,unknown,1,105.00,105.00,2024-11-09
+227,chen singh,consumer,asia pacific,unknown,1,104.94,104.94,2023-01-22
+777,john patel,consumer,asia pacific,unknown,1,104.80,104.80,2023-09-28
+1102,michael davis,home office,north america,unknown,1,104.44,104.44,2025-01-26
+956,linda thompson,consumer,europe,unknown,1,104.20,104.20,2024-11-07
+1590,susan miller,corporate,north america,unknown,1,104.04,104.04,2023-07-06
+805,karen ali,consumer,asia pacific,unknown,1,104.00,104.00,2024-09-27
+214,chen martinez,consumer,asia pacific,unknown,1,103.88,103.88,2025-09-25
+1710,xiao laurent,consumer,asia pacific,unknown,1,103.80,103.80,2023-08-23
+1608,thomas costa,corporate,north america,unknown,1,103.34,103.34,2025-05-12
+1043,mary garcia,home office,north america,unknown,1,103.11,103.11,2024-05-18
+473,felix romano,consumer,europe,unknown,1,103.00,103.00,2024-08-01
+719,jennifer harris,home office,europe,unknown,1,102.64,102.64,2025-03-16
+650,ivan smith,corporate,north america,unknown,1,102.18,102.18,2024-01-19
+1693,william robinson,consumer,north america,unknown,1,101.58,101.58,2024-09-07
+925,liam rodriguez,consumer,europe,unknown,1,101.54,101.54,2025-10-09
+559,hans kumar,consumer,south america,unknown,1,101.44,101.44,2025-04-20
+1729,yuki kim,consumer,middle east & africa,unknown,1,101.37,101.37,2025-12-25
+796,joseph romano,consumer,south america,unknown,2,101.14,50.57,2024-09-11
+919,liam kim,consumer,europe,unknown,1,101.10,101.10,2024-06-16
+1202,olga pereira,consumer,europe,unknown,1,100.90,100.90,2024-01-01
+1765,zara thomas,consumer,north america,unknown,1,100.56,100.56,2024-10-08
+957,linda wang,consumer,europe,unknown,1,100.53,100.53,2025-05-31
+1280,oscar anderson,corporate,europe,unknown,1,100.44,100.44,2024-11-28
+213,chen martin,consumer,europe,unknown,2,100.24,50.12,2025-06-25
+1436,richard moreau,corporate,middle east & africa,unknown,1,100.10,100.10,2023-10-08
+149,ayumi white,corporate,north america,unknown,1,99.62,99.62,2025-07-04
+934,liam wang,consumer,asia pacific,unknown,1,99.57,99.57,2023-07-29
+406,ethan jones,consumer,middle east & africa,unknown,1,99.48,99.48,2025-06-08
+383,emma müller,consumer,europe,unknown,1,99.45,99.45,2024-10-06
+1155,nadia santos,consumer,south america,unknown,1,99.40,99.40,2023-04-02
+673,jamal robinson,corporate,middle east & africa,unknown,1,98.74,98.74,2023-10-02
+954,linda smith,consumer,europe,unknown,1,98.64,98.64,2023-06-11
+1620,thomas rodriguez,consumer,north america,unknown,1,98.48,98.48,2024-01-21
+457,felix davis,home office,north america,unknown,1,98.38,98.38,2023-12-21
+1530,sarah rossi,corporate,europe,unknown,1,98.05,98.05,2025-06-24
+108,ava laurent,corporate,north america,unknown,1,98.02,98.02,2025-12-11
+567,hans patel,consumer,north america,unknown,1,97.92,97.92,2025-03-27
+1183,noah taylor,consumer,north america,unknown,1,97.35,97.35,2023-09-05
+743,jessica garcia,consumer,europe,unknown,1,97.30,97.30,2025-10-09
+988,lucas yamamoto,consumer,middle east & africa,unknown,1,96.98,96.98,2025-03-01
+357,elizabeth singh,corporate,asia pacific,unknown,1,96.64,96.64,2024-02-18
+1494,sakura oliveira,consumer,europe,unknown,1,96.64,96.64,2024-04-13
+1283,oscar davis,consumer,asia pacific,unknown,1,96.60,96.60,2025-12-06
+753,jessica nilsson,home office,south america,unknown,1,96.18,96.18,2024-12-15
+125,ayumi harris,consumer,europe,unknown,1,95.79,95.79,2024-07-14
+1078,mia harris,consumer,asia pacific,unknown,1,95.66,95.66,2025-07-29
+277,clara moreau,corporate,north america,unknown,1,95.57,95.57,2025-06-11
+1488,sakura jones,corporate,north america,unknown,1,95.45,95.45,2024-07-27
+1506,sarah chen,consumer,north america,unknown,1,95.28,95.28,2024-03-05
+1067,mia ali,corporate,north america,unknown,1,95.24,95.24,2023-02-17
+933,liam taylor,corporate,asia pacific,unknown,1,95.16,95.16,2024-12-31
+488,giulia brown,consumer,europe,unknown,1,95.04,95.04,2024-10-27
+378,emma kim,consumer,europe,unknown,1,94.65,94.65,2025-07-03
+755,jessica park,consumer,asia pacific,unknown,1,94.39,94.39,2023-11-09
+909,li wang,corporate,asia pacific,unknown,1,94.32,94.32,2025-10-13
+1526,sarah nilsson,corporate,asia pacific,unknown,1,94.28,94.28,2025-11-26
+119,ayumi ali,corporate,europe,unknown,1,94.10,94.10,2023-09-29
+1300,oscar schmidt,consumer,asia pacific,unknown,1,93.95,93.95,2023-07-01
+450,fatima williams,consumer,south america,unknown,1,93.80,93.80,2023-10-25
+1658,wei patel,corporate,south america,unknown,1,93.35,93.35,2024-09-24
+597,ingrid wang,corporate,north america,unknown,1,93.31,93.31,2025-09-27
+857,kenji schmidt,consumer,north america,unknown,1,93.30,93.30,2023-12-18
+1596,susan weber,consumer,north america,unknown,1,93.30,93.30,2025-12-07
+596,ingrid suzuki,consumer,europe,unknown,1,93.26,93.26,2025-12-19
+428,fatima jones,corporate,north america,unknown,1,93.08,93.08,2024-02-02
+848,kenji miller,home office,asia pacific,unknown,1,92.61,92.61,2025-09-15
+1549,sophie harris,consumer,asia pacific,unknown,1,92.36,92.36,2023-07-03
+556,hans khan,consumer,north america,unknown,1,91.00,91.00,2025-05-16
+440,fatima smith,home office,asia pacific,unknown,1,90.72,90.72,2025-11-05
+430,fatima kumar,consumer,middle east & africa,unknown,1,90.68,90.68,2023-03-09
+507,giulia smith,corporate,north america,unknown,1,90.62,90.62,2025-04-07
+1448,richard williams,consumer,asia pacific,unknown,1,90.46,90.46,2025-05-08
+34,ali johansson,home office,middle east & africa,unknown,1,90.00,90.00,2023-06-09
+1553,sophie jones,consumer,europe,unknown,1,89.92,89.92,2025-04-13
+451,fatima yamamoto,consumer,middle east & africa,unknown,1,89.82,89.82,2023-11-02
+744,jessica hassan,home office,south america,unknown,1,89.74,89.74,2025-11-21
+1112,michael leroy,home office,north america,unknown,1,89.64,89.64,2025-03-07
+1511,sarah harris,consumer,north america,unknown,1,89.64,89.64,2024-08-06
+769,john brown,consumer,europe,unknown,1,89.29,89.29,2023-08-14
+1527,sarah patel,consumer,asia pacific,unknown,1,89.25,89.25,2024-09-24
+1688,william martinez,consumer,europe,unknown,1,88.97,88.97,2025-07-13
+594,ingrid sato,consumer,north america,unknown,1,88.95,88.95,2024-11-05
+959,lucas anderson,consumer,europe,unknown,1,88.71,88.71,2023-03-06
+1240,olivia rossi,consumer,middle east & africa,unknown,1,88.46,88.46,2023-08-04
+1446,richard tanaka,consumer,middle east & africa,unknown,1,88.41,88.41,2023-08-27
+854,kenji romano,consumer,asia pacific,unknown,1,88.39,88.39,2023-05-05
+779,john robinson,consumer,north america,unknown,1,88.34,88.34,2023-05-06
+371,emma dubois,consumer,europe,unknown,1,88.08,88.08,2025-03-03
+391,emma sharma,consumer,north america,unknown,1,87.90,87.90,2023-12-03
+138,ayumi romano,consumer,north america,unknown,1,87.36,87.36,2025-06-30
+747,jessica kim,corporate,south america,unknown,1,87.15,87.15,2024-01-06
+70,amina smith,consumer,north america,unknown,1,87.08,87.08,2025-12-14
+809,karen garcia,corporate,middle east & africa,unknown,1,87.05,87.05,2025-12-10
+583,ingrid davis,consumer,south america,unknown,1,86.50,86.50,2024-07-07
+980,lucas sato,consumer,europe,unknown,1,86.28,86.28,2025-12-07
+1082,mia laurent,corporate,europe,unknown,1,86.28,86.28,2024-11-07
+87,amir moreau,home office,asia pacific,unknown,1,86.26,86.26,2024-09-14
+602,isabella ahmed,consumer,asia pacific,unknown,1,86.20,86.20,2023-06-14
+768,jessica yamamoto,corporate,asia pacific,unknown,1,85.86,85.86,2024-05-11
+367,emma brown,consumer,europe,unknown,1,85.63,85.63,2023-03-30
+661,jamal harris,corporate,middle east & africa,unknown,1,85.42,85.42,2023-07-13
+32,ali jackson,consumer,middle east & africa,unknown,1,85.33,85.33,2025-12-22
+819,karen romano,consumer,asia pacific,unknown,1,85.28,85.28,2025-11-12
+1130,michael yamamoto,consumer,europe,unknown,1,84.90,84.90,2025-06-07
+886,layla romano,corporate,asia pacific,unknown,1,84.80,84.80,2024-10-04
+330,diego rossi,corporate,north america,unknown,1,84.46,84.46,2025-04-05
+37,ali jones,consumer,europe,unknown,1,84.43,84.43,2024-07-26
+82,amir ferrari,corporate,south america,unknown,1,84.40,84.40,2025-09-22
+539,hanna weber,corporate,asia pacific,unknown,1,84.16,84.16,2024-10-27
+231,chen taylor,home office,asia pacific,unknown,1,83.90,83.90,2025-12-24
+1023,maria sharma,home office,asia pacific,unknown,1,83.70,83.70,2023-02-04
+568,hans robinson,consumer,north america,unknown,1,83.25,83.25,2023-12-11
+1120,michael sato,corporate,asia pacific,unknown,1,82.52,82.52,2023-10-20
+788,joseph fischer,corporate,north america,unknown,1,82.38,82.38,2025-12-04
+801,joseph thompson,consumer,south america,unknown,1,82.26,82.26,2025-05-06
+1059,mary rossi,consumer,middle east & africa,unknown,1,82.24,82.24,2025-11-06
+1489,sakura kim,consumer,europe,unknown,1,81.92,81.92,2025-07-10
+1556,sophie leroy,consumer,south america,unknown,1,81.90,81.90,2025-10-09
+512,giulia yamamoto,consumer,asia pacific,unknown,1,81.88,81.88,2024-10-09
+1675,william chen,corporate,europe,unknown,1,81.66,81.66,2024-07-24
+804,joseph zhang,consumer,europe,unknown,1,81.36,81.36,2025-11-17
+287,clara schmidt,corporate,south america,unknown,1,81.00,81.00,2024-09-06
+1053,mary martinez,corporate,europe,unknown,1,80.36,80.36,2025-10-18
+208,chen garcia,consumer,asia pacific,unknown,2,80.13,40.07,2024-02-15
+175,barbara weber,corporate,middle east & africa,unknown,1,79.88,79.88,2025-05-16
+806,karen anderson,consumer,europe,unknown,2,79.72,39.86,2024-02-25
+822,karen rossi,home office,asia pacific,unknown,1,79.68,79.68,2023-01-20
+1019,maria rodriguez,consumer,north america,unknown,1,79.27,79.27,2023-09-08
+1287,oscar khan,consumer,north america,unknown,1,79.24,79.24,2024-01-28
+897,li miller,consumer,europe,unknown,1,79.22,79.22,2024-11-21
+307,david smith,corporate,north america,unknown,1,79.18,79.18,2025-05-13
+1014,maria martin,consumer,asia pacific,unknown,1,79.14,79.14,2025-12-06
+183,carlos dubois,consumer,south america,unknown,1,79.09,79.09,2023-06-19
+394,emma tanaka,home office,south america,unknown,1,79.08,79.08,2024-06-09
+1361,priya costa,corporate,north america,unknown,1,79.07,79.07,2025-11-06
+315,diego ferrari,corporate,europe,unknown,1,78.87,78.87,2025-09-25
+1309,oscar white,corporate,north america,unknown,1,78.86,78.86,2023-08-14
+1708,xiao johnson,consumer,north america,unknown,1,78.82,78.82,2024-06-19
+164,barbara miller,consumer,asia pacific,unknown,1,78.64,78.64,2024-10-30
+1033,maria zhang,corporate,south america,unknown,1,78.61,78.61,2024-02-13
+1568,sophie schmidt,consumer,south america,unknown,1,78.60,78.60,2024-05-17
+73,amina taylor,consumer,asia pacific,unknown,1,78.54,78.54,2024-09-20
+1249,olivia zhang,home office,north america,unknown,1,78.05,78.05,2024-11-26
+1406,raj martinez,corporate,south america,unknown,1,77.82,77.82,2023-01-08
+434,fatima müller,corporate,europe,unknown,1,77.80,77.80,2025-03-31
+776,john miller,home office,north america,unknown,1,77.64,77.64,2023-12-26
+59,amina harris,consumer,north america,unknown,1,77.52,77.52,2024-10-26
+1077,mia harris,consumer,north america,unknown,1,77.48,77.48,2023-02-27
+316,diego harris,consumer,europe,unknown,1,77.47,77.47,2023-09-10
+555,hans johnson,home office,asia pacific,unknown,1,77.40,77.40,2023-05-22
+397,emma wang,consumer,europe,unknown,1,77.16,77.16,2025-05-04
+887,layla santos,corporate,europe,unknown,1,77.13,77.13,2023-05-11
+1713,xiao robinson,consumer,south america,unknown,1,77.11,77.11,2025-12-28
+875,layla jackson,consumer,europe,unknown,1,77.09,77.09,2025-07-15
+1031,maria yamamoto,consumer,north america,unknown,1,77.04,77.04,2024-12-09
+78,amir ali,consumer,europe,unknown,1,76.80,76.80,2025-04-13
+667,jamal nilsson,consumer,south america,unknown,1,76.80,76.80,2024-08-24
+266,clara garcia,consumer,north america,unknown,1,76.29,76.29,2025-04-04
+148,ayumi white,corporate,europe,unknown,1,76.16,76.16,2024-02-02
+542,hans ali,corporate,europe,unknown,1,76.16,76.16,2025-03-26
+1578,susan chen,corporate,asia pacific,unknown,1,76.12,76.12,2023-11-01
+1409,raj rodriguez,consumer,asia pacific,unknown,1,76.11,76.11,2024-05-11
+830,karen tanaka,corporate,asia pacific,unknown,1,75.95,75.95,2024-04-04
+746,jessica johnson,consumer,europe,unknown,1,75.85,75.85,2025-07-27
+185,carlos jackson,corporate,middle east & africa,unknown,1,75.60,75.60,2025-06-24
+259,clara ali,consumer,north america,unknown,1,74.82,74.82,2024-12-20
+953,linda sato,corporate,north america,unknown,1,74.60,74.60,2024-04-25
+729,jennifer romano,consumer,north america,unknown,1,74.36,74.36,2024-11-25
+653,ivan zhang,consumer,middle east & africa,unknown,1,74.20,74.20,2023-01-20
+1159,nadia wang,consumer,middle east & africa,unknown,1,73.98,73.98,2024-08-12
+143,ayumi suzuki,corporate,south america,unknown,1,73.74,73.74,2024-01-09
+1235,olivia nilsson,home office,asia pacific,unknown,1,73.68,73.68,2024-10-26
+1537,sarah tanaka,consumer,asia pacific,unknown,1,73.60,73.60,2025-05-08
+439,fatima singh,corporate,asia pacific,unknown,1,73.32,73.32,2024-03-19
+964,lucas costa,consumer,north america,unknown,1,73.14,73.14,2025-04-27
+1138,nadia harris,home office,north america,unknown,1,73.05,73.05,2024-12-03
+180,carlos ali,consumer,asia pacific,unknown,1,72.90,72.90,2025-04-04
+169,barbara russo,corporate,europe,unknown,1,72.66,72.66,2023-03-26
+1490,sakura martin,corporate,asia pacific,unknown,1,72.65,72.65,2023-02-08
+1057,mary patel,consumer,europe,unknown,1,72.27,72.27,2025-02-02
+615,isabella li,consumer,europe,unknown,1,72.24,72.24,2023-10-11
+985,lucas thomas,corporate,asia pacific,unknown,1,72.16,72.16,2023-09-18
+1426,richard dubois,home office,north america,unknown,1,71.91,71.91,2025-02-21
+1118,michael park,home office,asia pacific,unknown,1,70.45,70.45,2025-10-01
+922,liam nilsson,home office,europe,unknown,1,70.40,70.40,2024-09-11
+1525,sarah moreau,corporate,europe,unknown,1,70.34,70.34,2024-04-03
+1689,william miller,corporate,asia pacific,unknown,1,70.28,70.28,2023-12-07
+787,joseph clark,consumer,asia pacific,unknown,1,69.92,69.92,2025-07-02
+1214,olga wang,corporate,europe,unknown,1,69.84,69.84,2025-04-04
+174,barbara weber,home office,europe,unknown,1,69.62,69.62,2023-10-15
+14,ahmed pereira,consumer,asia pacific,unknown,1,69.60,69.60,2023-11-02
+1733,yuki pereira,corporate,north america,unknown,1,69.48,69.48,2024-09-16
+927,liam romano,home office,europe,unknown,1,69.13,69.13,2023-12-25
+1148,nadia pereira,consumer,middle east & africa,unknown,1,68.82,68.82,2025-06-04
+333,diego sharma,corporate,europe,unknown,1,68.69,68.69,2025-09-09
+1030,maria weber,corporate,europe,unknown,1,68.67,68.67,2024-06-30
+949,linda rodriguez,corporate,north america,unknown,1,68.53,68.53,2024-10-15
+786,joseph chen,corporate,europe,unknown,1,68.44,68.44,2023-10-17
+1160,nadia weber,consumer,europe,unknown,1,68.44,68.44,2023-04-01
+1295,oscar miller,corporate,middle east & africa,unknown,1,68.39,68.39,2024-06-24
+113,ava patel,home office,middle east & africa,unknown,1,68.28,68.28,2024-06-21
+859,kenji smith,consumer,europe,unknown,1,67.89,67.89,2025-02-14
+121,ayumi ferrari,home office,middle east & africa,unknown,1,67.82,67.82,2023-01-06
+894,li harris,consumer,north america,unknown,1,67.80,67.80,2025-06-25
+1185,olga ahmed,consumer,europe,unknown,1,67.65,67.65,2024-01-07
+1109,michael hassan,corporate,asia pacific,unknown,1,67.56,67.56,2023-02-27
+276,clara miller,consumer,europe,unknown,1,67.46,67.46,2024-02-07
+1657,wei patel,consumer,asia pacific,unknown,1,67.22,67.22,2024-05-06
+331,diego schmidt,consumer,middle east & africa,unknown,1,67.18,67.18,2024-05-31
+1250,omar ali,corporate,europe,unknown,1,66.79,66.79,2025-11-30
+1557,sophie li,consumer,asia pacific,unknown,1,66.68,66.68,2024-06-28
+1632,thomas yamamoto,consumer,north america,unknown,1,66.50,66.50,2024-08-16
+1376,priya martin,consumer,north america,unknown,1,66.44,66.44,2023-01-30
+342,elizabeth fischer,corporate,north america,unknown,1,66.40,66.40,2023-10-24
+516,hanna davis,consumer,europe,unknown,1,66.32,66.32,2023-05-29
+1519,sarah khan,home office,europe,unknown,1,66.24,66.24,2024-09-04
+412,ethan moreau,consumer,europe,unknown,1,66.12,66.12,2024-11-29
+1533,sarah sharma,home office,north america,unknown,1,65.90,65.90,2025-03-15
+967,lucas kim,consumer,north america,unknown,1,65.87,65.87,2025-06-01
+523,hanna kumar,consumer,south america,unknown,1,65.82,65.82,2023-10-08
+731,jennifer russo,home office,north america,unknown,1,65.82,65.82,2023-01-17
+6,ahmed dubois,consumer,europe,unknown,2,65.35,32.68,2025-12-09
+1308,oscar wang,home office,europe,unknown,1,65.35,65.35,2024-02-21
+1548,sophie harris,consumer,south america,unknown,1,65.16,65.16,2023-02-27
+526,hanna li,consumer,asia pacific,unknown,1,64.98,64.98,2025-04-18
+1746,zara ferrari,consumer,north america,unknown,1,64.90,64.90,2023-06-07
+1665,wei smith,home office,asia pacific,unknown,1,64.89,64.89,2023-11-07
+1050,mary laurent,consumer,asia pacific,unknown,1,64.88,64.88,2025-07-06
+1272,omar thomas,consumer,asia pacific,unknown,1,64.40,64.40,2025-04-07
+724,jennifer moreau,corporate,north america,unknown,1,64.12,64.12,2023-02-22
+861,kenji wang,consumer,europe,unknown,1,64.04,64.04,2024-08-22
+128,ayumi kumar,corporate,north america,unknown,1,63.96,63.96,2023-12-07
+878,layla khan,home office,north america,unknown,1,63.94,63.94,2023-02-07
+1347,pierre robinson,consumer,north america,unknown,1,63.87,63.87,2025-12-21
+1431,richard johnson,consumer,middle east & africa,unknown,1,63.84,63.84,2024-05-27
+584,ingrid khan,home office,north america,unknown,1,63.80,63.80,2023-07-05
+757,jessica pereira,consumer,south america,unknown,1,63.78,63.78,2025-11-28
+306,david smith,consumer,middle east & africa,unknown,1,63.69,63.69,2024-05-21
+403,ethan hassan,corporate,asia pacific,unknown,1,63.42,63.42,2023-02-25
+501,giulia oliveira,corporate,europe,unknown,1,63.20,63.20,2025-10-17
+464,felix leroy,corporate,europe,unknown,1,63.16,63.16,2025-08-13
+446,fatima weber,consumer,europe,unknown,1,63.12,63.12,2025-09-25
+237,christopher clark,corporate,south america,unknown,1,62.62,62.62,2025-02-03
+1459,robert harris,home office,asia pacific,unknown,1,62.52,62.52,2025-01-24
+1336,pierre costa,corporate,north america,unknown,1,62.48,62.48,2025-09-03
+436,fatima patel,home office,north america,unknown,1,62.43,62.43,2023-08-16
+525,hanna leroy,corporate,europe,unknown,1,62.36,62.36,2024-02-21
+1582,susan jackson,corporate,europe,unknown,1,62.32,62.32,2023-10-17
+670,jamal pereira,consumer,north america,unknown,1,62.02,62.02,2024-09-15
+1639,wei fischer,consumer,south america,unknown,1,61.98,61.98,2023-11-21
+444,fatima suzuki,consumer,north america,unknown,1,61.93,61.93,2023-01-05
+1423,richard ali,consumer,asia pacific,unknown,1,61.85,61.85,2025-03-18
+982,lucas suzuki,corporate,south america,unknown,1,61.50,61.50,2023-07-13
+1439,richard patel,consumer,asia pacific,unknown,1,61.41,61.41,2024-08-16
+398,emma weber,corporate,south america,unknown,1,61.40,61.40,2024-05-29
+1329,patricia santos,home office,asia pacific,unknown,1,61.38,61.38,2024-10-14
+1536,sarah tanaka,corporate,asia pacific,unknown,1,61.36,61.36,2023-10-20
+1284,oscar johansson,consumer,asia pacific,unknown,1,61.24,61.24,2024-08-29
+1111,michael kim,consumer,north america,unknown,1,61.23,61.23,2024-04-18
+1048,mary khan,corporate,asia pacific,unknown,1,61.14,61.14,2025-08-11
+291,clara tanaka,corporate,middle east & africa,unknown,1,60.84,60.84,2023-08-31
+1226,olivia garcia,home office,north america,unknown,1,60.40,60.40,2024-09-06
+675,jamal rossi,corporate,asia pacific,unknown,1,60.16,60.16,2023-02-03
+1392,priya thomas,consumer,europe,unknown,1,60.12,60.12,2023-06-28
+1609,thomas ferrari,consumer,north america,unknown,1,59.92,59.92,2023-12-06
+3,ahmed clark,consumer,north america,unknown,1,59.82,59.82,2023-02-01
+898,li müller,corporate,asia pacific,unknown,1,59.79,59.79,2024-10-18
+298,david harris,corporate,europe,unknown,1,59.75,59.75,2023-03-08
+408,ethan kim,corporate,south america,unknown,1,59.71,59.71,2023-08-16
+422,fatima davis,consumer,middle east & africa,unknown,1,59.68,59.68,2025-05-13
+1027,maria tanaka,consumer,south america,unknown,1,59.48,59.48,2023-01-12
+286,clara sato,home office,asia pacific,unknown,1,59.24,59.24,2024-01-31
+990,marco ferrari,consumer,asia pacific,unknown,1,59.17,59.17,2025-07-08
+717,jennifer garcia,consumer,north america,unknown,1,59.16,59.16,2023-07-10
+577,hans white,home office,south america,unknown,1,58.82,58.82,2024-07-28
+46,ali rodriguez,consumer,middle east & africa,unknown,1,58.77,58.77,2023-01-07
+1606,thomas clark,consumer,europe,unknown,1,58.38,58.38,2025-03-26
+1714,xiao rodriguez,home office,europe,unknown,1,58.18,58.18,2023-11-25
+514,hanna ali,home office,europe,unknown,1,58.16,58.16,2024-08-02
+1456,robert dubois,corporate,north america,unknown,1,58.09,58.09,2023-12-09
+1317,patricia garcia,corporate,north america,unknown,1,58.04,58.04,2025-07-18
+910,li wang,corporate,south america,unknown,1,57.98,57.98,2023-01-31
+1653,wei moreau,consumer,europe,unknown,1,57.70,57.70,2024-11-13
+1529,sarah robinson,consumer,middle east & africa,unknown,1,57.26,57.26,2024-05-11
+478,felix smith,consumer,europe,unknown,1,57.21,57.21,2023-08-19
+662,jamal jones,consumer,north america,unknown,1,56.97,56.97,2023-07-17
+437,fatima robinson,corporate,europe,unknown,1,56.82,56.82,2024-07-01
+798,joseph schmidt,home office,asia pacific,unknown,1,56.82,56.82,2025-05-08
+50,ali thomas,consumer,asia pacific,unknown,1,56.48,56.48,2024-04-19
+780,john rodriguez,consumer,south america,unknown,1,56.38,56.38,2025-03-11
+571,hans santos,consumer,north america,unknown,1,56.35,56.35,2023-03-29
+1263,omar park,consumer,asia pacific,unknown,1,56.01,56.01,2025-07-26
+1224,olivia davis,home office,south america,unknown,1,55.95,55.95,2024-05-27
+431,fatima laurent,home office,south america,unknown,1,55.77,55.77,2023-05-14
+1366,priya jackson,consumer,north america,unknown,1,55.68,55.68,2023-08-31
+929,liam schmidt,consumer,asia pacific,unknown,1,55.60,55.60,2024-10-09
+261,clara clark,home office,north america,unknown,1,55.59,55.59,2023-08-13
+962,lucas chen,consumer,asia pacific,unknown,1,55.56,55.56,2023-04-13
+896,li kim,consumer,asia pacific,unknown,1,55.53,55.53,2025-12-12
+141,ayumi smith,consumer,asia pacific,unknown,1,55.46,55.46,2025-02-07
+834,karen yamamoto,corporate,europe,unknown,1,55.40,55.40,2025-06-22
+1613,thomas laurent,home office,north america,unknown,1,55.16,55.16,2025-11-13
+187,carlos martinez,consumer,south america,unknown,1,55.14,55.14,2024-03-07
+758,jessica sato,consumer,asia pacific,unknown,1,55.00,55.00,2023-04-16
+851,kenji nilsson,home office,asia pacific,unknown,1,54.96,54.96,2023-01-31
+1643,wei johansson,corporate,asia pacific,unknown,1,54.96,54.96,2023-04-23
+1179,noah russo,home office,asia pacific,unknown,1,54.95,54.95,2023-08-02
+992,marco hassan,consumer,north america,unknown,1,54.85,54.85,2024-02-12
+465,felix miller,consumer,asia pacific,unknown,1,54.74,54.74,2023-04-21
+314,diego davis,corporate,europe,unknown,1,54.64,54.64,2023-07-19
+376,emma johnson,corporate,europe,unknown,1,54.64,54.64,2023-03-12
+694,james johansson,home office,north america,unknown,1,54.54,54.54,2025-01-06
+1768,zara white,consumer,middle east & africa,unknown,1,54.40,54.40,2024-05-14
+1108,michael harris,home office,south america,unknown,1,54.25,54.25,2023-01-29
+1630,thomas wang,home office,north america,unknown,1,53.78,53.78,2024-08-14
+519,hanna fischer,consumer,asia pacific,unknown,1,53.70,53.70,2025-07-07
+603,isabella anderson,corporate,asia pacific,unknown,1,53.57,53.57,2023-12-26
+644,ivan patel,consumer,europe,unknown,1,53.47,53.47,2024-03-18
+1414,raj schmidt,consumer,asia pacific,unknown,1,53.34,53.34,2024-10-11
+1122,michael sharma,home office,north america,unknown,1,53.29,53.29,2024-04-09
+1763,zara suzuki,consumer,middle east & africa,unknown,1,53.28,53.28,2025-10-28
+1016,maria miller,corporate,north america,unknown,1,53.25,53.25,2023-12-18
+162,barbara khan,consumer,north america,unknown,1,52.98,52.98,2025-01-12
+586,ingrid li,consumer,europe,unknown,1,52.93,52.93,2025-12-17
+1383,priya robinson,consumer,north america,unknown,1,52.83,52.83,2024-06-30
+831,karen thomas,corporate,north america,unknown,1,52.78,52.78,2023-07-26
+324,diego li,consumer,europe,unknown,1,52.67,52.67,2025-06-07
+1704,xiao ferrari,home office,europe,unknown,1,52.59,52.59,2023-09-26
+1286,oscar jones,consumer,north america,unknown,1,52.50,52.50,2023-02-27
+186,carlos jones,home office,north america,unknown,1,52.44,52.44,2025-03-25
+840,kenji johansson,consumer,europe,unknown,1,52.34,52.34,2025-03-07
+1752,zara miller,consumer,south america,unknown,1,52.26,52.26,2025-05-09
+1001,marco tanaka,consumer,europe,unknown,1,52.17,52.17,2025-09-11
+850,kenji moreau,corporate,north america,unknown,1,52.15,52.15,2023-11-19
+299,david kumar,consumer,europe,unknown,1,51.63,51.63,2025-06-23
+1304,oscar thomas,home office,north america,unknown,1,51.56,51.56,2023-08-15
+1281,oscar anderson,corporate,asia pacific,unknown,1,51.37,51.37,2024-05-25
+1040,mary ferrari,consumer,europe,unknown,1,51.25,51.25,2023-01-28
+1405,raj li,consumer,north america,unknown,1,51.25,51.25,2024-04-06
+62,amina johansson,corporate,europe,unknown,1,51.24,51.24,2023-07-20
+395,emma thompson,corporate,north america,unknown,1,51.21,51.21,2025-11-17
+521,hanna khan,consumer,south america,unknown,1,50.80,50.80,2023-09-15
+1115,michael miller,corporate,middle east & africa,unknown,1,50.54,50.54,2025-05-20
+668,jamal park,consumer,middle east & africa,unknown,1,50.22,50.22,2025-11-20
+1310,oscar williams,corporate,north america,unknown,1,50.20,50.20,2024-09-15
+499,giulia müller,corporate,asia pacific,unknown,1,49.98,49.98,2025-06-16
+1767,zara weber,consumer,asia pacific,unknown,1,49.96,49.96,2024-12-15
+30,ali harris,consumer,north america,unknown,1,49.84,49.84,2025-07-25
+808,karen ferrari,consumer,north america,unknown,1,49.78,49.78,2024-05-16
+590,ingrid müller,corporate,north america,unknown,1,49.68,49.68,2024-05-16
+290,clara smith,corporate,south america,unknown,1,49.55,49.55,2023-01-15
+1407,raj patel,corporate,north america,unknown,2,49.40,24.70,2025-11-13
+1591,susan patel,corporate,europe,unknown,1,49.08,49.08,2024-10-24
+134,ayumi nilsson,home office,middle east & africa,unknown,1,48.95,48.95,2023-02-16
+1049,mary khan,corporate,europe,unknown,1,48.73,48.73,2023-01-09
+518,hanna ferrari,consumer,europe,unknown,1,48.57,48.57,2025-11-04
+1706,xiao jackson,consumer,north america,unknown,1,48.46,48.46,2025-11-02
+300,david laurent,consumer,north america,unknown,1,48.43,48.43,2024-05-24
+139,ayumi russo,consumer,europe,unknown,1,48.39,48.39,2025-12-28
+636,ivan leroy,home office,north america,unknown,1,48.23,48.23,2025-03-14
+1638,wei fischer,consumer,north america,unknown,1,48.06,48.06,2023-12-07
+1703,xiao ferrari,home office,north america,unknown,1,47.90,47.90,2025-11-20
+997,marco rodriguez,consumer,asia pacific,unknown,1,47.84,47.84,2024-10-28
+1637,wei costa,home office,south america,unknown,1,47.83,47.83,2024-06-07
+1036,mary chen,home office,north america,unknown,1,47.73,47.73,2025-03-28
+1136,nadia davis,home office,north america,unknown,1,47.70,47.70,2024-06-26
+1354,pierre weber,corporate,europe,unknown,1,47.66,47.66,2024-07-05
+1627,thomas thomas,home office,north america,unknown,1,47.66,47.66,2025-01-03
+935,liam white,corporate,north america,unknown,1,47.58,47.58,2025-05-18
+178,carlos ahmed,consumer,north america,unknown,1,47.57,47.57,2024-01-08
+285,clara santos,corporate,north america,unknown,1,47.52,47.52,2023-05-26
+1025,maria suzuki,home office,europe,unknown,1,47.50,47.50,2025-12-31
+1055,mary miller,home office,europe,unknown,1,47.45,47.45,2025-02-20
+856,kenji santos,home office,europe,unknown,1,47.43,47.43,2025-08-05
+405,ethan johnson,home office,asia pacific,unknown,1,47.32,47.32,2024-06-21
+916,liam johansson,corporate,middle east & africa,unknown,1,47.15,47.15,2023-08-06
+632,ivan davis,consumer,north america,unknown,1,46.96,46.96,2025-10-10
+145,ayumi tanaka,corporate,south america,unknown,1,46.88,46.88,2023-12-26
+1223,olivia clark,corporate,middle east & africa,unknown,1,46.37,46.37,2025-05-20
+917,liam jones,consumer,asia pacific,unknown,1,46.22,46.22,2023-10-18
+815,karen moreau,consumer,asia pacific,unknown,1,46.16,46.16,2023-04-25
+1034,mary anderson,consumer,asia pacific,unknown,1,46.12,46.12,2025-07-20
+800,joseph suzuki,consumer,north america,unknown,1,45.68,45.68,2023-11-27
+1270,omar russo,corporate,south america,unknown,1,45.68,45.68,2025-07-26
+476,felix singh,consumer,asia pacific,unknown,1,45.56,45.56,2025-11-26
+1516,sarah johnson,consumer,north america,unknown,1,45.44,45.44,2025-10-17
+1137,nadia dubois,consumer,north america,unknown,1,45.27,45.27,2024-11-16
+505,giulia russo,corporate,asia pacific,unknown,1,45.22,45.22,2025-07-16
+144,ayumi tanaka,corporate,asia pacific,unknown,1,45.10,45.10,2023-01-28
+1445,richard sharma,consumer,europe,unknown,1,44.78,44.78,2025-07-19
+1747,zara fischer,consumer,asia pacific,unknown,1,44.69,44.69,2024-11-05
+710,jennifer anderson,corporate,north america,unknown,1,44.65,44.65,2024-08-14
+1438,richard park,consumer,middle east & africa,unknown,1,44.65,44.65,2024-12-24
+892,li davis,home office,north america,unknown,1,44.59,44.59,2024-07-19
+792,joseph leroy,consumer,south america,unknown,1,44.26,44.26,2023-10-04
+1595,susan weber,corporate,europe,unknown,1,44.26,44.26,2023-10-20
+1538,sarah thompson,consumer,south america,unknown,1,44.24,44.24,2023-09-25
+265,clara garcia,consumer,asia pacific,unknown,1,44.16,44.16,2024-12-05
+1374,priya li,consumer,south america,unknown,1,44.15,44.15,2023-12-27
+723,jennifer martinez,corporate,middle east & africa,unknown,1,44.04,44.04,2024-02-11
+132,ayumi miller,corporate,asia pacific,unknown,1,43.83,43.83,2024-04-04
+220,chen rodriguez,home office,europe,unknown,1,43.65,43.65,2023-08-30
+783,john wang,home office,asia pacific,unknown,1,43.62,43.62,2024-10-09
+1324,patricia müller,consumer,asia pacific,unknown,1,43.57,43.57,2023-02-12
+1690,william moreau,consumer,north america,unknown,1,43.48,43.48,2024-07-29
+1469,robert russo,corporate,asia pacific,unknown,1,43.44,43.44,2025-10-28
+232,chen thompson,consumer,north america,unknown,1,43.40,43.40,2024-01-30
+172,barbara sharma,corporate,north america,unknown,1,43.25,43.25,2025-01-26
+1298,oscar pereira,corporate,asia pacific,unknown,1,43.22,43.22,2024-01-27
+589,ingrid moreau,consumer,north america,unknown,1,43.09,43.09,2023-10-08
+4,ahmed clark,corporate,asia pacific,unknown,1,43.07,43.07,2024-04-05
+1218,olga zhang,corporate,middle east & africa,unknown,1,42.86,42.86,2023-04-02
+1769,zara white,consumer,europe,unknown,1,42.84,42.84,2023-02-24
+621,isabella smith,corporate,north america,unknown,1,42.67,42.67,2025-09-16
+5,ahmed dubois,consumer,north america,unknown,1,42.63,42.63,2025-02-12
+1328,patricia rossi,consumer,south america,unknown,1,42.60,42.60,2024-03-28
+1622,thomas santos,consumer,north america,unknown,1,42.55,42.55,2023-09-06
+1219,olivia ali,home office,north america,unknown,1,42.52,42.52,2025-09-25
+536,hanna sato,consumer,north america,unknown,1,42.36,42.36,2024-10-03
+99,amir yamamoto,home office,north america,unknown,1,42.35,42.35,2025-07-06
+649,ivan sharma,corporate,north america,unknown,1,42.32,42.32,2025-05-17
+1716,xiao romano,corporate,north america,unknown,1,42.32,42.32,2024-08-19
+1419,raj weber,consumer,europe,unknown,1,42.30,42.30,2024-07-03
+1462,robert khan,consumer,north america,unknown,1,42.30,42.30,2024-07-27
+1760,zara rodriguez,consumer,north america,unknown,1,42.16,42.16,2023-05-25
+778,john robinson,corporate,europe,unknown,1,42.04,42.04,2024-03-02
+168,barbara rossi,home office,asia pacific,unknown,1,42.00,42.00,2023-05-30
+1650,wei li,consumer,asia pacific,unknown,1,42.00,42.00,2024-10-14
+1680,william ferrari,corporate,europe,unknown,1,41.91,41.91,2024-10-27
+1393,priya wang,consumer,europe,unknown,1,41.84,41.84,2023-02-19
+899,li oliveira,consumer,north america,unknown,1,41.70,41.70,2024-07-05
+1238,olivia pereira,home office,north america,unknown,1,41.69,41.69,2024-06-15
+248,christopher miller,consumer,asia pacific,unknown,1,41.58,41.58,2024-11-17
+1125,michael tanaka,consumer,south america,unknown,1,41.43,41.43,2024-10-02
+1085,mia martin,home office,europe,unknown,1,41.24,41.24,2024-04-20
+1375,priya martin,home office,north america,unknown,1,41.24,41.24,2023-12-24
+368,emma chen,consumer,asia pacific,unknown,1,41.14,41.14,2025-04-08
+963,lucas clark,home office,middle east & africa,unknown,1,41.13,41.13,2025-12-03
+442,fatima smith,corporate,south america,unknown,1,41.08,41.08,2023-07-25
+1041,mary fischer,consumer,south america,unknown,1,40.91,40.91,2024-11-09
+1555,sophie kim,consumer,asia pacific,unknown,1,40.91,40.91,2024-11-19
+1457,robert garcia,consumer,europe,unknown,1,40.71,40.71,2024-09-19
+53,ali yamamoto,consumer,south america,unknown,1,40.55,40.55,2025-10-29
+1051,mary laurent,consumer,north america,unknown,1,40.50,40.50,2023-12-18
+462,felix laurent,corporate,north america,unknown,1,40.47,40.47,2023-11-15
+1305,oscar thompson,consumer,asia pacific,unknown,1,40.44,40.44,2025-03-27
+1203,olga robinson,corporate,middle east & africa,unknown,1,40.37,40.37,2025-12-06
+262,clara costa,corporate,europe,unknown,1,40.32,40.32,2025-02-24
+352,elizabeth patel,consumer,south america,unknown,1,40.25,40.25,2024-10-24
+1332,patricia weber,home office,europe,unknown,1,39.87,39.87,2025-09-16
+72,amina taylor,home office,middle east & africa,unknown,1,39.86,39.86,2025-06-18
+1574,sophie williams,corporate,asia pacific,unknown,1,39.80,39.80,2024-08-25
+64,amina khan,corporate,asia pacific,unknown,1,39.65,39.65,2025-04-11
+1140,nadia jackson,corporate,north america,unknown,1,39.44,39.44,2023-07-06
+789,joseph garcia,consumer,asia pacific,unknown,1,39.40,39.40,2025-04-12
+85,amir johansson,consumer,asia pacific,unknown,1,39.36,39.36,2024-11-20
+699,james oliveira,corporate,north america,unknown,1,39.00,39.00,2024-11-21
+1290,oscar martin,consumer,europe,unknown,1,38.97,38.97,2025-05-12
+852,kenji romano,corporate,north america,unknown,1,38.82,38.82,2023-10-11
+533,hanna rossi,consumer,europe,unknown,1,38.80,38.80,2023-08-11
+1562,sophie miller,home office,north america,unknown,1,38.64,38.64,2023-12-11
+682,jamal williams,corporate,europe,unknown,1,38.44,38.44,2024-05-26
+630,ivan anderson,corporate,asia pacific,unknown,1,38.34,38.34,2023-05-02
+393,emma suzuki,home office,europe,unknown,1,38.28,38.28,2025-11-27
+1700,william zhang,consumer,south america,unknown,1,38.16,38.16,2025-05-18
+695,james khan,home office,north america,unknown,1,38.13,38.13,2025-12-02
+582,ingrid davis,corporate,south america,unknown,1,38.10,38.10,2025-05-13
+781,john suzuki,home office,north america,unknown,1,37.98,37.98,2024-10-06
+1372,priya leroy,corporate,asia pacific,unknown,1,37.78,37.78,2023-11-13
+1429,richard jackson,consumer,north america,unknown,1,37.72,37.72,2025-01-06
+369,emma clark,consumer,north america,unknown,1,37.68,37.68,2025-02-07
+1628,thomas thompson,consumer,north america,unknown,1,37.62,37.62,2024-12-14
+1683,william khan,corporate,europe,unknown,1,37.58,37.58,2025-05-22
+1264,omar park,corporate,north america,unknown,1,37.56,37.56,2023-08-31
+1149,nadia pereira,consumer,asia pacific,unknown,1,37.24,37.24,2024-06-03
+88,amir park,consumer,middle east & africa,unknown,1,37.06,37.06,2023-10-14
+1245,olivia wang,consumer,asia pacific,unknown,1,36.96,36.96,2024-05-22
+142,ayumi suzuki,corporate,asia pacific,unknown,1,36.72,36.72,2023-03-02
+1694,william rodriguez,corporate,north america,unknown,1,36.62,36.62,2025-10-18
+1515,sarah johansson,home office,asia pacific,unknown,1,36.61,36.61,2024-12-09
+1316,patricia ferrari,consumer,europe,unknown,1,36.60,36.60,2025-01-24
+663,jamal jones,home office,north america,unknown,1,36.55,36.55,2024-01-20
+1054,mary miller,consumer,south america,unknown,1,36.40,36.40,2023-08-04
+1611,thomas jackson,home office,middle east & africa,unknown,1,36.33,36.33,2024-10-23
+197,carlos sharma,consumer,north america,unknown,1,36.30,36.30,2025-08-09
+1066,mia ali,corporate,south america,unknown,1,36.30,36.30,2024-09-22
+1035,mary anderson,consumer,north america,unknown,1,36.26,36.26,2025-10-03
+1323,patricia martinez,home office,middle east & africa,unknown,1,36.21,36.21,2023-10-07
+281,clara robinson,home office,europe,unknown,1,36.20,36.20,2023-09-01
+345,elizabeth harris,home office,asia pacific,unknown,1,36.01,36.01,2023-12-20
+392,emma suzuki,consumer,asia pacific,unknown,1,35.88,35.88,2024-08-15
+176,barbara white,consumer,asia pacific,unknown,1,35.85,35.85,2025-05-11
+1497,sakura rodriguez,corporate,asia pacific,unknown,1,35.70,35.70,2023-08-05
+509,giulia taylor,corporate,south america,unknown,1,35.32,35.32,2023-08-11
+123,ayumi garcia,corporate,north america,unknown,1,35.29,35.29,2023-10-05
+1464,robert leroy,consumer,asia pacific,unknown,1,35.10,35.10,2025-09-03
+1565,sophie rossi,corporate,north america,unknown,1,34.95,34.95,2025-04-30
+435,fatima patel,consumer,north america,unknown,1,34.86,34.86,2023-11-18
+1216,olga yamamoto,consumer,middle east & africa,unknown,1,34.77,34.77,2025-06-25
+83,amir garcia,corporate,europe,unknown,1,34.74,34.74,2023-05-10
+165,barbara moreau,home office,middle east & africa,unknown,1,34.70,34.70,2024-10-31
+1074,mia davis,consumer,asia pacific,unknown,1,34.68,34.68,2023-08-30
+489,giulia brown,corporate,asia pacific,unknown,1,34.64,34.64,2023-04-16
+1387,priya schmidt,consumer,asia pacific,unknown,1,34.53,34.53,2024-08-06
+738,jennifer zhang,consumer,asia pacific,unknown,1,34.44,34.44,2024-12-11
+207,chen dubois,corporate,europe,unknown,1,34.41,34.41,2024-03-27
+1257,omar garcia,corporate,asia pacific,unknown,1,34.38,34.38,2023-06-08
+103,ava fischer,corporate,asia pacific,unknown,1,34.36,34.36,2023-04-30
+669,jamal patel,consumer,europe,unknown,1,34.34,34.34,2024-01-04
+543,hans anderson,consumer,south america,unknown,1,34.17,34.17,2023-08-06
+1722,xiao weber,home office,europe,unknown,1,34.17,34.17,2025-03-16
+1709,xiao kumar,home office,asia pacific,unknown,1,33.98,33.98,2024-06-05
+930,liam sharma,consumer,south america,unknown,1,33.80,33.80,2025-11-11
+1321,patricia kim,home office,europe,unknown,1,33.54,33.54,2025-05-26
+319,diego johansson,consumer,middle east & africa,unknown,1,33.42,33.42,2024-10-04
+1267,omar rodriguez,corporate,asia pacific,unknown,1,33.42,33.42,2024-07-03
+1145,nadia martin,home office,europe,unknown,1,33.40,33.40,2025-06-03
+1615,thomas miller,consumer,asia pacific,unknown,1,33.36,33.36,2024-01-14
+463,felix laurent,home office,asia pacific,unknown,1,33.24,33.24,2023-12-03
+558,hans kumar,consumer,asia pacific,unknown,1,33.05,33.05,2024-04-14
+835,karen zhang,home office,asia pacific,unknown,1,32.92,32.92,2023-08-13
+714,jennifer dubois,consumer,asia pacific,unknown,1,32.70,32.70,2025-10-14
+313,diego anderson,consumer,middle east & africa,unknown,1,32.68,32.68,2023-12-14
+1090,mia sharma,consumer,north america,unknown,1,32.52,32.52,2023-06-09
+1326,patricia park,corporate,north america,unknown,1,32.40,32.40,2025-02-15
+1359,priya brown,home office,europe,unknown,1,32.39,32.39,2024-04-21
+39,ali leroy,consumer,asia pacific,unknown,1,32.20,32.20,2025-01-20
+1737,yuki suzuki,corporate,asia pacific,unknown,1,32.11,32.11,2025-06-17
+90,amir singh,corporate,north america,unknown,1,32.10,32.10,2023-08-03
+1389,priya smith,consumer,europe,unknown,1,32.02,32.02,2024-01-10
+1274,omar weber,home office,south america,unknown,1,31.92,31.92,2024-09-07
+972,lucas müller,consumer,asia pacific,unknown,1,31.83,31.83,2024-11-21
+1766,zara wang,corporate,asia pacific,unknown,1,31.71,31.71,2025-10-10
+813,karen khan,consumer,asia pacific,unknown,1,31.68,31.68,2023-11-20
+292,clara tanaka,corporate,north america,unknown,1,31.63,31.63,2024-07-05
+741,jessica brown,home office,north america,unknown,1,31.62,31.62,2025-05-04
+130,ayumi martin,consumer,middle east & africa,unknown,1,31.55,31.55,2023-08-29
+399,emma zhang,corporate,middle east & africa,unknown,1,31.48,31.48,2023-06-06
+353,elizabeth santos,consumer,europe,unknown,1,31.44,31.44,2025-07-14
+199,carlos thomas,home office,north america,unknown,1,31.28,31.28,2025-08-01
+960,lucas brown,home office,north america,unknown,1,31.20,31.20,2024-04-28
+1397,priya zhang,corporate,north america,unknown,1,30.98,30.98,2023-04-04
+270,clara johnson,consumer,asia pacific,unknown,1,30.88,30.88,2024-03-08
+321,diego jones,corporate,asia pacific,unknown,1,30.54,30.54,2023-11-02
+389,emma sato,consumer,asia pacific,unknown,1,30.49,30.49,2025-08-06
+157,barbara fischer,corporate,asia pacific,unknown,1,30.45,30.45,2025-05-24
+414,ethan santos,consumer,asia pacific,unknown,1,30.37,30.37,2025-07-20
+767,jessica williams,consumer,north america,unknown,1,30.33,30.33,2024-09-05
+1614,thomas li,consumer,north america,unknown,1,30.15,30.15,2023-06-13
+472,felix rodriguez,home office,north america,unknown,1,30.06,30.06,2023-01-06
+581,ingrid clark,consumer,north america,unknown,1,30.05,30.05,2025-05-20
+445,fatima wang,consumer,asia pacific,unknown,1,30.00,30.00,2023-09-11
+688,james brown,consumer,europe,unknown,1,29.97,29.97,2024-05-24
+928,liam rossi,corporate,asia pacific,unknown,1,29.88,29.88,2023-12-09
+1093,mia smith,consumer,north america,unknown,1,29.87,29.87,2023-05-01
+1718,xiao sharma,consumer,south america,unknown,1,29.71,29.71,2025-05-06
+665,jamal kim,consumer,north america,unknown,1,29.58,29.58,2025-01-09
+104,ava fischer,consumer,north america,unknown,1,29.56,29.56,2024-11-24
+1171,noah jones,consumer,asia pacific,unknown,1,29.56,29.56,2025-12-16
+1342,pierre jones,corporate,europe,unknown,1,29.28,29.28,2024-09-26
+616,isabella martin,consumer,asia pacific,unknown,1,29.18,29.18,2023-03-16
+27,ahmed weber,corporate,asia pacific,unknown,1,29.16,29.16,2025-06-07
+1572,sophie white,corporate,europe,unknown,1,29.10,29.10,2025-09-15
+620,isabella schmidt,consumer,south america,unknown,1,29.08,29.08,2024-10-17
+194,carlos schmidt,home office,europe,unknown,1,29.06,29.06,2024-06-25
+1417,raj thompson,consumer,south america,unknown,1,29.06,29.06,2025-09-14
+725,jennifer nilsson,consumer,asia pacific,unknown,1,29.03,29.03,2023-06-06
+876,layla johansson,corporate,middle east & africa,unknown,1,29.02,29.02,2025-03-21
+1378,priya martinez,corporate,north america,unknown,1,28.96,28.96,2023-02-23
+13,ahmed johnson,corporate,europe,unknown,1,28.95,28.95,2024-12-14
+704,james sharma,corporate,north america,unknown,1,28.95,28.95,2023-04-04
+61,amina johansson,consumer,europe,unknown,1,28.86,28.86,2023-09-05
+812,karen jackson,consumer,asia pacific,unknown,1,28.85,28.85,2023-03-18
+978,lucas russo,home office,north america,unknown,1,28.72,28.72,2024-04-30
+57,amina clark,consumer,europe,unknown,1,28.70,28.70,2024-04-18
+1495,sakura rodriguez,consumer,north america,unknown,1,28.64,28.64,2024-04-06
+1134,nadia brown,home office,asia pacific,unknown,1,28.44,28.44,2023-05-17
+284,clara romano,consumer,asia pacific,unknown,1,28.38,28.38,2024-05-25
+1007,maria costa,corporate,middle east & africa,unknown,1,28.35,28.35,2023-10-17
+1757,zara nilsson,corporate,asia pacific,unknown,1,28.32,28.32,2023-11-29
+550,hans fischer,consumer,asia pacific,unknown,1,28.26,28.26,2024-07-11
+915,liam davis,consumer,europe,unknown,1,28.20,28.20,2025-01-09
+579,hans zhang,home office,europe,unknown,1,28.14,28.14,2025-04-12
+874,layla jackson,home office,asia pacific,unknown,1,28.12,28.12,2025-04-18
+1427,richard garcia,corporate,middle east & africa,unknown,1,28.00,28.00,2024-04-10
+1509,sarah davis,home office,europe,unknown,1,27.90,27.90,2023-01-14
+245,christopher khan,home office,europe,unknown,1,27.84,27.84,2025-06-08
+1079,mia johnson,consumer,europe,unknown,1,27.82,27.82,2025-07-31
+487,giulia anderson,consumer,asia pacific,unknown,1,27.40,27.40,2023-08-30
+495,giulia khan,home office,north america,unknown,1,27.28,27.28,2023-10-04
+998,marco sato,consumer,north america,unknown,1,27.24,27.24,2023-09-09
+659,jamal clark,consumer,middle east & africa,unknown,1,27.11,27.11,2023-09-06
+843,kenji jones,corporate,north america,unknown,1,26.92,26.92,2024-10-16
+1487,sakura jones,corporate,middle east & africa,unknown,1,26.85,26.85,2023-07-28
+847,kenji martin,home office,south america,unknown,1,26.84,26.84,2025-04-04
+159,barbara johnson,corporate,asia pacific,unknown,1,26.82,26.82,2024-12-14
+1104,michael ferrari,consumer,europe,unknown,1,26.72,26.72,2024-10-11
+1313,patricia clark,consumer,middle east & africa,unknown,1,26.66,26.66,2024-02-27
+1204,olga robinson,consumer,north america,unknown,1,26.54,26.54,2024-06-10
+190,carlos rodriguez,consumer,middle east & africa,unknown,1,26.53,26.53,2023-06-27
+218,chen patel,corporate,middle east & africa,unknown,1,26.52,26.52,2025-12-08
+135,ayumi pereira,consumer,north america,unknown,1,26.45,26.45,2025-02-11
+1420,raj white,home office,europe,unknown,1,26.40,26.40,2025-11-29
+140,ayumi singh,consumer,europe,unknown,1,26.25,26.25,2025-09-05
+946,linda müller,corporate,north america,unknown,1,26.04,26.04,2024-01-10
+110,ava martinez,corporate,middle east & africa,unknown,1,25.95,25.95,2023-01-31
+1745,zara davis,home office,middle east & africa,unknown,1,25.94,25.94,2024-12-30
+865,kenji yamamoto,consumer,asia pacific,unknown,1,25.70,25.70,2025-05-18
+1063,mary weber,consumer,middle east & africa,unknown,1,25.62,25.62,2025-04-17
+666,jamal leroy,home office,south america,unknown,1,25.60,25.60,2023-08-23
+660,jamal ferrari,consumer,asia pacific,unknown,1,25.30,25.30,2023-04-05
+623,isabella taylor,corporate,north america,unknown,1,25.23,25.23,2023-08-30
+860,kenji suzuki,corporate,north america,unknown,1,25.22,25.22,2023-08-17
+527,hanna martinez,corporate,europe,unknown,1,25.16,25.16,2025-12-16
+66,amina romano,corporate,middle east & africa,unknown,1,25.15,25.15,2024-07-15
+1379,priya nilsson,corporate,asia pacific,unknown,1,25.00,25.00,2024-03-04
+1443,richard rossi,consumer,south america,unknown,1,24.96,24.96,2025-01-08
+1350,pierre suzuki,corporate,south america,unknown,1,24.88,24.88,2025-12-02
+1006,maria costa,consumer,europe,unknown,1,24.87,24.87,2024-03-10
+438,fatima rossi,consumer,asia pacific,unknown,1,24.66,24.66,2023-03-02
+903,li rossi,corporate,europe,unknown,1,24.66,24.66,2024-07-06
+793,joseph martin,corporate,asia pacific,unknown,1,24.61,24.61,2025-11-24
+373,emma johansson,corporate,north america,unknown,1,24.60,24.60,2023-05-18
+640,ivan müller,consumer,europe,unknown,1,24.60,24.60,2024-09-05
+1200,olga patel,consumer,asia pacific,unknown,1,24.48,24.48,2023-06-29
+1289,oscar kim,corporate,middle east & africa,unknown,1,24.39,24.39,2024-05-07
+1133,nadia anderson,consumer,europe,unknown,1,24.33,24.33,2024-06-23
+1360,priya chen,home office,north america,unknown,1,24.30,24.30,2023-05-05
+1399,raj chen,home office,asia pacific,unknown,1,24.26,24.26,2023-06-19
+1473,robert smith,home office,middle east & africa,unknown,1,24.14,24.14,2023-07-04
+264,clara fischer,corporate,north america,unknown,1,24.00,24.00,2025-11-17
+799,joseph singh,consumer,europe,unknown,1,23.88,23.88,2024-07-01
+193,carlos schmidt,corporate,europe,unknown,1,23.80,23.80,2023-07-10
+308,david smith,corporate,europe,unknown,1,23.79,23.79,2023-06-06
+1058,mary rodriguez,consumer,north america,unknown,1,23.76,23.76,2024-07-21
+481,felix taylor,home office,north america,unknown,1,23.68,23.68,2024-01-17
+19,ahmed sharma,home office,north america,unknown,1,23.67,23.67,2023-09-19
+1352,pierre wang,corporate,europe,unknown,1,23.43,23.43,2025-10-21
+1520,sarah kim,consumer,europe,unknown,1,23.43,23.43,2025-10-15
+855,kenji rossi,corporate,europe,unknown,1,23.40,23.40,2023-01-08
+681,jamal wang,consumer,north america,unknown,1,23.28,23.28,2024-12-08
+712,jennifer clark,corporate,middle east & africa,unknown,1,23.28,23.28,2025-09-02
+498,giulia miller,consumer,north america,unknown,1,23.24,23.24,2024-05-28
+1724,yuki chen,consumer,asia pacific,unknown,1,23.16,23.16,2024-01-19
+1072,mia clark,consumer,europe,unknown,1,23.14,23.14,2023-03-02
+1663,wei sato,corporate,asia pacific,unknown,1,23.04,23.04,2023-05-08
+1390,priya thomas,home office,north america,unknown,1,23.01,23.01,2025-12-27
+1682,william hassan,corporate,middle east & africa,unknown,1,23.01,23.01,2023-06-09
+222,chen romano,consumer,asia pacific,unknown,1,22.90,22.90,2025-03-07
+1271,omar singh,consumer,middle east & africa,unknown,1,22.84,22.84,2023-08-25
+1725,yuki costa,corporate,middle east & africa,unknown,1,22.82,22.82,2023-01-17
+1097,mia weber,consumer,north america,unknown,1,22.78,22.78,2023-03-19
+575,hans smith,consumer,asia pacific,unknown,1,22.68,22.68,2023-09-06
+470,felix pereira,consumer,europe,unknown,1,22.64,22.64,2025-06-20
+1132,nadia ahmed,consumer,europe,unknown,1,22.62,22.62,2025-09-06
+71,amina tanaka,consumer,north america,unknown,1,22.48,22.48,2025-06-01
+55,amina ali,consumer,north america,unknown,1,22.46,22.46,2023-08-15
+936,liam zhang,home office,asia pacific,unknown,1,22.46,22.46,2025-06-20
+1303,oscar thomas,consumer,asia pacific,unknown,1,22.15,22.15,2023-11-12
+114,ava rodriguez,corporate,europe,unknown,1,22.10,22.10,2024-11-26
+260,clara brown,home office,europe,unknown,1,21.92,21.92,2025-07-24
+1084,mia martin,corporate,north america,unknown,1,21.92,21.92,2023-03-10
+344,elizabeth garcia,home office,asia pacific,unknown,1,21.86,21.86,2025-10-14
+460,felix johansson,consumer,north america,unknown,1,21.85,21.85,2023-02-19
+720,jennifer khan,corporate,europe,unknown,1,21.65,21.65,2024-01-13
+1422,richard ali,corporate,north america,unknown,1,21.60,21.60,2025-10-03
+833,karen wang,home office,south america,unknown,1,21.54,21.54,2024-01-13
+742,jessica garcia,consumer,north america,unknown,1,21.48,21.48,2023-01-03
+296,david chen,corporate,south america,unknown,1,21.34,21.34,2025-04-22
+1398,raj anderson,consumer,south america,unknown,1,21.34,21.34,2023-11-15
+613,isabella kumar,corporate,europe,unknown,1,21.32,21.32,2023-06-27
+1412,raj sato,home office,south america,unknown,1,21.30,21.30,2025-07-24
+289,clara singh,consumer,asia pacific,unknown,1,21.14,21.14,2024-04-14
+965,lucas jones,consumer,south america,unknown,1,21.14,21.14,2023-07-26
+1075,mia ferrari,consumer,asia pacific,unknown,1,20.74,20.74,2023-03-24
+1251,omar costa,corporate,middle east & africa,unknown,1,20.74,20.74,2024-02-16
+1686,william martin,corporate,north america,unknown,1,20.71,20.71,2025-08-28
+1385,priya sato,consumer,europe,unknown,1,20.68,20.68,2024-10-31
+1743,zara chen,corporate,europe,unknown,1,20.56,20.56,2024-04-16
+402,ethan clark,consumer,asia pacific,unknown,1,20.54,20.54,2023-10-14
+983,lucas suzuki,consumer,north america,unknown,1,20.53,20.53,2023-10-22
+1213,olga thompson,consumer,europe,unknown,1,20.52,20.52,2024-05-14
+1478,robert thompson,corporate,asia pacific,unknown,1,20.52,20.52,2024-05-19
+515,hanna brown,home office,europe,unknown,1,20.16,20.16,2024-03-17
+1513,sarah hassan,corporate,north america,unknown,1,20.14,20.14,2025-06-02
+1221,olivia anderson,home office,north america,unknown,1,20.12,20.12,2025-10-14
+1668,wei thompson,consumer,asia pacific,unknown,1,20.09,20.09,2024-09-01
+203,carlos yamamoto,consumer,north america,unknown,1,20.04,20.04,2024-09-16
+587,ingrid martin,corporate,europe,unknown,1,20.03,20.03,2024-08-26
+1719,xiao smith,consumer,south america,unknown,1,20.02,20.02,2023-07-28
+691,james harris,corporate,north america,unknown,1,19.95,19.95,2023-10-10
+1114,michael martin,consumer,middle east & africa,unknown,1,19.94,19.94,2023-06-26
+1687,william martinez,corporate,asia pacific,unknown,1,19.91,19.91,2023-07-31
+1121,michael schmidt,corporate,north america,unknown,1,19.83,19.83,2024-07-09
+1197,olga miller,consumer,north america,unknown,1,19.74,19.74,2025-11-28
+529,hanna nilsson,consumer,north america,unknown,1,19.62,19.62,2025-05-18
+1391,priya thomas,home office,south america,unknown,1,19.62,19.62,2023-07-07
+1715,xiao rodriguez,corporate,europe,unknown,1,19.56,19.56,2025-04-07
+1268,omar russo,consumer,asia pacific,unknown,1,19.44,19.44,2024-06-24
+1253,omar dubois,home office,asia pacific,unknown,1,19.26,19.26,2024-09-22
+1681,william garcia,corporate,europe,unknown,1,19.01,19.01,2025-06-18
+791,joseph johnson,corporate,north america,unknown,1,18.96,18.96,2023-07-29
+1470,robert sato,consumer,north america,unknown,1,18.90,18.90,2025-12-23
+458,felix fischer,corporate,south america,unknown,1,18.81,18.81,2025-10-20
+1062,mary weber,consumer,europe,unknown,1,18.75,18.75,2024-03-31
+152,barbara ali,corporate,asia pacific,unknown,1,18.57,18.57,2023-03-05
+1146,nadia martinez,corporate,north america,unknown,1,18.56,18.56,2024-10-11
+47,ali romano,corporate,asia pacific,unknown,1,18.51,18.51,2023-11-21
+109,ava li,corporate,south america,unknown,1,18.39,18.39,2023-12-11
+1196,olga li,corporate,asia pacific,unknown,1,18.36,18.36,2024-08-20
+1705,xiao harris,consumer,asia pacific,unknown,1,18.28,18.28,2023-11-28
+1282,oscar costa,consumer,europe,unknown,1,18.26,18.26,2023-11-25
+627,isabella yamamoto,corporate,europe,unknown,1,18.20,18.20,2024-04-03
+502,giulia pereira,consumer,asia pacific,unknown,1,18.19,18.19,2023-08-12
+211,chen khan,corporate,north america,unknown,1,17.96,17.96,2025-06-30
+234,christopher ahmed,corporate,north america,unknown,1,17.94,17.94,2025-05-17
+1677,william chen,corporate,north america,unknown,1,17.88,17.88,2025-08-18
+1415,raj singh,consumer,asia pacific,unknown,1,17.86,17.86,2023-12-26
+912,li yamamoto,consumer,asia pacific,unknown,1,17.84,17.84,2023-04-29
+944,linda laurent,consumer,europe,unknown,1,17.82,17.82,2023-11-05
+1157,nadia taylor,corporate,middle east & africa,unknown,1,17.70,17.70,2024-10-06
+133,ayumi moreau,consumer,europe,unknown,1,17.68,17.68,2024-07-04
+845,kenji martin,home office,middle east & africa,unknown,1,17.56,17.56,2023-11-01
+565,hans oliveira,consumer,asia pacific,unknown,1,17.45,17.45,2025-08-26
+278,clara nilsson,consumer,asia pacific,unknown,1,17.35,17.35,2023-07-14
+647,ivan romano,consumer,asia pacific,unknown,1,17.33,17.33,2024-10-19
+506,giulia singh,consumer,north america,unknown,1,17.18,17.18,2025-03-15
+379,emma laurent,consumer,asia pacific,unknown,1,17.12,17.12,2025-12-01
+1740,yuki zhang,consumer,north america,unknown,1,17.03,17.03,2023-09-03
+1587,susan leroy,consumer,asia pacific,unknown,1,17.00,17.00,2025-05-13
+60,amina harris,corporate,asia pacific,unknown,1,16.98,16.98,2024-05-05
+1269,omar russo,home office,asia pacific,unknown,1,16.76,16.76,2023-09-08
+1395,priya weber,consumer,middle east & africa,unknown,1,16.60,16.60,2023-08-22
+239,christopher fischer,consumer,europe,unknown,1,16.58,16.58,2024-11-01
+600,ingrid yamamoto,corporate,asia pacific,unknown,1,16.46,16.46,2024-12-06
+707,james taylor,consumer,asia pacific,unknown,1,16.43,16.43,2023-07-22
+622,isabella tanaka,consumer,europe,unknown,1,16.32,16.32,2025-01-26
+548,hans ferrari,home office,europe,unknown,1,16.31,16.31,2025-06-24
+42,ali miller,consumer,north america,unknown,1,16.13,16.13,2023-05-06
+466,felix moreau,consumer,europe,unknown,1,16.12,16.12,2023-02-25
+891,layla zhang,corporate,north america,unknown,1,15.84,15.84,2024-08-05
+1742,zara brown,corporate,europe,unknown,1,15.82,15.82,2023-01-13
+1081,mia jones,corporate,asia pacific,unknown,1,15.78,15.78,2024-05-21
+785,joseph ali,consumer,europe,unknown,1,15.77,15.77,2024-11-17
+317,diego hassan,consumer,europe,unknown,1,15.72,15.72,2023-11-23
+1060,mary russo,home office,south america,unknown,1,15.66,15.66,2024-01-31
+1339,pierre garcia,home office,north america,unknown,1,15.62,15.62,2025-04-21
+223,chen rossi,corporate,north america,unknown,1,15.54,15.54,2025-02-11
+1508,sarah clark,home office,europe,unknown,1,15.39,15.39,2024-07-05
+1626,thomas tanaka,consumer,asia pacific,unknown,1,15.32,15.32,2025-02-20
+745,jessica hassan,corporate,europe,unknown,1,15.28,15.28,2023-11-25
+817,karen patel,consumer,middle east & africa,unknown,1,15.21,15.21,2025-08-05
+524,hanna leroy,consumer,asia pacific,unknown,1,15.08,15.08,2025-12-30
+1576,sophie zhang,consumer,north america,unknown,1,15.08,15.08,2025-11-11
+311,david white,home office,north america,unknown,1,15.07,15.07,2023-12-10
+1168,noah fischer,consumer,europe,unknown,1,15.04,15.04,2025-09-24
+1127,michael yamamoto,corporate,asia pacific,unknown,1,15.03,15.03,2025-05-29
+1169,noah hassan,consumer,asia pacific,unknown,1,15.00,15.00,2024-08-06
+1131,michael zhang,consumer,north america,unknown,1,14.88,14.88,2023-02-11
+642,ivan park,consumer,asia pacific,unknown,1,14.87,14.87,2024-12-10
+1656,wei müller,corporate,middle east & africa,unknown,1,14.87,14.87,2025-04-17
+522,hanna kim,consumer,middle east & africa,unknown,1,14.73,14.73,2024-05-29
+900,li pereira,corporate,middle east & africa,unknown,1,14.71,14.71,2025-06-10
+1186,olga ali,consumer,middle east & africa,unknown,1,14.71,14.71,2025-04-11
+486,giulia anderson,consumer,north america,unknown,1,14.70,14.70,2024-02-27
+1762,zara smith,corporate,north america,unknown,1,14.64,14.64,2023-12-18
+160,barbara jones,consumer,north america,unknown,1,14.44,14.44,2023-08-19
+1184,noah thomas,corporate,asia pacific,unknown,1,14.20,14.20,2025-11-20
+1201,olga pereira,home office,asia pacific,unknown,1,13.92,13.92,2024-02-03
+474,felix romano,corporate,north america,unknown,1,13.72,13.72,2024-11-16
+763,jessica thomas,corporate,europe,unknown,1,13.54,13.54,2025-11-14
+1349,pierre smith,consumer,europe,unknown,1,13.51,13.51,2024-09-16
+1380,priya nilsson,consumer,middle east & africa,unknown,1,13.41,13.41,2023-07-27
+230,chen tanaka,home office,asia pacific,unknown,1,13.39,13.39,2025-10-14
+429,fatima kim,corporate,europe,unknown,1,13.39,13.39,2023-10-27
+1749,zara hassan,consumer,north america,unknown,1,13.36,13.36,2024-10-21
+96,amir wang,consumer,north america,unknown,1,13.30,13.30,2024-04-08
+638,ivan martin,consumer,europe,unknown,1,13.30,13.30,2024-11-24
+580,ingrid clark,corporate,north america,unknown,1,13.25,13.25,2025-04-12
+599,ingrid white,consumer,asia pacific,unknown,1,13.21,13.21,2024-09-14
+1424,richard ali,consumer,north america,unknown,1,13.00,13.00,2023-04-04
+1486,sakura harris,consumer,europe,unknown,1,12.93,12.93,2025-02-20
+219,chen patel,home office,north america,unknown,1,12.92,12.92,2024-03-05
+1485,sakura garcia,home office,europe,unknown,1,12.88,12.88,2024-09-19
+29,ali dubois,corporate,asia pacific,unknown,1,12.87,12.87,2024-04-26
+794,joseph martinez,home office,north america,unknown,1,12.82,12.82,2023-09-16
+1410,raj rossi,consumer,asia pacific,unknown,1,12.81,12.81,2025-11-28
+711,jennifer brown,home office,europe,unknown,1,12.72,12.72,2025-10-23
+454,fatima zhang,consumer,north america,unknown,1,12.64,12.64,2024-11-08
+432,fatima li,consumer,north america,unknown,1,12.58,12.58,2023-03-22
+1319,patricia khan,consumer,europe,unknown,1,12.56,12.56,2024-02-13
+676,jamal schmidt,home office,asia pacific,unknown,1,12.48,12.48,2023-05-04
+1018,maria müller,corporate,north america,unknown,1,12.48,12.48,2025-03-09
+811,karen hassan,consumer,asia pacific,unknown,1,12.33,12.33,2024-08-16
+1331,patricia weber,consumer,north america,unknown,1,12.28,12.28,2024-05-04
+56,amina anderson,corporate,asia pacific,unknown,1,12.26,12.26,2025-06-22
+1193,olga leroy,consumer,asia pacific,unknown,1,12.17,12.17,2023-09-04
+1458,robert harris,consumer,north america,unknown,1,12.16,12.16,2025-07-03
+68,amina sharma,consumer,north america,unknown,1,12.12,12.12,2025-08-22
+184,carlos ferrari,home office,north america,unknown,1,11.94,11.94,2024-09-17
+327,diego nilsson,consumer,europe,unknown,1,11.89,11.89,2024-01-04
+22,ahmed smith,consumer,north america,unknown,1,11.74,11.74,2025-02-26
+969,lucas leroy,corporate,europe,unknown,1,11.70,11.70,2023-09-23
+224,chen rossi,home office,north america,unknown,1,11.67,11.67,2025-06-03
+1435,richard martinez,home office,asia pacific,unknown,1,11.64,11.64,2025-12-07
+993,marco kim,home office,south america,unknown,1,11.48,11.48,2025-01-19
+1256,omar garcia,consumer,asia pacific,unknown,1,11.17,11.17,2023-03-07
+1248,olivia zhang,consumer,north america,unknown,1,11.16,11.16,2025-03-06
+918,liam jones,consumer,europe,unknown,1,11.11,11.11,2023-03-11
+1192,olga kim,corporate,south america,unknown,1,10.82,10.82,2025-05-15
+179,carlos ali,consumer,north america,unknown,1,10.81,10.81,2023-12-11
+1484,sakura davis,consumer,north america,unknown,1,10.73,10.73,2025-05-12
+1180,noah santos,consumer,asia pacific,unknown,1,10.59,10.59,2023-07-11
+359,elizabeth taylor,corporate,europe,unknown,1,10.50,10.50,2024-06-08
+1679,william clark,consumer,asia pacific,unknown,1,10.42,10.42,2024-03-09
+1000,marco sharma,corporate,europe,unknown,1,10.39,10.39,2024-02-04
+1698,william smith,consumer,middle east & africa,unknown,1,10.33,10.33,2024-03-10
+1434,richard li,consumer,europe,unknown,1,10.08,10.08,2023-06-04
+1685,william kim,consumer,asia pacific,unknown,1,9.96,9.96,2024-01-18
+1045,mary jackson,consumer,north america,unknown,1,9.95,9.95,2025-12-06
+81,amir dubois,home office,north america,unknown,1,9.94,9.94,2025-09-19
+118,ava yamamoto,consumer,north america,unknown,1,9.93,9.93,2025-05-29
+1105,michael ferrari,home office,asia pacific,unknown,1,9.89,9.89,2023-04-09
+358,elizabeth singh,home office,north america,unknown,1,9.65,9.65,2024-08-13
+853,kenji romano,corporate,europe,unknown,1,9.64,9.64,2024-04-16
+1012,maria laurent,home office,asia pacific,unknown,1,9.63,9.63,2023-02-08
+1404,raj khan,home office,north america,unknown,1,9.60,9.60,2023-12-07
+1373,priya leroy,consumer,south america,unknown,1,9.55,9.55,2024-05-09
+1103,michael ferrari,corporate,middle east & africa,unknown,1,9.50,9.50,2024-04-16
+1552,sophie johnson,home office,europe,unknown,1,9.50,9.50,2025-04-28
+1242,olivia schmidt,home office,europe,unknown,1,9.44,9.44,2025-07-06
+1220,olivia anderson,consumer,north america,unknown,1,9.33,9.33,2025-04-18
+1707,xiao johansson,home office,north america,unknown,1,9.32,9.32,2025-12-15
+491,giulia garcia,corporate,south america,unknown,1,9.26,9.26,2025-10-07
+1231,olivia laurent,consumer,north america,unknown,1,9.23,9.23,2023-12-07
+1301,oscar schmidt,corporate,asia pacific,unknown,1,9.21,9.21,2025-01-05
+914,liam costa,consumer,south america,unknown,1,9.18,9.18,2023-12-08
+1368,priya jones,consumer,middle east & africa,unknown,1,9.08,9.08,2023-04-14
+496,giulia leroy,consumer,asia pacific,unknown,1,8.96,8.96,2023-02-07
+1661,wei santos,corporate,north america,unknown,1,8.92,8.92,2023-08-18
+770,john ferrari,consumer,north america,unknown,1,8.87,8.87,2023-12-05
+883,layla park,consumer,asia pacific,unknown,1,8.87,8.87,2025-11-23
+1588,susan leroy,consumer,south america,unknown,1,8.80,8.80,2023-11-30
+1117,michael oliveira,corporate,south america,unknown,1,8.78,8.78,2025-08-02
+1534,sarah smith,home office,south america,unknown,1,8.77,8.77,2025-04-13
+400,ethan chen,consumer,north america,unknown,1,8.64,8.64,2025-09-28
+1400,raj costa,consumer,europe,unknown,1,8.54,8.54,2023-01-23
+1646,wei khan,consumer,north america,unknown,1,8.54,8.54,2024-10-15
+23,ahmed tanaka,corporate,north america,unknown,1,8.27,8.27,2024-11-17
+1152,nadia romano,corporate,europe,unknown,1,8.06,8.06,2024-03-19
+576,hans wang,corporate,north america,unknown,1,7.84,7.84,2025-11-06
+754,jessica park,home office,europe,unknown,1,7.40,7.40,2025-03-09
+672,jamal robinson,home office,asia pacific,unknown,1,7.39,7.39,2023-10-29
+1739,yuki thompson,home office,north america,unknown,1,7.30,7.30,2024-06-15
+419,ethan yamamoto,home office,asia pacific,unknown,1,7.16,7.16,2023-09-04
+986,lucas white,home office,north america,unknown,1,6.99,6.99,2023-07-06
+686,james ali,home office,north america,unknown,1,6.95,6.95,2024-11-28
+1579,susan garcia,corporate,south america,unknown,1,6.93,6.93,2025-05-11
+1531,sarah rossi,consumer,north america,unknown,1,6.89,6.89,2023-12-21
+1754,zara moreau,consumer,south america,unknown,1,6.83,6.83,2023-10-05
+240,christopher harris,consumer,asia pacific,unknown,1,6.69,6.69,2023-06-06
+459,felix hassan,home office,europe,unknown,1,6.68,6.68,2023-06-14
+490,giulia dubois,consumer,south america,unknown,1,6.62,6.62,2023-07-09
+593,ingrid santos,consumer,europe,unknown,1,6.45,6.45,2024-12-21
+1617,thomas oliveira,corporate,north america,unknown,1,5.67,5.67,2023-03-29
+1476,robert taylor,home office,north america,unknown,1,4.99,4.99,2025-06-16
+1551,sophie johansson,corporate,middle east & africa,unknown,1,4.87,4.87,2024-10-17
+814,karen martinez,home office,south america,unknown,1,4.78,4.78,2023-02-04
+614,isabella laurent,corporate,europe,unknown,1,4.02,4.02,2024-04-21
+735,jennifer thompson,corporate,north america,unknown,1,3.44,3.44,2025-06-07
+607,isabella jackson,corporate,asia pacific,unknown,1,3.03,3.03,2025-02-20
