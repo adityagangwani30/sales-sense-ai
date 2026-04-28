@@ -118,6 +118,7 @@ def _combine_cleaned_datasets(
     if combined.empty:
         return combined, {"datasets": len(frames), "input_rows": 0, "duplicates_removed": 0}
 
+    # Deduplicate cleaned rows before insert while still keeping a merged source trail.
     dedupe_columns = [column_name for column_name in combined.columns if column_name != "source"]
     combined = (
         combined.groupby(dedupe_columns, dropna=False, as_index=False)["source"]
@@ -189,6 +190,37 @@ def _ensure_column(connection, table_name: str, column_name: str, definition_sql
     cursor.close()
 
 
+def reset_database(connection) -> None:
+    """Drop child tables first so a new run starts from a clean relational state."""
+    reset_queries = [
+        "DROP TABLE IF EXISTS fact_sales",
+        "DROP TABLE IF EXISTS orders",
+        "DROP TABLE IF EXISTS products",
+        "DROP TABLE IF EXISTS customers",
+    ]
+
+    cursor = connection.cursor()
+    try:
+        _reset_transaction_state(connection)
+        for query in reset_queries:
+            cursor.execute(query)
+        connection.commit()
+        print("Database reset completed")
+    except Exception:
+        connection.rollback()
+        print("Transaction rolled back due to error")
+        raise
+    finally:
+        cursor.close()
+
+
+def _reset_transaction_state(connection) -> None:
+    """Clear any leftover transaction before starting a fresh atomic load."""
+    if connection.in_transaction:
+        print("Existing transaction detected; rolling back before starting a new one")
+        connection.rollback()
+
+
 def connect_db(
     host: str | None = None,
     user: str | None = None,
@@ -224,18 +256,23 @@ def connect_db(
         password=password,
         port=port,
     )
+    server_connection.autocommit = False
     server_cursor = server_connection.cursor()
     server_cursor.execute(f"CREATE DATABASE IF NOT EXISTS `{database}`")
+    server_connection.commit()
     server_cursor.close()
     server_connection.close()
 
-    return mysql.connector.connect(
+    connection = mysql.connector.connect(
         host=host,
         user=user,
         password=password,
         port=port,
         database=database,
     )
+    # Keep transaction boundaries explicit so repeated runs behave predictably.
+    connection.autocommit = False
+    return connection
 
 
 def create_tables(connection) -> None:
@@ -297,16 +334,22 @@ def create_tables(connection) -> None:
     ]
 
     cursor = connection.cursor()
-    for query in table_queries:
-        cursor.execute(query)
-    cursor.close()
+    try:
+        for query in table_queries:
+            cursor.execute(query)
 
-    _ensure_column(connection, "orders", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
-    _ensure_column(connection, "fact_sales", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
+        _ensure_column(connection, "orders", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
+        _ensure_column(connection, "fact_sales", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
 
-    connection.commit()
-    print(f"Database `{connection.database}` is ready.")
-    print("Tables created successfully: customers, products, orders, fact_sales")
+        connection.commit()
+        print(f"Database `{connection.database}` is ready.")
+        print("Tables created successfully: customers, products, orders, fact_sales")
+    except Exception:
+        connection.rollback()
+        print("Transaction rolled back due to error")
+        raise
+    finally:
+        cursor.close()
 
 
 def prepare_customers(cleaned_df: pd.DataFrame) -> pd.DataFrame:
@@ -497,7 +540,11 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
         )
 
     try:
+        # Some metadata queries or a previous failed run can leave the connection mid-transaction.
+        # Reset first so start_transaction() is only called on a clean connection.
+        _reset_transaction_state(connection)
         connection.start_transaction()
+        print("Transaction started")
 
         customer_rows = list(customers.itertuples(index=False, name=None))
         if customer_rows:
@@ -599,8 +646,10 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
             duplicate_skips[table_name] = max(batch_size - inserted_counts[table_name], 0)
 
         connection.commit()
+        print("Transaction committed successfully")
     except Exception:
         connection.rollback()
+        print("Transaction rolled back due to error")
         raise
     finally:
         cursor.close()
@@ -610,6 +659,8 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
         print(f"{table_name} -> Rows inserted: {inserted_counts[table_name]}")
         print(f"{table_name} -> Duplicates skipped: {duplicate_skips[table_name]}")
 
+    print("Rows inserted:", inserted_counts)
+    print("Duplicates skipped:", duplicate_skips)
     return inserted_counts
 
 
@@ -620,8 +671,9 @@ def load_cleaned_data_to_mysql(
     password: str | None = None,
     database: str = DEFAULT_DATABASE_NAME,
     port: int | None = None,
+    reset_db: bool = False,
 ) -> dict[str, int]:
-    """Full Week 3 workflow: connect, create schema, transform, and insert."""
+    """Full Week 3 workflow: optionally reset, create schema, transform, and insert."""
     connection = connect_db(
         host=host,
         user=user,
@@ -631,9 +683,17 @@ def load_cleaned_data_to_mysql(
     )
 
     try:
+        if reset_db:
+            # Full refresh mode removes stale tables before recreating the same schema.
+            reset_database(connection)
         create_tables(connection)
         inserted_counts = insert_data(connection, cleaned_df)
         print(f"MySQL load completed successfully in `{database}`.")
         return inserted_counts
+    except Exception:
+        if connection.in_transaction:
+            connection.rollback()
+            print("Transaction rolled back due to error")
+        raise
     finally:
         connection.close()

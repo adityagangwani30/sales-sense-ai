@@ -11,6 +11,7 @@ from database_loader import load_cleaned_data_to_mysql
 
 DATA_DIR = Path("original_dataset")
 OUTPUT_DIR = Path("outputs")
+RESET_DB = True
 DATASET_FILES: Dict[str, Path] = {
     "global_ecommerce_sales": DATA_DIR / "global_ecommerce_sales.csv",
     "retail_supply_chain_sales": DATA_DIR / "Retail-Supply-Chain-Sales-Dataset.xlsx",
@@ -36,9 +37,10 @@ def normalize_column_name(column_name: str) -> str:
     return column_name.strip("_")
 
 
-def get_dataset_path(dataset_choice: str | None = None) -> tuple[str, Path]:
-    """Resolve the user's dataset choice to one file inside original_dataset."""
+def get_dataset_paths(dataset_choice: str | None = None) -> list[tuple[str, Path]]:
+    """Resolve one dataset or all datasets inside original_dataset."""
     dataset_aliases = {
+        "all": "all",
         "1": "global_ecommerce_sales",
         "2": "retail_supply_chain_sales",
         "global_ecommerce_sales.csv": "global_ecommerce_sales",
@@ -47,39 +49,44 @@ def get_dataset_path(dataset_choice: str | None = None) -> tuple[str, Path]:
     }
 
     if dataset_choice is None:
-        print("Available datasets:")
-        print("  1. global_ecommerce_sales")
-        print("  2. retail_supply_chain_sales")
-        dataset_choice = input("Enter dataset name or number: ").strip()
-
-    normalized_choice = dataset_choice.strip().lower()
-    dataset_name = dataset_aliases.get(normalized_choice, normalized_choice)
-
-    if dataset_name not in DATASET_FILES:
-        valid_choices = ", ".join(DATASET_FILES.keys())
-        raise ValueError(f"Invalid dataset choice. Choose one of: {valid_choices}")
-
-    dataset_path = DATASET_FILES[dataset_name]
-    if not dataset_path.exists():
-        raise FileNotFoundError(f"Dataset not found: {dataset_path}")
-
-    return dataset_name, dataset_path
-
-
-def load_data(dataset_choice: str | None = None) -> tuple[str, pd.DataFrame]:
-    """Load only the dataset selected by the user."""
-    dataset_name, dataset_path = get_dataset_path(dataset_choice)
-
-    if dataset_path.suffix.lower() == ".csv":
-        dataset = pd.read_csv(dataset_path)
+        dataset_items = list(DATASET_FILES.items())
     else:
-        dataset = pd.read_excel(dataset_path)
+        normalized_choice = dataset_choice.strip().lower()
+        dataset_name = dataset_aliases.get(normalized_choice, normalized_choice)
 
-    print(f"Selected dataset: {dataset_name}")
-    print(f"Source file: {dataset_path}")
-    print(f"Original shape: {dataset.shape}")
+        if dataset_name == "all":
+            dataset_items = list(DATASET_FILES.items())
+        else:
+            if dataset_name not in DATASET_FILES:
+                valid_choices = ", ".join((*DATASET_FILES.keys(), "all"))
+                raise ValueError(f"Invalid dataset choice. Choose one of: {valid_choices}")
+            dataset_items = [(dataset_name, DATASET_FILES[dataset_name])]
 
-    return dataset_name, dataset
+    resolved_datasets: list[tuple[str, Path]] = []
+    for dataset_name, dataset_path in dataset_items:
+        if not dataset_path.exists():
+            raise FileNotFoundError(f"Dataset not found: {dataset_path}")
+        resolved_datasets.append((dataset_name, dataset_path))
+
+    return resolved_datasets
+
+
+def load_data(dataset_choice: str | None = None) -> list[tuple[str, pd.DataFrame]]:
+    """Load one dataset or both datasets for the pipeline run."""
+    datasets: list[tuple[str, pd.DataFrame]] = []
+
+    for dataset_name, dataset_path in get_dataset_paths(dataset_choice):
+        if dataset_path.suffix.lower() == ".csv":
+            dataset = pd.read_csv(dataset_path)
+        else:
+            dataset = pd.read_excel(dataset_path)
+
+        print(f"Selected dataset: {dataset_name}")
+        print(f"Source file: {dataset_path}")
+        print(f"Original shape: {dataset.shape}")
+        datasets.append((dataset_name, dataset))
+
+    return datasets
 
 
 def detect_columns(
@@ -305,76 +312,94 @@ def save_cleaned_data(df: pd.DataFrame, dataset_name: str) -> Path:
     return output_path
 
 
-def main(dataset_choice: str | None = None, load_to_db: bool = True) -> pd.DataFrame:
-    """Run the preprocessing pipeline for one selected dataset."""
-    dataset_name, raw_df = load_data(dataset_choice)
-    cleaned_df, mapping = clean_data(
-        df=raw_df,
-        column_map=DEFAULT_COLUMN_MAP,
-        required_columns=REQUIRED_COLUMNS,
-        numeric_columns=NUMERIC_COLUMNS,
-    )
-    cleaned_df = feature_engineering(cleaned_df)
-    cleaned_df["source"] = dataset_name
+def main(
+    dataset_choice: str | None = None,
+    load_to_db: bool = True,
+    reset_db: bool = RESET_DB,
+) -> pd.DataFrame:
+    """Run the preprocessing pipeline for one dataset or both datasets together."""
+    loaded_datasets = load_data(dataset_choice)
+    cleaned_datasets: list[pd.DataFrame] = []
 
-    required_final_columns = ["date", "customer", "product", "quantity", "price", "sales", "month", "year"]
-    default_values = {
-        "customer": "unknown",
-        "product": "unknown",
-        "quantity": pd.NA,
-        "price": pd.NA,
-        "sales": pd.NA,
-        "month": pd.NA,
-        "year": pd.NA,
-    }
+    for dataset_name, raw_df in loaded_datasets:
+        cleaned_df, mapping = clean_data(
+            df=raw_df,
+            column_map=DEFAULT_COLUMN_MAP,
+            required_columns=REQUIRED_COLUMNS,
+            numeric_columns=NUMERIC_COLUMNS,
+        )
+        cleaned_df = feature_engineering(cleaned_df)
+        cleaned_df["source"] = dataset_name
 
-    for column_name in required_final_columns:
-        if column_name not in cleaned_df.columns:
-            cleaned_df[column_name] = default_values.get(column_name, pd.NA)
+        required_final_columns = ["date", "customer", "product", "quantity", "price", "sales", "month", "year"]
+        default_values = {
+            "customer": "unknown",
+            "product": "unknown",
+            "quantity": pd.NA,
+            "price": pd.NA,
+            "sales": pd.NA,
+            "month": pd.NA,
+            "year": pd.NA,
+        }
 
-    ordered_columns = required_final_columns + [
-        column_name for column_name in cleaned_df.columns if column_name not in required_final_columns
-    ]
-    cleaned_df = cleaned_df[ordered_columns]
+        for column_name in required_final_columns:
+            if column_name not in cleaned_df.columns:
+                cleaned_df[column_name] = default_values.get(column_name, pd.NA)
 
-    print(f"\nMapping results for {dataset_name}:")
-    for standard_name in sorted(mapping):
-        print(f"  {standard_name:<10} -> {mapping[standard_name]}")
+        ordered_columns = required_final_columns + [
+            column_name for column_name in cleaned_df.columns if column_name not in required_final_columns
+        ]
+        cleaned_df = cleaned_df[ordered_columns]
 
-    print(f"Cleaned shape: {cleaned_df.shape}")
+        print(f"\nMapping results for {dataset_name}:")
+        for standard_name in sorted(mapping):
+            print(f"  {standard_name:<10} -> {mapping[standard_name]}")
 
-    print("\nData quality report:")
-    print("Missing values summary:")
-    missing_summary = cleaned_df.isna().sum()
-    print(missing_summary[missing_summary > 0].to_string() if (missing_summary > 0).any() else "  No missing values.")
+        print(f"Cleaned shape: {cleaned_df.shape}")
 
-    duplicate_subset = [column_name for column_name in ["date", "product", "customer"] if column_name in cleaned_df.columns]
-    duplicate_count = int(cleaned_df.duplicated(subset=duplicate_subset).sum()) if duplicate_subset else 0
-    print(f"Duplicate count: {duplicate_count}")
+        print("\nData quality report:")
+        print("Missing values summary:")
+        missing_summary = cleaned_df.isna().sum()
+        print(missing_summary[missing_summary > 0].to_string() if (missing_summary > 0).any() else "  No missing values.")
 
-    print("Data types:")
-    print(cleaned_df.dtypes.to_string())
+        duplicate_subset = [column_name for column_name in ["date", "product", "customer"] if column_name in cleaned_df.columns]
+        duplicate_count = int(cleaned_df.duplicated(subset=duplicate_subset).sum()) if duplicate_subset else 0
+        print(f"Duplicate count: {duplicate_count}")
 
-    total_revenue = float(cleaned_df["revenue"].sum()) if "revenue" in cleaned_df.columns else float(cleaned_df["sales"].sum())
-    total_orders = int(len(cleaned_df))
-    average_order_value = total_revenue / total_orders if total_orders else 0.0
+        print("Data types:")
+        print(cleaned_df.dtypes.to_string())
 
-    print("\nBusiness metrics:")
-    print(f"Total Revenue: {total_revenue:.2f}")
-    print(f"Total Orders: {total_orders}")
-    print(f"Average Order Value (AOV): {average_order_value:.2f}")
+        total_revenue = float(cleaned_df["revenue"].sum()) if "revenue" in cleaned_df.columns else float(cleaned_df["sales"].sum())
+        total_orders = int(len(cleaned_df))
+        average_order_value = total_revenue / total_orders if total_orders else 0.0
 
-    output_path = save_cleaned_data(cleaned_df, dataset_name)
-    print(f"Saved cleaned dataset to: {output_path.resolve()}")
+        print("\nBusiness metrics:")
+        print(f"Total Revenue: {total_revenue:.2f}")
+        print(f"Total Orders: {total_orders}")
+        print(f"Average Order Value (AOV): {average_order_value:.2f}")
+
+        output_path = save_cleaned_data(cleaned_df, dataset_name)
+        print(f"Saved cleaned dataset to: {output_path.resolve()}")
+        cleaned_datasets.append(cleaned_df)
+
+    combined_cleaned_df = pd.concat(cleaned_datasets, ignore_index=True, sort=False)
+    combined_duplicate_count = int(combined_cleaned_df.drop(columns=["source"], errors="ignore").duplicated().sum())
+    print("\nCombined dataset summary:")
+    print(f"Datasets combined: {len(cleaned_datasets)}")
+    print(f"Combined cleaned shape: {combined_cleaned_df.shape}")
+    print(f"Combined duplicate count before DB load: {combined_duplicate_count}")
 
     if load_to_db:
         print("\nStarting Week 3 database load...")
+        print(f"RESET_DB mode: {reset_db}")
         try:
-            load_cleaned_data_to_mysql(cleaned_df)
+            # Each dataset is cleaned independently first, then loaded together so the
+            # database reset or incremental dedupe logic sees the full batch in one run.
+            load_cleaned_data_to_mysql(cleaned_datasets, reset_db=reset_db)
         except Exception as error:
             print(f"Database load failed: {error}")
 
-    return cleaned_df
+    return combined_cleaned_df
 
 
 if __name__ == "__main__":
