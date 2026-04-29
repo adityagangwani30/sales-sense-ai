@@ -10,9 +10,7 @@ from matplotlib import pyplot as plt
 from matplotlib.ticker import FuncFormatter, MaxNLocator
 
 
-SQL_OUTPUT_DIR = Path("outputs") / "sql_analysis"
-VISUALIZATION_OUTPUT_DIR = Path("outputs") / "visualizations"
-CLEANED_OUTPUT_GLOB = "*_cleaned.csv"
+OUTPUT_ROOT_DIR = Path("outputs")
 
 PRIMARY_COLOR = "#2E86AB"
 SECONDARY_COLOR = "#A23B72"
@@ -58,41 +56,57 @@ def configure_plot_style() -> None:
     )
 
 
-def ensure_output_dir() -> Path:
+def get_dataset_output_dir(dataset_name: str) -> Path:
+    """Return the root output directory for one dataset."""
+    return OUTPUT_ROOT_DIR / dataset_name
+
+
+def get_sql_output_dir(dataset_name: str) -> Path:
+    """Return the SQL analysis directory for one dataset."""
+    return get_dataset_output_dir(dataset_name) / "sql_analysis"
+
+
+def get_visualization_output_dir(dataset_name: str) -> Path:
+    """Return the visualization directory for one dataset."""
+    return get_dataset_output_dir(dataset_name) / "visualizations"
+
+
+def get_cleaned_output_path(dataset_name: str) -> Path:
+    """Return the cleaned CSV path for one dataset."""
+    return get_dataset_output_dir(dataset_name) / f"{dataset_name}_cleaned.csv"
+
+
+def ensure_output_dir(dataset_name: str) -> Path:
     """Create the visualization folder if it does not exist yet."""
-    VISUALIZATION_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    return VISUALIZATION_OUTPUT_DIR
+    visualization_output_dir = get_visualization_output_dir(dataset_name)
+    visualization_output_dir.mkdir(parents=True, exist_ok=True)
+    return visualization_output_dir
 
 
-def load_sql_output(filename: str, parse_dates: list[str] | None = None) -> pd.DataFrame:
+def load_sql_output(dataset_name: str, filename: str, parse_dates: list[str] | None = None) -> pd.DataFrame:
     """Load one SQL analysis export from disk."""
-    csv_path = SQL_OUTPUT_DIR / filename
+    csv_path = get_sql_output_dir(dataset_name) / filename
     if not csv_path.exists():
         raise FileNotFoundError(f"Required SQL output not found: {csv_path}")
     return pd.read_csv(csv_path, parse_dates=parse_dates)
 
 
-def load_cleaned_outputs() -> pd.DataFrame:
-    """Combine every cleaned dataset so distribution charts use real transaction data."""
-    cleaned_paths = sorted(Path("outputs").glob(CLEANED_OUTPUT_GLOB))
-    if not cleaned_paths:
-        raise FileNotFoundError("No cleaned datasets found in outputs/. Run the pipeline first.")
+def load_cleaned_output(dataset_name: str) -> pd.DataFrame:
+    """Load the cleaned dataset for one isolated visualization run."""
+    cleaned_path = get_cleaned_output_path(dataset_name)
+    if not cleaned_path.exists():
+        raise FileNotFoundError(f"Cleaned dataset not found: {cleaned_path}")
 
-    frames: list[pd.DataFrame] = []
-    for cleaned_path in cleaned_paths:
-        frame = pd.read_csv(cleaned_path, parse_dates=["date"], low_memory=False)
-        frames.append(frame)
-
-    combined = pd.concat(frames, ignore_index=True, sort=False)
+    cleaned_df = pd.read_csv(cleaned_path, parse_dates=["date"], low_memory=False)
     for column_name in ("sales", "price", "quantity", "revenue"):
-        if column_name in combined.columns:
-            combined[column_name] = pd.to_numeric(combined[column_name], errors="coerce")
-    return combined
+        if column_name in cleaned_df.columns:
+            cleaned_df[column_name] = pd.to_numeric(cleaned_df[column_name], errors="coerce")
+    return cleaned_df
 
 
-def save_figure(fig: plt.Figure, filename: str) -> Path:
+def save_figure(fig: plt.Figure, dataset_name: str, filename: str) -> Path:
     """Save one figure as a high-resolution PNG."""
-    output_dir = ensure_output_dir()
+    output_dir = ensure_output_dir(dataset_name)
     output_path = output_dir / filename
     fig.savefig(output_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
@@ -102,6 +116,24 @@ def save_figure(fig: plt.Figure, filename: str) -> Path:
 def add_light_grid(ax: plt.Axes, axis: str = "y") -> None:
     """Use a subtle grid so values are readable without clutter."""
     ax.grid(True, axis=axis, alpha=0.3)
+
+
+def draw_no_data(ax: plt.Axes, title: str, x_label: str, y_label: str) -> None:
+    """Render a consistent placeholder when an input dataframe has no usable rows."""
+    ax.set_title(title)
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(y_label)
+    ax.text(
+        0.5,
+        0.5,
+        "No data available",
+        transform=ax.transAxes,
+        ha="center",
+        va="center",
+        fontsize=11,
+        color=NEUTRAL_COLOR,
+    )
+    ax.grid(False)
 
 
 def add_bar_labels(ax: plt.Axes, horizontal: bool = False, currency: bool = False) -> None:
@@ -163,6 +195,10 @@ def plot_monthly_revenue_trend(ax: plt.Axes, monthly_revenue_df: pd.DataFrame) -
     trend_df["monthly_revenue"] = pd.to_numeric(trend_df["monthly_revenue"], errors="coerce")
     trend_df = trend_df.dropna(subset=["month_start", "monthly_revenue"]).sort_values("month_start")
 
+    if trend_df.empty:
+        draw_no_data(ax, "Monthly Revenue Trend", "Month", "Revenue ($)")
+        return
+
     ax.plot(
         trend_df["month_start"],
         trend_df["monthly_revenue"],
@@ -223,6 +259,10 @@ def plot_top_products(ax: plt.Axes, top_products_df: pd.DataFrame) -> None:
     ranked_df = ranked_df.dropna(subset=["product_name", "total_revenue"])
     ranked_df = ranked_df.sort_values("total_revenue", ascending=True)
 
+    if ranked_df.empty:
+        draw_no_data(ax, "Top 10 Products by Revenue", "Revenue ($)", "Product")
+        return
+
     colors = [PRIMARY_COLOR] * len(ranked_df)
     if colors:
         colors[-1] = SECONDARY_COLOR
@@ -245,6 +285,9 @@ def plot_top_products(ax: plt.Axes, top_products_df: pd.DataFrame) -> None:
 def plot_category_distribution(ax: plt.Axes, category_df: pd.DataFrame) -> None:
     """A pie chart works well here because the question is share of revenue by category."""
     prepared = prepare_category_distribution(category_df)
+    if prepared.empty:
+        draw_no_data(ax, "Category Revenue Distribution", "", "")
+        return
     largest_index = prepared["total_revenue"].idxmax()
     explode = [0.08 if index == largest_index else 0 for index in prepared.index]
 
@@ -292,6 +335,10 @@ def plot_customer_segmentation(
 ) -> None:
     """Grouped customer summaries show both audience size and customer value by segment."""
     segment_summary = prepare_segment_summary(customer_segmentation_df)
+    if segment_summary.empty:
+        draw_no_data(ax_count, "Customer Count by Segment", "Segment", "Customers")
+        draw_no_data(ax_aov, "Average Order Value by Segment", "Segment", "Avg Order Value ($)")
+        return
     segments = segment_summary["segment"]
 
     ax_count.bar(segments, segment_summary["customer_count"], color=PRIMARY_COLOR, edgecolor="none")
@@ -317,6 +364,9 @@ def plot_customer_segmentation(
 def plot_order_value_distribution(ax: plt.Axes, cleaned_df: pd.DataFrame) -> None:
     """A histogram is ideal for spotting common spend ranges and skew in order values."""
     order_values = build_order_values(cleaned_df)
+    if order_values.empty:
+        draw_no_data(ax, "Order Value Distribution", "Order Value ($)", "Order Frequency")
+        return
     counts, _, _ = ax.hist(
         order_values,
         bins=20,
@@ -355,7 +405,8 @@ def plot_order_value_distribution(ax: plt.Axes, cleaned_df: pd.DataFrame) -> Non
 def plot_price_vs_sales_scatter(ax: plt.Axes, cleaned_df: pd.DataFrame) -> None:
     """A scatter plot reveals whether higher prices are associated with larger sales values."""
     if not {"price", "sales"}.issubset(cleaned_df.columns):
-        raise ValueError("Scatter plot requires price and sales columns in the cleaned data.")
+        draw_no_data(ax, "Price vs Sales Correlation", "Unit Price ($)", "Sales Value ($)")
+        return
 
     scatter_df = cleaned_df[["price", "sales"]].copy()
     scatter_df["price"] = pd.to_numeric(scatter_df["price"], errors="coerce")
@@ -363,7 +414,8 @@ def plot_price_vs_sales_scatter(ax: plt.Axes, cleaned_df: pd.DataFrame) -> None:
     scatter_df = scatter_df.dropna()
     scatter_df = scatter_df[(scatter_df["price"] > 0) & (scatter_df["sales"] > 0)]
     if len(scatter_df) < 2:
-        raise ValueError("Not enough price and sales records are available to build the scatter plot.")
+        draw_no_data(ax, "Price vs Sales Correlation", "Unit Price ($)", "Sales Value ($)")
+        return
 
     if len(scatter_df) > 1500:
         scatter_df = scatter_df.sample(1500, random_state=42)
@@ -403,74 +455,77 @@ def plot_price_vs_sales_scatter(ax: plt.Axes, cleaned_df: pd.DataFrame) -> None:
     add_light_grid(ax, axis="both")
 
 
-def create_monthly_revenue_trend(monthly_revenue_df: pd.DataFrame | None = None) -> Path:
+def create_monthly_revenue_trend(dataset_name: str, monthly_revenue_df: pd.DataFrame | None = None) -> Path:
     """Create the monthly revenue trend chart."""
     configure_plot_style()
     monthly_revenue_df = (
         monthly_revenue_df
         if monthly_revenue_df is not None
-        else load_sql_output("monthly_revenue_trend.csv", parse_dates=["month_start"])
+        else load_sql_output(dataset_name, "monthly_revenue_trend.csv", parse_dates=["month_start"])
     )
     fig, ax = plt.subplots(figsize=(12, 6))
     plot_monthly_revenue_trend(ax, monthly_revenue_df)
     fig.tight_layout()
-    return save_figure(fig, "monthly_revenue_trend.png")
+    return save_figure(fig, dataset_name, "monthly_revenue_trend.png")
 
 
-def create_top_products_chart(top_products_df: pd.DataFrame | None = None) -> Path:
+def create_top_products_chart(dataset_name: str, top_products_df: pd.DataFrame | None = None) -> Path:
     """Create the ranked top products chart."""
     configure_plot_style()
-    top_products_df = top_products_df if top_products_df is not None else load_sql_output("top_products.csv")
+    top_products_df = top_products_df if top_products_df is not None else load_sql_output(dataset_name, "top_products.csv")
     fig, ax = plt.subplots(figsize=(12, 7))
     plot_top_products(ax, top_products_df)
     fig.tight_layout()
-    return save_figure(fig, "top_products.png")
+    return save_figure(fig, dataset_name, "top_products.png")
 
 
-def create_category_distribution_chart(category_df: pd.DataFrame | None = None) -> Path:
+def create_category_distribution_chart(dataset_name: str, category_df: pd.DataFrame | None = None) -> Path:
     """Create the category share chart."""
     configure_plot_style()
-    category_df = category_df if category_df is not None else load_sql_output("category_performance.csv")
+    category_df = category_df if category_df is not None else load_sql_output(dataset_name, "category_performance.csv")
     fig, ax = plt.subplots(figsize=(10, 7))
     plot_category_distribution(ax, category_df)
     fig.tight_layout()
-    return save_figure(fig, "category_distribution.png")
+    return save_figure(fig, dataset_name, "category_distribution.png")
 
 
-def create_customer_segmentation_chart(customer_segmentation_df: pd.DataFrame | None = None) -> Path:
+def create_customer_segmentation_chart(dataset_name: str, customer_segmentation_df: pd.DataFrame | None = None) -> Path:
     """Create the two-panel customer segmentation figure."""
     configure_plot_style()
     customer_segmentation_df = (
-        customer_segmentation_df if customer_segmentation_df is not None else load_sql_output("customer_segmentation.csv")
+        customer_segmentation_df
+        if customer_segmentation_df is not None
+        else load_sql_output(dataset_name, "customer_segmentation.csv")
     )
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
     plot_customer_segmentation(axes[0], axes[1], customer_segmentation_df)
     fig.suptitle("Customer Segmentation Overview", fontsize=16, fontweight="bold")
     fig.tight_layout()
-    return save_figure(fig, "customer_segmentation.png")
+    return save_figure(fig, dataset_name, "customer_segmentation.png")
 
 
-def create_order_value_distribution_chart(cleaned_df: pd.DataFrame | None = None) -> Path:
+def create_order_value_distribution_chart(dataset_name: str, cleaned_df: pd.DataFrame | None = None) -> Path:
     """Create the order value histogram."""
     configure_plot_style()
-    cleaned_df = cleaned_df if cleaned_df is not None else load_cleaned_outputs()
+    cleaned_df = cleaned_df if cleaned_df is not None else load_cleaned_output(dataset_name)
     fig, ax = plt.subplots(figsize=(12, 6))
     plot_order_value_distribution(ax, cleaned_df)
     fig.tight_layout()
-    return save_figure(fig, "order_value_distribution.png")
+    return save_figure(fig, dataset_name, "order_value_distribution.png")
 
 
-def create_price_vs_sales_scatter_chart(cleaned_df: pd.DataFrame | None = None) -> Path:
+def create_price_vs_sales_scatter_chart(dataset_name: str, cleaned_df: pd.DataFrame | None = None) -> Path:
     """Create the optional scatter plot."""
     configure_plot_style()
-    cleaned_df = cleaned_df if cleaned_df is not None else load_cleaned_outputs()
+    cleaned_df = cleaned_df if cleaned_df is not None else load_cleaned_output(dataset_name)
     fig, ax = plt.subplots(figsize=(11, 6))
     plot_price_vs_sales_scatter(ax, cleaned_df)
     fig.tight_layout()
-    return save_figure(fig, "price_vs_sales_scatter.png")
+    return save_figure(fig, dataset_name, "price_vs_sales_scatter.png")
 
 
 def create_dashboard(
+    dataset_name: str,
     monthly_revenue_df: pd.DataFrame | None = None,
     top_products_df: pd.DataFrame | None = None,
     category_df: pd.DataFrame | None = None,
@@ -482,14 +537,16 @@ def create_dashboard(
     monthly_revenue_df = (
         monthly_revenue_df
         if monthly_revenue_df is not None
-        else load_sql_output("monthly_revenue_trend.csv", parse_dates=["month_start"])
+        else load_sql_output(dataset_name, "monthly_revenue_trend.csv", parse_dates=["month_start"])
     )
-    top_products_df = top_products_df if top_products_df is not None else load_sql_output("top_products.csv")
-    category_df = category_df if category_df is not None else load_sql_output("category_performance.csv")
+    top_products_df = top_products_df if top_products_df is not None else load_sql_output(dataset_name, "top_products.csv")
+    category_df = category_df if category_df is not None else load_sql_output(dataset_name, "category_performance.csv")
     customer_segmentation_df = (
-        customer_segmentation_df if customer_segmentation_df is not None else load_sql_output("customer_segmentation.csv")
+        customer_segmentation_df
+        if customer_segmentation_df is not None
+        else load_sql_output(dataset_name, "customer_segmentation.csv")
     )
-    cleaned_df = cleaned_df if cleaned_df is not None else load_cleaned_outputs()
+    cleaned_df = cleaned_df if cleaned_df is not None else load_cleaned_output(dataset_name)
 
     fig, axes = plt.subplots(3, 2, figsize=(18, 16))
     fig.suptitle("SalesSense Retail Analytics Dashboard", fontsize=20, fontweight="bold")
@@ -501,27 +558,28 @@ def create_dashboard(
     plot_order_value_distribution(axes[2, 1], cleaned_df)
 
     fig.tight_layout(rect=(0, 0, 1, 0.97))
-    return save_figure(fig, "sales_dashboard.png")
+    return save_figure(fig, dataset_name, "sales_dashboard.png")
 
 
-def run_visualizations() -> dict[str, Path]:
+def run_visualizations(dataset_name: str, cleaned_df: pd.DataFrame | None = None) -> dict[str, Path]:
     """Generate all Week 5 charts from SQL outputs and cleaned transactional data."""
-    print("Generating visualizations...")
+    print(f"Generating visualizations for {dataset_name}...")
 
-    monthly_revenue_df = load_sql_output("monthly_revenue_trend.csv", parse_dates=["month_start"])
-    top_products_df = load_sql_output("top_products.csv")
-    category_df = load_sql_output("category_performance.csv")
-    customer_segmentation_df = load_sql_output("customer_segmentation.csv")
-    cleaned_df = load_cleaned_outputs()
+    monthly_revenue_df = load_sql_output(dataset_name, "monthly_revenue_trend.csv", parse_dates=["month_start"])
+    top_products_df = load_sql_output(dataset_name, "top_products.csv")
+    category_df = load_sql_output(dataset_name, "category_performance.csv")
+    customer_segmentation_df = load_sql_output(dataset_name, "customer_segmentation.csv")
+    cleaned_df = cleaned_df if cleaned_df is not None else load_cleaned_output(dataset_name)
 
     output_files = {
-        "monthly_revenue_trend": create_monthly_revenue_trend(monthly_revenue_df),
-        "top_products": create_top_products_chart(top_products_df),
-        "category_distribution": create_category_distribution_chart(category_df),
-        "customer_segmentation": create_customer_segmentation_chart(customer_segmentation_df),
-        "order_value_distribution": create_order_value_distribution_chart(cleaned_df),
-        "price_vs_sales_scatter": create_price_vs_sales_scatter_chart(cleaned_df),
+        "monthly_revenue_trend": create_monthly_revenue_trend(dataset_name, monthly_revenue_df),
+        "top_products": create_top_products_chart(dataset_name, top_products_df),
+        "category_distribution": create_category_distribution_chart(dataset_name, category_df),
+        "customer_segmentation": create_customer_segmentation_chart(dataset_name, customer_segmentation_df),
+        "order_value_distribution": create_order_value_distribution_chart(dataset_name, cleaned_df),
+        "price_vs_sales_scatter": create_price_vs_sales_scatter_chart(dataset_name, cleaned_df),
         "dashboard": create_dashboard(
+            dataset_name=dataset_name,
             monthly_revenue_df=monthly_revenue_df,
             top_products_df=top_products_df,
             category_df=category_df,
@@ -537,9 +595,9 @@ def run_visualizations() -> dict[str, Path]:
     print("Order value distribution created")
     print("Scatter plot created")
     print("Dashboard created successfully")
-    print(f"Visualization outputs saved to: {VISUALIZATION_OUTPUT_DIR.resolve()}")
+    print(f"Visualization outputs saved to: {get_visualization_output_dir(dataset_name).resolve()}")
     return output_files
 
 
 if __name__ == "__main__":
-    run_visualizations()
+    raise SystemExit("Run visualization.run_visualizations(dataset_name=...) from the pipeline.")

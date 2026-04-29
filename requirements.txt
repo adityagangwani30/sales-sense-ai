@@ -3,3 +3,4 @@ numpy
 openpyxl
 mysql-connector-python
 dotenv
+matplotlib

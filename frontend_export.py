@@ -9,8 +9,6 @@ import pandas as pd
 
 
 OUTPUTS_DIR = Path("outputs")
-SQL_OUTPUT_DIR = OUTPUTS_DIR / "sql_analysis"
-VISUALIZATIONS_DIR = OUTPUTS_DIR / "visualizations"
 FRONTEND_PUBLIC_DIR = Path("frontend") / "public"
 FRONTEND_DATA_DIR = FRONTEND_PUBLIC_DIR / "data"
 FRONTEND_DATASETS_DIR = FRONTEND_DATA_DIR / "datasets"
@@ -22,13 +20,13 @@ DATASET_CONFIGS = [
         "id": "global_ecommerce_sales",
         "label": "Dataset 1",
         "description": "Global E-Commerce Sales",
-        "source_path": OUTPUTS_DIR / "global_ecommerce_sales_cleaned.csv",
+        "source_path": OUTPUTS_DIR / "global_ecommerce_sales" / "global_ecommerce_sales_cleaned.csv",
     },
     {
         "id": "retail_supply_chain_sales",
         "label": "Dataset 2",
         "description": "Retail Supply Chain Sales",
-        "source_path": OUTPUTS_DIR / "retail_supply_chain_sales_cleaned.csv",
+        "source_path": OUTPUTS_DIR / "retail_supply_chain_sales" / "retail_supply_chain_sales_cleaned.csv",
     },
 ]
 
@@ -54,6 +52,18 @@ def ensure_frontend_dirs() -> None:
         directory.mkdir(parents=True, exist_ok=True)
 
 
+def get_dataset_output_dir(dataset_id: str) -> Path:
+    return OUTPUTS_DIR / dataset_id
+
+
+def get_sql_output_dir(dataset_id: str) -> Path:
+    return get_dataset_output_dir(dataset_id) / "sql_analysis"
+
+
+def get_visualization_output_dir(dataset_id: str) -> Path:
+    return get_dataset_output_dir(dataset_id) / "visualizations"
+
+
 def detect_column(df: pd.DataFrame, candidates: list[str]) -> str | None:
     """Return the first matching column name from a preference list."""
     for candidate in candidates:
@@ -72,36 +82,44 @@ def format_records(df: pd.DataFrame) -> list[dict[str, Any]]:
     return cleaned.to_dict(orient="records")
 
 
-def copy_visualizations() -> list[dict[str, str]]:
+def copy_visualizations(dataset_id: str) -> list[dict[str, str]]:
     """Copy generated PNGs into the Next.js public folder."""
-    if not VISUALIZATIONS_DIR.exists():
-        raise FileNotFoundError(f"Visualization output folder not found: {VISUALIZATIONS_DIR}")
+    visualization_dir = get_visualization_output_dir(dataset_id)
+    if not visualization_dir.exists():
+        raise FileNotFoundError(f"Visualization output folder not found: {visualization_dir}")
+
+    target_dir = FRONTEND_VISUALIZATION_DIR / dataset_id
+    target_dir.mkdir(parents=True, exist_ok=True)
 
     assets: list[dict[str, str]] = []
-    for image_path in sorted(VISUALIZATIONS_DIR.glob("*.png")):
-        target_path = FRONTEND_VISUALIZATION_DIR / image_path.name
+    for image_path in sorted(visualization_dir.glob("*.png")):
+        target_path = target_dir / image_path.name
         shutil.copy2(image_path, target_path)
         assets.append(
             {
                 "title": VISUALIZATION_TITLES.get(image_path.name, image_path.stem.replace("_", " ").title()),
-                "src": f"/visualizations/{image_path.name}",
+                "src": f"/visualizations/{dataset_id}/{image_path.name}",
                 "filename": image_path.name,
             }
         )
     return assets
 
 
-def export_sql_analysis_json() -> dict[str, str]:
+def export_sql_analysis_json(dataset_id: str) -> dict[str, str]:
     """Publish every SQL analysis CSV as frontend-friendly JSON."""
-    if not SQL_OUTPUT_DIR.exists():
-        raise FileNotFoundError(f"SQL output folder not found: {SQL_OUTPUT_DIR}")
+    sql_output_dir = get_sql_output_dir(dataset_id)
+    if not sql_output_dir.exists():
+        raise FileNotFoundError(f"SQL output folder not found: {sql_output_dir}")
+
+    target_dir = FRONTEND_SQL_DIR / dataset_id
+    target_dir.mkdir(parents=True, exist_ok=True)
 
     exported_files: dict[str, str] = {}
-    for csv_path in sorted(SQL_OUTPUT_DIR.glob("*.csv")):
+    for csv_path in sorted(sql_output_dir.glob("*.csv")):
         frame = pd.read_csv(csv_path)
-        output_path = FRONTEND_SQL_DIR / f"{csv_path.stem}.json"
+        output_path = target_dir / f"{csv_path.stem}.json"
         output_path.write_text(json.dumps(format_records(frame), indent=2), encoding="utf-8")
-        exported_files[csv_path.stem] = f"/data/sql-analysis/{csv_path.stem}.json"
+        exported_files[csv_path.stem] = f"/data/sql-analysis/{dataset_id}/{csv_path.stem}.json"
     return exported_files
 
 
@@ -264,10 +282,20 @@ def build_dataset_payload(
     return payload
 
 
-def export_dataset_jsons(visualizations: list[dict[str, str]]) -> list[dict[str, str]]:
+def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, str]]]:
     """Build a dataset payload for each source file the dashboard can switch between."""
     dataset_entries: list[dict[str, str]] = []
+    sql_analysis_entries: dict[str, dict[str, str]] = {}
     for config in DATASET_CONFIGS:
+        if (
+            not config["source_path"].exists()
+            or not get_sql_output_dir(config["id"]).exists()
+            or not get_visualization_output_dir(config["id"]).exists()
+        ):
+            continue
+
+        visualizations = copy_visualizations(config["id"])
+        sql_analysis_entries[config["id"]] = export_sql_analysis_json(config["id"])
         payload = build_dataset_payload(
             cleaned_path=config["source_path"],
             dataset_id=config["id"],
@@ -285,7 +313,7 @@ def export_dataset_jsons(visualizations: list[dict[str, str]]) -> list[dict[str,
                 "dataPath": f"/data/datasets/{config['id']}.json",
             }
         )
-    return dataset_entries
+    return dataset_entries, sql_analysis_entries
 
 
 def export_frontend_dashboard_assets() -> dict[str, Any]:
@@ -293,12 +321,16 @@ def export_frontend_dashboard_assets() -> dict[str, Any]:
     print("Exporting frontend dashboard assets...")
     ensure_frontend_dirs()
 
-    visualization_assets = copy_visualizations()
-    sql_analysis_assets = export_sql_analysis_json()
-    dataset_entries = export_dataset_jsons(visualization_assets)
+    dataset_entries, sql_analysis_assets = export_dataset_jsons()
+    visualization_assets = [
+        asset
+        for dataset in DATASET_CONFIGS
+        if (FRONTEND_VISUALIZATION_DIR / dataset["id"]).exists()
+        for asset in copy_visualizations(dataset["id"])
+    ]
 
     manifest = {
-        "defaultDatasetId": DATASET_CONFIGS[0]["id"],
+        "defaultDatasetId": dataset_entries[0]["id"] if dataset_entries else "",
         "datasets": dataset_entries,
         "sqlAnalysis": sql_analysis_assets,
         "visualizations": visualization_assets,

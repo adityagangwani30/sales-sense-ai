@@ -8,7 +8,12 @@ import pandas as pd
 from database_loader import connect_db
 
 
-SQL_OUTPUT_DIR = Path("outputs") / "sql_analysis"
+OUTPUT_ROOT_DIR = Path("outputs")
+
+
+def get_sql_output_dir(dataset_name: str) -> Path:
+    """Return the SQL output directory for one dataset."""
+    return OUTPUT_ROOT_DIR / dataset_name / "sql_analysis"
 
 
 def execute_query(conn, query: str, params: tuple | None = None) -> pd.DataFrame:
@@ -23,15 +28,16 @@ def execute_query(conn, query: str, params: tuple | None = None) -> pd.DataFrame
         cursor.close()
 
 
-def save_result(df: pd.DataFrame, filename: str) -> Path:
+def save_result(df: pd.DataFrame, dataset_name: str, filename: str) -> Path:
     """Persist one analysis result so reporting can reuse it later."""
-    SQL_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = SQL_OUTPUT_DIR / filename
+    sql_output_dir = get_sql_output_dir(dataset_name)
+    sql_output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = sql_output_dir / filename
     df.to_csv(output_path, index=False)
     return output_path
 
 
-def get_overall_metrics(conn) -> pd.DataFrame:
+def get_overall_metrics(conn, dataset_name: str) -> pd.DataFrame:
     """Summarize the core health of the business in one row."""
     # Business meaning:
     # - Revenue shows total money generated.
@@ -47,11 +53,12 @@ def get_overall_metrics(conn) -> pd.DataFrame:
             COUNT(DISTINCT f.customer_id) AS total_customers,
             ROUND(SUM(f.revenue) / NULLIF(COUNT(DISTINCT f.order_id), 0), 2) AS average_order_value
         FROM fact_sales AS f
+        WHERE f.source = %s
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name,))
 
 
-def get_monthly_revenue_trend(conn) -> pd.DataFrame:
+def get_monthly_revenue_trend(conn, dataset_name: str) -> pd.DataFrame:
     """Track revenue over time at the month level."""
     # Business meaning:
     # - This trend shows seasonality and whether the business is growing month to month.
@@ -68,13 +75,14 @@ def get_monthly_revenue_trend(conn) -> pd.DataFrame:
             STR_TO_DATE(CONCAT(f.year, '-', LPAD(f.month, 2, '0'), '-01'), '%Y-%m-%d') AS month_start,
             ROUND(SUM(f.revenue), 2) AS monthly_revenue
         FROM fact_sales AS f
+        WHERE f.source = %s
         GROUP BY f.year, f.month
         ORDER BY f.year, f.month
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name,))
 
 
-def get_top_products(conn) -> pd.DataFrame:
+def get_top_products(conn, dataset_name: str) -> pd.DataFrame:
     """Return the highest revenue products for merchandising decisions."""
     # Business meaning:
     # - Helps identify best sellers and products that deserve promotion or inventory focus.
@@ -93,14 +101,15 @@ def get_top_products(conn) -> pd.DataFrame:
         FROM fact_sales AS f
         INNER JOIN products AS p
             ON p.product_id = f.product_id
+        WHERE f.source = %s
         GROUP BY p.product_id, p.product_name, p.category
         ORDER BY total_revenue DESC, order_count DESC, p.product_name
         LIMIT 10
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name,))
 
 
-def get_customer_segmentation(conn) -> pd.DataFrame:
+def get_customer_segmentation(conn, dataset_name: str) -> pd.DataFrame:
     """Profile each customer based on purchasing behavior."""
     # Business meaning:
     # - Identifies high-value, frequent, and recently active customers for retention campaigns.
@@ -121,15 +130,17 @@ def get_customer_segmentation(conn) -> pd.DataFrame:
         FROM customers AS c
         LEFT JOIN orders AS o
             ON o.customer_id = c.customer_id
+           AND o.source = %s
         LEFT JOIN fact_sales AS f
             ON f.order_id = o.order_id
+           AND f.source = %s
         GROUP BY c.customer_id, c.customer_name, c.segment, c.region, c.city
         ORDER BY total_spent DESC, order_count DESC, c.customer_name
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name, dataset_name))
 
 
-def get_category_performance(conn) -> pd.DataFrame:
+def get_category_performance(conn, dataset_name: str) -> pd.DataFrame:
     """Compare how product categories contribute to revenue."""
     # Business meaning:
     # - Shows which categories drive the business and how broad or concentrated they are.
@@ -148,14 +159,15 @@ def get_category_performance(conn) -> pd.DataFrame:
         FROM products AS p
         LEFT JOIN fact_sales AS f
             ON f.product_id = p.product_id
+           AND f.source = %s
         GROUP BY p.category
         HAVING SUM(f.revenue) IS NOT NULL
         ORDER BY total_revenue DESC, p.category
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name,))
 
 
-def get_repeat_purchase_rate(conn) -> pd.DataFrame:
+def get_repeat_purchase_rate(conn, dataset_name: str) -> pd.DataFrame:
     """Measure how many customers return to buy again."""
     # Business meaning:
     # - Repeat rate is a quick retention KPI and a signal of customer loyalty.
@@ -178,13 +190,14 @@ def get_repeat_purchase_rate(conn) -> pd.DataFrame:
             FROM customers AS c
             LEFT JOIN orders AS o
                 ON o.customer_id = c.customer_id
+               AND o.source = %s
             GROUP BY c.customer_id
         ) AS customer_orders
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name,))
 
 
-def get_inactive_customers(conn) -> pd.DataFrame:
+def get_inactive_customers(conn, dataset_name: str) -> pd.DataFrame:
     """Find customers whose latest purchase is older than 90 days."""
     # Business meaning:
     # - These customers are churn-risk candidates for win-back campaigns.
@@ -198,6 +211,7 @@ def get_inactive_customers(conn) -> pd.DataFrame:
         WITH latest_order AS (
             SELECT MAX(o.order_date) AS max_order_date
             FROM orders AS o
+            WHERE o.source = %s
         )
         SELECT
             c.customer_id AS customer_id,
@@ -210,16 +224,17 @@ def get_inactive_customers(conn) -> pd.DataFrame:
         FROM customers AS c
         LEFT JOIN orders AS o
             ON o.customer_id = c.customer_id
+           AND o.source = %s
         CROSS JOIN latest_order AS lo
         GROUP BY c.customer_id, c.customer_name, c.segment, c.region, c.city, lo.max_order_date
         HAVING MAX(o.order_date) IS NULL
             OR DATEDIFF(lo.max_order_date, MAX(o.order_date)) > 90
         ORDER BY days_since_last_purchase DESC, last_purchase_date
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name, dataset_name))
 
 
-def get_product_ranking(conn) -> pd.DataFrame:
+def get_product_ranking(conn, dataset_name: str) -> pd.DataFrame:
     """Rank products inside each category by revenue."""
     # Business meaning:
     # - Shows category leaders without forcing categories to compete against each other.
@@ -237,6 +252,7 @@ def get_product_ranking(conn) -> pd.DataFrame:
             FROM products AS p
             INNER JOIN fact_sales AS f
                 ON f.product_id = p.product_id
+               AND f.source = %s
             GROUP BY p.category, p.product_id, p.product_name
         )
         SELECT
@@ -252,10 +268,10 @@ def get_product_ranking(conn) -> pd.DataFrame:
         FROM product_revenue AS pr
         ORDER BY pr.category, revenue_rank, pr.product_name
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name,))
 
 
-def get_revenue_growth(conn) -> pd.DataFrame:
+def get_revenue_growth(conn, dataset_name: str) -> pd.DataFrame:
     """Calculate month-over-month revenue change."""
     # Business meaning:
     # - Makes it easy to see acceleration, slowdown, and inflection points in revenue.
@@ -270,6 +286,7 @@ def get_revenue_growth(conn) -> pd.DataFrame:
                 STR_TO_DATE(CONCAT(f.year, '-', LPAD(f.month, 2, '0'), '-01'), '%Y-%m-%d') AS month_start,
                 ROUND(SUM(f.revenue), 2) AS monthly_revenue
             FROM fact_sales AS f
+            WHERE f.source = %s
             GROUP BY f.year, f.month
         ),
         revenue_with_lag AS (
@@ -296,10 +313,10 @@ def get_revenue_growth(conn) -> pd.DataFrame:
         FROM revenue_with_lag AS rwl
         ORDER BY rwl.month_start
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name,))
 
 
-def get_customer_lifetime_value(conn) -> pd.DataFrame:
+def get_customer_lifetime_value(conn, dataset_name: str) -> pd.DataFrame:
     """Return the top customers by lifetime revenue contribution."""
     # Business meaning:
     # - CLV highlights the customers who create the most long-term value.
@@ -323,8 +340,10 @@ def get_customer_lifetime_value(conn) -> pd.DataFrame:
             FROM customers AS c
             INNER JOIN orders AS o
                 ON o.customer_id = c.customer_id
+               AND o.source = %s
             INNER JOIN fact_sales AS f
                 ON f.order_id = o.order_id
+               AND f.source = %s
             GROUP BY c.customer_id, c.customer_name, c.segment, c.region
         )
         SELECT
@@ -344,10 +363,10 @@ def get_customer_lifetime_value(conn) -> pd.DataFrame:
         ORDER BY customer_rank
         LIMIT 20
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name, dataset_name))
 
 
-def get_regional_performance(conn) -> pd.DataFrame:
+def get_regional_performance(conn, dataset_name: str) -> pd.DataFrame:
     """Bonus analysis for comparing revenue concentration by geography."""
     # Business meaning:
     # - Regional performance helps identify where demand is strongest and where expansion
@@ -366,13 +385,15 @@ def get_regional_performance(conn) -> pd.DataFrame:
         FROM fact_sales AS f
         INNER JOIN customers AS c
             ON c.customer_id = f.customer_id
+        WHERE f.source = %s
         GROUP BY c.region, c.city
         ORDER BY total_revenue DESC, order_count DESC, c.region, c.city
     """
-    return execute_query(conn, query)
+    return execute_query(conn, query, (dataset_name,))
 
 
 def run_sql_analysis(
+    dataset_name: str,
     host: str | None = None,
     user: str | None = None,
     password: str | None = None,
@@ -380,9 +401,9 @@ def run_sql_analysis(
     port: int | None = None,
 ) -> dict[str, Path]:
     """Run all Week 4 SQL analyses and save each one as a CSV file."""
-    print("Running SQL Analysis...")
+    print(f"Running SQL Analysis for {dataset_name}...")
 
-    analyses: list[tuple[str, str, Callable[[object], pd.DataFrame], str]] = [
+    analyses: list[tuple[str, str, Callable[[object, str], pd.DataFrame], str]] = [
         ("overall_metrics", "Overall metrics extracted", get_overall_metrics, "overall_metrics.csv"),
         ("monthly_revenue_trend", "Monthly revenue trend extracted", get_monthly_revenue_trend, "monthly_revenue_trend.csv"),
         ("top_products", "Top products extracted", get_top_products, "top_products.csv"),
@@ -401,14 +422,14 @@ def run_sql_analysis(
 
     try:
         for analysis_name, log_message, analysis_func, filename in analyses:
-            df = analysis_func(conn)
-            output_files[analysis_name] = save_result(df, filename)
+            df = analysis_func(conn, dataset_name)
+            output_files[analysis_name] = save_result(df, dataset_name, filename)
             print(log_message)
-        print(f"SQL analysis outputs saved to: {SQL_OUTPUT_DIR.resolve()}")
+        print(f"SQL analysis outputs saved to: {get_sql_output_dir(dataset_name).resolve()}")
         return output_files
     finally:
         conn.close()
 
 
 if __name__ == "__main__":
-    run_sql_analysis()
+    raise SystemExit("Run sql_analysis.run_sql_analysis(dataset_name=...) from the pipeline.")

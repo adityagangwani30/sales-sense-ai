@@ -92,6 +92,11 @@ def load_data(dataset_choice: str | None = None) -> list[tuple[str, pd.DataFrame
     return datasets
 
 
+def get_dataset_output_dir(dataset_name: str) -> Path:
+    """Return the root output directory for one isolated dataset run."""
+    return OUTPUT_DIR / dataset_name
+
+
 def detect_columns(
     df: pd.DataFrame,
     column_map: Mapping[str, Sequence[str]],
@@ -308,11 +313,117 @@ def feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def save_cleaned_data(df: pd.DataFrame, dataset_name: str) -> Path:
-    """Save the cleaned dataset in the outputs directory."""
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = OUTPUT_DIR / f"{dataset_name}_cleaned.csv"
+    """Save the cleaned dataset inside its dataset-specific output folder."""
+    dataset_output_dir = get_dataset_output_dir(dataset_name)
+    dataset_output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = dataset_output_dir / f"{dataset_name}_cleaned.csv"
     df.to_csv(output_path, index=False)
     return output_path
+
+
+def run_pipeline(
+    dataset_name: str,
+    load_to_db: bool = True,
+    reset_db: bool = RESET_DB,
+    run_sql: bool = True,
+    run_visuals: bool = True,
+    sync_frontend_assets: bool = True,
+) -> pd.DataFrame:
+    """Run the full pipeline for one dataset only."""
+    resolved_datasets = load_data(dataset_name)
+    if len(resolved_datasets) != 1:
+        raise ValueError("run_pipeline expects exactly one dataset name.")
+
+    selected_dataset_name, raw_df = resolved_datasets[0]
+    print(f"\nRunning analysis for {selected_dataset_name}")
+    print(f"Saving outputs to outputs/{selected_dataset_name}/")
+
+    cleaned_df, mapping = clean_data(
+        df=raw_df,
+        column_map=DEFAULT_COLUMN_MAP,
+        required_columns=REQUIRED_COLUMNS,
+        numeric_columns=NUMERIC_COLUMNS,
+    )
+    cleaned_df = feature_engineering(cleaned_df)
+    cleaned_df["source"] = selected_dataset_name
+
+    required_final_columns = ["date", "customer", "product", "quantity", "price", "sales", "month", "year"]
+    default_values = {
+        "customer": "unknown",
+        "product": "unknown",
+        "quantity": pd.NA,
+        "price": pd.NA,
+        "sales": pd.NA,
+        "month": pd.NA,
+        "year": pd.NA,
+    }
+
+    for column_name in required_final_columns:
+        if column_name not in cleaned_df.columns:
+            cleaned_df[column_name] = default_values.get(column_name, pd.NA)
+
+    ordered_columns = required_final_columns + [
+        column_name for column_name in cleaned_df.columns if column_name not in required_final_columns
+    ]
+    cleaned_df = cleaned_df[ordered_columns]
+
+    print(f"\nMapping results for {selected_dataset_name}:")
+    for standard_name in sorted(mapping):
+        print(f"  {standard_name:<10} -> {mapping[standard_name]}")
+
+    print(f"Cleaned shape: {cleaned_df.shape}")
+
+    print("\nData quality report:")
+    print("Missing values summary:")
+    missing_summary = cleaned_df.isna().sum()
+    print(missing_summary[missing_summary > 0].to_string() if (missing_summary > 0).any() else "  No missing values.")
+
+    duplicate_subset = [column_name for column_name in ["date", "product", "customer"] if column_name in cleaned_df.columns]
+    duplicate_count = int(cleaned_df.duplicated(subset=duplicate_subset).sum()) if duplicate_subset else 0
+    print(f"Duplicate count: {duplicate_count}")
+
+    print("Data types:")
+    print(cleaned_df.dtypes.to_string())
+
+    total_revenue = float(cleaned_df["revenue"].sum()) if "revenue" in cleaned_df.columns else float(cleaned_df["sales"].sum())
+    total_orders = int(len(cleaned_df))
+    average_order_value = total_revenue / total_orders if total_orders else 0.0
+
+    print("\nBusiness metrics:")
+    print(f"Total Revenue: {total_revenue:.2f}")
+    print(f"Total Orders: {total_orders}")
+    print(f"Average Order Value (AOV): {average_order_value:.2f}")
+
+    output_path = save_cleaned_data(cleaned_df, selected_dataset_name)
+    print(f"Saved cleaned dataset to: {output_path.resolve()}")
+
+    if load_to_db:
+        print("\nStarting Week 3 database load...")
+        print(f"RESET_DB mode: {reset_db}")
+        try:
+            load_cleaned_data_to_mysql(cleaned_df, dataset_name=selected_dataset_name, reset_db=reset_db)
+        except Exception as error:
+            print(f"Database load failed for {selected_dataset_name}: {error}")
+        else:
+            if run_sql:
+                try:
+                    run_sql_analysis(dataset_name=selected_dataset_name)
+                except Exception as error:
+                    print(f"SQL analysis failed for {selected_dataset_name}: {error}")
+                else:
+                    if run_visuals:
+                        try:
+                            run_visualizations(dataset_name=selected_dataset_name, cleaned_df=cleaned_df)
+                        except Exception as error:
+                            print(f"Visualization generation failed for {selected_dataset_name}: {error}")
+                        else:
+                            if sync_frontend_assets:
+                                try:
+                                    export_frontend_dashboard_assets()
+                                except Exception as error:
+                                    print(f"Frontend asset export failed: {error}")
+
+    return cleaned_df
 
 
 def main(
@@ -322,108 +433,31 @@ def main(
     run_sql: bool = True,
     run_visuals: bool = True,
     sync_frontend_assets: bool = True,
-) -> pd.DataFrame:
-    """Run the preprocessing pipeline for one dataset or both datasets together."""
-    loaded_datasets = load_data(dataset_choice)
-    cleaned_datasets: list[pd.DataFrame] = []
+) -> pd.DataFrame | dict[str, pd.DataFrame]:
+    """Run one dataset or multiple datasets sequentially without combining them."""
+    dataset_items = get_dataset_paths(dataset_choice)
 
-    for dataset_name, raw_df in loaded_datasets:
-        cleaned_df, mapping = clean_data(
-            df=raw_df,
-            column_map=DEFAULT_COLUMN_MAP,
-            required_columns=REQUIRED_COLUMNS,
-            numeric_columns=NUMERIC_COLUMNS,
+    if len(dataset_items) == 1:
+        return run_pipeline(
+            dataset_name=dataset_items[0][0],
+            load_to_db=load_to_db,
+            reset_db=reset_db,
+            run_sql=run_sql,
+            run_visuals=run_visuals,
+            sync_frontend_assets=sync_frontend_assets,
         )
-        cleaned_df = feature_engineering(cleaned_df)
-        cleaned_df["source"] = dataset_name
 
-        required_final_columns = ["date", "customer", "product", "quantity", "price", "sales", "month", "year"]
-        default_values = {
-            "customer": "unknown",
-            "product": "unknown",
-            "quantity": pd.NA,
-            "price": pd.NA,
-            "sales": pd.NA,
-            "month": pd.NA,
-            "year": pd.NA,
-        }
-
-        for column_name in required_final_columns:
-            if column_name not in cleaned_df.columns:
-                cleaned_df[column_name] = default_values.get(column_name, pd.NA)
-
-        ordered_columns = required_final_columns + [
-            column_name for column_name in cleaned_df.columns if column_name not in required_final_columns
-        ]
-        cleaned_df = cleaned_df[ordered_columns]
-
-        print(f"\nMapping results for {dataset_name}:")
-        for standard_name in sorted(mapping):
-            print(f"  {standard_name:<10} -> {mapping[standard_name]}")
-
-        print(f"Cleaned shape: {cleaned_df.shape}")
-
-        print("\nData quality report:")
-        print("Missing values summary:")
-        missing_summary = cleaned_df.isna().sum()
-        print(missing_summary[missing_summary > 0].to_string() if (missing_summary > 0).any() else "  No missing values.")
-
-        duplicate_subset = [column_name for column_name in ["date", "product", "customer"] if column_name in cleaned_df.columns]
-        duplicate_count = int(cleaned_df.duplicated(subset=duplicate_subset).sum()) if duplicate_subset else 0
-        print(f"Duplicate count: {duplicate_count}")
-
-        print("Data types:")
-        print(cleaned_df.dtypes.to_string())
-
-        total_revenue = float(cleaned_df["revenue"].sum()) if "revenue" in cleaned_df.columns else float(cleaned_df["sales"].sum())
-        total_orders = int(len(cleaned_df))
-        average_order_value = total_revenue / total_orders if total_orders else 0.0
-
-        print("\nBusiness metrics:")
-        print(f"Total Revenue: {total_revenue:.2f}")
-        print(f"Total Orders: {total_orders}")
-        print(f"Average Order Value (AOV): {average_order_value:.2f}")
-
-        output_path = save_cleaned_data(cleaned_df, dataset_name)
-        print(f"Saved cleaned dataset to: {output_path.resolve()}")
-        cleaned_datasets.append(cleaned_df)
-
-    combined_cleaned_df = pd.concat(cleaned_datasets, ignore_index=True, sort=False)
-    combined_duplicate_count = int(combined_cleaned_df.drop(columns=["source"], errors="ignore").duplicated().sum())
-    print("\nCombined dataset summary:")
-    print(f"Datasets combined: {len(cleaned_datasets)}")
-    print(f"Combined cleaned shape: {combined_cleaned_df.shape}")
-    print(f"Combined duplicate count before DB load: {combined_duplicate_count}")
-
-    if load_to_db:
-        print("\nStarting Week 3 database load...")
-        print(f"RESET_DB mode: {reset_db}")
-        try:
-            # Each dataset is cleaned independently first, then loaded together so the
-            # database reset or incremental dedupe logic sees the full batch in one run.
-            load_cleaned_data_to_mysql(cleaned_datasets, reset_db=reset_db)
-        except Exception as error:
-            print(f"Database load failed: {error}")
-        else:
-            if run_sql:
-                try:
-                    run_sql_analysis()
-                except Exception as error:
-                    print(f"SQL analysis failed: {error}")
-                else:
-                    if run_visuals:
-                        try:
-                            run_visualizations()
-                        except Exception as error:
-                            print(f"Visualization generation failed: {error}")
-                        else:
-                            if sync_frontend_assets:
-                                try:
-                                    export_frontend_dashboard_assets()
-                                except Exception as error:
-                                    print(f"Frontend asset export failed: {error}")
-
-    return combined_cleaned_df
+    results: dict[str, pd.DataFrame] = {}
+    for dataset_name, _ in dataset_items:
+        results[dataset_name] = run_pipeline(
+            dataset_name=dataset_name,
+            load_to_db=load_to_db,
+            reset_db=reset_db,
+            run_sql=run_sql,
+            run_visuals=run_visuals,
+            sync_frontend_assets=sync_frontend_assets,
+        )
+    return results
 
 
 if __name__ == "__main__":

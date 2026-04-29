@@ -46,6 +46,7 @@ def _build_customer_frame(cleaned_df: pd.DataFrame) -> pd.DataFrame:
             "segment": _text_series(cleaned_df, segment_column),
             "region": _text_series(cleaned_df, region_column),
             "city": _text_series(cleaned_df, city_column),
+            "source": _normalize_source_series(cleaned_df),
         }
     )
 
@@ -58,6 +59,7 @@ def _build_product_frame(cleaned_df: pd.DataFrame) -> pd.DataFrame:
             "product_name": _text_series(cleaned_df, "product"),
             "category": _text_series(cleaned_df, category_column),
             "price": _numeric_series(cleaned_df, "price"),
+            "source": _normalize_source_series(cleaned_df),
         }
     )
 
@@ -109,48 +111,6 @@ def _set_autocommit(connection: object, enabled: bool) -> None:
     setattr(connection, "autocommit", enabled)
 
 
-def _combine_cleaned_datasets(
-    cleaned_data: pd.DataFrame | Iterable[pd.DataFrame],
-) -> tuple[pd.DataFrame, dict[str, int]]:
-    if isinstance(cleaned_data, pd.DataFrame):
-        frames = [cleaned_data]
-    else:
-        frames = [frame for frame in cleaned_data if isinstance(frame, pd.DataFrame)]
-
-    if not frames:
-        raise ValueError("No cleaned datasets were provided for database loading.")
-
-    normalized_frames: list[pd.DataFrame] = []
-    total_input_rows = 0
-
-    for dataset_index, frame in enumerate(frames, start=1):
-        current = frame.copy()
-        current["source"] = _normalize_source_series(current, default_source=f"dataset_{dataset_index}")
-        normalized_frames.append(current)
-        total_input_rows += len(current)
-
-    combined = pd.concat(normalized_frames, ignore_index=True, sort=False)
-    if combined.empty:
-        return combined, {"datasets": len(frames), "input_rows": 0, "duplicates_removed": 0}
-
-    # Deduplicate cleaned rows before insert while still keeping a merged source trail.
-    dedupe_columns = [column_name for column_name in combined.columns if column_name != "source"]
-    if dedupe_columns:
-        combined = (
-            combined.groupby(dedupe_columns, dropna=False, as_index=False)
-            .agg(source=("source", _merge_unique_sources))
-            .reset_index(drop=True)
-        )
-    else:
-        combined = pd.DataFrame({"source": [_merge_unique_sources(combined["source"])]})
-
-    return combined, {
-        "datasets": len(frames),
-        "input_rows": total_input_rows,
-        "duplicates_removed": total_input_rows - len(combined),
-    }
-
-
 def _count_conflicting_order_rows(cleaned_df: pd.DataFrame) -> int:
     customer_columns = [
         column_name
@@ -162,7 +122,7 @@ def _count_conflicting_order_rows(cleaned_df: pd.DataFrame) -> int:
         for column_name in ("product", "category", "product_category", "sub_category")
         if column_name in cleaned_df.columns
     ]
-    order_key_columns = customer_columns + product_columns + [
+    order_key_columns = ["source"] + customer_columns + product_columns + [
         column_name for column_name in ("quantity", "date") if column_name in cleaned_df.columns
     ]
     revenue_column = "revenue" if "revenue" in cleaned_df.columns else "sales" if "sales" in cleaned_df.columns else None
@@ -177,6 +137,14 @@ def _count_conflicting_order_rows(cleaned_df: pd.DataFrame) -> int:
 def _count_rows(connection, table_name: str) -> int:
     cursor = connection.cursor()
     cursor.execute(f"SELECT COUNT(*) FROM `{table_name}`")
+    row_count = int(cursor.fetchone()[0])
+    cursor.close()
+    return row_count
+
+
+def _count_rows_for_source(connection, table_name: str, source: str) -> int:
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT COUNT(*) FROM `{table_name}` WHERE `source` = %s", (source,))
     row_count = int(cursor.fetchone()[0])
     cursor.close()
     return row_count
@@ -206,6 +174,39 @@ def _ensure_column(connection, table_name: str, column_name: str, definition_sql
     cursor = connection.cursor()
     cursor.execute(f"ALTER TABLE `{table_name}` ADD COLUMN `{column_name}` {definition_sql}")
     cursor.close()
+
+
+def _get_index_columns(connection, table_name: str, index_name: str) -> list[str]:
+    cursor = connection.cursor()
+    cursor.execute(
+        """
+        SELECT COLUMN_NAME
+        FROM INFORMATION_SCHEMA.STATISTICS
+        WHERE TABLE_SCHEMA = %s
+          AND TABLE_NAME = %s
+          AND INDEX_NAME = %s
+        ORDER BY SEQ_IN_INDEX
+        """,
+        (connection.database, table_name, index_name),
+    )
+    columns = [row[0] for row in cursor.fetchall()]
+    cursor.close()
+    return columns
+
+
+def _ensure_unique_index(connection, table_name: str, index_name: str, columns: list[str]) -> None:
+    existing_columns = _get_index_columns(connection, table_name, index_name)
+    if existing_columns == columns:
+        return
+
+    cursor = connection.cursor()
+    try:
+        if existing_columns:
+            cursor.execute(f"ALTER TABLE `{table_name}` DROP INDEX `{index_name}`")
+        quoted_columns = ", ".join(f"`{column_name}`" for column_name in columns)
+        cursor.execute(f"ALTER TABLE `{table_name}` ADD UNIQUE KEY `{index_name}` ({quoted_columns})")
+    finally:
+        cursor.close()
 
 
 def reset_database(connection) -> None:
@@ -303,7 +304,8 @@ def create_tables(connection) -> None:
             segment VARCHAR(100) NOT NULL DEFAULT 'unknown',
             region VARCHAR(100) NOT NULL DEFAULT 'unknown',
             city VARCHAR(100) NOT NULL DEFAULT 'unknown',
-            UNIQUE KEY unique_customer (customer_name, segment, region, city)
+            source VARCHAR(255) NOT NULL DEFAULT 'unknown',
+            UNIQUE KEY unique_customer (source, customer_name, segment, region, city)
         ) ENGINE=InnoDB
         """,
         """
@@ -312,7 +314,8 @@ def create_tables(connection) -> None:
             product_name VARCHAR(255) NOT NULL,
             category VARCHAR(100) NOT NULL DEFAULT 'unknown',
             price DECIMAL(12, 2) NOT NULL,
-            UNIQUE KEY unique_product (product_name, category)
+            source VARCHAR(255) NOT NULL DEFAULT 'unknown',
+            UNIQUE KEY unique_product (source, product_name, category)
         ) ENGINE=InnoDB
         """,
         """
@@ -323,7 +326,7 @@ def create_tables(connection) -> None:
             quantity INT NOT NULL,
             order_date DATE NOT NULL,
             source VARCHAR(255) NOT NULL DEFAULT 'unknown',
-            UNIQUE KEY unique_order (customer_id, product_id, quantity, order_date),
+            UNIQUE KEY unique_order (source, customer_id, product_id, quantity, order_date),
             CONSTRAINT fk_orders_customer
                 FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
             CONSTRAINT fk_orders_product
@@ -356,8 +359,28 @@ def create_tables(connection) -> None:
         for query in table_queries:
             cursor.execute(query)
 
+        _ensure_column(connection, "customers", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
+        _ensure_column(connection, "products", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
         _ensure_column(connection, "orders", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
         _ensure_column(connection, "fact_sales", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
+        _ensure_unique_index(
+            connection,
+            "customers",
+            "unique_customer",
+            ["source", "customer_name", "segment", "region", "city"],
+        )
+        _ensure_unique_index(
+            connection,
+            "products",
+            "unique_product",
+            ["source", "product_name", "category"],
+        )
+        _ensure_unique_index(
+            connection,
+            "orders",
+            "unique_order",
+            ["source", "customer_id", "product_id", "quantity", "order_date"],
+        )
 
         connection.commit()
         print(f"Database `{connection.database}` is ready.")
@@ -373,20 +396,20 @@ def create_tables(connection) -> None:
 def prepare_customers(cleaned_df: pd.DataFrame) -> pd.DataFrame:
     """Extract unique customer records for the customers dimension table."""
     customers = _build_customer_frame(cleaned_df).drop_duplicates().reset_index(drop=True)
-    return customers.sort_values(by="customer_name").reset_index(drop=True)
+    return customers.sort_values(by=["source", "customer_name"]).reset_index(drop=True)
 
 
 def prepare_products(cleaned_df: pd.DataFrame) -> pd.DataFrame:
     """Extract unique products and keep one representative price per product."""
     products = _build_product_frame(cleaned_df)
     products = (
-        products.groupby(["product_name", "category"], as_index=False)
+        products.groupby(["source", "product_name", "category"], as_index=False)
         .agg(price=("price", "median"))
-        .sort_values(by="product_name")
+        .sort_values(by=["source", "product_name"])
         .reset_index(drop=True)
     )
     products["price"] = products["price"].round(2)
-    return products
+    return products[["product_name", "category", "price", "source"]].reset_index(drop=True)
 
 
 def prepare_orders(
@@ -404,19 +427,18 @@ def prepare_orders(
             products,
             _numeric_series(cleaned_df, "quantity", default_value=1).round().clip(lower=1).astype(int).rename("quantity"),
             pd.to_datetime(cleaned_df["date"], errors="coerce").dt.date.rename("order_date"),
-            _normalize_source_series(cleaned_df).rename("source"),
         ],
         axis=1,
     )
 
     orders = orders.merge(
         customer_lookup,
-        on=["customer_name", "segment", "region", "city"],
+        on=["source", "customer_name", "segment", "region", "city"],
         how="left",
     )
     orders = orders.merge(
         product_lookup,
-        on=["product_name", "category"],
+        on=["source", "product_name", "category"],
         how="left",
     )
 
@@ -426,18 +448,12 @@ def prepare_orders(
         raise ValueError("Product lookup failed for one or more orders.")
 
     prepared_orders = orders[["customer_id", "product_id", "quantity", "order_date", "source"]].copy()
-    prepared_orders = (
-        prepared_orders.groupby(
-            ["customer_id", "product_id", "quantity", "order_date"],
-            as_index=False,
-            dropna=False,
-        )
-        .agg(source=("source", _merge_unique_sources))
-        .reset_index(drop=True)
-    )
+    prepared_orders = prepared_orders.drop_duplicates(
+        subset=["source", "customer_id", "product_id", "quantity", "order_date"]
+    ).reset_index(drop=True)
     prepared_orders["customer_id"] = prepared_orders["customer_id"].astype(int)
     prepared_orders["product_id"] = prepared_orders["product_id"].astype(int)
-    return prepared_orders.reset_index(drop=True)
+    return prepared_orders[["customer_id", "product_id", "quantity", "order_date", "source"]].reset_index(drop=True)
 
 
 def prepare_fact_sales(
@@ -463,19 +479,18 @@ def prepare_fact_sales(
             (price * quantity).fillna(sales).round(2).rename("revenue"),
             cleaned_df.get("month", order_dates.dt.month).rename("month"),
             cleaned_df.get("year", order_dates.dt.year).rename("year"),
-            _normalize_source_series(cleaned_df).rename("source"),
         ],
         axis=1,
     )
 
     fact_sales = fact_sales.merge(
         customer_lookup,
-        on=["customer_name", "segment", "region", "city"],
+        on=["source", "customer_name", "segment", "region", "city"],
         how="left",
     )
     fact_sales = fact_sales.merge(
         product_lookup,
-        on=["product_name", "category"],
+        on=["source", "product_name", "category"],
         how="left",
     )
 
@@ -483,7 +498,7 @@ def prepare_fact_sales(
     order_lookup["order_date"] = pd.to_datetime(order_lookup["order_date"], errors="coerce").dt.date
     fact_sales = fact_sales.merge(
         order_lookup,
-        on=["customer_id", "product_id", "quantity", "order_date"],
+        on=["source", "customer_id", "product_id", "quantity", "order_date"],
         how="left",
     )
 
@@ -513,21 +528,20 @@ def prepare_fact_sales(
     prepared_fact_sales["month"] = pd.to_numeric(prepared_fact_sales["month"], errors="coerce").astype(int)
     prepared_fact_sales["year"] = pd.to_numeric(prepared_fact_sales["year"], errors="coerce").astype(int)
     prepared_fact_sales["revenue"] = prepared_fact_sales["revenue"].round(2)
-    return prepared_fact_sales.reset_index(drop=True)
+    return prepared_fact_sales[
+        ["customer_id", "product_id", "order_id", "revenue", "month", "year", "source"]
+    ].reset_index(drop=True)
 
 
-def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -> dict[str, int]:
-    """Insert cleaned data into normalized tables using one transaction."""
-    # Previous behavior summary:
-    # - The loader appended into existing tables and relied on INSERT IGNORE + UNIQUE keys
-    #   to skip only exact key collisions.
-    # - Running the same dataset again was mostly idempotent, but the database load dropped
-    #   the input `source` column and gave no visibility into how many rows were skipped.
-    # - Loading multiple datasets into the same tables could silently collapse overlapping
-    #   orders/fact rows because order-level uniqueness is broader than raw row identity.
-    combined_df, combine_stats = _combine_cleaned_datasets(cleaned_df)
-    customers = prepare_customers(combined_df)
-    products = prepare_products(combined_df)
+def insert_data(connection, cleaned_df: pd.DataFrame, dataset_name: str) -> dict[str, int]:
+    """Insert one dataset into normalized tables using one transaction."""
+    if not isinstance(cleaned_df, pd.DataFrame):
+        raise TypeError("insert_data expects a single cleaned pandas DataFrame.")
+
+    isolated_df = cleaned_df.copy()
+    isolated_df["source"] = dataset_name
+    customers = prepare_customers(isolated_df)
+    products = prepare_products(isolated_df)
     cursor = connection.cursor()
 
     inserted_counts = {
@@ -536,25 +550,22 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
         "orders": 0,
         "fact_sales": 0,
     }
-    table_counts_before = {table_name: _count_rows(connection, table_name) for table_name in inserted_counts}
+    table_counts_before = {
+        table_name: _count_rows_for_source(connection, table_name, dataset_name)
+        for table_name in inserted_counts
+    }
     duplicate_skips = inserted_counts.copy()
 
-    print("Existing rows in DB:", table_counts_before)
-    print(
-        "Combined input rows:",
-        combine_stats["input_rows"],
-        "| datasets:",
-        combine_stats["datasets"],
-        "| exact duplicates removed before load:",
-        combine_stats["duplicates_removed"],
-    )
+    print(f"Loading dataset into MySQL: {dataset_name}")
+    print("Existing dataset rows in DB:", table_counts_before)
+    print("Dataset input rows:", len(isolated_df))
 
-    conflicting_order_rows = _count_conflicting_order_rows(combined_df)
+    conflicting_order_rows = _count_conflicting_order_rows(isolated_df)
     if conflicting_order_rows:
         print(
             "Potentially conflicting duplicate orders detected:",
             conflicting_order_rows,
-            "| one fact row per order_id will be kept in MySQL.",
+            "| duplicates are evaluated only inside the current dataset.",
         )
 
     try:
@@ -568,8 +579,8 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
         if customer_rows:
             cursor.executemany(
                 """
-                INSERT INTO customers (customer_name, segment, region, city)
-                VALUES (%s, %s, %s, %s)
+                INSERT INTO customers (customer_name, segment, region, city, source)
+                VALUES (%s, %s, %s, %s, %s)
                 ON DUPLICATE KEY UPDATE
                     segment = VALUES(segment),
                     region = VALUES(region),
@@ -582,8 +593,8 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
         if product_rows:
             cursor.executemany(
                 """
-                INSERT INTO products (product_name, category, price)
-                VALUES (%s, %s, %s)
+                INSERT INTO products (product_name, category, price, source)
+                VALUES (%s, %s, %s, %s)
                 ON DUPLICATE KEY UPDATE
                     price = VALUES(price)
                 """,
@@ -593,19 +604,23 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
         customer_lookup = _fetch_dataframe(
             connection,
             """
-            SELECT customer_id, customer_name, segment, region, city
+            SELECT customer_id, customer_name, segment, region, city, source
             FROM customers
+            WHERE source = %s
             """,
+            (dataset_name,),
         )
         product_lookup = _fetch_dataframe(
             connection,
             """
-            SELECT product_id, product_name, category
+            SELECT product_id, product_name, category, source
             FROM products
+            WHERE source = %s
             """,
+            (dataset_name,),
         )
 
-        orders = prepare_orders(combined_df, customer_lookup, product_lookup)
+        orders = prepare_orders(isolated_df, customer_lookup, product_lookup)
         order_rows = list(orders.itertuples(index=False, name=None))
         if order_rows:
             cursor.executemany(
@@ -625,11 +640,13 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
         order_lookup = _fetch_dataframe(
             connection,
             """
-            SELECT order_id, customer_id, product_id, quantity, order_date
+            SELECT order_id, customer_id, product_id, quantity, order_date, source
             FROM orders
+            WHERE source = %s
             """,
+            (dataset_name,),
         )
-        fact_sales = prepare_fact_sales(combined_df, customer_lookup, product_lookup, order_lookup)
+        fact_sales = prepare_fact_sales(isolated_df, customer_lookup, product_lookup, order_lookup)
         fact_sales_rows = list(fact_sales.itertuples(index=False, name=None))
         if fact_sales_rows:
             cursor.executemany(
@@ -657,7 +674,10 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
             "orders": len(order_rows),
             "fact_sales": len(fact_sales_rows),
         }
-        table_counts_after = {table_name: _count_rows(connection, table_name) for table_name in inserted_counts}
+        table_counts_after = {
+            table_name: _count_rows_for_source(connection, table_name, dataset_name)
+            for table_name in inserted_counts
+        }
 
         for table_name, batch_size in table_batches.items():
             inserted_counts[table_name] = max(table_counts_after[table_name] - table_counts_before[table_name], 0)
@@ -673,9 +693,9 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
         cursor.close()
 
     for table_name in ("customers", "products", "orders", "fact_sales"):
-        print(f"{table_name} -> Existing rows in DB: {table_counts_before[table_name]}")
-        print(f"{table_name} -> Rows inserted: {inserted_counts[table_name]}")
-        print(f"{table_name} -> Duplicates skipped: {duplicate_skips[table_name]}")
+        print(f"{table_name} [{dataset_name}] -> Existing rows in DB: {table_counts_before[table_name]}")
+        print(f"{table_name} [{dataset_name}] -> Rows inserted: {inserted_counts[table_name]}")
+        print(f"{table_name} [{dataset_name}] -> Duplicates skipped: {duplicate_skips[table_name]}")
 
     print("Rows inserted:", inserted_counts)
     print("Duplicates skipped:", duplicate_skips)
@@ -683,7 +703,8 @@ def insert_data(connection, cleaned_df: pd.DataFrame | Iterable[pd.DataFrame]) -
 
 
 def load_cleaned_data_to_mysql(
-    cleaned_df: pd.DataFrame | Iterable[pd.DataFrame],
+    cleaned_df: pd.DataFrame,
+    dataset_name: str,
     host: str | None = None,
     user: str | None = None,
     password: str | None = None,
@@ -705,7 +726,7 @@ def load_cleaned_data_to_mysql(
             # Full refresh mode removes stale tables before recreating the same schema.
             reset_database(connection)
         create_tables(connection)
-        inserted_counts = insert_data(connection, cleaned_df)
+        inserted_counts = insert_data(connection, cleaned_df, dataset_name=dataset_name)
         print(f"MySQL load completed successfully in `{database}`.")
         return inserted_counts
     except Exception:
