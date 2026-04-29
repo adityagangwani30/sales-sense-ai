@@ -3,11 +3,17 @@ import type { DashboardDataset, DashboardManifest } from '@/lib/dashboard-types'
 const MANIFEST_PATH = '/data/dataset-manifest.json'
 
 async function fetchJson<T>(path: string): Promise<T> {
-  const response = await fetch(path)
-  if (!response.ok) {
-    throw new Error(`Failed to load ${path}`)
+  try {
+    const response = await fetch(path)
+    if (!response.ok) {
+      console.error('Dataset file missing:', path, response.status)
+      throw new Error(`Failed to load ${path}`)
+    }
+    return (await response.json()) as T
+  } catch (err) {
+    console.error('Error fetching JSON', path, err)
+    throw err
   }
-  return (await response.json()) as T
 }
 
 export function fetchDashboardManifest() {

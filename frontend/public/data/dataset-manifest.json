@@ -1,6 +1,19 @@
 {
-  "defaultDatasetId": "",
-  "datasets": [],
+  "defaultDatasetId": "global_ecommerce_sales",
+  "datasets": [
+    {
+      "id": "global_ecommerce_sales",
+      "label": "Dataset 1",
+      "description": "Global E-Commerce Sales",
+      "dataPath": "/data/datasets/global_ecommerce_sales.json"
+    },
+    {
+      "id": "retail_supply_chain_sales",
+      "label": "Dataset 2",
+      "description": "Retail Supply Chain Sales",
+      "dataPath": "/data/datasets/retail_supply_chain_sales.json"
+    }
+  ],
   "sqlAnalysis": {},
   "visualizations": []
 }
