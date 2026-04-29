@@ -17,16 +17,16 @@ FRONTEND_VISUALIZATION_DIR = FRONTEND_PUBLIC_DIR / "visualizations"
 
 DATASET_CONFIGS = [
     {
-        "id": "global_ecommerce_sales",
+        "id": "dataset_1",
         "label": "Dataset 1",
         "description": "Global E-Commerce Sales",
-        "source_path": OUTPUTS_DIR / "global_ecommerce_sales" / "global_ecommerce_sales_cleaned.csv",
+        "source_path": OUTPUTS_DIR / "dataset_1" / "dataset_1_cleaned.csv",
     },
     {
-        "id": "retail_supply_chain_sales",
+        "id": "dataset_2",
         "label": "Dataset 2",
         "description": "Retail Supply Chain Sales",
-        "source_path": OUTPUTS_DIR / "retail_supply_chain_sales" / "retail_supply_chain_sales_cleaned.csv",
+        "source_path": OUTPUTS_DIR / "dataset_2" / "dataset_2_cleaned.csv",
     },
 ]
 

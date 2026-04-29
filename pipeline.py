@@ -16,8 +16,8 @@ DATA_DIR = Path("original_dataset")
 OUTPUT_DIR = Path("outputs")
 RESET_DB = True
 DATASET_FILES: Dict[str, Path] = {
-    "global_ecommerce_sales": DATA_DIR / "global_ecommerce_sales.csv",
-    "retail_supply_chain_sales": DATA_DIR / "Retail-Supply-Chain-Sales-Dataset.xlsx",
+    "dataset_1": DATA_DIR / "global_ecommerce_sales.csv",
+    "dataset_2": DATA_DIR / "Retail-Supply-Chain-Sales-Dataset.xlsx",
 }
 
 DEFAULT_COLUMN_MAP: Dict[str, list[str]] = {
@@ -44,11 +44,14 @@ def get_dataset_paths(dataset_choice: str | None = None) -> list[tuple[str, Path
     """Resolve one dataset or all datasets inside original_dataset."""
     dataset_aliases = {
         "all": "all",
-        "1": "global_ecommerce_sales",
-        "2": "retail_supply_chain_sales",
-        "global_ecommerce_sales.csv": "global_ecommerce_sales",
-        "retail-supply-chain-sales-dataset.xlsx": "retail_supply_chain_sales",
-        "retail_supply_chain_sales.xlsx": "retail_supply_chain_sales",
+        "1": "dataset_1",
+        "2": "dataset_2",
+        "global_ecommerce_sales": "dataset_1",
+        "global_ecommerce_sales.csv": "dataset_1",
+        "retail-supply-chain-sales-dataset": "dataset_2",
+        "retail-supply-chain-sales-dataset.xlsx": "dataset_2",
+        "retail_supply_chain_sales": "dataset_2",
+        "retail_supply_chain_sales.xlsx": "dataset_2",
     }
 
     if dataset_choice is None:
