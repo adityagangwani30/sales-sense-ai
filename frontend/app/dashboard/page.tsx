@@ -33,26 +33,31 @@ export default function DashboardPage() {
   } = useDashboardData()
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
-      <SoftAurora
-        speed={0.6}
-        scale={1.5}
-        brightness={1.2}
-        color1="#7c3aed"
-        color2="#ec4899"
-        noiseFrequency={2.5}
-        noiseAmplitude={1.0}
-        bandHeight={0.5}
-        bandSpread={1.0}
-        octaveDecay={0.1}
-        enableMouseInteraction={true}
-        mouseInfluence={0.15}
-      />
-      
-      <div className="relative z-10">
+    <div className="relative min-h-screen overflow-hidden bg-black">
+      <div className="absolute inset-0 z-0">
+        <SoftAurora
+          speed={0.6}
+          scale={1.8}
+          brightness={1.6}
+          color1="#7c3aed"
+          color2="#ec4899"
+          noiseFrequency={2.5}
+          noiseAmplitude={1.2}
+          bandHeight={0.6}
+          bandSpread={1.2}
+          octaveDecay={0.1}
+          enableMouseInteraction={true}
+          mouseInfluence={0.15}
+        />
+      </div>
+
+      {/* Overlay to keep content readable */}
+      <div className="absolute inset-0 bg-black/60 z-10" />
+
+      <div className="relative z-20">
         <Navbar />
 
-      <main className="mx-auto max-w-7xl px-6 py-8 sm:px-6 lg:px-8">
+        <main className="mx-auto max-w-7xl px-6 py-8 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="mb-10 border-b border-white/10 pb-10">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
