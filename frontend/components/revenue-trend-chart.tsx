@@ -19,11 +19,11 @@ interface RevenueTrendChartProps {
 
 export function RevenueTrendChart({ data }: RevenueTrendChartProps) {
   return (
-    <section className="rounded-2xl border border-border/70 bg-card/90 p-6 shadow-sm">
-      <div className="mb-5">
+    <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+      <div className="mb-6">
         <h2 className="text-lg font-semibold text-foreground">Revenue Trend</h2>
-        <p className="text-sm text-foreground/60">
-          Monthly revenue movement based on the exported dataset snapshot.
+        <p className="text-sm text-foreground/60 mt-1">
+          Monthly revenue movement from your dataset.
         </p>
       </div>
 

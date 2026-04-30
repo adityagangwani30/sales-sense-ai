@@ -32,11 +32,11 @@ export function DashboardHighlights({ dataset }: DashboardHighlightsProps) {
   ]
 
   return (
-    <section className="rounded-2xl border border-border/70 bg-card/90 p-6 shadow-sm">
-      <div className="mb-5">
+    <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+      <div className="mb-6">
         <h2 className="text-lg font-semibold text-foreground">Key Highlights</h2>
-        <p className="text-sm text-foreground/60">
-          Quick business signals extracted from the selected dataset snapshot.
+        <p className="text-sm text-foreground/60 mt-1">
+          Quick business signals from this dataset.
         </p>
       </div>
 
@@ -46,14 +46,14 @@ export function DashboardHighlights({ dataset }: DashboardHighlightsProps) {
           return (
             <div
               key={item.title}
-              className="flex items-start gap-3 rounded-xl bg-background/80 px-4 py-3"
+              className="flex items-center gap-3 rounded-lg bg-background/40 hover:bg-background/60 px-3 py-3 transition-colors"
             >
-              <div className="rounded-lg bg-primary/10 p-2">
+              <div className="rounded-lg bg-primary/10 p-2 flex-shrink-0">
                 <Icon className="h-4 w-4 text-primary" />
               </div>
-              <div className="min-w-0">
-                <p className="text-sm text-foreground/60">{item.title}</p>
-                <p className="truncate text-sm font-semibold text-foreground">{item.value}</p>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs text-foreground/50 font-medium uppercase tracking-wide">{item.title}</p>
+                <p className="truncate text-sm font-semibold text-foreground mt-0.5">{item.value}</p>
               </div>
             </div>
           )

@@ -10,11 +10,11 @@ export function VisualizationGallery({
   visualizations,
 }: VisualizationGalleryProps) {
   return (
-    <section className="rounded-2xl border border-border/70 bg-card/90 p-6 shadow-sm">
-      <div className="mb-5">
+    <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+      <div className="mb-6">
         <h2 className="text-lg font-semibold text-foreground">Generated Visualizations</h2>
-        <p className="text-sm text-foreground/60">
-          Pre-rendered PNG outputs copied directly from the Python analytics pipeline.
+        <p className="text-sm text-foreground/60 mt-1">
+          Pre-rendered analytics charts from the Python pipeline.
         </p>
       </div>
 
@@ -22,11 +22,11 @@ export function VisualizationGallery({
         {visualizations.map((visualization) => (
           <article
             key={visualization.filename}
-            className="overflow-hidden rounded-2xl border border-border/70 bg-background/80"
+            className="overflow-hidden rounded-lg border border-border/60 bg-background/40 hover:border-border hover:bg-background/60 transition-all duration-200"
           >
-            <div className="border-b border-border/60 px-4 py-3">
-              <h3 className="font-medium text-foreground">{visualization.title}</h3>
-              <p className="text-xs text-foreground/50">{visualization.filename}</p>
+            <div className="border-b border-border/40 px-4 py-3 bg-background/20">
+              <h3 className="font-medium text-foreground text-sm">{visualization.title}</h3>
+              <p className="text-xs text-foreground/50 mt-1">{visualization.filename}</p>
             </div>
             <div className="p-3">
               <Image
@@ -34,7 +34,7 @@ export function VisualizationGallery({
                 alt={visualization.title}
                 width={1600}
                 height={900}
-                className="h-auto w-full rounded-xl border border-border/50"
+                className="h-auto w-full rounded-md border border-border/30 bg-background"
               />
             </div>
           </article>

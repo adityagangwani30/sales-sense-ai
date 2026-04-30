@@ -15,11 +15,11 @@ export function CategoryDistributionChart({
   data,
 }: CategoryDistributionChartProps) {
   return (
-    <section className="rounded-2xl border border-border/70 bg-card/90 p-6 shadow-sm">
-      <div className="mb-5">
+    <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+      <div className="mb-6">
         <h2 className="text-lg font-semibold text-foreground">Category Distribution</h2>
-        <p className="text-sm text-foreground/60">
-          Revenue share by category, grouped for quick executive reading.
+        <p className="text-sm text-foreground/60 mt-1">
+          Revenue share by category.
         </p>
       </div>
 
@@ -57,7 +57,7 @@ export function CategoryDistributionChart({
         {data.map((item, index) => (
           <div
             key={item.category}
-            className="flex items-center justify-between rounded-xl bg-background/80 px-3 py-2 text-sm"
+            className="flex items-center justify-between rounded-lg bg-background/40 hover:bg-background/60 px-3 py-2 text-sm transition-colors"
           >
             <div className="flex items-center gap-2">
               <span

@@ -28,11 +28,11 @@ export function TopProductsChart({ data }: TopProductsChartProps) {
     }))
 
   return (
-    <section className="rounded-2xl border border-border/70 bg-card/90 p-6 shadow-sm">
-      <div className="mb-5">
+    <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+      <div className="mb-6">
         <h2 className="text-lg font-semibold text-foreground">Top Products</h2>
-        <p className="text-sm text-foreground/60">
-          Best-selling products ranked by revenue contribution.
+        <p className="text-sm text-foreground/60 mt-1">
+          Best-selling products by revenue.
         </p>
       </div>
 
