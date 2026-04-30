@@ -308,6 +308,46 @@ def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, st
         )
         output_path = FRONTEND_DATASETS_DIR / f"{config['id']}.json"
         output_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        # Also write individual dataset JSON files under /public/data/<dataset>/
+        per_dataset_dir = FRONTEND_DATA_DIR / config["id"]
+        per_dataset_dir.mkdir(parents=True, exist_ok=True)
+
+        # metrics.json: include both snake_case and camelCase keys for compatibility
+        kpis = payload.get("kpis", {})
+        metrics_obj = {
+            "total_revenue": kpis.get("totalRevenue"),
+            "totalRevenue": kpis.get("totalRevenue"),
+            "total_orders": kpis.get("totalOrders"),
+            "totalOrders": kpis.get("totalOrders"),
+            "total_customers": kpis.get("totalCustomers"),
+            "totalCustomers": kpis.get("totalCustomers"),
+            "avg_order_value": kpis.get("averageOrderValue"),
+            "averageOrderValue": kpis.get("averageOrderValue"),
+            "repeat_purchase_rate": kpis.get("repeatPurchaseRate"),
+            "repeatPurchaseRate": kpis.get("repeatPurchaseRate"),
+            "trend_change_pct": kpis.get("trendChangePct"),
+            "trendChangePct": kpis.get("trendChangePct"),
+        }
+        (per_dataset_dir / "metrics.json").write_text(json.dumps(metrics_obj, indent=2), encoding="utf-8")
+
+        # revenue_trend.json
+        (per_dataset_dir / "revenue_trend.json").write_text(json.dumps(payload.get("revenueTrend", []), indent=2), encoding="utf-8")
+
+        # top_products.json
+        (per_dataset_dir / "top_products.json").write_text(json.dumps(payload.get("topProducts", []), indent=2), encoding="utf-8")
+
+        # customer_segmentation.json
+        (per_dataset_dir / "customer_segmentation.json").write_text(json.dumps(payload.get("customerSegmentation", []), indent=2), encoding="utf-8")
+
+        # category_performance.json
+        (per_dataset_dir / "category_performance.json").write_text(json.dumps(payload.get("categoryDistribution", []), indent=2), encoding="utf-8")
+
+        # repeat_rate.json
+        repeat_obj = {"repeat_purchase_rate": kpis.get("repeatPurchaseRate")} 
+        (per_dataset_dir / "repeat_rate.json").write_text(json.dumps(repeat_obj, indent=2), encoding="utf-8")
+
+        # insights.json (highlights)
+        (per_dataset_dir / "insights.json").write_text(json.dumps(payload.get("highlights", {}), indent=2), encoding="utf-8")
         dataset_entries.append(
             {
                 "id": config["id"],

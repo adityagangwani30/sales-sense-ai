@@ -65,7 +65,13 @@ export default function LandingPage() {
         brightness={0.9}
         color1="#7c3aed"
         color2="#ec4899"
-        color3="#3b82f6"
+        noiseFrequency={2.5}
+        noiseAmplitude={1.0}
+        bandHeight={0.5}
+        bandSpread={1.0}
+        octaveDecay={0.1}
+        enableMouseInteraction={true}
+        mouseInfluence={0.15}
       />
       
       <div className="relative z-10">

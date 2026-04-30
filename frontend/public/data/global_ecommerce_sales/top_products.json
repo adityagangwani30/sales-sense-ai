@@ -1,0 +1,52 @@
+[
+  {
+    "product_name": "mesh back task chair",
+    "total_revenue": 14794.78,
+    "order_count": 41
+  },
+  {
+    "product_name": "portable external ssd 1tb",
+    "total_revenue": 13159.11,
+    "order_count": 50
+  },
+  {
+    "product_name": "bookshelf 5-tier",
+    "total_revenue": 12115.49,
+    "order_count": 48
+  },
+  {
+    "product_name": "floating wall shelves set",
+    "total_revenue": 11767.3,
+    "order_count": 57
+  },
+  {
+    "product_name": "folding table portable",
+    "total_revenue": 11449.28,
+    "order_count": 50
+  },
+  {
+    "product_name": "webcam hd 1080p",
+    "total_revenue": 10927.15,
+    "order_count": 60
+  },
+  {
+    "product_name": "mechanical gaming keyboard",
+    "total_revenue": 10308.45,
+    "order_count": 44
+  },
+  {
+    "product_name": "wireless ergonomic mouse",
+    "total_revenue": 9995.39,
+    "order_count": 67
+  },
+  {
+    "product_name": "wireless bluetooth headphones",
+    "total_revenue": 9849.31,
+    "order_count": 38
+  },
+  {
+    "product_name": "travel backpack 30l",
+    "total_revenue": 9699.77,
+    "order_count": 52
+  }
+]

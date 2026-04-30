@@ -1,0 +1,22 @@
+[
+  {
+    "category": "technology",
+    "total_revenue": 93738.78,
+    "share_pct": 35.87609657171765
+  },
+  {
+    "category": "furniture",
+    "total_revenue": 90424.83,
+    "share_pct": 34.60776781563779
+  },
+  {
+    "category": "clothing & accessories",
+    "total_revenue": 57730.36,
+    "share_pct": 22.09480399126195
+  },
+  {
+    "category": "office supplies",
+    "total_revenue": 19390.81,
+    "share_pct": 7.421331621382617
+  }
+]

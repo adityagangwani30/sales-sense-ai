@@ -1,0 +1,242 @@
+[
+  {
+    "month": "Jan 2014",
+    "month_start": "2014-01-01",
+    "revenue": 9949.296
+  },
+  {
+    "month": "Feb 2014",
+    "month_start": "2014-02-01",
+    "revenue": 6277.304
+  },
+  {
+    "month": "Mar 2014",
+    "month_start": "2014-03-01",
+    "revenue": 11177.051
+  },
+  {
+    "month": "Apr 2014",
+    "month_start": "2014-04-01",
+    "revenue": 10879.938
+  },
+  {
+    "month": "May 2014",
+    "month_start": "2014-05-01",
+    "revenue": 14285.228
+  },
+  {
+    "month": "Jun 2014",
+    "month_start": "2014-06-01",
+    "revenue": 10919.0316
+  },
+  {
+    "month": "Jul 2014",
+    "month_start": "2014-07-01",
+    "revenue": 13691.854
+  },
+  {
+    "month": "Aug 2014",
+    "month_start": "2014-08-01",
+    "revenue": 11692.0675
+  },
+  {
+    "month": "Sep 2014",
+    "month_start": "2014-09-01",
+    "revenue": 15417.9998
+  },
+  {
+    "month": "Oct 2014",
+    "month_start": "2014-10-01",
+    "revenue": 12137.727
+  },
+  {
+    "month": "Nov 2014",
+    "month_start": "2014-11-01",
+    "revenue": 20471.8695
+  },
+  {
+    "month": "Dec 2014",
+    "month_start": "2014-12-01",
+    "revenue": 21439.1317
+  },
+  {
+    "month": "Jan 2015",
+    "month_start": "2015-01-01",
+    "revenue": 6973.446
+  },
+  {
+    "month": "Feb 2015",
+    "month_start": "2015-02-01",
+    "revenue": 8569.491
+  },
+  {
+    "month": "Mar 2015",
+    "month_start": "2015-03-01",
+    "revenue": 12572.3416
+  },
+  {
+    "month": "Apr 2015",
+    "month_start": "2015-04-01",
+    "revenue": 12618.8545
+  },
+  {
+    "month": "May 2015",
+    "month_start": "2015-05-01",
+    "revenue": 13395.672
+  },
+  {
+    "month": "Jun 2015",
+    "month_start": "2015-06-01",
+    "revenue": 13054.137200000001
+  },
+  {
+    "month": "Jul 2015",
+    "month_start": "2015-07-01",
+    "revenue": 11058.651
+  },
+  {
+    "month": "Aug 2015",
+    "month_start": "2015-08-01",
+    "revenue": 13464.184
+  },
+  {
+    "month": "Sep 2015",
+    "month_start": "2015-09-01",
+    "revenue": 19694.529
+  },
+  {
+    "month": "Oct 2015",
+    "month_start": "2015-10-01",
+    "revenue": 14313.363
+  },
+  {
+    "month": "Nov 2015",
+    "month_start": "2015-11-01",
+    "revenue": 25531.0503
+  },
+  {
+    "month": "Dec 2015",
+    "month_start": "2015-12-01",
+    "revenue": 21267.532
+  },
+  {
+    "month": "Jan 2016",
+    "month_start": "2016-01-01",
+    "revenue": 12400.08
+  },
+  {
+    "month": "Feb 2016",
+    "month_start": "2016-02-01",
+    "revenue": 11192.099
+  },
+  {
+    "month": "Mar 2016",
+    "month_start": "2016-03-01",
+    "revenue": 17763.054
+  },
+  {
+    "month": "Apr 2016",
+    "month_start": "2016-04-01",
+    "revenue": 13836.675
+  },
+  {
+    "month": "May 2016",
+    "month_start": "2016-05-01",
+    "revenue": 21905.298
+  },
+  {
+    "month": "Jun 2016",
+    "month_start": "2016-06-01",
+    "revenue": 19304.284
+  },
+  {
+    "month": "Jul 2016",
+    "month_start": "2016-07-01",
+    "revenue": 17215.321
+  },
+  {
+    "month": "Aug 2016",
+    "month_start": "2016-08-01",
+    "revenue": 18194.4648
+  },
+  {
+    "month": "Sep 2016",
+    "month_start": "2016-09-01",
+    "revenue": 20464.1625
+  },
+  {
+    "month": "Oct 2016",
+    "month_start": "2016-10-01",
+    "revenue": 19526.308
+  },
+  {
+    "month": "Nov 2016",
+    "month_start": "2016-11-01",
+    "revenue": 24536.082
+  },
+  {
+    "month": "Dec 2016",
+    "month_start": "2016-12-01",
+    "revenue": 18946.319
+  },
+  {
+    "month": "Jan 2017",
+    "month_start": "2017-01-01",
+    "revenue": 20731.376
+  },
+  {
+    "month": "Feb 2017",
+    "month_start": "2017-02-01",
+    "revenue": 18183.3074
+  },
+  {
+    "month": "Mar 2017",
+    "month_start": "2017-03-01",
+    "revenue": 26453.6318
+  },
+  {
+    "month": "Apr 2017",
+    "month_start": "2017-04-01",
+    "revenue": 15433.8166
+  },
+  {
+    "month": "May 2017",
+    "month_start": "2017-05-01",
+    "revenue": 22081.9884
+  },
+  {
+    "month": "Jun 2017",
+    "month_start": "2017-06-01",
+    "revenue": 21599.6432
+  },
+  {
+    "month": "Jul 2017",
+    "month_start": "2017-07-01",
+    "revenue": 23805.258
+  },
+  {
+    "month": "Aug 2017",
+    "month_start": "2017-08-01",
+    "revenue": 19945.488
+  },
+  {
+    "month": "Sep 2017",
+    "month_start": "2017-09-01",
+    "revenue": 31633.989
+  },
+  {
+    "month": "Oct 2017",
+    "month_start": "2017-10-01",
+    "revenue": 19627.6822
+  },
+  {
+    "month": "Nov 2017",
+    "month_start": "2017-11-01",
+    "revenue": 27935.18
+  },
+  {
+    "month": "Dec 2017",
+    "month_start": "2017-12-01",
+    "revenue": 25003.8898
+  }
+]

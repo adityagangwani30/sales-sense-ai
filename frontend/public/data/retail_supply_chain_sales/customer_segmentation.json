@@ -1,0 +1,17 @@
+[
+  {
+    "segment": "consumer",
+    "customer_count": 408,
+    "avg_order_value": 94.5766366349481
+  },
+  {
+    "segment": "corporate",
+    "customer_count": 234,
+    "avg_order_value": 91.01704277588168
+  },
+  {
+    "segment": "home office",
+    "customer_count": 148,
+    "avg_order_value": 90.59450788967287
+  }
+]
