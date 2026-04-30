@@ -73,7 +73,7 @@ export function useDashboardData(): UseDashboardDataResult {
     setIsLoading(true)
     setError(null)
 
-    fetchDashboardDataset(selectedDataset.dataPath)
+    fetchDashboardDataset(selectedDataset.id, manifest)
       .then((loadedDataset) => {
         if (isMounted) {
           setDataset(loadedDataset)

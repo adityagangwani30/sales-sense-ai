@@ -4,5 +4,3 @@ openpyxl
 mysql-connector-python
 dotenv
 matplotlib
-fastapi
-uvicorn
