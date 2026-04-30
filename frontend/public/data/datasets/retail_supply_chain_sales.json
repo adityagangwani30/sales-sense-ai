@@ -1,8 +1,8 @@
 {
   "datasetId": "retail_supply_chain_sales",
-  "label": "Dataset 2",
-  "description": "Retail Supply Chain Sales",
-  "sourceFile": "outputs/retail_supply_chain_sales_cleaned.csv",
+  "label": "Retail Supply Chain Sales",
+  "description": "Retail supply chain performance and sales metrics",
+  "sourceFile": "outputs/retail_supply_chain_sales/retail_supply_chain_sales_cleaned.csv",
   "kpis": {
     "totalRevenue": 818571.15,
     "totalOrders": 4724,
@@ -376,37 +376,37 @@
   "visualizations": [
     {
       "title": "Category Revenue Distribution",
-      "src": "/visualizations/category_distribution.png",
+      "src": "/visualizations/retail_supply_chain_sales/category_distribution.png",
       "filename": "category_distribution.png"
     },
     {
       "title": "Customer Segmentation Overview",
-      "src": "/visualizations/customer_segmentation.png",
+      "src": "/visualizations/retail_supply_chain_sales/customer_segmentation.png",
       "filename": "customer_segmentation.png"
     },
     {
       "title": "Monthly Revenue Trend",
-      "src": "/visualizations/monthly_revenue_trend.png",
+      "src": "/visualizations/retail_supply_chain_sales/monthly_revenue_trend.png",
       "filename": "monthly_revenue_trend.png"
     },
     {
       "title": "Order Value Distribution",
-      "src": "/visualizations/order_value_distribution.png",
+      "src": "/visualizations/retail_supply_chain_sales/order_value_distribution.png",
       "filename": "order_value_distribution.png"
     },
     {
       "title": "Price vs Sales Correlation",
-      "src": "/visualizations/price_vs_sales_scatter.png",
+      "src": "/visualizations/retail_supply_chain_sales/price_vs_sales_scatter.png",
       "filename": "price_vs_sales_scatter.png"
     },
     {
       "title": "Executive Analytics Dashboard",
-      "src": "/visualizations/sales_dashboard.png",
+      "src": "/visualizations/retail_supply_chain_sales/sales_dashboard.png",
       "filename": "sales_dashboard.png"
     },
     {
       "title": "Top Products Performance",
-      "src": "/visualizations/top_products.png",
+      "src": "/visualizations/retail_supply_chain_sales/top_products.png",
       "filename": "top_products.png"
     }
   ],

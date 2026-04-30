@@ -1,8 +1,8 @@
 {
   "datasetId": "global_ecommerce_sales",
-  "label": "Dataset 1",
-  "description": "Global E-Commerce Sales",
-  "sourceFile": "outputs/global_ecommerce_sales_cleaned.csv",
+  "label": "Global E-Commerce Sales",
+  "description": "E-Commerce sales analytics with global customer and product data",
+  "sourceFile": "outputs/global_ecommerce_sales/global_ecommerce_sales_cleaned.csv",
   "kpis": {
     "totalRevenue": 261284.78,
     "totalOrders": 1810,
@@ -321,37 +321,37 @@
   "visualizations": [
     {
       "title": "Category Revenue Distribution",
-      "src": "/visualizations/category_distribution.png",
+      "src": "/visualizations/global_ecommerce_sales/category_distribution.png",
       "filename": "category_distribution.png"
     },
     {
       "title": "Customer Segmentation Overview",
-      "src": "/visualizations/customer_segmentation.png",
+      "src": "/visualizations/global_ecommerce_sales/customer_segmentation.png",
       "filename": "customer_segmentation.png"
     },
     {
       "title": "Monthly Revenue Trend",
-      "src": "/visualizations/monthly_revenue_trend.png",
+      "src": "/visualizations/global_ecommerce_sales/monthly_revenue_trend.png",
       "filename": "monthly_revenue_trend.png"
     },
     {
       "title": "Order Value Distribution",
-      "src": "/visualizations/order_value_distribution.png",
+      "src": "/visualizations/global_ecommerce_sales/order_value_distribution.png",
       "filename": "order_value_distribution.png"
     },
     {
       "title": "Price vs Sales Correlation",
-      "src": "/visualizations/price_vs_sales_scatter.png",
+      "src": "/visualizations/global_ecommerce_sales/price_vs_sales_scatter.png",
       "filename": "price_vs_sales_scatter.png"
     },
     {
       "title": "Executive Analytics Dashboard",
-      "src": "/visualizations/sales_dashboard.png",
+      "src": "/visualizations/global_ecommerce_sales/sales_dashboard.png",
       "filename": "sales_dashboard.png"
     },
     {
       "title": "Top Products Performance",
-      "src": "/visualizations/top_products.png",
+      "src": "/visualizations/global_ecommerce_sales/top_products.png",
       "filename": "top_products.png"
     }
   ],

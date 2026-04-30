@@ -17,16 +17,16 @@ FRONTEND_VISUALIZATION_DIR = FRONTEND_PUBLIC_DIR / "visualizations"
 
 DATASET_CONFIGS = [
     {
-        "id": "dataset_1",
-        "label": "Dataset 1",
-        "description": "Global E-Commerce Sales",
-        "source_path": OUTPUTS_DIR / "dataset_1" / "dataset_1_cleaned.csv",
+        "id": "global_ecommerce_sales",
+        "label": "Global E-Commerce Sales",
+        "description": "E-Commerce sales analytics with global customer and product data",
+        "source_path": OUTPUTS_DIR / "global_ecommerce_sales" / "global_ecommerce_sales_cleaned.csv",
     },
     {
-        "id": "dataset_2",
-        "label": "Dataset 2",
-        "description": "Retail Supply Chain Sales",
-        "source_path": OUTPUTS_DIR / "dataset_2" / "dataset_2_cleaned.csv",
+        "id": "retail_supply_chain_sales",
+        "label": "Retail Supply Chain Sales",
+        "description": "Retail supply chain performance and sales metrics",
+        "source_path": OUTPUTS_DIR / "retail_supply_chain_sales" / "retail_supply_chain_sales_cleaned.csv",
     },
 ]
 
@@ -86,7 +86,8 @@ def copy_visualizations(dataset_id: str) -> list[dict[str, str]]:
     """Copy generated PNGs into the Next.js public folder."""
     visualization_dir = get_visualization_output_dir(dataset_id)
     if not visualization_dir.exists():
-        raise FileNotFoundError(f"Visualization output folder not found: {visualization_dir}")
+        print(f"  ⚠ Skipping visualizations for {dataset_id}: folder not found")
+        return []
 
     target_dir = FRONTEND_VISUALIZATION_DIR / dataset_id
     target_dir.mkdir(parents=True, exist_ok=True)
@@ -109,7 +110,8 @@ def export_sql_analysis_json(dataset_id: str) -> dict[str, str]:
     """Publish every SQL analysis CSV as frontend-friendly JSON."""
     sql_output_dir = get_sql_output_dir(dataset_id)
     if not sql_output_dir.exists():
-        raise FileNotFoundError(f"SQL output folder not found: {sql_output_dir}")
+        print(f"  ⚠ No SQL analysis found for {dataset_id}")
+        return {}
 
     target_dir = FRONTEND_SQL_DIR / dataset_id
     target_dir.mkdir(parents=True, exist_ok=True)
@@ -287,11 +289,12 @@ def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, st
     dataset_entries: list[dict[str, str]] = []
     sql_analysis_entries: dict[str, dict[str, str]] = {}
     for config in DATASET_CONFIGS:
-        if (
-            not config["source_path"].exists()
-            or not get_sql_output_dir(config["id"]).exists()
-            or not get_visualization_output_dir(config["id"]).exists()
-        ):
+        if not config["source_path"].exists():
+            print(f"  ⚠ Skipping {config['id']}: cleaned dataset not found")
+            continue
+
+        if not get_sql_output_dir(config["id"]).exists():
+            print(f"  ⚠ Skipping {config['id']}: SQL analysis not found")
             continue
 
         visualizations = copy_visualizations(config["id"])
@@ -325,7 +328,6 @@ def export_frontend_dashboard_assets() -> dict[str, Any]:
     visualization_assets = [
         asset
         for dataset in DATASET_CONFIGS
-        if (FRONTEND_VISUALIZATION_DIR / dataset["id"]).exists()
         for asset in copy_visualizations(dataset["id"])
     ]
 
