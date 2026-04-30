@@ -28,10 +28,10 @@ export function TopProductsChart({ data }: TopProductsChartProps) {
     }))
 
   return (
-    <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+    <section className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-lg hover:bg-white/[7%] transition-colors">
       <div className="mb-6">
-        <h2 className="text-lg font-semibold text-foreground">Top Products</h2>
-        <p className="text-sm text-foreground/60 mt-1">
+        <h2 className="text-lg font-semibold text-white">Top Products</h2>
+        <p className="text-sm text-gray-400 mt-1">
           Best-selling products by revenue.
         </p>
       </div>

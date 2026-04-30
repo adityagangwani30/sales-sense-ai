@@ -13,14 +13,16 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+    <nav className="border-b border-white/10 bg-black/40 backdrop-blur-xl sticky top-0 z-50">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 text-xl font-bold text-primary">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center text-white">
+          <Link href="/" className="flex items-center gap-2 text-xl font-bold text-white">
+            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold">
               S
             </div>
-            <span>SalesSense</span>
+            <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+              SalesSense
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -30,8 +32,8 @@ export function Navbar() {
                 href={item.href}
                 className={`text-sm font-medium transition-colors ${
                   pathname === item.href
-                    ? 'text-primary'
-                    : 'text-foreground/70 hover:text-foreground'
+                    ? 'text-purple-300'
+                    : 'text-gray-400 hover:text-white'
                 }`}
               >
                 {item.label}
@@ -41,7 +43,7 @@ export function Navbar() {
 
           <Link
             href="/dashboard"
-            className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium hover:from-purple-500 hover:to-pink-500 transition-all shadow-lg shadow-purple-500/50"
           >
             Launch App
           </Link>

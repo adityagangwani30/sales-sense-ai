@@ -32,10 +32,10 @@ export function DashboardHighlights({ dataset }: DashboardHighlightsProps) {
   ]
 
   return (
-    <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+    <section className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-lg hover:bg-white/[7%] transition-colors">
       <div className="mb-6">
-        <h2 className="text-lg font-semibold text-foreground">Key Highlights</h2>
-        <p className="text-sm text-foreground/60 mt-1">
+        <h2 className="text-lg font-semibold text-white">Key Highlights</h2>
+        <p className="text-sm text-gray-400 mt-1">
           Quick business signals from this dataset.
         </p>
       </div>
@@ -46,14 +46,14 @@ export function DashboardHighlights({ dataset }: DashboardHighlightsProps) {
           return (
             <div
               key={item.title}
-              className="flex items-center gap-3 rounded-lg bg-background/40 hover:bg-background/60 px-3 py-3 transition-colors"
+              className="flex items-center gap-3 rounded-lg bg-white/[3%] hover:bg-white/[5%] px-3 py-3 transition-colors border border-white/5"
             >
-              <div className="rounded-lg bg-primary/10 p-2 flex-shrink-0">
-                <Icon className="h-4 w-4 text-primary" />
+              <div className="rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 p-2 flex-shrink-0">
+                <Icon className="h-4 w-4 text-purple-300" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-xs text-foreground/50 font-medium uppercase tracking-wide">{item.title}</p>
-                <p className="truncate text-sm font-semibold text-foreground mt-0.5">{item.value}</p>
+                <p className="text-xs text-gray-500 font-medium uppercase tracking-wide">{item.title}</p>
+                <p className="truncate text-sm font-semibold text-white mt-0.5">{item.value}</p>
               </div>
             </div>
           )
