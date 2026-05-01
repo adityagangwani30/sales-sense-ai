@@ -1,0 +1,42 @@
+{
+  "dataset": "dataset_1",
+  "cleaned_dataset_path": "outputs\\global_ecommerce_sales\\global_ecommerce_sales_cleaned.csv",
+  "feature_columns": [
+    "month",
+    "quantity",
+    "price",
+    "category",
+    "region"
+  ],
+  "target_column": "sales",
+  "sample_count": 1810,
+  "models": {
+    "linear_regression": {
+      "display_name": "Linear Regression",
+      "mae": 53.76808501608291,
+      "r2": 0.6949528500424158,
+      "train_r2": 0.7419901752716145,
+      "test_r2": 0.6949528500424158,
+      "generalization_gap": 0.04703732522919868,
+      "fit_assessment": "Good fit"
+    },
+    "decision_tree": {
+      "display_name": "Decision Tree",
+      "mae": 17.633867403314916,
+      "r2": 0.9355340798490552,
+      "train_r2": 0.9999997899151275,
+      "test_r2": 0.9355340798490552,
+      "generalization_gap": 0.06446571006607227,
+      "fit_assessment": "Good fit"
+    },
+    "random_forest": {
+      "display_name": "Random Forest",
+      "mae": 12.957546712707183,
+      "r2": 0.9612700283529869,
+      "train_r2": 0.997601104746676,
+      "test_r2": 0.9612700283529869,
+      "generalization_gap": 0.036331076393689044,
+      "fit_assessment": "Good fit"
+    }
+  }
+}

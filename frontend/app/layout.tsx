@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
-import SoftAuroraClient from '@/components/soft-aurora-client'
-import AuroraOverlayClient from '@/components/aurora-overlay-client'
+import SoftAuroraClient from '../components/soft-aurora-client'
+import AuroraOverlayClient from '../components/aurora-overlay-client'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'

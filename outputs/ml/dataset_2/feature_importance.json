@@ -1,0 +1,50 @@
+{
+  "dataset": "dataset_2",
+  "cleaned_dataset_path": "outputs\\retail_supply_chain_sales\\retail_supply_chain_sales_cleaned.csv",
+  "feature_importance": {
+    "decision_tree": [
+      {
+        "feature": "price",
+        "importance": 0.789128
+      },
+      {
+        "feature": "quantity",
+        "importance": 0.21064
+      },
+      {
+        "feature": "month",
+        "importance": 0.000105
+      },
+      {
+        "feature": "region",
+        "importance": 8.6e-05
+      },
+      {
+        "feature": "category",
+        "importance": 4.1e-05
+      }
+    ],
+    "random_forest": [
+      {
+        "feature": "price",
+        "importance": 0.796284
+      },
+      {
+        "feature": "quantity",
+        "importance": 0.203371
+      },
+      {
+        "feature": "region",
+        "importance": 0.000123
+      },
+      {
+        "feature": "month",
+        "importance": 0.000116
+      },
+      {
+        "feature": "category",
+        "importance": 0.000107
+      }
+    ]
+  }
+}

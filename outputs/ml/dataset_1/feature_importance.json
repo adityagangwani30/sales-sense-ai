@@ -1,0 +1,50 @@
+{
+  "dataset": "dataset_1",
+  "cleaned_dataset_path": "outputs\\global_ecommerce_sales\\global_ecommerce_sales_cleaned.csv",
+  "feature_importance": {
+    "decision_tree": [
+      {
+        "feature": "price",
+        "importance": 0.631968
+      },
+      {
+        "feature": "quantity",
+        "importance": 0.361248
+      },
+      {
+        "feature": "region",
+        "importance": 0.003377
+      },
+      {
+        "feature": "month",
+        "importance": 0.002436
+      },
+      {
+        "feature": "category",
+        "importance": 0.000971
+      }
+    ],
+    "random_forest": [
+      {
+        "feature": "price",
+        "importance": 0.632905
+      },
+      {
+        "feature": "quantity",
+        "importance": 0.359129
+      },
+      {
+        "feature": "region",
+        "importance": 0.003464
+      },
+      {
+        "feature": "month",
+        "importance": 0.003136
+      },
+      {
+        "feature": "category",
+        "importance": 0.001365
+      }
+    ]
+  }
+}

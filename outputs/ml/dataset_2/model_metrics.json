@@ -1,0 +1,42 @@
+{
+  "dataset": "dataset_2",
+  "cleaned_dataset_path": "outputs\\retail_supply_chain_sales\\retail_supply_chain_sales_cleaned.csv",
+  "feature_columns": [
+    "month",
+    "quantity",
+    "price",
+    "category",
+    "region"
+  ],
+  "target_column": "sales",
+  "sample_count": 8820,
+  "models": {
+    "linear_regression": {
+      "display_name": "Linear Regression",
+      "mae": 34.79341191529944,
+      "r2": 0.756748537530932,
+      "train_r2": 0.743561997483162,
+      "test_r2": 0.756748537530932,
+      "generalization_gap": -0.013186540047769979,
+      "fit_assessment": "Good fit"
+    },
+    "decision_tree": {
+      "display_name": "Decision Tree",
+      "mae": 0.8935769274376416,
+      "r2": 0.9985498610847476,
+      "train_r2": 1.0,
+      "test_r2": 0.9985498610847476,
+      "generalization_gap": 0.0014501389152523636,
+      "fit_assessment": "Good fit"
+    },
+    "random_forest": {
+      "display_name": "Random Forest",
+      "mae": 0.6237108327664403,
+      "r2": 0.9993187560846046,
+      "train_r2": 0.9999288670909288,
+      "test_r2": 0.9993187560846046,
+      "generalization_gap": 0.0006101110063241322,
+      "fit_assessment": "Good fit"
+    }
+  }
+}
