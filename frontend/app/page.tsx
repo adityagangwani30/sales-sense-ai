@@ -169,6 +169,65 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Model Comparison & Results */}
+        <section className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-20 border-t border-white/10">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">Model Comparison</h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">Performance metrics loaded from model outputs for the selected dataset</p>
+          </div>
+
+          <div className="overflow-x-auto bg-white/5 border border-white/10 rounded-xl p-6">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="text-sm text-gray-400">
+                  <th className="pb-4">Model</th>
+                  <th className="pb-4">R²</th>
+                  <th className="pb-4">MAE</th>
+                  <th className="pb-4">RMSE</th>
+                  <th className="pb-4">MAPE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ds?.modelMetrics?.models?.length ? (
+                  ds.modelMetrics.models.map((m: any) => (
+                    <tr key={m.name} className="border-t border-white/5">
+                      <td className="py-4 text-white font-medium">{m.display_name || m.name}</td>
+                      <td className="py-4 text-gray-200">{m.r2 != null ? `${(m.r2 * 100).toFixed(2)}%` : 'Data not available'}</td>
+                      <td className="py-4 text-gray-200">{m.mae != null ? formatCurrency(m.mae) : 'Data not available'}</td>
+                      <td className="py-4 text-gray-200">{m.rmse != null ? formatCurrency(m.rmse) : 'Data not available'}</td>
+                      <td className="py-4 text-gray-200">{m.mape != null ? formatPercent(m.mape) : 'Data not available'}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td className="py-4 text-gray-400">Model data not available</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white/5 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-white mb-2">Best Model</h3>
+              <p className="text-gray-400 mb-2">{ds?.modelMetrics?.best_model?.display_name ?? 'Data not available'}</p>
+              <p className="text-gray-400">R²: {ds?.modelMetrics?.best_model?.r2 != null ? `${(ds.modelMetrics.best_model.r2 * 100).toFixed(2)}%` : 'Data not available'}</p>
+              <p className="text-gray-400">MAE: {ds?.modelMetrics?.best_model?.mae != null ? formatCurrency(ds.modelMetrics.best_model.mae) : 'Data not available'}</p>
+            </div>
+
+            <div className="bg-white/5 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-white mb-2">Dataset</h3>
+              <p className="text-gray-400">Records: {ds?.metrics?.total_orders != null ? formatNumber(ds.metrics.total_orders) : 'Data not available'}</p>
+              <p className="text-gray-400">Revenue: {ds?.metrics?.total_revenue != null ? formatCurrency(ds.metrics.total_revenue) : 'Data not available'}</p>
+            </div>
+
+            <div className="bg-white/5 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-white mb-2">Notes</h3>
+              <p className="text-gray-400 text-sm">{ds?.businessInsights ?? 'Business insights not available'}</p>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl py-20 border-t border-white/10">
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-2xl p-12 text-center backdrop-blur">

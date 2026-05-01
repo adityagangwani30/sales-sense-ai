@@ -121,6 +121,33 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Results Achieved */}
+        <section className="mb-20 border-t border-border pt-20">
+          <h2 className="text-3xl font-bold text-foreground mb-8">Results Achieved</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-card border border-border rounded-xl p-6">
+              <h3 className="text-lg font-bold text-foreground mb-2">Data Processing</h3>
+              <p className="text-foreground/70">{ds?.metrics?.total_orders != null ? `${formatNumber(ds.metrics.total_orders)} orders processed` : 'Data not available'}</p>
+              <p className="text-foreground/70">{ds?.metrics?.total_revenue != null ? `${formatCurrency(ds.metrics.total_revenue)} total revenue analyzed` : ''}</p>
+              <p className="text-foreground/70">Features engineered: {ds?.metricsDetailed?.feature_columns ? ds.metricsDetailed.feature_columns.length : (ds?.modelMetrics?.feature_columns ? ds.modelMetrics.feature_columns.length : 'Data not available')}</p>
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-6">
+              <h3 className="text-lg font-bold text-foreground mb-2">Model Development</h3>
+              <p className="text-foreground/70">Models trained: {ds?.modelMetrics?.models ? ds.modelMetrics.models.length : 'Data not available'}</p>
+              <p className="text-foreground/70">Best model: {ds?.modelMetrics?.best_model?.display_name ?? 'Data not available'}</p>
+              <p className="text-foreground/70">Best model R²: {ds?.modelMetrics?.best_model?.r2 != null ? `${(ds.modelMetrics.best_model.r2 * 100).toFixed(2)}%` : 'Data not available'}</p>
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-6">
+              <h3 className="text-lg font-bold text-foreground mb-2">Model Performance</h3>
+              <p className="text-foreground/70">MAE: {ds?.modelMetrics?.best_model?.mae != null ? formatCurrency(ds.modelMetrics.best_model.mae) : 'Data not available'}</p>
+              <p className="text-foreground/70">MAPE: {ds?.modelMetrics?.best_model?.mape != null ? formatPercent(ds.modelMetrics.best_model.mape) : 'Data not available'}</p>
+              <p className="text-foreground/70">Sample count: {ds?.modelMetrics?.sample_count ?? 'Data not available'}</p>
+            </div>
+          </div>
+        </section>
+
         {/* Stats (dynamic) */}
         <section className="grid grid-cols-1 md:grid-cols-4 gap-8 py-20 border-t border-border">
           <div className="text-center">
