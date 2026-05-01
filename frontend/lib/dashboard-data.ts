@@ -17,13 +17,7 @@ export function fetchDashboardManifest() {
 export async function fetchDashboardDataset(datasetId: string, manifest: DashboardManifest): Promise<DashboardDataset> {
   const datasetConfig = manifest.datasets.find((item) => item.id === datasetId)
   const datasetPrefix = `/data/${datasetId}`
-  // Debug: log the paths the frontend will fetch for this dataset
-  console.log('Fetching dataset files for:', datasetId, 'prefix:', datasetPrefix)
-  console.log('Paths:', {
-    metrics: `${datasetPrefix}/metrics.json`,
-    revenue_trend: `${datasetPrefix}/revenue_trend.json`,
-    top_products: `${datasetPrefix}/top_products.json`,
-  })
+  // Paths used to fetch dataset files
 
   const [metrics, revenueTrend, topProducts, customerSegmentation, categoryPerformance, repeatRate, insights] = await Promise.all([
     fetchJson<any>(`${datasetPrefix}/metrics.json`),

@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { Navbar } from '@/components/navbar';
-import { SoftAurora } from '@/components/soft-aurora';
 import { ArrowRight, BarChart3, Zap, Shield, TrendingUp, Users, Lightbulb } from 'lucide-react';
 
 export default function LandingPage() {
@@ -58,24 +57,8 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
-      <SoftAurora
-        speed={0.5}
-        scale={1.3}
-        brightness={0.9}
-        color1="#7c3aed"
-        color2="#ec4899"
-        noiseFrequency={2.5}
-        noiseAmplitude={1.0}
-        bandHeight={0.5}
-        bandSpread={1.0}
-        octaveDecay={0.1}
-        enableMouseInteraction={true}
-        mouseInfluence={0.15}
-      />
-      
-      <div className="relative z-10">
-        <Navbar />
+    <>
+      <Navbar />
 
         {/* Hero Section */}
         <section className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-20 md:py-32">
@@ -224,7 +207,6 @@ export default function LandingPage() {
             </div>
           </div>
         </footer>
-      </div>
-    </div>
+    </>
   );
 }

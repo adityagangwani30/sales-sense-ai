@@ -1,5 +1,6 @@
-'use client'
+ 'use client'
 
+import React, { memo } from 'react'
 import {
   Bar,
   BarChart,
@@ -18,7 +19,7 @@ interface TopProductsChartProps {
   data: TopProduct[]
 }
 
-export function TopProductsChart({ data }: TopProductsChartProps) {
+function TopProductsChart({ data }: TopProductsChartProps) {
   const chartData = [...data]
     .slice(0, 7)
     .reverse()
@@ -74,3 +75,5 @@ export function TopProductsChart({ data }: TopProductsChartProps) {
     </section>
   )
 }
+
+export default memo(TopProductsChart)

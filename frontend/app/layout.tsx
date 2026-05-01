@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from 'next'
+import SoftAuroraClient from '@/components/soft-aurora-client'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   title: 'SalesSense AI - Retail Analytics Platform',
@@ -43,8 +45,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <div className="relative min-h-screen overflow-hidden bg-black">
+
+          <div className="absolute inset-0 z-0">
+            <SoftAuroraClient />
+          </div>
+
+          <div className="absolute inset-0 bg-black/60 z-10" />
+
+          <div className="relative z-20">
+            {children}
+            {process.env.NODE_ENV === 'production' && <Analytics />}
+          </div>
+
+        </div>
       </body>
     </html>
   )

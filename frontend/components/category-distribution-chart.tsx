@@ -1,5 +1,6 @@
 'use client'
 
+import React, { memo } from 'react'
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
 
 import type { CategoryDistributionItem } from '@/lib/dashboard-types'
@@ -11,7 +12,7 @@ interface CategoryDistributionChartProps {
   data: CategoryDistributionItem[]
 }
 
-export function CategoryDistributionChart({
+function CategoryDistributionChart({
   data,
 }: CategoryDistributionChartProps) {
   return (
@@ -73,3 +74,5 @@ export function CategoryDistributionChart({
     </section>
   )
 }
+
+export default memo(CategoryDistributionChart)

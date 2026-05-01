@@ -1,5 +1,6 @@
-'use client'
+ 'use client'
 
+import React, { memo } from 'react'
 import {
   CartesianGrid,
   Line,
@@ -17,7 +18,7 @@ interface RevenueTrendChartProps {
   data: RevenueTrendPoint[]
 }
 
-export function RevenueTrendChart({ data }: RevenueTrendChartProps) {
+function RevenueTrendChart({ data }: RevenueTrendChartProps) {
   return (
     <section className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-lg hover:bg-white/[7%] transition-colors">
       <div className="mb-6">
@@ -58,3 +59,5 @@ export function RevenueTrendChart({ data }: RevenueTrendChartProps) {
     </section>
   )
 }
+
+export default memo(RevenueTrendChart)

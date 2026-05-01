@@ -1,5 +1,6 @@
 'use client';
 
+import React, { memo } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import type { SalesMetric } from '@/lib/mock-data';
 
@@ -7,7 +8,7 @@ interface SalesTrendChartProps {
   data: SalesMetric[];
 }
 
-export function SalesTrendChart({ data }: SalesTrendChartProps) {
+function SalesTrendChart({ data }: SalesTrendChartProps) {
   return (
     <div className="bg-card border border-border rounded-xl p-6">
       <h2 className="text-lg font-bold text-foreground mb-6">Sales Trend</h2>
@@ -28,3 +29,5 @@ export function SalesTrendChart({ data }: SalesTrendChartProps) {
     </div>
   );
 }
+
+export default memo(SalesTrendChart)

@@ -1,19 +1,38 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { Navbar } from '@/components/navbar'
-import { SoftAurora } from '@/components/soft-aurora'
-import { CategoryDistributionChart } from '@/components/category-distribution-chart'
-import { CustomerSegmentationPanel } from '@/components/customer-segmentation-panel'
 import { DashboardErrorState } from '@/components/dashboard-error-state'
 import { DashboardHighlights } from '@/components/dashboard-highlights'
 import { DashboardLoadingState } from '@/components/dashboard-loading-state'
 import { DatasetSelector } from '@/components/dataset-selector'
 import { KPICard } from '@/components/kpi-card'
-import { RevenueTrendChart } from '@/components/revenue-trend-chart'
-import { TopProductsChart } from '@/components/top-products-chart'
-import { TopProductsTable } from '@/components/top-products-table'
-import { VisualizationGallery } from '@/components/visualization-gallery'
 import { useDashboardData } from '@/hooks/use-dashboard-data'
+
+const CategoryDistributionChart = dynamic(
+  () => import('@/components/category-distribution-chart').then((m) => m.default),
+  { ssr: false }
+)
+const CustomerSegmentationPanel = dynamic(
+  () => import('@/components/customer-segmentation-panel').then((m) => m.CustomerSegmentationPanel),
+  { ssr: false }
+)
+const RevenueTrendChart = dynamic(
+  () => import('@/components/revenue-trend-chart').then((m) => m.default),
+  { ssr: false }
+)
+const TopProductsChart = dynamic(
+  () => import('@/components/top-products-chart').then((m) => m.default),
+  { ssr: false }
+)
+const TopProductsTable = dynamic(
+  () => import('@/components/top-products-table').then((m) => m.TopProductsTable),
+  { ssr: false }
+)
+const VisualizationGallery = dynamic(
+  () => import('@/components/visualization-gallery').then((m) => m.VisualizationGallery),
+  { ssr: false }
+)
 import {
   formatCompactCurrency,
   formatCurrency,
@@ -33,31 +52,10 @@ export default function DashboardPage() {
   } = useDashboardData()
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-black">
-      <div className="absolute inset-0 z-0">
-        <SoftAurora
-          speed={0.6}
-          scale={1.8}
-          brightness={1.6}
-          color1="#7c3aed"
-          color2="#ec4899"
-          noiseFrequency={2.5}
-          noiseAmplitude={1.2}
-          bandHeight={0.6}
-          bandSpread={1.2}
-          octaveDecay={0.1}
-          enableMouseInteraction={true}
-          mouseInfluence={0.15}
-        />
-      </div>
+    <>
+      <Navbar />
 
-      {/* Overlay to keep content readable */}
-      <div className="absolute inset-0 bg-black/60 z-10" />
-
-      <div className="relative z-20">
-        <Navbar />
-
-        <main className="mx-auto max-w-7xl px-6 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-7xl px-6 py-8 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="mb-10 border-b border-white/10 pb-10">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -224,7 +222,6 @@ export default function DashboardPage() {
             </div>
           ) : null}
         </main>
-      </div>
-    </div>
+    </>
   )
 }
