@@ -21,13 +21,27 @@ DATASET_CONFIGS = [
         "label": "Global E-Commerce Sales",
         "description": "E-Commerce sales analytics with global customer and product data",
         "source_path": OUTPUTS_DIR / "global_ecommerce_sales" / "global_ecommerce_sales_cleaned.csv",
+        "ml_id": "dataset_1",
     },
     {
         "id": "retail_supply_chain_sales",
         "label": "Retail Supply Chain Sales",
         "description": "Retail supply chain performance and sales metrics",
         "source_path": OUTPUTS_DIR / "retail_supply_chain_sales" / "retail_supply_chain_sales_cleaned.csv",
+        "ml_id": "dataset_2",
     },
+]
+
+ML_ARTIFACTS_TO_COPY = [
+    "model_metrics.json",
+    "feature_importance.json",
+    "error_analysis.json",
+    "confidence_scores.json",
+    "roi_analysis.json",
+    "percentage_error.json",
+    "business_insights.txt",
+    "cross_validation.json",
+    "metrics_detailed.json",
 ]
 
 VISUALIZATION_TITLES = {
@@ -50,6 +64,11 @@ def ensure_frontend_dirs() -> None:
         FRONTEND_VISUALIZATION_DIR,
     ):
         directory.mkdir(parents=True, exist_ok=True)
+    
+    # Create ML subdirectories for each dataset
+    for config in DATASET_CONFIGS:
+        ml_dir = FRONTEND_DATA_DIR / config["id"] / "ml"
+        ml_dir.mkdir(parents=True, exist_ok=True)
 
 
 def get_dataset_output_dir(dataset_id: str) -> Path:
@@ -62,6 +81,11 @@ def get_sql_output_dir(dataset_id: str) -> Path:
 
 def get_visualization_output_dir(dataset_id: str) -> Path:
     return get_dataset_output_dir(dataset_id) / "visualizations"
+
+
+def get_ml_output_dir(ml_dataset_id: str) -> Path:
+    """Get the ML output directory for a dataset."""
+    return OUTPUTS_DIR / "ml" / ml_dataset_id
 
 
 def detect_column(df: pd.DataFrame, candidates: list[str]) -> str | None:
@@ -104,6 +128,30 @@ def copy_visualizations(dataset_id: str) -> list[dict[str, str]]:
             }
         )
     return assets
+
+
+def copy_ml_artifacts(dataset_id: str, ml_dataset_id: str) -> None:
+    """Copy ML output artifacts into the frontend public data folder."""
+    ml_output_dir = get_ml_output_dir(ml_dataset_id)
+    if not ml_output_dir.exists():
+        print(f"  ⚠ No ML artifacts found for {dataset_id} (looking in {ml_output_dir})")
+        return
+
+    target_dir = FRONTEND_DATA_DIR / dataset_id / "ml"
+    target_dir.mkdir(parents=True, exist_ok=True)
+
+    copied_count = 0
+    for artifact_name in ML_ARTIFACTS_TO_COPY:
+        source_path = ml_output_dir / artifact_name
+        if source_path.exists():
+            target_path = target_dir / artifact_name
+            shutil.copy2(source_path, target_path)
+            copied_count += 1
+
+    if copied_count > 0:
+        print(f"  ✓ Copied {copied_count} ML artifacts for {dataset_id}")
+    else:
+        print(f"  ⚠ No ML artifacts copied for {dataset_id}: files not found")
 
 
 def export_sql_analysis_json(dataset_id: str) -> dict[str, str]:
@@ -298,6 +346,7 @@ def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, st
             continue
 
         visualizations = copy_visualizations(config["id"])
+        copy_ml_artifacts(config["id"], config["ml_id"])
         sql_analysis_entries[config["id"]] = export_sql_analysis_json(config["id"])
         payload = build_dataset_payload(
             cleaned_path=config["source_path"],

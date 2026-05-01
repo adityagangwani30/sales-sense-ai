@@ -1,0 +1,30 @@
+Dataset: retail_supply_chain_sales
+
+Revenue Drivers
+1. sales: correlation 1.000
+2. price: correlation 0.791
+3. product_total_sales: correlation 0.651
+4. profit: correlation 0.196
+5. total_spend: correlation 0.170
+
+Seasonal Insights
+Best month: November.
+Worst month: February.
+
+Product Insights
+Top products:
+- ki adjustable-height table: 4036.76
+- global wood trimmed manager's task chair, khaki: 3621.00
+- situations contoured folding chairs, 4/set: 2959.87
+- global high-back leather tilter, burgundy: 2841.07
+- nortel meridian m3904 professional digital phone: 2802.62
+Bottom products:
+- avery hi-liter pen style six-color fluorescent set: 7.70
+- grip seal envelopes: 7.07
+- xerox 20: 6.48
+- avery 5: 5.76
+- eureka disposable bags for sanitaire vibra groomer i upright vac: 1.62
+
+Customer Insights
+Weekend average revenue: 92.46
+Weekday average revenue: 92.97

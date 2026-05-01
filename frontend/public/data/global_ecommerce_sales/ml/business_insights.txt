@@ -1,0 +1,30 @@
+Dataset: global_ecommerce_sales
+
+Revenue Drivers
+1. sales: correlation 0.993
+2. profit: correlation 0.935
+3. total_spend: correlation 0.717
+4. price: correlation 0.609
+5. product_total_sales: correlation 0.545
+
+Seasonal Insights
+Best month: October.
+Worst month: January.
+
+Product Insights
+Top products:
+- mesh back task chair: 16320.85
+- portable external ssd 1tb: 14248.54
+- bookshelf 5-tier: 13312.11
+- floating wall shelves set: 12694.40
+- folding table portable: 12557.10
+Bottom products:
+- binder clips assorted 48pc: 2109.45
+- ballpoint pen pack 12: 1941.01
+- sticky notes multicolor 6-pack: 1173.48
+- highlighters neon pack 6: 1012.94
+- paper clips box 500pc: 960.07
+
+Customer Insights
+Weekend average revenue: 166.64
+Weekday average revenue: 155.13
