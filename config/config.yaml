@@ -1,0 +1,31 @@
+project:
+  name: SalesSense AI
+  default_mode: complete
+  description: Retail analytics and sales intelligence platform
+
+paths:
+  raw_data_dir: original_dataset
+  processed_data_dir: data/processed
+  structured_output_dir: outputs
+  model_output_dir: models
+
+datasets:
+  dataset_1:
+    source_name: global_ecommerce_sales
+    raw_path: original_dataset/global_ecommerce_sales.csv
+    cleaned_path: outputs/global_ecommerce_sales/global_ecommerce_sales_cleaned.csv
+    structured_output_path: outputs/dataset_1
+    ml_output_path: outputs/ml/dataset_1
+    model_path: models/dataset_1
+  dataset_2:
+    source_name: retail_supply_chain_sales
+    raw_path: original_dataset/Retail-Supply-Chain-Sales-Dataset.xlsx
+    cleaned_path: outputs/retail_supply_chain_sales/retail_supply_chain_sales_cleaned.csv
+    structured_output_path: outputs/dataset_2
+    ml_output_path: outputs/ml/dataset_2
+    model_path: models/dataset_2
+
+model_parameters:
+  random_state: 42
+  test_size: 0.2
+  cross_validation_folds: 5

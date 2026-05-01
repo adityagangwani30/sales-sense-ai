@@ -9,9 +9,19 @@ dist/
 build/
 .pytest_cache/
 .env
-# Generated outputs - don't commit CSV files, but keep the folder structure
+# Generated artifacts - keep the folder structure, ignore produced files
+outputs/*
+!outputs/.gitkeep
+!outputs/**/.gitkeep
 
-outputs/global_ecommerce_sales_cleaned.csv
-outputs/retail_supply_chain_sales_cleaned.csv
+models/*
+!models/.gitkeep
+!models/**/.gitkeep
 
-!outputs/cleaned/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+data/raw/*
+!data/raw/.gitkeep
+
+*.log

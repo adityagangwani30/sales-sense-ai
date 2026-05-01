@@ -19,7 +19,7 @@ if __package__ is None or __package__ == "":
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from ml.data_loader import load_cleaned_dataset
-from ml.evaluate import build_results_dataframe, evaluate_regression_model, extract_feature_importance
+from ml.evaluate import build_results_dataframe, evaluate_regression_model, extract_feature_importance, run_week8_evaluation
 from ml.models import build_model_specs
 from ml.preprocessing import FEATURE_COLUMNS, PreprocessingArtifacts, build_feature_target_frame, prepare_prediction_frame
 from ml.train_test_split import split_data
@@ -279,8 +279,9 @@ def predict_new(data, model_name: str):
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run the SalesSense Week 7 ML pipeline.")
+    parser = argparse.ArgumentParser(description="Run the SalesSense ML pipeline.")
     parser.add_argument("--dataset", default="dataset_1", help="dataset_1 or dataset_2")
+    parser.add_argument("--mode", default="train", choices=["train", "evaluate"], help="train or evaluate")
     return parser.parse_args()
 
 
@@ -288,14 +289,21 @@ def main() -> int:
     args = parse_args()
 
     try:
-        result = run_week7_ml(args.dataset)
+        if args.mode == "evaluate":
+            result = run_week8_evaluation(args.dataset)
+        else:
+            result = run_week7_ml(args.dataset)
     except Exception as exc:
-        print(f"Failed to run Week 7 ML pipeline: {exc}")
+        print(f"Failed to run SalesSense ML pipeline: {exc}")
         return 1
 
     print("Saved ML outputs:")
-    print(result["model_metrics_path"])
-    print(result["feature_importance_path"])
+    if args.mode == "evaluate":
+        print(result["metrics_detailed_path"])
+        print(result["final_report_path"])
+    else:
+        print(result["model_metrics_path"])
+        print(result["feature_importance_path"])
     return 0
 
 
