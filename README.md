@@ -1,96 +1,181 @@
 # SalesSense AI
 
-SalesSense AI is a retail analytics and sales intelligence platform for two isolated datasets:
+SalesSense AI is a retail analytics and sales intelligence platform that turns two separate retail datasets into cleaned data, database-backed analytics, machine learning evaluation, and demo-ready dashboard assets.
+
+## 1. Project Title & Tagline
+
+**SalesSense AI** is a dataset-isolated retail intelligence system for preprocessing, SQL analytics, machine learning evaluation, and business insight generation.
+
+## 2. Overview
+
+SalesSense AI was built to demonstrate an end-to-end analytics workflow for retail decision support. It takes raw sales data, standardizes and enriches it, loads it into MySQL, runs SQL-based business analysis, trains and evaluates regression models, and exports structured artifacts for a Next.js dashboard.
+
+The project solves a common real-world problem: retail data is usually fragmented across files, database tables, and reporting layers. SalesSense AI consolidates that workflow into one reproducible pipeline so analysts can compare datasets, validate model quality, and generate business-facing insights without mixing sources.
+
+The implementation currently supports two fully isolated datasets:
 
 - `dataset_1` - Global E-Commerce Sales
 - `dataset_2` - Retail Supply Chain Sales
 
-The project now has a Week 9 production-style entrypoint that preserves all working Week 1-8 functionality while adding a cleaner structure, logging, and structured exports.
+Each dataset is processed independently from ingestion through final reporting.
 
-## Features
+## 3. Features
 
-- Dataset-isolated preprocessing and SQL loading
-- Feature engineering and MySQL integration
-- Visual analytics and frontend asset export
-- ML training and evaluation with saved artifacts
-- Cross-validation, error analysis, feature importance, ROI, and business insights
-- Structured output mirroring for reports, metrics, plots, and models
+- Data preprocessing pipeline that cleans raw CSV / Excel inputs, standardizes columns, handles missing values, removes invalid rows, and engineers time-based and business features.
+- SQL analytics backed by MySQL integration for structured relational analysis.
+- ML-based prediction using Linear Regression, Random Forest, and XGBoost.
+- Model comparison with evaluation metrics, cross-validation, overfitting checks, and error analysis.
+- Business insights generation for revenue drivers, seasonal trends, product performance, customer behavior, and ROI estimation.
+- Interactive dashboard support through Next.js with static JSON-based data assets for demo usage.
+- Multi-dataset support with strict dataset isolation between `dataset_1` and `dataset_2`.
 
-## Architecture
+## 4. Architecture
 
-The existing implementation is preserved and wrapped by the new orchestration layer:
+```text
+Dataset → Pipeline → Database → ML → Insights → Dashboard
+```
 
-- `main.py` - Week 9 unified entrypoint
-- `pipeline.py` - data cleaning, feature engineering, SQL, visualization, frontend export
-- `ml/` - model training, evaluation, and prediction utilities
-- `src/` - reusable wrappers used by the unified pipeline
-- `config/config.yaml` - dataset paths, output paths, and model parameters
+The runtime flow is:
 
-The pipeline keeps dataset isolation intact at every stage.
+1. Load one dataset at a time.
+2. Clean and engineer the data.
+3. Store the processed data in MySQL.
+4. Train or reuse saved ML models.
+5. Evaluate the models and generate business insights.
+6. Export JSON, CSV, and report assets for the dashboard.
 
-## Installation
+This design keeps the analytics stack modular while preserving strict dataset isolation.
 
-1. Create and activate your virtual environment.
-2. Install dependencies:
+## 5. Tech Stack
+
+- Python: `pandas`, `numpy`, `scikit-learn`, `xgboost`, `scipy`
+- Data visualization: `matplotlib`, `seaborn`
+- Database: MySQL with `mysql-connector-python`
+- Frontend: Next.js, Tailwind CSS
+- File formats: CSV, JSON, PKL
+- Supporting utilities: `python-dotenv`, `openpyxl`, `PyYAML`
+
+## 6. Project Structure
+
+```text
+sales-sense-ai/
+	data/
+		raw/
+		processed/
+	ml/
+	pipeline/
+	frontend/
+	outputs/
+		dataset_1/
+		dataset_2/
+	models/
+		dataset_1/
+		dataset_2/
+	docs/
+	config/
+	main.py
+	requirements.txt
+	README.md
+```
+
+Additional implementation folders used by the project include `src/` for orchestration wrappers and `original_dataset/` for the source inputs.
+
+## 7. How to Run
+
+### Backend / ML:
 
 ```bash
 pip install -r requirements.txt
-```
-
-## How To Run
-
-Run the full Week 9 pipeline for one dataset:
-
-```bash
 python main.py --dataset dataset_1
 ```
 
-Run the ML evaluation stage directly:
+To run the ML evaluation stage directly on an existing trained model set:
 
 ```bash
 python ml/main.py --dataset dataset_1 --mode evaluate
 ```
 
-Supported dataset values:
+### Frontend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Recommended dataset values:
 
 - `dataset_1`
 - `dataset_2`
 
-## Output Layout
+## 8. Dataset Information
 
-Week 9 mirrors the ML artifacts into a cleaner layout:
-
-- `outputs/dataset_1/metrics`
-- `outputs/dataset_1/plots`
-- `outputs/dataset_1/reports`
-- `outputs/dataset_2/metrics`
-- `outputs/dataset_2/plots`
-- `outputs/dataset_2/reports`
-
-Model pickles are mirrored into:
-
-- `models/dataset_1`
-- `models/dataset_2`
-
-## Dataset Notes
+SalesSense AI currently uses two datasets with different retail contexts:
 
 - `dataset_1` is sourced from `original_dataset/global_ecommerce_sales.csv`
 - `dataset_2` is sourced from `original_dataset/Retail-Supply-Chain-Sales-Dataset.xlsx`
-- Outputs remain strictly isolated by dataset and are never mixed
 
-## Reports
+Dataset isolation is enforced throughout the pipeline. Each dataset has its own cleaned output, model artifacts, plots, reports, and dashboard exports. No files are merged across datasets, and every evaluation run is scoped to one dataset identifier.
 
-The evaluation stage generates:
+## 9. Machine Learning Details
 
-- detailed metrics
-- error analysis
-- cross-validation results
-- feature importance and feature selection summaries
-- business insights
-- confidence scoring
-- ROI analysis
-- final report
+The ML layer uses three regression models:
 
-## Screenshots
+- Linear Regression
+- Random Forest
+- XGBoost
 
-No screenshots are included yet. The frontend dashboard assets are still generated by the existing export flow.
+Evaluation and comparison include:
+
+- MAE
+- MSE
+- RMSE
+- R²
+- Adjusted R²
+- MAPE
+- 5-fold cross-validation
+- overfitting checks
+- error analysis and residual diagnostics
+- feature importance and permutation importance
+
+Model selection is based on the best test performance, with supporting checks from cross-validation and fit-quality comparison. In the current implementation, Random Forest is typically selected as the best model for the final report for both datasets because it provides the strongest and most stable balance of accuracy and interpretability in the evaluated runs.
+
+## 10. Results & Insights
+
+The pipeline generates reporting artifacts that translate model output into business language. For the current evaluated runs, the final reports show strong predictive performance and produce actionable findings such as:
+
+- dominant revenue drivers such as price and quantity
+- best and worst months by revenue
+- top and bottom products by revenue contribution
+- weekend versus weekday patterns
+- ROI estimates based on overstock and understock reduction assumptions
+
+Example outputs are written into dataset-specific folders such as:
+
+- `outputs/dataset_1/reports/final_report.txt`
+- `outputs/dataset_2/reports/final_report.txt`
+
+The ML evaluation stage also writes detailed artifacts including metrics, confidence scores, worst predictions, and feature importance comparisons.
+
+## 11. Screenshots (Placeholder Section)
+
+```markdown
+![Dashboard](path/to/image.png)
+```
+
+## 12. Future Improvements
+
+- Real-time backend integration for live analytics and model refreshes
+- Additional datasets and broader retail use cases
+- Advanced models such as tuned gradient boosting or ensemble stacking
+- Automated alerting for anomalies and forecasting drift
+- Deeper frontend integration for live report rendering
+
+## 13. License
+
+This project is licensed under the MIT License.
+
+## 14. Author
+
+- Name: Your Name
+- GitHub: https://github.com/your-username
