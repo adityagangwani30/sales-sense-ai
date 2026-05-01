@@ -48,7 +48,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <div className="relative min-h-screen overflow-hidden bg-black">
 
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0 h-[60vh] top-0" style={{ maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%)' }}>
             <SoftAuroraClient />
           </div>
 
