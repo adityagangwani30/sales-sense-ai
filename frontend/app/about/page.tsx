@@ -1,9 +1,26 @@
-'use client';
+"use client";
 
+import { useEffect, useState } from 'react';
 import { Navbar } from '@/components/navbar';
 import { CheckCircle2, Cpu, Database, Shield } from 'lucide-react';
+import { getDashboardData } from '@/lib/getDashboardData';
+import { formatCurrency, formatNumber } from '@/lib/format';
 
 export default function AboutPage() {
+  const [dataset] = useState('dataset_1')
+  const [ds, setDs] = useState<any>(null)
+
+  useEffect(() => {
+    let mounted = true
+    getDashboardData(dataset).then((res) => {
+      if (!mounted) return
+      setDs(res)
+    })
+    return () => {
+      mounted = false
+    }
+  }, [dataset])
+
   const techStack = [
     { icon: Cpu, title: 'Real-time Processing', description: 'Sub-second data processing with edge computing' },
     { icon: Database, title: 'Multi-Source Integration', description: 'Seamless data from 50+ platforms and APIs' },
@@ -104,22 +121,22 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Stats */}
+        {/* Stats (dynamic) */}
         <section className="grid grid-cols-1 md:grid-cols-4 gap-8 py-20 border-t border-border">
           <div className="text-center">
-            <p className="text-4xl font-bold text-primary mb-2">500+</p>
+            <p className="text-4xl font-bold text-primary mb-2">{ds?.metrics?.enterprise_clients ?? 'Data not available'}</p>
             <p className="text-foreground/60">Enterprise Clients</p>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-secondary mb-2">2B+</p>
+            <p className="text-4xl font-bold text-secondary mb-2">{ds?.metrics?.total_data_points ? formatNumber(ds.metrics.total_data_points) : (ds?.metrics?.total_records ? formatNumber(Number(ds.metrics.total_records) * (ds.metrics.feature_count || 9)) : 'Data not available')}</p>
             <p className="text-foreground/60">Data Points Processed</p>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-accent mb-2">99.9%</p>
+            <p className="text-4xl font-bold text-accent mb-2">{ds?.metrics?.platform_uptime ?? 'Data not available'}</p>
             <p className="text-foreground/60">Platform Uptime</p>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-primary mb-2">50+</p>
+            <p className="text-4xl font-bold text-primary mb-2">{ds?.metrics?.data_integrations ?? 'Data not available'}</p>
             <p className="text-foreground/60">Data Integrations</p>
           </div>
         </section>

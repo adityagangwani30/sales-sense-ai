@@ -1,41 +1,34 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { Navbar } from '@/components/navbar';
 import { ArrowRight, BarChart3, Zap, Shield, TrendingUp, Users, Lightbulb } from 'lucide-react';
+import { getDashboardData } from '@/lib/getDashboardData';
+import { formatCurrency, formatNumber } from '@/lib/format';
 
 export default function LandingPage() {
+  const [dataset, setDataset] = useState('dataset_1')
+  const [ds, setDs] = useState<any>(null)
+
+  useEffect(() => {
+    let mounted = true
+    getDashboardData(dataset).then((res) => {
+      if (!mounted) return
+      setDs(res)
+    })
+    return () => {
+      mounted = false
+    }
+  }, [dataset])
+
   const features = [
-    {
-      icon: BarChart3,
-      title: 'Advanced Analytics',
-      description: 'Real-time dashboards with 8+ visualization types for comprehensive insights',
-    },
-    {
-      icon: Zap,
-      title: 'Lightning Fast',
-      description: 'Sub-second data processing and chart rendering for instant insights',
-    },
-    {
-      icon: Shield,
-      title: 'Enterprise Security',
-      description: 'Bank-grade encryption and compliance with GDPR, SOC 2, and more',
-    },
-    {
-      icon: TrendingUp,
-      title: 'AI-Powered Insights',
-      description: 'Machine learning algorithms that uncover hidden patterns and trends',
-    },
-    {
-      icon: Users,
-      title: 'Multi-User Collaboration',
-      description: 'Share dashboards and insights with your entire team in real-time',
-    },
-    {
-      icon: Lightbulb,
-      title: 'Predictive Analytics',
-      description: 'Forecast future trends and make data-driven decisions with confidence',
-    },
+    { icon: BarChart3, title: 'Revenue Trend Analysis', description: 'Visualize monthly revenue patterns, identify seasonal peaks and troughs, spot growth trends' },
+    { icon: Zap, title: 'Feature Importance', description: 'Understand which factors matter most: quantity, price, product and time features' },
+    { icon: Shield, title: 'Model Comparison', description: 'Compare Linear Regression, Random Forest and XGBoost to choose the best model' },
+    { icon: TrendingUp, title: 'Customer Segmentation', description: 'Segment customers by value and behavior to tailor retention and marketing strategies' },
+    { icon: Users, title: 'Product Performance', description: 'Rank products by revenue, identify underperformers and cross-sell opportunities' },
+    { icon: Lightbulb, title: 'Prediction Confidence', description: 'Provide confidence intervals and error estimates for every prediction' },
   ];
 
   const useCases = [
@@ -69,11 +62,10 @@ export default function LandingPage() {
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 text-balance animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              Unlock Sales Intelligence with
-              <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent"> SalesSense AI</span>
+              SalesSense: Retail Analytics & Sales Prediction System
             </h1>
             <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto text-balance animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Transform raw sales data into actionable insights. Monitor real-time metrics, predict trends, and make data-driven decisions that drive revenue growth.
+              Transform Raw Transactional Data Into Actionable Insights
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <Link
@@ -89,19 +81,19 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Hero Stats */}
+          {/* Quick Stats (dynamic) */}
           <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto text-center mt-16">
             <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <p className="text-3xl font-bold text-purple-300">500+</p>
-              <p className="text-sm text-gray-400">Enterprise Clients</p>
+              <p className="text-3xl font-bold text-purple-300">{ds?.metrics?.total_records ? formatNumber(ds.metrics.total_records) : 'Data not available'}</p>
+              <p className="text-sm text-gray-400">Sales Records Analyzed</p>
             </div>
             <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <p className="text-3xl font-bold text-pink-300">99.9%</p>
-              <p className="text-sm text-gray-400">Uptime SLA</p>
+              <p className="text-3xl font-bold text-pink-300">{ds?.modelMetrics?.best_model?.r2 ?? ds?.metrics?.r2_score ?? 'Data not available'}</p>
+              <p className="text-sm text-gray-400">Model R² (best)</p>
             </div>
             <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              <p className="text-3xl font-bold text-blue-300">4.9/5</p>
-              <p className="text-sm text-gray-400">Customer Rating</p>
+              <p className="text-3xl font-bold text-blue-300">{ds?.modelMetrics?.best_model?.mae ?? ds?.metrics?.mae ?? 'Data not available'}</p>
+              <p className="text-sm text-gray-400">Mean Absolute Error</p>
             </div>
           </div>
         </section>
