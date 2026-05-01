@@ -184,8 +184,20 @@ export function SoftAurora({
   useEffect(() => {
     if (!containerRef.current) return
     const container = containerRef.current
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: false })
-    const gl = renderer.gl as WebGLRenderingContext
+
+    // Guard: bail out silently if WebGL is not available (e.g. Brave shields, headless)
+    const testCanvas = document.createElement('canvas')
+    const testGl = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl')
+    if (!testGl) {
+      return
+    }
+
+    let renderer: InstanceType<typeof Renderer> | undefined
+    let gl: WebGLRenderingContext | undefined
+
+    try {
+    renderer = new Renderer({ alpha: true, premultipliedAlpha: false })
+    gl = renderer.gl as WebGLRenderingContext
     gl.clearColor(0, 0, 0, 0)
 
     let program: Program
@@ -271,17 +283,25 @@ export function SoftAurora({
     }
     animationFrameId = requestAnimationFrame(update)
 
+    } catch (err) {
+      console.warn('[SoftAurora] WebGL initialization failed:', err)
+      return
+    }
+
+    const capturedGl = gl!
+    const capturedRenderer = renderer!
+
     return () => {
       cancelAnimationFrame(animationFrameId)
       window.removeEventListener('resize', resize)
       if (enableMouseInteraction) {
-        gl.canvas.removeEventListener('mousemove', handleMouseMove)
-        gl.canvas.removeEventListener('mouseleave', handleMouseLeave)
+        capturedGl.canvas.removeEventListener('mousemove', handleMouseMove)
+        capturedGl.canvas.removeEventListener('mouseleave', handleMouseLeave)
       }
-      if (container.contains(gl.canvas)) {
-        container.removeChild(gl.canvas)
+      if (container.contains(capturedGl.canvas)) {
+        container.removeChild(capturedGl.canvas)
       }
-      gl.getExtension('WEBGL_lose_context')?.loseContext()
+      capturedGl.getExtension('WEBGL_lose_context')?.loseContext()
     }
   }, [speed, scale, brightness, color1, color2, noiseFrequency, noiseAmplitude, bandHeight, bandSpread, octaveDecay, layerOffset, colorSpeed, enableMouseInteraction, mouseInfluence])
 

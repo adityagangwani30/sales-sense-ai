@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from 'next'
 import SoftAuroraClient from '../components/soft-aurora-client'
 import AuroraOverlayClient from '../components/aurora-overlay-client'
+import { AuroraErrorBoundary } from '../components/aurora-error-boundary'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geist = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 
 export const metadata: Metadata = {
@@ -44,12 +45,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en" className={`bg-background ${geist.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
         <div className="relative min-h-screen overflow-hidden bg-black">
 
           <div className="absolute inset-0 z-0 h-[60vh] top-0" style={{ maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%)' }}>
-            <SoftAuroraClient />
+            <AuroraErrorBoundary>
+              <SoftAuroraClient />
+            </AuroraErrorBoundary>
           </div>
 
           <AuroraOverlayClient />
