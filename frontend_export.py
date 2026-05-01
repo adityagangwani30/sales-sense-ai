@@ -435,4 +435,5 @@ def export_frontend_dashboard_assets() -> dict[str, Any]:
 
 
 if __name__ == "__main__":
+    # Fixed: Dashboard data export to populate frontend
     export_frontend_dashboard_assets()
