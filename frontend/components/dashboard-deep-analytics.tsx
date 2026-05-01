@@ -733,7 +733,7 @@ function DashboardDeepAnalytics({ datasetId, dataset }: DashboardDeepAnalyticsPr
             </ul>
           ) : (
             <div className="rounded-lg border border-dashed border-white/20 bg-white/[2%] p-5 text-sm text-gray-400">
-              Business insights file not found for this dataset. Expected path: /data/{dataset}/ml/business_insights.txt
+              Business insights file not found for this dataset. Expected path: /data/{datasetId}/ml/business_insights.txt
             </div>
           )}
         </div>
