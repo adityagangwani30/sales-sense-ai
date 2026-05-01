@@ -1,49 +1,81 @@
 {
   "dataset": "dataset_2",
-  "cleaned_dataset_path": "outputs\\retail_supply_chain_sales\\retail_supply_chain_sales_cleaned.csv",
+  "source_reference": "outputs\\retail_supply_chain_sales\\retail_supply_chain_sales_cleaned.csv",
   "feature_importance": {
-    "decision_tree": [
-      {
-        "feature": "price",
-        "importance": 0.789128
-      },
-      {
-        "feature": "quantity",
-        "importance": 0.21064
-      },
-      {
-        "feature": "month",
-        "importance": 0.000105
-      },
-      {
-        "feature": "region",
-        "importance": 8.6e-05
-      },
-      {
-        "feature": "category",
-        "importance": 4.1e-05
-      }
-    ],
     "random_forest": [
       {
         "feature": "price",
-        "importance": 0.796284
+        "importance": 0.796743
       },
       {
         "feature": "quantity",
-        "importance": 0.203371
+        "importance": 0.202763
       },
       {
-        "feature": "region",
-        "importance": 0.000123
+        "feature": "product_id",
+        "importance": 0.00015
+      },
+      {
+        "feature": "customer_id",
+        "importance": 0.000132
+      },
+      {
+        "feature": "day_of_week",
+        "importance": 9e-05
       },
       {
         "feature": "month",
-        "importance": 0.000116
+        "importance": 5.5e-05
       },
       {
-        "feature": "category",
-        "importance": 0.000107
+        "feature": "category_encoded",
+        "importance": 2.7e-05
+      },
+      {
+        "feature": "quarter",
+        "importance": 2.6e-05
+      },
+      {
+        "feature": "is_weekend",
+        "importance": 1.4e-05
+      }
+    ],
+    "xgboost": [
+      {
+        "feature": "price",
+        "importance": 0.653774
+      },
+      {
+        "feature": "quantity",
+        "importance": 0.239949
+      },
+      {
+        "feature": "product_id",
+        "importance": 0.051084
+      },
+      {
+        "feature": "category_encoded",
+        "importance": 0.036951
+      },
+      {
+        "feature": "day_of_week",
+        "importance": 0.006828
+      },
+      {
+        "feature": "customer_id",
+        "importance": 0.006167
+      },
+      {
+        "feature": "month",
+        "importance": 0.003389
+      },
+      {
+        "feature": "is_weekend",
+        "importance": 0.001093
+      },
+      {
+        "feature": "quarter",
+        "importance": 0.000765
       }
     ]
   }

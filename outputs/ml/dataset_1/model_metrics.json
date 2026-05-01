@@ -1,42 +1,61 @@
 {
   "dataset": "dataset_1",
-  "cleaned_dataset_path": "outputs\\global_ecommerce_sales\\global_ecommerce_sales_cleaned.csv",
+  "source_reference": "outputs\\global_ecommerce_sales\\global_ecommerce_sales_cleaned.csv",
   "feature_columns": [
     "month",
+    "quarter",
+    "day_of_week",
+    "is_weekend",
     "quantity",
     "price",
-    "category",
-    "region"
+    "category_encoded",
+    "customer_id",
+    "product_id"
   ],
-  "target_column": "sales",
+  "target_column": "revenue",
   "sample_count": 1810,
-  "models": {
-    "linear_regression": {
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "models": [
+    {
+      "name": "linear_regression",
       "display_name": "Linear Regression",
-      "mae": 53.76808501608291,
-      "r2": 0.6949528500424158,
-      "train_r2": 0.7419901752716145,
-      "test_r2": 0.6949528500424158,
-      "generalization_gap": 0.04703732522919868,
+      "mae": 54.408294769804364,
+      "rmse": 85.08343634517294,
+      "r2": 0.6846169230788479,
+      "train_r2": 0.7213645673586238,
+      "test_r2": 0.6846169230788479,
+      "generalization_gap": 0.03674764427977584,
       "fit_assessment": "Good fit"
     },
-    "decision_tree": {
-      "display_name": "Decision Tree",
-      "mae": 17.633867403314916,
-      "r2": 0.9355340798490552,
-      "train_r2": 0.9999997899151275,
-      "test_r2": 0.9355340798490552,
-      "generalization_gap": 0.06446571006607227,
-      "fit_assessment": "Good fit"
-    },
-    "random_forest": {
+    {
+      "name": "random_forest",
       "display_name": "Random Forest",
-      "mae": 12.957546712707183,
-      "r2": 0.9612700283529869,
-      "train_r2": 0.997601104746676,
-      "test_r2": 0.9612700283529869,
-      "generalization_gap": 0.036331076393689044,
+      "mae": 5.340646570288,
+      "rmse": 18.37019960529287,
+      "r2": 0.985298011026175,
+      "train_r2": 0.9982361165743099,
+      "test_r2": 0.985298011026175,
+      "generalization_gap": 0.012938105548134904,
+      "fit_assessment": "Good fit"
+    },
+    {
+      "name": "xgboost",
+      "display_name": "XGBoost",
+      "mae": 9.701841234179494,
+      "rmse": 19.083154545557367,
+      "r2": 0.984134685809535,
+      "train_r2": 0.9997732855947405,
+      "test_r2": 0.984134685809535,
+      "generalization_gap": 0.015638599785205543,
       "fit_assessment": "Good fit"
     }
+  ],
+  "best_model": {
+    "name": "random_forest",
+    "display_name": "Random Forest",
+    "r2": 0.985298011026175
   }
 }
