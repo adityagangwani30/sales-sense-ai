@@ -1,97 +1,110 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { Navbar } from '@/components/navbar';
 import { CheckCircle2, Cpu, Database, Shield } from 'lucide-react';
-import { getDashboardData } from '@/lib/getDashboardData';
-import { formatCurrency, formatNumber } from '@/lib/format';
+
+import { Navbar } from '@/components/navbar';
+import { DEFAULT_DATASET_ID, getDashboardData } from '@/lib/getDashboardData';
+import { formatCurrency, formatNumber, formatPercent } from '@/lib/format';
 
 export default function AboutPage() {
-  const [dataset] = useState('dataset_1')
-  const [ds, setDs] = useState<any>(null)
+  const [ds, setDs] = useState<any>(null);
 
   useEffect(() => {
-    let mounted = true
-    getDashboardData(dataset).then((res) => {
-      if (!mounted) return
-      setDs(res)
-    })
+    let mounted = true;
+
+    getDashboardData(DEFAULT_DATASET_ID).then((res) => {
+      if (!mounted) return;
+      setDs(res);
+    });
+
     return () => {
-      mounted = false
-    }
-  }, [dataset])
+      mounted = false;
+    };
+  }, []);
+
+  const featureCount =
+    ds?.metricsDetailed?.feature_columns?.length ??
+    ds?.modelMetrics?.feature_columns?.length ??
+    null;
+  const sampleCount =
+    ds?.modelMetrics?.sample_count ??
+    ds?.metricsDetailed?.sample_count ??
+    ds?.metrics?.total_orders ??
+    null;
+  const dataPointsProcessed =
+    sampleCount != null && featureCount != null
+      ? Number(sampleCount) * Number(featureCount)
+      : null;
 
   const techStack = [
-    { icon: Cpu, title: 'Real-time Processing', description: 'Sub-second data processing with edge computing' },
-    { icon: Database, title: 'Multi-Source Integration', description: 'Seamless data from 50+ platforms and APIs' },
-    { icon: Shield, title: 'Enterprise Security', description: 'ISO 27001, SOC 2 Type II compliance certified' },
-    { icon: Cpu, title: 'AI & Machine Learning', description: 'Predictive analytics and anomaly detection' },
+    { icon: Cpu, title: 'Real-time Processing', description: 'Sub-second data processing with edge computing.' },
+    { icon: Database, title: 'Multi-Source Integration', description: 'Seamless data ingestion across transactional and analytical sources.' },
+    { icon: Shield, title: 'Enterprise Security', description: 'Secure deployment patterns with controlled access to exported assets.' },
+    { icon: Cpu, title: 'AI & Machine Learning', description: 'Predictive analytics, performance scoring, and model comparison in one workspace.' },
   ];
 
   const capabilities = [
-    '8+ Interactive Chart Types',
-    'Real-time Data Updates',
-    'AI-Powered Insights',
-    'Custom Report Generation',
-    'Multi-User Collaboration',
-    'Mobile-Responsive Design',
-    'Advanced Filtering & Drill-down',
-    'Data Export (CSV, PDF, Excel)',
-    'Custom Alerts & Notifications',
-    'Role-Based Access Control',
-    'API Access & Webhooks',
-    'White-Label Options',
+    '8+ interactive chart types',
+    'Static dataset snapshots for fast loading',
+    'AI-powered insights',
+    'Custom report generation',
+    'Multi-user collaboration',
+    'Mobile-responsive design',
+    'Advanced filtering and drill-down',
+    'Data export workflows',
+    'Business insight summaries',
+    'Role-based access control ready',
+    'API-driven dataset refresh pipeline',
+    'Deployment-ready frontend exports',
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-20">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-foreground mb-4">About SalesSense AI</h1>
-          <p className="text-xl text-foreground/60 max-w-3xl mx-auto">
-            Revolutionizing retail analytics with enterprise-grade intelligence and real-time insights
+      <main className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h1 className="mb-4 text-5xl font-bold text-foreground">About SalesSense AI</h1>
+          <p className="mx-auto max-w-3xl text-xl text-foreground/60">
+            Retail analytics built to turn exported data, SQL analysis, and ML outputs into decisions.
           </p>
         </div>
 
-        {/* Mission Statement */}
-        <section className="bg-card border border-border rounded-2xl p-8 md:p-12 mb-20">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Our Mission</h2>
-          <p className="text-foreground/70 leading-relaxed mb-4">
-            At SalesSense AI, we believe every retailer deserves access to enterprise-grade analytics. We&apos;re on a mission to democratize data intelligence by providing powerful, intuitive tools that transform raw sales data into actionable insights.
+        <section className="mb-20 rounded-2xl border border-border bg-card p-8 md:p-12">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">Our Mission</h2>
+          <p className="mb-4 leading-relaxed text-foreground/70">
+            SalesSense AI is focused on making retail intelligence easier to access, validate, and act on. The platform brings together transactional metrics, model evaluation, and business context in a single experience.
           </p>
-          <p className="text-foreground/70 leading-relaxed">
-            Our platform empowers retail leaders to make smarter decisions faster, optimize operations in real-time, and unlock hidden revenue opportunities. We&apos;re committed to innovation, security, and customer success.
+          <p className="leading-relaxed text-foreground/70">
+            Teams can compare datasets, review predictive quality, and surface high-signal insights without digging through raw exports by hand.
           </p>
         </section>
 
-        {/* Core Features */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-foreground mb-12">Platform Capabilities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="mb-12 text-3xl font-bold text-foreground">Platform Capabilities</h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((capability, index) => (
               <div key={index} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
                 <span className="text-foreground">{capability}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Technology Stack */}
         <section className="mb-20 border-t border-border pt-20">
-          <h2 className="text-3xl font-bold text-foreground mb-12">Technology & Architecture</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <h2 className="mb-12 text-3xl font-bold text-foreground">Technology &amp; Architecture</h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {techStack.map((tech, index) => {
               const Icon = tech.icon;
+
               return (
-                <div key={index} className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
-                  <div className="p-3 rounded-lg bg-primary/10 w-fit mb-4">
-                    <Icon className="w-6 h-6 text-primary" />
+                <div key={index} className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50">
+                  <div className="mb-4 w-fit rounded-lg bg-primary/10 p-3">
+                    <Icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{tech.title}</h3>
+                  <h3 className="mb-2 text-lg font-bold text-foreground">{tech.title}</h3>
                   <p className="text-foreground/60">{tech.description}</p>
                 </div>
               );
@@ -99,101 +112,116 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Architecture Highlights */}
-        <section className="bg-card border border-border rounded-2xl p-8 md:p-12 mb-20">
-          <h2 className="text-2xl font-bold text-foreground mb-6">Architecture Overview</h2>
+        <section className="mb-20 rounded-2xl border border-border bg-card p-8 md:p-12">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">Architecture Overview</h2>
           <div className="space-y-4 text-foreground/70">
             <p>
-              <strong className="text-foreground">Frontend:</strong> Built with Next.js 16, React 19, and Tailwind CSS for lightning-fast performance and responsive design
+              <strong className="text-foreground">Frontend:</strong> Next.js 16, React 19, and Tailwind CSS power the analytics UI.
             </p>
             <p>
-              <strong className="text-foreground">Data Visualization:</strong> Recharts for beautiful, interactive charts with smooth animations
+              <strong className="text-foreground">Visualization:</strong> Recharts renders revenue, product, category, and predictive performance views.
             </p>
             <p>
-              <strong className="text-foreground">Real-time Updates:</strong> Server-sent events and WebSocket support for live data streaming
+              <strong className="text-foreground">Data Layer:</strong> Static JSON exports provide fast dataset switching without a live API dependency.
             </p>
             <p>
-              <strong className="text-foreground">AI/ML Engine:</strong> Advanced algorithms for predictive analytics, trend forecasting, and anomaly detection
+              <strong className="text-foreground">AI/ML Engine:</strong> Model metrics, confidence ranges, and error analysis are surfaced directly from pipeline outputs.
             </p>
             <p>
-              <strong className="text-foreground">Security:</strong> End-to-end encryption, role-based access control, and comprehensive audit logs
+              <strong className="text-foreground">Operational Workflow:</strong> Python export scripts refresh the public assets consumed by the website.
             </p>
           </div>
         </section>
 
-        {/* Results Achieved */}
         <section className="mb-20 border-t border-border pt-20">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Results Achieved</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Data Processing</h3>
-              <p className="text-foreground/70">{ds?.metrics?.total_orders != null ? `${formatNumber(ds.metrics.total_orders)} orders processed` : 'Data not available'}</p>
-              <p className="text-foreground/70">{ds?.metrics?.total_revenue != null ? `${formatCurrency(ds.metrics.total_revenue)} total revenue analyzed` : ''}</p>
-              <p className="text-foreground/70">Features engineered: {ds?.metricsDetailed?.feature_columns ? ds.metricsDetailed.feature_columns.length : (ds?.modelMetrics?.feature_columns ? ds.modelMetrics.feature_columns.length : 'Data not available')}</p>
+          <h2 className="mb-8 text-3xl font-bold text-foreground">Results Achieved</h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h3 className="mb-2 text-lg font-bold text-foreground">Data Processing</h3>
+              <p className="text-foreground/70">
+                {ds?.metrics?.total_orders != null ? `${formatNumber(ds.metrics.total_orders)} orders processed` : 'Data not available'}
+              </p>
+              <p className="text-foreground/70">
+                {ds?.metrics?.total_revenue != null ? `${formatCurrency(ds.metrics.total_revenue)} total revenue analyzed` : ''}
+              </p>
+              <p className="text-foreground/70">Features engineered: {featureCount ?? 'Data not available'}</p>
             </div>
 
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Model Development</h3>
-              <p className="text-foreground/70">Models trained: {ds?.modelMetrics?.models ? ds.modelMetrics.models.length : 'Data not available'}</p>
-              <p className="text-foreground/70">Best model: {ds?.modelMetrics?.best_model?.display_name ?? 'Data not available'}</p>
-              <p className="text-foreground/70">Best model R²: {ds?.modelMetrics?.best_model?.r2 != null ? `${(ds.modelMetrics.best_model.r2 * 100).toFixed(2)}%` : 'Data not available'}</p>
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h3 className="mb-2 text-lg font-bold text-foreground">Model Development</h3>
+              <p className="text-foreground/70">
+                Models trained: {ds?.modelMetrics?.models ? ds.modelMetrics.models.length : 'Data not available'}
+              </p>
+              <p className="text-foreground/70">
+                Best model: {ds?.modelMetrics?.best_model?.display_name ?? 'Data not available'}
+              </p>
+              <p className="text-foreground/70">
+                Best model R-squared: {ds?.modelMetrics?.best_model?.r2 != null ? formatPercent(ds.modelMetrics.best_model.r2) : 'Data not available'}
+              </p>
             </div>
 
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Model Performance</h3>
-              <p className="text-foreground/70">MAE: {ds?.modelMetrics?.best_model?.mae != null ? formatCurrency(ds.modelMetrics.best_model.mae) : 'Data not available'}</p>
-              <p className="text-foreground/70">MAPE: {ds?.modelMetrics?.best_model?.mape != null ? formatPercent(ds.modelMetrics.best_model.mape) : 'Data not available'}</p>
-              <p className="text-foreground/70">Sample count: {ds?.modelMetrics?.sample_count ?? 'Data not available'}</p>
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h3 className="mb-2 text-lg font-bold text-foreground">Model Performance</h3>
+              <p className="text-foreground/70">
+                MAE: {ds?.modelMetrics?.best_model?.mae != null ? formatCurrency(ds.modelMetrics.best_model.mae) : 'Data not available'}
+              </p>
+              <p className="text-foreground/70">
+                MAPE: {ds?.modelMetrics?.best_model?.mape != null ? formatPercent(ds.modelMetrics.best_model.mape) : 'Data not available'}
+              </p>
+              <p className="text-foreground/70">Sample count: {sampleCount ?? 'Data not available'}</p>
             </div>
           </div>
         </section>
 
-        {/* Stats (dynamic) */}
-        <section className="grid grid-cols-1 md:grid-cols-4 gap-8 py-20 border-t border-border">
+        <section className="grid grid-cols-1 gap-8 border-t border-border py-20 md:grid-cols-4">
           <div className="text-center">
-            <p className="text-4xl font-bold text-primary mb-2">{ds?.metrics?.enterprise_clients ?? 'Data not available'}</p>
-            <p className="text-foreground/60">Enterprise Clients</p>
+            <p className="mb-2 text-4xl font-bold text-primary">
+              {ds?.metrics?.total_customers != null ? formatNumber(ds.metrics.total_customers) : 'Data not available'}
+            </p>
+            <p className="text-foreground/60">Customers Profiled</p>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-secondary mb-2">{ds?.metrics?.total_data_points ? formatNumber(ds.metrics.total_data_points) : (ds?.metrics?.total_records ? formatNumber(Number(ds.metrics.total_records) * (ds.metrics.feature_count || 9)) : 'Data not available')}</p>
+            <p className="mb-2 text-4xl font-bold text-secondary">
+              {dataPointsProcessed != null ? formatNumber(dataPointsProcessed) : 'Data not available'}
+            </p>
             <p className="text-foreground/60">Data Points Processed</p>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-accent mb-2">{ds?.metrics?.platform_uptime ?? 'Data not available'}</p>
-            <p className="text-foreground/60">Platform Uptime</p>
+            <p className="mb-2 text-4xl font-bold text-accent">
+              {ds?.metrics?.repeat_purchase_rate != null ? formatPercent(ds.metrics.repeat_purchase_rate) : 'Data not available'}
+            </p>
+            <p className="text-foreground/60">Repeat Purchase Rate</p>
           </div>
           <div className="text-center">
-            <p className="text-4xl font-bold text-primary mb-2">{ds?.metrics?.data_integrations ?? 'Data not available'}</p>
-            <p className="text-foreground/60">Data Integrations</p>
+            <p className="mb-2 text-4xl font-bold text-primary">
+              {ds?.modelMetrics?.best_model?.r2 != null ? formatPercent(ds.modelMetrics.best_model.r2) : 'Data not available'}
+            </p>
+            <p className="text-foreground/60">Top Model R-squared</p>
           </div>
         </section>
 
-        {/* Support */}
-        <section className="bg-card/30 border border-border rounded-2xl p-8 md:p-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Support & Resources</h2>
-          <p className="text-foreground/70 mb-6">
-            Our dedicated support team is available 24/7 to help you maximize your analytics ROI. We provide comprehensive documentation, video tutorials, and personalized onboarding for enterprise clients.
+        <section className="rounded-2xl border border-border bg-card/30 p-8 md:p-12">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">Support &amp; Resources</h2>
+          <p className="mb-6 text-foreground/70">
+            The platform is designed to be refreshed from pipeline outputs quickly, so teams can re-export assets, validate model results, and publish updated dashboards with minimal friction.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button className="px-4 py-2 rounded-lg border border-border text-foreground hover:bg-card transition-colors">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            <button className="rounded-lg border border-border px-4 py-2 text-foreground transition-colors hover:bg-card">
               Documentation
             </button>
-            <button className="px-4 py-2 rounded-lg border border-border text-foreground hover:bg-card transition-colors">
+            <button className="rounded-lg border border-border px-4 py-2 text-foreground transition-colors hover:bg-card">
               Contact Support
             </button>
-            <button className="px-4 py-2 rounded-lg border border-border text-foreground hover:bg-card transition-colors">
+            <button className="rounded-lg border border-border px-4 py-2 text-foreground transition-colors hover:bg-card">
               Schedule Demo
             </button>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-border mt-20 py-12 bg-card/30">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <div className="text-center text-foreground/60 text-sm">
-            <p>&copy; 2024 SalesSense AI. All rights reserved.</p>
-          </div>
+      <footer className="mt-20 border-t border-border bg-card/30 py-12">
+        <div className="mx-auto max-w-6xl px-4 text-center text-sm text-foreground/60 sm:px-6 lg:px-8">
+          <p>&copy; 2024 SalesSense AI. All rights reserved.</p>
         </div>
       </footer>
     </div>

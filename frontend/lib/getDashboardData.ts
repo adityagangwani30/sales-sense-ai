@@ -1,5 +1,20 @@
-export async function getDashboardData(dataset: string) {
-  const base = `/data/${dataset}`
+export const DEFAULT_DATASET_ID = 'global_ecommerce_sales'
+
+const DATASET_ALIASES: Record<string, string> = {
+  dataset_1: 'global_ecommerce_sales',
+  dataset_2: 'retail_supply_chain_sales',
+}
+
+function resolveDatasetId(dataset?: string) {
+  if (!dataset) {
+    return DEFAULT_DATASET_ID
+  }
+
+  return DATASET_ALIASES[dataset] ?? dataset
+}
+
+export async function getDashboardData(dataset?: string) {
+  const base = `/data/${resolveDatasetId(dataset)}`
 
   async function fetchJson(path: string) {
     try {

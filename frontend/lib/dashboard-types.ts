@@ -3,6 +3,7 @@ export interface DatasetOption {
   label: string
   description: string
   dataPath: string
+  visualizations?: VisualizationAsset[]
 }
 
 export interface VisualizationAsset {
@@ -11,9 +12,7 @@ export interface VisualizationAsset {
   filename: string
 }
 
-export interface SqlAnalysisMap {
-  [key: string]: string
-}
+export type SqlAnalysisMap = Record<string, Record<string, string>>
 
 export interface DashboardManifest {
   defaultDatasetId: string

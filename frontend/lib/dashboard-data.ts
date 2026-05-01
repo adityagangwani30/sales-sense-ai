@@ -1,4 +1,4 @@
-import type { DashboardDataset, DashboardManifest, RevenueTrendPoint, TopProduct, CustomerSegmentItem, CategoryDistributionItem, TopCustomer, VisualizationAsset, KPISet, DashboardHighlights } from '@/lib/dashboard-types'
+import type { DashboardDataset, DashboardManifest, RevenueTrendPoint, TopProduct, CustomerSegmentItem, CategoryDistributionItem, TopCustomer, KPISet, DashboardHighlights } from '@/lib/dashboard-types'
 
 const MANIFEST_PATH = '/data/dataset-manifest.json'
 
@@ -10,6 +10,14 @@ async function fetchJson<T>(path: string): Promise<T> {
   return (await response.json()) as T
 }
 
+async function fetchJsonOrNull<T>(path: string): Promise<T | null> {
+  try {
+    return await fetchJson<T>(path)
+  } catch {
+    return null
+  }
+}
+
 export function fetchDashboardManifest() {
   return fetchJson<DashboardManifest>(MANIFEST_PATH)
 }
@@ -17,19 +25,19 @@ export function fetchDashboardManifest() {
 export async function fetchDashboardDataset(datasetId: string, manifest: DashboardManifest): Promise<DashboardDataset> {
   const datasetConfig = manifest.datasets.find((item) => item.id === datasetId)
   const datasetPrefix = `/data/${datasetId}`
-  // Paths used to fetch dataset files
+  const datasetVisualizations = manifest.visualizations.filter((asset) =>
+    asset.src.includes(`/${datasetId}/`),
+  )
 
   const [metrics, revenueTrend, topProducts, customerSegmentation, categoryPerformance, repeatRate, insights] = await Promise.all([
-    fetchJson<any>(`${datasetPrefix}/metrics.json`),
-    fetchJson<RevenueTrendPoint[]>(`${datasetPrefix}/revenue_trend.json`),
-    fetchJson<TopProduct[]>(`${datasetPrefix}/top_products.json`),
-    fetchJson<CustomerSegmentItem[]>(`${datasetPrefix}/customer_segmentation.json`),
-    fetchJson<CategoryDistributionItem[]>(`${datasetPrefix}/category_performance.json`),
-    fetchJson<any>(`${datasetPrefix}/repeat_rate.json`),
-    fetchJson<DashboardHighlights>(`${datasetPrefix}/insights.json`),
+    fetchJsonOrNull<any>(`${datasetPrefix}/metrics.json`),
+    fetchJsonOrNull<RevenueTrendPoint[]>(`${datasetPrefix}/revenue_trend.json`),
+    fetchJsonOrNull<TopProduct[]>(`${datasetPrefix}/top_products.json`),
+    fetchJsonOrNull<CustomerSegmentItem[]>(`${datasetPrefix}/customer_segmentation.json`),
+    fetchJsonOrNull<CategoryDistributionItem[]>(`${datasetPrefix}/category_performance.json`),
+    fetchJsonOrNull<any>(`${datasetPrefix}/repeat_rate.json`),
+    fetchJsonOrNull<DashboardHighlights>(`${datasetPrefix}/insights.json`),
   ])
-
-  const totalRevenue = Number(categoryPerformance?.reduce((s: number, it: any) => s + Number(it.total_revenue || 0), 0) || 0)
 
   const kpis: KPISet = {
     totalRevenue: Number(metrics?.total_revenue || metrics?.totalRevenue || 0),
@@ -51,7 +59,7 @@ export async function fetchDashboardDataset(datasetId: string, manifest: Dashboa
     categoryDistribution: categoryPerformance || [],
     customerSegmentation: customerSegmentation || [],
     topCustomers: [],
-    visualizations: datasetConfig?.visualizations || (Array.isArray(insights) ? insights as unknown as VisualizationAsset[] : []),
+    visualizations: datasetConfig?.visualizations || datasetVisualizations,
     highlights: insights || { peakMonth: null, topProduct: null, largestCategory: null },
     priceSalesCorrelationAvailable: false,
   }
