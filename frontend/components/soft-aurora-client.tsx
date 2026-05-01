@@ -9,5 +9,12 @@ const SoftAurora = dynamic(
 )
 
 export default function SoftAuroraClient() {
-  return <SoftAurora />
+  return (
+    <SoftAurora
+      brightness={1.8}
+      scale={2.0}
+      color1="#7c3aed"
+      color2="#ec4899"
+    />
+  )
 }

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import SoftAuroraClient from '@/components/soft-aurora-client'
+import AuroraOverlayClient from '@/components/aurora-overlay-client'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
@@ -51,7 +52,7 @@ export default function RootLayout({
             <SoftAuroraClient />
           </div>
 
-          <div className="absolute inset-0 bg-black/60 z-10" />
+          <AuroraOverlayClient />
 
           <div className="relative z-20">
             {children}
