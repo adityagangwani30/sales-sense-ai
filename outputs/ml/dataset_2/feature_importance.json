@@ -54,8 +54,8 @@
     },
     {
       "feature": "quantity",
-      "importance": 22.767714234657845,
-      "raw_importance": 0.6182915897656716
+      "importance": 22.76771423465784,
+      "raw_importance": 0.6182915897656714
     },
     {
       "feature": "customer_id",
@@ -69,8 +69,8 @@
     },
     {
       "feature": "quarter",
-      "importance": 5.387512858647058e-05,
-      "raw_importance": 1.4630603036932163e-06
+      "importance": 5.387512858674312e-05,
+      "raw_importance": 1.4630603037006177e-06
     },
     {
       "feature": "month",
@@ -105,8 +105,8 @@
       "feature": "quantity",
       "importance_model": 20.276329894143647,
       "raw_importance_model": 0.20276329894143647,
-      "importance_permutation": 22.767714234657845,
-      "raw_importance_permutation": 0.6182915897656716
+      "importance_permutation": 22.76771423465784,
+      "raw_importance_permutation": 0.6182915897656714
     },
     {
       "feature": "product_id",
@@ -147,8 +147,8 @@
       "feature": "quarter",
       "importance_model": 0.002606056355718209,
       "raw_importance_model": 2.606056355718209e-05,
-      "importance_permutation": 5.387512858647058e-05,
-      "raw_importance_permutation": 1.4630603036932163e-06
+      "importance_permutation": 5.387512858674312e-05,
+      "raw_importance_permutation": 1.4630603037006177e-06
     },
     {
       "feature": "is_weekend",

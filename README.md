@@ -157,25 +157,10 @@ Example outputs are written into dataset-specific folders such as:
 
 The ML evaluation stage also writes detailed artifacts including metrics, confidence scores, worst predictions, and feature importance comparisons.
 
-## 11. Screenshots (Placeholder Section)
-
-```markdown
-![Dashboard](path/to/image.png)
-```
-
-## 12. Future Improvements
+## 11. Future Improvements
 
 - Real-time backend integration for live analytics and model refreshes
 - Additional datasets and broader retail use cases
 - Advanced models such as tuned gradient boosting or ensemble stacking
 - Automated alerting for anomalies and forecasting drift
 - Deeper frontend integration for live report rendering
-
-## 13. License
-
-This project is licensed under the MIT License.
-
-## 14. Author
-
-- Name: Your Name
-- GitHub: https://github.com/your-username
