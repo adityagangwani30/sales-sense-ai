@@ -9,14 +9,24 @@ import { formatCurrency, formatNumber, formatPercent } from '@/lib/format';
 
 export default function AboutPage() {
   const [ds, setDs] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let mounted = true;
 
-    getDashboardData(DEFAULT_DATASET_ID).then((res) => {
-      if (!mounted) return;
-      setDs(res);
-    });
+    getDashboardData(DEFAULT_DATASET_ID)
+      .then((res) => {
+        if (!mounted) return;
+        setDs(res);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setDs(null);
+      })
+      .finally(() => {
+        if (!mounted) return;
+        setIsLoading(false);
+      });
 
     return () => {
       mounted = false;
@@ -139,10 +149,18 @@ export default function AboutPage() {
             <div className="rounded-xl border border-border bg-card p-6">
               <h3 className="mb-2 text-lg font-bold text-foreground">Data Processing</h3>
               <p className="text-foreground/70">
-                {ds?.metrics?.total_orders != null ? `${formatNumber(ds.metrics.total_orders)} orders processed` : 'Data not available'}
+                {isLoading
+                  ? 'Loading...'
+                  : ds?.metrics?.total_orders != null
+                    ? `${formatNumber(ds.metrics.total_orders)} orders processed`
+                    : 'Data not available'}
               </p>
               <p className="text-foreground/70">
-                {ds?.metrics?.total_revenue != null ? `${formatCurrency(ds.metrics.total_revenue)} total revenue analyzed` : ''}
+                {isLoading
+                  ? ''
+                  : ds?.metrics?.total_revenue != null
+                    ? `${formatCurrency(ds.metrics.total_revenue)} total revenue analyzed`
+                    : ''}
               </p>
               <p className="text-foreground/70">Features engineered: {featureCount ?? 'Data not available'}</p>
             </div>
@@ -221,7 +239,7 @@ export default function AboutPage() {
 
       <footer className="mt-20 border-t border-border bg-card/30 py-12">
         <div className="mx-auto max-w-6xl px-4 text-center text-sm text-foreground/60 sm:px-6 lg:px-8">
-          <p>&copy; 2024 SalesSense AI. All rights reserved.</p>
+          <p>&copy; 2026 SalesSense AI. All rights reserved.</p>
         </div>
       </footer>
     </div>

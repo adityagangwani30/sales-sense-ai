@@ -93,6 +93,9 @@ interface ConfidencePayload {
 
 interface RoiPayload {
   text?: string
+  savings?: number
+  cost?: number
+  roi?: number
   annual_savings?: number
   implementation_cost?: number
   roi_pct?: number
@@ -441,6 +444,11 @@ function DashboardDeepAnalytics({ datasetId, dataset }: DashboardDeepAnalyticsPr
       return null
     }
 
+    const safeNumber = (value: unknown): number => {
+      const parsed = Number(value)
+      return Number.isFinite(parsed) ? parsed : 0
+    }
+
     const lines = (raw.text ?? '').split('\n')
     const readFromText = (label: string): number | null => {
       const line = lines.find((item) => item.toLowerCase().includes(label.toLowerCase()))
@@ -451,9 +459,13 @@ function DashboardDeepAnalytics({ datasetId, dataset }: DashboardDeepAnalyticsPr
       return Number.isFinite(value) ? value : null
     }
 
-    const annualSavings = Number(raw.annual_savings ?? readFromText('annual savings') ?? 0)
-    const implementationCost = Number(raw.implementation_cost ?? readFromText('implementation cost') ?? 0)
-    const roiPct = Number(raw.roi_pct ?? readFromText('roi') ?? 0)
+    const annualSavings = safeNumber(
+      raw.savings ?? raw.annual_savings ?? readFromText('annual savings') ?? 0,
+    )
+    const implementationCost = safeNumber(
+      raw.cost ?? raw.implementation_cost ?? readFromText('implementation cost') ?? 0,
+    )
+    const roiPct = implementationCost > 0 ? ((annualSavings - implementationCost) / implementationCost) * 100 : 0
 
     return {
       annualSavings,
@@ -838,7 +850,7 @@ function DashboardDeepAnalytics({ datasetId, dataset }: DashboardDeepAnalyticsPr
               <p className="text-sm font-semibold">ROI</p>
             </div>
             <p className="text-2xl font-bold text-white mt-4">
-              {roiValues ? formatPercent(roiValues.roiPct).replace('+', '') : 'N/A'}
+              {roiValues ? `${roiValues.roiPct.toFixed(2)}%` : 'N/A'}
             </p>
             <p className="text-xs text-gray-400 mt-1">
               Impl. Cost: {roiValues ? formatCurrency(roiValues.implementationCost) : 'N/A'}

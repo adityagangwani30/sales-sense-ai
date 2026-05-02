@@ -1,0 +1,23 @@
+{
+  "total_records": 10630,
+  "totalRecords": 10630,
+  "savings": 16821.62,
+  "cost": 3364.32,
+  "roi": 400.0,
+  "datasets": [
+    {
+      "dataset_id": "dataset_1",
+      "total_records": 1810,
+      "savings": 1328.57,
+      "cost": 265.71,
+      "roi": 400.0075270031237
+    },
+    {
+      "dataset_id": "dataset_2",
+      "total_records": 8820,
+      "savings": 15493.05,
+      "cost": 3098.61,
+      "roi": 399.99999999999994
+    }
+  ]
+}

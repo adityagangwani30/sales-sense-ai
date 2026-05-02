@@ -555,7 +555,7 @@ def _build_confidence_scores(model: Any, x_test: pd.DataFrame) -> dict[str, Any]
     }
 
 
-def _build_roi_analysis(worst_predictions: pd.DataFrame, sample_count: int) -> str:
+def _build_roi_analysis(worst_predictions: pd.DataFrame, sample_count: int) -> dict[str, Any]:
     residuals = worst_predictions["Error"]
     actuals = worst_predictions["Actual"]
     understock = float(np.maximum(actuals - worst_predictions["Predicted"], 0).sum())
@@ -565,9 +565,9 @@ def _build_roi_analysis(worst_predictions: pd.DataFrame, sample_count: int) -> s
     overstock_savings = overstock * 0.10
     annual_savings = (understock_savings + overstock_savings) * max(sample_count / max(len(worst_predictions), 1), 1.0)
     implementation_cost = max(annual_savings * 0.20, 1.0)
-    roi_percent = ((annual_savings - implementation_cost) / implementation_cost) * 100 if implementation_cost else 0.0
+    roi_percent = ((annual_savings - implementation_cost) / implementation_cost) * 100 if implementation_cost > 0 else 0.0
 
-    return "\n".join(
+    roi_text = "\n".join(
         [
             "ROI Analysis",
             f"Overstock reduction opportunity: {overstock_savings:.2f}",
@@ -578,6 +578,16 @@ def _build_roi_analysis(worst_predictions: pd.DataFrame, sample_count: int) -> s
             f"Average absolute test error: {float(np.mean(np.abs(residuals))):.2f}",
         ]
     )
+
+    return {
+        "text": roi_text,
+        "savings": float(annual_savings),
+        "cost": float(implementation_cost),
+        "roi": float(roi_percent),
+        "annual_savings": float(annual_savings),
+        "implementation_cost": float(implementation_cost),
+        "roi_pct": float(roi_percent),
+    }
 
 
 def _build_final_report(
@@ -679,7 +689,8 @@ def run_week8_evaluation(dataset_choice: str) -> dict[str, Any]:
 
     business_insights = _generate_business_insights(cleaned_df)
     confidence_scores = _build_confidence_scores(loaded_models.get("random_forest", best_model), x_test)
-    roi_text = _build_roi_analysis(worst_predictions, len(cleaned_df))
+    roi_analysis = _build_roi_analysis(worst_predictions, len(cleaned_df))
+    roi_text = str(roi_analysis["text"])
 
     metrics_payload = {
         "dataset": dataset_id,
@@ -710,7 +721,7 @@ def run_week8_evaluation(dataset_choice: str) -> dict[str, Any]:
     _save_json(output_dir / "feature_importance.json", feature_importance_payload)
     _save_json(output_dir / "feature_selection_results.json", feature_selection_results)
     _save_json(output_dir / "confidence_scores.json", confidence_scores)
-    _save_json(output_dir / "roi_analysis.json", {"text": roi_text})
+    _save_json(output_dir / "roi_analysis.json", roi_analysis)
 
     worst_predictions_output = worst_predictions.head(10).copy()
     worst_predictions_output.to_csv(output_dir / "worst_predictions.csv", index=False)

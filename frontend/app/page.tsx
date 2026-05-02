@@ -10,21 +10,31 @@ import { formatCurrency, formatNumber, formatPercent } from '@/lib/format';
 
 export default function LandingPage() {
   const [ds, setDs] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let mounted = true;
 
-    getDashboardData(DEFAULT_DATASET_ID).then((res) => {
-      if (!mounted) return;
-      setDs(res);
-    });
+    getDashboardData(DEFAULT_DATASET_ID)
+      .then((res) => {
+        if (!mounted) return;
+        setDs(res);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setDs(null);
+      })
+      .finally(() => {
+        if (!mounted) return;
+        setIsLoading(false);
+      });
 
     return () => {
       mounted = false;
     };
   }, []);
 
-  const sampleCount = ds?.modelMetrics?.sample_count ?? ds?.metrics?.total_orders ?? null;
+  const sampleCount = ds?.summary?.total_records ?? ds?.modelMetrics?.sample_count ?? ds?.metrics?.total_orders ?? null;
   const bestModelR2 = ds?.modelMetrics?.best_model?.r2 ?? null;
   const bestModelMae = ds?.modelMetrics?.best_model?.mae ?? null;
   const businessInsightText = typeof ds?.businessInsights === 'string' ? ds.businessInsights.trim() : '';
@@ -90,19 +100,19 @@ export default function LandingPage() {
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 text-center sm:grid-cols-3">
           <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <p className="text-3xl font-bold text-purple-300">
-              {sampleCount != null ? formatNumber(sampleCount) : 'Data not available'}
+              {isLoading ? 'Loading...' : sampleCount != null ? formatNumber(sampleCount) : 'Data not available'}
             </p>
             <p className="text-sm text-gray-400">Sales Records Analyzed</p>
           </div>
           <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <p className="text-3xl font-bold text-pink-300">
-              {bestModelR2 != null ? formatPercent(bestModelR2) : 'Data not available'}
+              {isLoading ? 'Loading...' : bestModelR2 != null ? formatPercent(bestModelR2) : 'Data not available'}
             </p>
             <p className="text-sm text-gray-400">Best Model R-squared</p>
           </div>
           <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <p className="text-3xl font-bold text-blue-300">
-              {bestModelMae != null ? formatCurrency(bestModelMae) : 'Data not available'}
+              {isLoading ? 'Loading...' : bestModelMae != null ? formatCurrency(bestModelMae) : 'Data not available'}
             </p>
             <p className="text-sm text-gray-400">Mean Absolute Error</p>
           </div>
@@ -275,7 +285,7 @@ export default function LandingPage() {
 
       <footer className="mt-20 border-t border-white/10 bg-black/40 py-12 backdrop-blur">
         <div className="mx-auto max-w-6xl px-4 text-center text-sm text-gray-500 sm:px-6 lg:px-8">
-          <p>&copy; 2024 SalesSense AI. All rights reserved.</p>
+          <p>&copy; 2026 SalesSense AI. All rights reserved.</p>
         </div>
       </footer>
     </>

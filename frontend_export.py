@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 from pathlib import Path
 from typing import Any
@@ -49,6 +50,7 @@ ML_ARTIFACTS_TO_COPY = [
 ROOT_ML_ARTIFACTS = {
     "business_insights.txt",
     "model_metrics.json",
+    "roi_analysis.json",
 }
 
 VISUALIZATION_TITLES = {
@@ -58,7 +60,10 @@ VISUALIZATION_TITLES = {
     "customer_segmentation.png": "Customer Segmentation Overview",
     "order_value_distribution.png": "Order Value Distribution",
     "price_vs_sales_scatter.png": "Price vs Sales Correlation",
-    "sales_dashboard.png": "Executive Analytics Dashboard",
+}
+
+EXCLUDED_VISUALIZATION_FILES = {
+    "sales_dashboard.png",
 }
 
 
@@ -95,6 +100,81 @@ def get_ml_output_dir(ml_dataset_id: str) -> Path:
     return OUTPUTS_DIR / "ml" / ml_dataset_id
 
 
+def to_safe_number(value: Any, fallback: float = 0.0) -> float:
+    try:
+        parsed = float(value)
+    except (TypeError, ValueError):
+        return fallback
+    return parsed if parsed == parsed and parsed not in (float("inf"), float("-inf")) else fallback
+
+
+def read_roi_value_from_text(text: str, label: str) -> float | None:
+    for line in text.splitlines():
+        if label.lower() not in line.lower():
+            continue
+        numeric = re.sub(r"[^0-9.\-]", "", line)
+        if not numeric:
+            return None
+        try:
+            return float(numeric)
+        except ValueError:
+            return None
+    return None
+
+
+def normalize_roi_payload(raw: Any) -> dict[str, Any]:
+    payload = dict(raw) if isinstance(raw, dict) else {}
+    text = str(payload.get("text", ""))
+
+    savings = to_safe_number(
+        payload.get("savings", payload.get("annual_savings", read_roi_value_from_text(text, "annual savings"))),
+        0.0,
+    )
+    cost = to_safe_number(
+        payload.get("cost", payload.get("implementation_cost", read_roi_value_from_text(text, "implementation cost"))),
+        0.0,
+    )
+    roi = ((savings - cost) / cost) * 100 if cost > 0 else 0.0
+
+    payload["savings"] = savings
+    payload["cost"] = cost
+    payload["roi"] = roi
+    payload["annual_savings"] = savings
+    payload["implementation_cost"] = cost
+    payload["roi_pct"] = roi
+    return payload
+
+
+def read_json_file(path: Path) -> Any:
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+
+
+def build_dataset_summary(dataset_id: str, ml_dataset_id: str, kpis: dict[str, Any]) -> dict[str, Any]:
+    model_metrics = read_json_file(get_ml_output_dir(ml_dataset_id) / "model_metrics.json") or {}
+    roi_raw = read_json_file(get_ml_output_dir(ml_dataset_id) / "roi_analysis.json") or {}
+    roi_payload = normalize_roi_payload(roi_raw)
+
+    total_records = int(
+        to_safe_number(
+            model_metrics.get("sample_count", kpis.get("totalOrders", 0)),
+            to_safe_number(kpis.get("totalOrders", 0), 0.0),
+        )
+    )
+
+    return {
+        "dataset_id": dataset_id,
+        "total_records": total_records,
+        "savings": roi_payload["savings"],
+        "cost": roi_payload["cost"],
+        "roi": roi_payload["roi"],
+    }
+
+
 def detect_column(df: pd.DataFrame, candidates: list[str]) -> str | None:
     """Return the first matching column name from a preference list."""
     for candidate in candidates:
@@ -125,6 +205,9 @@ def copy_visualizations(dataset_id: str) -> list[dict[str, str]]:
 
     assets: list[dict[str, str]] = []
     for image_path in sorted(visualization_dir.glob("*.png")):
+        if image_path.name in EXCLUDED_VISUALIZATION_FILES:
+            continue
+
         target_path = target_dir / image_path.name
         shutil.copy2(image_path, target_path)
         assets.append(
@@ -154,11 +237,20 @@ def copy_ml_artifacts(dataset_id: str, ml_dataset_id: str) -> None:
         source_path = ml_output_dir / artifact_name
         if source_path.exists():
             target_path = target_dir / artifact_name
-            shutil.copy2(source_path, target_path)
+            if artifact_name == "roi_analysis.json":
+                roi_payload = normalize_roi_payload(read_json_file(source_path) or {})
+                target_path.write_text(json.dumps(roi_payload, indent=2), encoding="utf-8")
+            else:
+                shutil.copy2(source_path, target_path)
             copied_count += 1
 
             if artifact_name in ROOT_ML_ARTIFACTS:
-                shutil.copy2(source_path, root_dataset_dir / artifact_name)
+                root_target = root_dataset_dir / artifact_name
+                if artifact_name == "roi_analysis.json":
+                    roi_payload = normalize_roi_payload(read_json_file(source_path) or {})
+                    root_target.write_text(json.dumps(roi_payload, indent=2), encoding="utf-8")
+                else:
+                    shutil.copy2(source_path, root_target)
 
     if copied_count > 0:
         print(f"  [OK] Copied {copied_count} ML artifacts for {dataset_id}")
@@ -352,10 +444,11 @@ def build_dataset_payload(
     return payload
 
 
-def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, str]]]:
+def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, str]], list[dict[str, Any]]]:
     """Build a dataset payload for each source file the dashboard can switch between."""
     dataset_entries: list[dict[str, str]] = []
     sql_analysis_entries: dict[str, dict[str, str]] = {}
+    dataset_summaries: list[dict[str, Any]] = []
     for config in DATASET_CONFIGS:
         if not config["source_path"].exists():
             print(f"  [WARN] Skipping {config['id']}: cleaned dataset not found")
@@ -417,6 +510,7 @@ def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, st
 
         # insights.json (highlights)
         (per_dataset_dir / "insights.json").write_text(json.dumps(payload.get("highlights", {}), indent=2), encoding="utf-8")
+        dataset_summaries.append(build_dataset_summary(config["id"], config["ml_id"], kpis))
         dataset_entries.append(
             {
                 "id": config["id"],
@@ -425,7 +519,7 @@ def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, st
                 "dataPath": f"/data/datasets/{config['id']}.json",
             }
         )
-    return dataset_entries, sql_analysis_entries
+    return dataset_entries, sql_analysis_entries, dataset_summaries
 
 
 def copy_to_alias_dirs(dataset_id: str, aliases: list[str]) -> None:
@@ -471,7 +565,7 @@ def export_frontend_dashboard_assets() -> dict[str, Any]:
     print("Exporting frontend dashboard assets...")
     ensure_frontend_dirs()
 
-    dataset_entries, sql_analysis_assets = export_dataset_jsons()
+    dataset_entries, sql_analysis_assets, dataset_summaries = export_dataset_jsons()
     visualization_assets = [
         asset
         for dataset in DATASET_CONFIGS
@@ -492,9 +586,25 @@ def export_frontend_dashboard_assets() -> dict[str, Any]:
     manifest_path = FRONTEND_DATA_DIR / "dataset-manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
+    total_records = int(sum(int(item.get("total_records", 0)) for item in dataset_summaries))
+    savings = float(sum(to_safe_number(item.get("savings", 0.0), 0.0) for item in dataset_summaries))
+    cost = float(sum(to_safe_number(item.get("cost", 0.0), 0.0) for item in dataset_summaries))
+    roi = ((savings - cost) / cost) * 100 if cost > 0 else 0.0
+
+    overview_payload = {
+        "total_records": total_records,
+        "totalRecords": total_records,
+        "savings": round(savings, 2),
+        "cost": round(cost, 2),
+        "roi": round(roi, 2),
+        "datasets": dataset_summaries,
+    }
+    overview_path = FRONTEND_DATA_DIR / "overview.json"
+    overview_path.write_text(json.dumps(overview_payload, indent=2), encoding="utf-8")
+
     print("Frontend dashboard assets exported successfully")
     print(f"Public data directory: {FRONTEND_DATA_DIR.resolve()}")
-    return {"manifest": manifest_path}
+    return {"manifest": manifest_path, "overview": overview_path}
 
 
 if __name__ == "__main__":

@@ -345,11 +345,6 @@
       "filename": "price_vs_sales_scatter.png"
     },
     {
-      "title": "Executive Analytics Dashboard",
-      "src": "/visualizations/dataset_1/sales_dashboard.png",
-      "filename": "sales_dashboard.png"
-    },
-    {
       "title": "Top Products Performance",
       "src": "/visualizations/dataset_1/top_products.png",
       "filename": "top_products.png"
