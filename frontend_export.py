@@ -22,6 +22,7 @@ DATASET_CONFIGS = [
         "description": "E-Commerce sales analytics with global customer and product data",
         "source_path": OUTPUTS_DIR / "dataset_1" / "dataset_1_cleaned.csv",
         "ml_id": "dataset_1",
+        "aliases": ["global_ecommerce_sales"],
     },
     {
         "id": "dataset_2",
@@ -29,6 +30,7 @@ DATASET_CONFIGS = [
         "description": "Retail supply chain performance and sales metrics",
         "source_path": OUTPUTS_DIR / "dataset_2" / "dataset_2_cleaned.csv",
         "ml_id": "dataset_2",
+        "aliases": ["retail_supply_chain_sales"],
     },
 ]
 
@@ -115,7 +117,7 @@ def copy_visualizations(dataset_id: str) -> list[dict[str, str]]:
     """Copy generated PNGs into the Next.js public folder."""
     visualization_dir = get_visualization_output_dir(dataset_id)
     if not visualization_dir.exists():
-        print(f"  ⚠ Skipping visualizations for {dataset_id}: folder not found")
+        print(f"  [WARN] Skipping visualizations for {dataset_id}: folder not found")
         return []
 
     target_dir = FRONTEND_VISUALIZATION_DIR / dataset_id
@@ -139,7 +141,7 @@ def copy_ml_artifacts(dataset_id: str, ml_dataset_id: str) -> None:
     """Copy ML output artifacts into the frontend public data folder."""
     ml_output_dir = get_ml_output_dir(ml_dataset_id)
     if not ml_output_dir.exists():
-        print(f"  ⚠ No ML artifacts found for {dataset_id} (looking in {ml_output_dir})")
+        print(f"  [WARN] No ML artifacts found for {dataset_id} (looking in {ml_output_dir})")
         return
 
     target_dir = FRONTEND_DATA_DIR / "ml" / ml_dataset_id
@@ -159,16 +161,16 @@ def copy_ml_artifacts(dataset_id: str, ml_dataset_id: str) -> None:
                 shutil.copy2(source_path, root_dataset_dir / artifact_name)
 
     if copied_count > 0:
-        print(f"  ✓ Copied {copied_count} ML artifacts for {dataset_id}")
+        print(f"  [OK] Copied {copied_count} ML artifacts for {dataset_id}")
     else:
-        print(f"  ⚠ No ML artifacts copied for {dataset_id}: files not found")
+        print(f"  [WARN] No ML artifacts copied for {dataset_id}: files not found")
 
 
 def export_sql_analysis_json(dataset_id: str) -> dict[str, str]:
     """Publish every SQL analysis CSV as frontend-friendly JSON."""
     sql_output_dir = get_sql_output_dir(dataset_id)
     if not sql_output_dir.exists():
-        print(f"  ⚠ No SQL analysis found for {dataset_id}")
+        print(f"  [WARN] No SQL analysis found for {dataset_id}")
         return {}
 
     target_dir = FRONTEND_SQL_DIR / dataset_id
@@ -177,6 +179,14 @@ def export_sql_analysis_json(dataset_id: str) -> dict[str, str]:
     exported_files: dict[str, str] = {}
     for csv_path in sorted(sql_output_dir.glob("*.csv")):
         frame = pd.read_csv(csv_path)
+
+        if csv_path.stem == "category_performance" and "total_revenue" in frame.columns:
+            total_rev = frame["total_revenue"].sum()
+            if total_rev and total_rev > 0:
+                frame["share_pct"] = (frame["total_revenue"] / total_rev) * 100
+            else:
+                frame["share_pct"] = 0.0
+
         output_path = target_dir / f"{csv_path.stem}.json"
         output_path.write_text(json.dumps(format_records(frame), indent=2), encoding="utf-8")
         exported_files[csv_path.stem] = f"/data/sql-analysis/{dataset_id}/{csv_path.stem}.json"
@@ -348,11 +358,11 @@ def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, st
     sql_analysis_entries: dict[str, dict[str, str]] = {}
     for config in DATASET_CONFIGS:
         if not config["source_path"].exists():
-            print(f"  ⚠ Skipping {config['id']}: cleaned dataset not found")
+            print(f"  [WARN] Skipping {config['id']}: cleaned dataset not found")
             continue
 
         if not get_sql_output_dir(config["id"]).exists():
-            print(f"  ⚠ Skipping {config['id']}: SQL analysis not found")
+            print(f"  [WARN] Skipping {config['id']}: SQL analysis not found")
             continue
 
         visualizations = copy_visualizations(config["id"])
@@ -418,6 +428,44 @@ def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, st
     return dataset_entries, sql_analysis_entries
 
 
+def copy_to_alias_dirs(dataset_id: str, aliases: list[str]) -> None:
+    """Copy dataset files to alias directories for backward compatibility."""
+    source_dir = FRONTEND_DATA_DIR / dataset_id
+    source_sql_dir = FRONTEND_SQL_DIR / dataset_id
+    source_viz_dir = FRONTEND_VISUALIZATION_DIR / dataset_id
+
+    for alias in aliases:
+        alias_dir = FRONTEND_DATA_DIR / alias
+        alias_sql_dir = FRONTEND_SQL_DIR / alias
+        alias_viz_dir = FRONTEND_VISUALIZATION_DIR / alias
+
+        if source_dir.exists():
+            alias_dir.mkdir(parents=True, exist_ok=True)
+            for f in source_dir.rglob("*"):
+                if f.is_file():
+                    target = alias_dir / f.relative_to(source_dir)
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(f, target)
+
+        if source_sql_dir.exists():
+            alias_sql_dir.mkdir(parents=True, exist_ok=True)
+            for f in source_sql_dir.rglob("*"):
+                if f.is_file():
+                    target = alias_sql_dir / f.relative_to(source_sql_dir)
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(f, target)
+
+        if source_viz_dir.exists():
+            alias_viz_dir.mkdir(parents=True, exist_ok=True)
+            for f in source_viz_dir.rglob("*"):
+                if f.is_file():
+                    target = alias_viz_dir / f.relative_to(source_viz_dir)
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(f, target)
+
+        print(f"  [OK] Created alias directory: {alias}")
+
+
 def export_frontend_dashboard_assets() -> dict[str, Any]:
     """Sync dashboard-ready JSON and images into the Next.js public folder."""
     print("Exporting frontend dashboard assets...")
@@ -429,6 +477,11 @@ def export_frontend_dashboard_assets() -> dict[str, Any]:
         for dataset in DATASET_CONFIGS
         for asset in copy_visualizations(dataset["id"])
     ]
+
+    for config in DATASET_CONFIGS:
+        aliases = config.get("aliases", [])
+        if aliases:
+            copy_to_alias_dirs(config["id"], aliases)
 
     manifest = {
         "defaultDatasetId": dataset_entries[0]["id"] if dataset_entries else "",

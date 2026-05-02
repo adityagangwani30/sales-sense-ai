@@ -1,0 +1,73 @@
+{
+  "dataset": "dataset_2",
+  "source_reference": "MySQL fact_sales WHERE source = dataset_2",
+  "feature_columns": [
+    "month",
+    "quarter",
+    "day_of_week",
+    "is_weekend",
+    "quantity",
+    "price",
+    "category_encoded",
+    "customer_id",
+    "product_id"
+  ],
+  "target_column": "revenue",
+  "sample_count": 8820,
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "models": [
+    {
+      "name": "linear_regression",
+      "display_name": "Linear Regression",
+      "mae": 36.8881682016452,
+      "mse": 3825.4239818673764,
+      "rmse": 61.85001197952492,
+      "r2": 0.7142442027969828,
+      "adjusted_r2": 0.7127779529823721,
+      "mape": 103.51505774870198,
+      "train_r2": 0.7255527773811504,
+      "test_r2": 0.7142442027969828,
+      "generalization_gap": 0.011308574584167674,
+      "fit_assessment": "Good fit"
+    },
+    {
+      "name": "random_forest",
+      "display_name": "Random Forest",
+      "mae": 13.936665773886043,
+      "mse": 824.2094150252875,
+      "rmse": 28.709047616131183,
+      "r2": 0.9384322836973973,
+      "adjusted_r2": 0.9381163718121501,
+      "mape": 25.470250626646212,
+      "train_r2": 0.9808678124370315,
+      "test_r2": 0.9384322836973973,
+      "generalization_gap": 0.04243552873963419,
+      "fit_assessment": "Good fit"
+    },
+    {
+      "name": "xgboost",
+      "display_name": "XGBoost",
+      "mae": 14.700327414146637,
+      "mse": 838.1364773563644,
+      "rmse": 28.950586822314403,
+      "r2": 0.9373919444257304,
+      "adjusted_r2": 0.9370706944256344,
+      "mape": 30.204405540344233,
+      "train_r2": 0.9815345607278279,
+      "test_r2": 0.9373919444257304,
+      "generalization_gap": 0.04414261630209748,
+      "fit_assessment": "Good fit"
+    }
+  ],
+  "best_model": {
+    "name": "random_forest",
+    "display_name": "Random Forest",
+    "r2": 0.9384322836973973,
+    "mae": 13.936665773886043,
+    "rmse": 28.709047616131183,
+    "mape": 25.470250626646212
+  }
+}

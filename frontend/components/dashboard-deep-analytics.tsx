@@ -115,7 +115,7 @@ interface SupplementalState {
   roiAnalysis: RoiPayload | null
   percentageError: PercentageErrorPayload | null
   businessInsights: string[]
-  sqlRevenueTrend: Array<{ month?: string; revenue?: number }> | null
+  sqlRevenueTrend: Array<{ month?: string; revenue?: number; monthly_revenue?: number; month_start?: string }> | null
   sqlTopProducts: TopProduct[] | null
   sqlCategoryPerformance: CategoryDistributionItem[] | null
   sqlCustomerSegmentation: CustomerSegmentItem[] | null
@@ -323,7 +323,11 @@ function DashboardDeepAnalytics({ datasetId, dataset }: DashboardDeepAnalyticsPr
     if (supplemental.sqlRevenueTrend && supplemental.sqlRevenueTrend.length > 0) {
       return supplemental.sqlRevenueTrend
         .slice(-12)
-        .map((item) => ({ month: item.month ?? 'N/A', revenue: Number(item.revenue ?? 0) }))
+        .map((item) => {
+          const revenue = Number(item.revenue ?? item.monthly_revenue ?? 0)
+          const month = String(item.month ?? item.month_start ?? 'N/A')
+          return { month, revenue }
+        })
     }
 
     return dataset.revenueTrend.slice(-12).map((item) => ({ month: item.month, revenue: item.revenue }))
@@ -337,16 +341,44 @@ function DashboardDeepAnalytics({ datasetId, dataset }: DashboardDeepAnalyticsPr
   }, [supplemental.sqlTopProducts, dataset.topProducts])
 
   const sqlCategoryData = useMemo(() => {
-    if (supplemental.sqlCategoryPerformance && supplemental.sqlCategoryPerformance.length > 0) {
-      return supplemental.sqlCategoryPerformance
+    let data = supplemental.sqlCategoryPerformance && supplemental.sqlCategoryPerformance.length > 0
+      ? supplemental.sqlCategoryPerformance
+      : dataset.categoryDistribution
+
+    if (data.length > 0 && !('share_pct' in data[0])) {
+      const totalRev = data.reduce((sum, item) => sum + Number(item.total_revenue ?? 0), 0)
+      data = data.map((item) => ({
+        ...item,
+        share_pct: totalRev > 0 ? (Number(item.total_revenue ?? 0) / totalRev) * 100 : 0,
+      }))
     }
-    return dataset.categoryDistribution
+
+    return data
   }, [supplemental.sqlCategoryPerformance, dataset.categoryDistribution])
 
   const sqlSegments = useMemo(() => {
     if (supplemental.sqlCustomerSegmentation && supplemental.sqlCustomerSegmentation.length > 0) {
-      return supplemental.sqlCustomerSegmentation
-        .filter((item) => Number(item.customer_count ?? 0) > 0)
+      const sample = supplemental.sqlCustomerSegmentation[0]
+      const hasSegmentAggregation = 'customer_count' in sample && 'segment' in sample
+
+      if (hasSegmentAggregation) {
+        return supplemental.sqlCustomerSegmentation
+          .filter((item) => Number(item.customer_count ?? 0) > 0)
+          .slice(0, 6)
+      }
+
+      const aggregated: Record<string, { segment: string; customer_count: number; total_spent: number; avg_order_value: number }> = {}
+      for (const row of supplemental.sqlCustomerSegmentation) {
+        const seg = String(row.segment ?? 'Unknown')
+        if (!aggregated[seg]) {
+          aggregated[seg] = { segment: seg, customer_count: 0, total_spent: 0, avg_order_value: 0 }
+        }
+        aggregated[seg].customer_count += 1
+        aggregated[seg].total_spent += Number(row.total_spent ?? 0)
+      }
+      return Object.values(aggregated)
+        .map((s) => ({ ...s, avg_order_value: s.customer_count > 0 ? s.total_spent / s.customer_count : 0 }))
+        .sort((a, b) => b.customer_count - a.customer_count)
         .slice(0, 6)
     }
     return dataset.customerSegmentation.slice(0, 6)

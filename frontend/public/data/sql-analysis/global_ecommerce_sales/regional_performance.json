@@ -1,0 +1,42 @@
+[
+  {
+    "region": "north america",
+    "city": "unknown",
+    "order_count": 526,
+    "customer_count": 513,
+    "total_revenue": 82653.83,
+    "avg_order_revenue": 157.14
+  },
+  {
+    "region": "europe",
+    "city": "unknown",
+    "order_count": 449,
+    "customer_count": 440,
+    "total_revenue": 73042.19,
+    "avg_order_revenue": 162.68
+  },
+  {
+    "region": "asia pacific",
+    "city": "unknown",
+    "order_count": 471,
+    "customer_count": 460,
+    "total_revenue": 71908.27,
+    "avg_order_revenue": 152.67
+  },
+  {
+    "region": "middle east & africa",
+    "city": "unknown",
+    "order_count": 191,
+    "customer_count": 187,
+    "total_revenue": 32423.49,
+    "avg_order_revenue": 169.76
+  },
+  {
+    "region": "south america",
+    "city": "unknown",
+    "order_count": 173,
+    "customer_count": 170,
+    "total_revenue": 26884.52,
+    "avg_order_revenue": 155.4
+  }
+]

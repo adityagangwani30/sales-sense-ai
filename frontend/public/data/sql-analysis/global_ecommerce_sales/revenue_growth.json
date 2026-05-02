@@ -1,0 +1,326 @@
+[
+  {
+    "year": 2023,
+    "month": 1,
+    "month_start": "2023-01-01",
+    "monthly_revenue": 5011.53,
+    "previous_month_revenue": NaN,
+    "revenue_change": NaN,
+    "revenue_growth_pct": NaN
+  },
+  {
+    "year": 2023,
+    "month": 2,
+    "month_start": "2023-02-01",
+    "monthly_revenue": 7361.32,
+    "previous_month_revenue": 5011.53,
+    "revenue_change": 2349.79,
+    "revenue_growth_pct": 46.89
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "month_start": "2023-03-01",
+    "monthly_revenue": 6982.34,
+    "previous_month_revenue": 7361.32,
+    "revenue_change": -378.98,
+    "revenue_growth_pct": -5.15
+  },
+  {
+    "year": 2023,
+    "month": 4,
+    "month_start": "2023-04-01",
+    "monthly_revenue": 6935.65,
+    "previous_month_revenue": 6982.34,
+    "revenue_change": -46.69,
+    "revenue_growth_pct": -0.67
+  },
+  {
+    "year": 2023,
+    "month": 5,
+    "month_start": "2023-05-01",
+    "monthly_revenue": 6608.74,
+    "previous_month_revenue": 6935.65,
+    "revenue_change": -326.91,
+    "revenue_growth_pct": -4.71
+  },
+  {
+    "year": 2023,
+    "month": 6,
+    "month_start": "2023-06-01",
+    "monthly_revenue": 10080.92,
+    "previous_month_revenue": 6608.74,
+    "revenue_change": 3472.18,
+    "revenue_growth_pct": 52.54
+  },
+  {
+    "year": 2023,
+    "month": 7,
+    "month_start": "2023-07-01",
+    "monthly_revenue": 6457.8,
+    "previous_month_revenue": 10080.92,
+    "revenue_change": -3623.12,
+    "revenue_growth_pct": -35.94
+  },
+  {
+    "year": 2023,
+    "month": 8,
+    "month_start": "2023-08-01",
+    "monthly_revenue": 10629.66,
+    "previous_month_revenue": 6457.8,
+    "revenue_change": 4171.86,
+    "revenue_growth_pct": 64.6
+  },
+  {
+    "year": 2023,
+    "month": 9,
+    "month_start": "2023-09-01",
+    "monthly_revenue": 10215.48,
+    "previous_month_revenue": 10629.66,
+    "revenue_change": -414.18,
+    "revenue_growth_pct": -3.9
+  },
+  {
+    "year": 2023,
+    "month": 10,
+    "month_start": "2023-10-01",
+    "monthly_revenue": 9141.44,
+    "previous_month_revenue": 10215.48,
+    "revenue_change": -1074.04,
+    "revenue_growth_pct": -10.51
+  },
+  {
+    "year": 2023,
+    "month": 11,
+    "month_start": "2023-11-01",
+    "monthly_revenue": 6329.16,
+    "previous_month_revenue": 9141.44,
+    "revenue_change": -2812.28,
+    "revenue_growth_pct": -30.76
+  },
+  {
+    "year": 2023,
+    "month": 12,
+    "month_start": "2023-12-01",
+    "monthly_revenue": 12496.1,
+    "previous_month_revenue": 6329.16,
+    "revenue_change": 6166.94,
+    "revenue_growth_pct": 97.44
+  },
+  {
+    "year": 2024,
+    "month": 1,
+    "month_start": "2024-01-01",
+    "monthly_revenue": 6128.36,
+    "previous_month_revenue": 12496.1,
+    "revenue_change": -6367.74,
+    "revenue_growth_pct": -50.96
+  },
+  {
+    "year": 2024,
+    "month": 2,
+    "month_start": "2024-02-01",
+    "monthly_revenue": 5142.11,
+    "previous_month_revenue": 6128.36,
+    "revenue_change": -986.25,
+    "revenue_growth_pct": -16.09
+  },
+  {
+    "year": 2024,
+    "month": 3,
+    "month_start": "2024-03-01",
+    "monthly_revenue": 8438.56,
+    "previous_month_revenue": 5142.11,
+    "revenue_change": 3296.45,
+    "revenue_growth_pct": 64.11
+  },
+  {
+    "year": 2024,
+    "month": 4,
+    "month_start": "2024-04-01",
+    "monthly_revenue": 8855.07,
+    "previous_month_revenue": 8438.56,
+    "revenue_change": 416.51,
+    "revenue_growth_pct": 4.94
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "month_start": "2024-05-01",
+    "monthly_revenue": 7863.15,
+    "previous_month_revenue": 8855.07,
+    "revenue_change": -991.92,
+    "revenue_growth_pct": -11.2
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "month_start": "2024-06-01",
+    "monthly_revenue": 7235.49,
+    "previous_month_revenue": 7863.15,
+    "revenue_change": -627.66,
+    "revenue_growth_pct": -7.98
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "month_start": "2024-07-01",
+    "monthly_revenue": 6194.76,
+    "previous_month_revenue": 7235.49,
+    "revenue_change": -1040.73,
+    "revenue_growth_pct": -14.38
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "month_start": "2024-08-01",
+    "monthly_revenue": 7090.06,
+    "previous_month_revenue": 6194.76,
+    "revenue_change": 895.3,
+    "revenue_growth_pct": 14.45
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "month_start": "2024-09-01",
+    "monthly_revenue": 7996.52,
+    "previous_month_revenue": 7090.06,
+    "revenue_change": 906.46,
+    "revenue_growth_pct": 12.78
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "month_start": "2024-10-01",
+    "monthly_revenue": 11287.01,
+    "previous_month_revenue": 7996.52,
+    "revenue_change": 3290.49,
+    "revenue_growth_pct": 41.15
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "month_start": "2024-11-01",
+    "monthly_revenue": 9178.35,
+    "previous_month_revenue": 11287.01,
+    "revenue_change": -2108.66,
+    "revenue_growth_pct": -18.68
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "month_start": "2024-12-01",
+    "monthly_revenue": 6124.49,
+    "previous_month_revenue": 9178.35,
+    "revenue_change": -3053.86,
+    "revenue_growth_pct": -33.27
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "month_start": "2025-01-01",
+    "monthly_revenue": 7003.46,
+    "previous_month_revenue": 6124.49,
+    "revenue_change": 878.97,
+    "revenue_growth_pct": 14.35
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "month_start": "2025-02-01",
+    "monthly_revenue": 5737.69,
+    "previous_month_revenue": 7003.46,
+    "revenue_change": -1265.77,
+    "revenue_growth_pct": -18.07
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "month_start": "2025-03-01",
+    "monthly_revenue": 7052.47,
+    "previous_month_revenue": 5737.69,
+    "revenue_change": 1314.78,
+    "revenue_growth_pct": 22.91
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "month_start": "2025-04-01",
+    "monthly_revenue": 8651.44,
+    "previous_month_revenue": 7052.47,
+    "revenue_change": 1598.97,
+    "revenue_growth_pct": 22.67
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "month_start": "2025-05-01",
+    "monthly_revenue": 8668.27,
+    "previous_month_revenue": 8651.44,
+    "revenue_change": 16.83,
+    "revenue_growth_pct": 0.19
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "month_start": "2025-06-01",
+    "monthly_revenue": 6557.66,
+    "previous_month_revenue": 8668.27,
+    "revenue_change": -2110.61,
+    "revenue_growth_pct": -24.35
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "month_start": "2025-07-01",
+    "monthly_revenue": 8343.54,
+    "previous_month_revenue": 6557.66,
+    "revenue_change": 1785.88,
+    "revenue_growth_pct": 27.23
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "month_start": "2025-08-01",
+    "monthly_revenue": 7290.75,
+    "previous_month_revenue": 8343.54,
+    "revenue_change": -1052.79,
+    "revenue_growth_pct": -12.62
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "month_start": "2025-09-01",
+    "monthly_revenue": 9946.11,
+    "previous_month_revenue": 7290.75,
+    "revenue_change": 2655.36,
+    "revenue_growth_pct": 36.42
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "month_start": "2025-10-01",
+    "monthly_revenue": 10154.79,
+    "previous_month_revenue": 9946.11,
+    "revenue_change": 208.68,
+    "revenue_growth_pct": 2.1
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "month_start": "2025-11-01",
+    "monthly_revenue": 9332.15,
+    "previous_month_revenue": 10154.79,
+    "revenue_change": -822.64,
+    "revenue_growth_pct": -8.1
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "month_start": "2025-12-01",
+    "monthly_revenue": 8389.9,
+    "previous_month_revenue": 9332.15,
+    "revenue_change": -942.25,
+    "revenue_growth_pct": -10.1
+  }
+]

@@ -34,6 +34,8 @@ export interface RevenueTrendPoint {
   month: string
   month_start: string
   revenue: number
+  monthly_revenue?: number
+  year?: number
 }
 
 export interface TopProduct {
@@ -46,12 +48,23 @@ export interface CategoryDistributionItem {
   category: string
   total_revenue: number
   share_pct: number
+  product_count?: number
+  order_count?: number
+  avg_revenue_per_order?: number
+  revenue_per_product?: number
 }
 
 export interface CustomerSegmentItem {
   segment: string
-  customer_count: number
+  customer_count?: number
   avg_order_value: number
+  customer_name?: string
+  customer_id?: number
+  region?: string
+  city?: string
+  order_count?: number
+  total_spent?: number
+  last_purchase_date?: string
 }
 
 export interface TopCustomer {

@@ -1,0 +1,82 @@
+[
+  {
+    "product_id": 19,
+    "product_name": "mesh back task chair",
+    "category": "furniture",
+    "order_count": 41,
+    "total_revenue": 16320.85,
+    "avg_order_revenue": 398.07
+  },
+  {
+    "product_id": 24,
+    "product_name": "portable external ssd 1tb",
+    "category": "technology",
+    "order_count": 50,
+    "total_revenue": 14248.54,
+    "avg_order_revenue": 284.97
+  },
+  {
+    "product_id": 3,
+    "product_name": "bookshelf 5-tier",
+    "category": "furniture",
+    "order_count": 48,
+    "total_revenue": 13312.11,
+    "avg_order_revenue": 277.34
+  },
+  {
+    "product_id": 12,
+    "product_name": "floating wall shelves set",
+    "category": "furniture",
+    "order_count": 57,
+    "total_revenue": 12694.4,
+    "avg_order_revenue": 222.71
+  },
+  {
+    "product_id": 13,
+    "product_name": "folding table portable",
+    "category": "furniture",
+    "order_count": 50,
+    "total_revenue": 12557.1,
+    "avg_order_revenue": 251.14
+  },
+  {
+    "product_id": 36,
+    "product_name": "webcam hd 1080p",
+    "category": "technology",
+    "order_count": 60,
+    "total_revenue": 11923.35,
+    "avg_order_revenue": 198.72
+  },
+  {
+    "product_id": 18,
+    "product_name": "mechanical gaming keyboard",
+    "category": "technology",
+    "order_count": 44,
+    "total_revenue": 11625.83,
+    "avg_order_revenue": 264.22
+  },
+  {
+    "product_id": 39,
+    "product_name": "wireless ergonomic mouse",
+    "category": "technology",
+    "order_count": 67,
+    "total_revenue": 10887.76,
+    "avg_order_revenue": 162.5
+  },
+  {
+    "product_id": 34,
+    "product_name": "travel backpack 30l",
+    "category": "clothing & accessories",
+    "order_count": 52,
+    "total_revenue": 10885.94,
+    "avg_order_revenue": 209.35
+  },
+  {
+    "product_id": 38,
+    "product_name": "wireless bluetooth headphones",
+    "category": "technology",
+    "order_count": 38,
+    "total_revenue": 10885.2,
+    "avg_order_revenue": 286.45
+  }
+]

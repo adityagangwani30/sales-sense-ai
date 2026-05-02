@@ -1,8 +1,8 @@
-export const DEFAULT_DATASET_ID = 'global_ecommerce_sales'
+export const DEFAULT_DATASET_ID = 'dataset_1'
 
 const DATASET_ALIASES: Record<string, string> = {
-  dataset_1: 'global_ecommerce_sales',
-  dataset_2: 'retail_supply_chain_sales',
+  global_ecommerce_sales: 'dataset_1',
+  retail_supply_chain_sales: 'dataset_2',
 }
 
 function resolveDatasetId(dataset?: string) {

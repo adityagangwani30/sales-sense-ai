@@ -1,0 +1,73 @@
+{
+  "dataset": "dataset_1",
+  "source_reference": "outputs\\dataset_1\\dataset_1_cleaned.csv",
+  "feature_columns": [
+    "month",
+    "quarter",
+    "day_of_week",
+    "is_weekend",
+    "quantity",
+    "price",
+    "category_encoded",
+    "customer_id",
+    "product_id"
+  ],
+  "target_column": "revenue",
+  "sample_count": 1810,
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "models": [
+    {
+      "name": "linear_regression",
+      "display_name": "Linear Regression",
+      "mae": 54.408294769804364,
+      "mse": 7239.191140303095,
+      "rmse": 85.08343634517294,
+      "r2": 0.6846169230788479,
+      "adjusted_r2": 0.6765531512257503,
+      "mape": 74.44046380615444,
+      "train_r2": 0.7213645673586238,
+      "test_r2": 0.6846169230788479,
+      "generalization_gap": 0.03674764427977584,
+      "fit_assessment": "Good fit"
+    },
+    {
+      "name": "random_forest",
+      "display_name": "Random Forest",
+      "mae": 5.340646570288001,
+      "mse": 337.46423353830255,
+      "rmse": 18.370199605292875,
+      "r2": 0.985298011026175,
+      "adjusted_r2": 0.9849221078990034,
+      "mape": 2.503811923396973,
+      "train_r2": 0.99823611657431,
+      "test_r2": 0.985298011026175,
+      "generalization_gap": 0.012938105548135015,
+      "fit_assessment": "Good fit"
+    },
+    {
+      "name": "xgboost",
+      "display_name": "XGBoost",
+      "mae": 9.701841234179494,
+      "mse": 364.16678740962675,
+      "rmse": 19.083154545557367,
+      "r2": 0.984134685809535,
+      "adjusted_r2": 0.9837290385717106,
+      "mape": 8.396436883413564,
+      "train_r2": 0.9997732855947405,
+      "test_r2": 0.984134685809535,
+      "generalization_gap": 0.015638599785205543,
+      "fit_assessment": "Good fit"
+    }
+  ],
+  "best_model": {
+    "name": "random_forest",
+    "display_name": "Random Forest",
+    "r2": 0.985298011026175,
+    "mae": 5.340646570288001,
+    "rmse": 18.370199605292875,
+    "mape": 2.503811923396973
+  }
+}

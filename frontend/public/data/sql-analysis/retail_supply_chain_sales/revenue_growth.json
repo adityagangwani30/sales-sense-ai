@@ -1,0 +1,434 @@
+[
+  {
+    "year": 2014,
+    "month": 1,
+    "month_start": "2014-01-01",
+    "monthly_revenue": 9949.29,
+    "previous_month_revenue": NaN,
+    "revenue_change": NaN,
+    "revenue_growth_pct": NaN
+  },
+  {
+    "year": 2014,
+    "month": 2,
+    "month_start": "2014-02-01",
+    "monthly_revenue": 6277.32,
+    "previous_month_revenue": 9949.29,
+    "revenue_change": -3671.97,
+    "revenue_growth_pct": -36.91
+  },
+  {
+    "year": 2014,
+    "month": 3,
+    "month_start": "2014-03-01",
+    "monthly_revenue": 11177.07,
+    "previous_month_revenue": 6277.32,
+    "revenue_change": 4899.75,
+    "revenue_growth_pct": 78.05
+  },
+  {
+    "year": 2014,
+    "month": 4,
+    "month_start": "2014-04-01",
+    "monthly_revenue": 10879.96,
+    "previous_month_revenue": 11177.07,
+    "revenue_change": -297.11,
+    "revenue_growth_pct": -2.66
+  },
+  {
+    "year": 2014,
+    "month": 5,
+    "month_start": "2014-05-01",
+    "monthly_revenue": 14285.23,
+    "previous_month_revenue": 10879.96,
+    "revenue_change": 3405.27,
+    "revenue_growth_pct": 31.3
+  },
+  {
+    "year": 2014,
+    "month": 6,
+    "month_start": "2014-06-01",
+    "monthly_revenue": 10919.05,
+    "previous_month_revenue": 14285.23,
+    "revenue_change": -3366.18,
+    "revenue_growth_pct": -23.56
+  },
+  {
+    "year": 2014,
+    "month": 7,
+    "month_start": "2014-07-01",
+    "monthly_revenue": 13691.85,
+    "previous_month_revenue": 10919.05,
+    "revenue_change": 2772.8,
+    "revenue_growth_pct": 25.39
+  },
+  {
+    "year": 2014,
+    "month": 8,
+    "month_start": "2014-08-01",
+    "monthly_revenue": 11692.09,
+    "previous_month_revenue": 13691.85,
+    "revenue_change": -1999.76,
+    "revenue_growth_pct": -14.61
+  },
+  {
+    "year": 2014,
+    "month": 9,
+    "month_start": "2014-09-01",
+    "monthly_revenue": 15417.97,
+    "previous_month_revenue": 11692.09,
+    "revenue_change": 3725.88,
+    "revenue_growth_pct": 31.87
+  },
+  {
+    "year": 2014,
+    "month": 10,
+    "month_start": "2014-10-01",
+    "monthly_revenue": 12137.7,
+    "previous_month_revenue": 15417.97,
+    "revenue_change": -3280.27,
+    "revenue_growth_pct": -21.28
+  },
+  {
+    "year": 2014,
+    "month": 11,
+    "month_start": "2014-11-01",
+    "monthly_revenue": 20471.85,
+    "previous_month_revenue": 12137.7,
+    "revenue_change": 8334.15,
+    "revenue_growth_pct": 68.66
+  },
+  {
+    "year": 2014,
+    "month": 12,
+    "month_start": "2014-12-01",
+    "monthly_revenue": 21439.12,
+    "previous_month_revenue": 20471.85,
+    "revenue_change": 967.27,
+    "revenue_growth_pct": 4.72
+  },
+  {
+    "year": 2015,
+    "month": 1,
+    "month_start": "2015-01-01",
+    "monthly_revenue": 6973.43,
+    "previous_month_revenue": 21439.12,
+    "revenue_change": -14465.69,
+    "revenue_growth_pct": -67.47
+  },
+  {
+    "year": 2015,
+    "month": 2,
+    "month_start": "2015-02-01",
+    "monthly_revenue": 8569.48,
+    "previous_month_revenue": 6973.43,
+    "revenue_change": 1596.05,
+    "revenue_growth_pct": 22.89
+  },
+  {
+    "year": 2015,
+    "month": 3,
+    "month_start": "2015-03-01",
+    "monthly_revenue": 12572.33,
+    "previous_month_revenue": 8569.48,
+    "revenue_change": 4002.85,
+    "revenue_growth_pct": 46.71
+  },
+  {
+    "year": 2015,
+    "month": 4,
+    "month_start": "2015-04-01",
+    "monthly_revenue": 12618.88,
+    "previous_month_revenue": 12572.33,
+    "revenue_change": 46.55,
+    "revenue_growth_pct": 0.37
+  },
+  {
+    "year": 2015,
+    "month": 5,
+    "month_start": "2015-05-01",
+    "monthly_revenue": 13395.67,
+    "previous_month_revenue": 12618.88,
+    "revenue_change": 776.79,
+    "revenue_growth_pct": 6.16
+  },
+  {
+    "year": 2015,
+    "month": 6,
+    "month_start": "2015-06-01",
+    "monthly_revenue": 13054.11,
+    "previous_month_revenue": 13395.67,
+    "revenue_change": -341.56,
+    "revenue_growth_pct": -2.55
+  },
+  {
+    "year": 2015,
+    "month": 7,
+    "month_start": "2015-07-01",
+    "monthly_revenue": 11058.66,
+    "previous_month_revenue": 13054.11,
+    "revenue_change": -1995.45,
+    "revenue_growth_pct": -15.29
+  },
+  {
+    "year": 2015,
+    "month": 8,
+    "month_start": "2015-08-01",
+    "monthly_revenue": 13464.17,
+    "previous_month_revenue": 11058.66,
+    "revenue_change": 2405.51,
+    "revenue_growth_pct": 21.75
+  },
+  {
+    "year": 2015,
+    "month": 9,
+    "month_start": "2015-09-01",
+    "monthly_revenue": 19694.49,
+    "previous_month_revenue": 13464.17,
+    "revenue_change": 6230.32,
+    "revenue_growth_pct": 46.27
+  },
+  {
+    "year": 2015,
+    "month": 10,
+    "month_start": "2015-10-01",
+    "monthly_revenue": 14313.35,
+    "previous_month_revenue": 19694.49,
+    "revenue_change": -5381.14,
+    "revenue_growth_pct": -27.32
+  },
+  {
+    "year": 2015,
+    "month": 11,
+    "month_start": "2015-11-01",
+    "monthly_revenue": 25531.03,
+    "previous_month_revenue": 14313.35,
+    "revenue_change": 11217.68,
+    "revenue_growth_pct": 78.37
+  },
+  {
+    "year": 2015,
+    "month": 12,
+    "month_start": "2015-12-01",
+    "monthly_revenue": 21267.56,
+    "previous_month_revenue": 25531.03,
+    "revenue_change": -4263.47,
+    "revenue_growth_pct": -16.7
+  },
+  {
+    "year": 2016,
+    "month": 1,
+    "month_start": "2016-01-01",
+    "monthly_revenue": 12400.1,
+    "previous_month_revenue": 21267.56,
+    "revenue_change": -8867.46,
+    "revenue_growth_pct": -41.69
+  },
+  {
+    "year": 2016,
+    "month": 2,
+    "month_start": "2016-02-01",
+    "monthly_revenue": 11192.1,
+    "previous_month_revenue": 12400.1,
+    "revenue_change": -1208.0,
+    "revenue_growth_pct": -9.74
+  },
+  {
+    "year": 2016,
+    "month": 3,
+    "month_start": "2016-03-01",
+    "monthly_revenue": 17763.05,
+    "previous_month_revenue": 11192.1,
+    "revenue_change": 6570.95,
+    "revenue_growth_pct": 58.71
+  },
+  {
+    "year": 2016,
+    "month": 4,
+    "month_start": "2016-04-01",
+    "monthly_revenue": 13836.68,
+    "previous_month_revenue": 17763.05,
+    "revenue_change": -3926.37,
+    "revenue_growth_pct": -22.1
+  },
+  {
+    "year": 2016,
+    "month": 5,
+    "month_start": "2016-05-01",
+    "monthly_revenue": 21905.31,
+    "previous_month_revenue": 13836.68,
+    "revenue_change": 8068.63,
+    "revenue_growth_pct": 58.31
+  },
+  {
+    "year": 2016,
+    "month": 6,
+    "month_start": "2016-06-01",
+    "monthly_revenue": 19304.3,
+    "previous_month_revenue": 21905.31,
+    "revenue_change": -2601.01,
+    "revenue_growth_pct": -11.87
+  },
+  {
+    "year": 2016,
+    "month": 7,
+    "month_start": "2016-07-01",
+    "monthly_revenue": 17215.31,
+    "previous_month_revenue": 19304.3,
+    "revenue_change": -2088.99,
+    "revenue_growth_pct": -10.82
+  },
+  {
+    "year": 2016,
+    "month": 8,
+    "month_start": "2016-08-01",
+    "monthly_revenue": 18194.45,
+    "previous_month_revenue": 17215.31,
+    "revenue_change": 979.14,
+    "revenue_growth_pct": 5.69
+  },
+  {
+    "year": 2016,
+    "month": 9,
+    "month_start": "2016-09-01",
+    "monthly_revenue": 20464.2,
+    "previous_month_revenue": 18194.45,
+    "revenue_change": 2269.75,
+    "revenue_growth_pct": 12.47
+  },
+  {
+    "year": 2016,
+    "month": 10,
+    "month_start": "2016-10-01",
+    "monthly_revenue": 19526.35,
+    "previous_month_revenue": 20464.2,
+    "revenue_change": -937.85,
+    "revenue_growth_pct": -4.58
+  },
+  {
+    "year": 2016,
+    "month": 11,
+    "month_start": "2016-11-01",
+    "monthly_revenue": 24536.14,
+    "previous_month_revenue": 19526.35,
+    "revenue_change": 5009.79,
+    "revenue_growth_pct": 25.66
+  },
+  {
+    "year": 2016,
+    "month": 12,
+    "month_start": "2016-12-01",
+    "monthly_revenue": 18946.29,
+    "previous_month_revenue": 24536.14,
+    "revenue_change": -5589.85,
+    "revenue_growth_pct": -22.78
+  },
+  {
+    "year": 2017,
+    "month": 1,
+    "month_start": "2017-01-01",
+    "monthly_revenue": 20731.39,
+    "previous_month_revenue": 18946.29,
+    "revenue_change": 1785.1,
+    "revenue_growth_pct": 9.42
+  },
+  {
+    "year": 2017,
+    "month": 2,
+    "month_start": "2017-02-01",
+    "monthly_revenue": 18183.31,
+    "previous_month_revenue": 20731.39,
+    "revenue_change": -2548.08,
+    "revenue_growth_pct": -12.29
+  },
+  {
+    "year": 2017,
+    "month": 3,
+    "month_start": "2017-03-01",
+    "monthly_revenue": 26453.64,
+    "previous_month_revenue": 18183.31,
+    "revenue_change": 8270.33,
+    "revenue_growth_pct": 45.48
+  },
+  {
+    "year": 2017,
+    "month": 4,
+    "month_start": "2017-04-01",
+    "monthly_revenue": 15433.79,
+    "previous_month_revenue": 26453.64,
+    "revenue_change": -11019.85,
+    "revenue_growth_pct": -41.66
+  },
+  {
+    "year": 2017,
+    "month": 5,
+    "month_start": "2017-05-01",
+    "monthly_revenue": 22081.97,
+    "previous_month_revenue": 15433.79,
+    "revenue_change": 6648.18,
+    "revenue_growth_pct": 43.08
+  },
+  {
+    "year": 2017,
+    "month": 6,
+    "month_start": "2017-06-01",
+    "monthly_revenue": 21599.62,
+    "previous_month_revenue": 22081.97,
+    "revenue_change": -482.35,
+    "revenue_growth_pct": -2.18
+  },
+  {
+    "year": 2017,
+    "month": 7,
+    "month_start": "2017-07-01",
+    "monthly_revenue": 23805.23,
+    "previous_month_revenue": 21599.62,
+    "revenue_change": 2205.61,
+    "revenue_growth_pct": 10.21
+  },
+  {
+    "year": 2017,
+    "month": 8,
+    "month_start": "2017-08-01",
+    "monthly_revenue": 19945.48,
+    "previous_month_revenue": 23805.23,
+    "revenue_change": -3859.75,
+    "revenue_growth_pct": -16.21
+  },
+  {
+    "year": 2017,
+    "month": 9,
+    "month_start": "2017-09-01",
+    "monthly_revenue": 31633.98,
+    "previous_month_revenue": 19945.48,
+    "revenue_change": 11688.5,
+    "revenue_growth_pct": 58.6
+  },
+  {
+    "year": 2017,
+    "month": 10,
+    "month_start": "2017-10-01",
+    "monthly_revenue": 19627.69,
+    "previous_month_revenue": 31633.98,
+    "revenue_change": -12006.29,
+    "revenue_growth_pct": -37.95
+  },
+  {
+    "year": 2017,
+    "month": 11,
+    "month_start": "2017-11-01",
+    "monthly_revenue": 27935.15,
+    "previous_month_revenue": 19627.69,
+    "revenue_change": 8307.46,
+    "revenue_growth_pct": 42.33
+  },
+  {
+    "year": 2017,
+    "month": 12,
+    "month_start": "2017-12-01",
+    "monthly_revenue": 25003.83,
+    "previous_month_revenue": 27935.15,
+    "revenue_change": -2931.32,
+    "revenue_growth_pct": -10.49
+  }
+]
