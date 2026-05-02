@@ -1,0 +1,29 @@
+Dataset: dataset_2
+
+Revenue Drivers
+1. price: correlation 0.784
+2. quantity: correlation 0.162
+3. customer_id: correlation -0.009
+4. month: correlation -0.007
+5. product_id: correlation -0.004
+
+Seasonal Insights
+Best month: November.
+Worst month: February.
+
+Product Insights
+Top products:
+- 904: 4036.74
+- 736: 3621.01
+- 1371: 2959.85
+- 719: 2841.06
+- 1109: 2802.62
+Bottom products:
+- 247: 7.70
+- 748: 7.07
+- 1709: 6.48
+- 202: 5.76
+- 577: 1.62
+
+Customer Insights
+Weekend vs weekday trend could not be derived.

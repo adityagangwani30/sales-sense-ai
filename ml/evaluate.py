@@ -9,7 +9,7 @@ from typing import Any
 import matplotlib
 import numpy as np
 import pandas as pd
-from scipy import stats
+import scipy.stats as stats
 from sklearn.base import clone
 from sklearn.inspection import permutation_importance
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score

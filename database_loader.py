@@ -64,9 +64,9 @@ def _build_product_frame(cleaned_df: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def _fetch_dataframe(connection, query: str) -> pd.DataFrame:
+def _fetch_dataframe(connection, query: str, params: tuple | None = None) -> pd.DataFrame:
     cursor = connection.cursor()
-    cursor.execute(query)
+    cursor.execute(query, params or ())
     rows = cursor.fetchall()
     columns = [description[0] for description in cursor.description]
     cursor.close()
@@ -300,21 +300,21 @@ def create_tables(connection) -> None:
         """
         CREATE TABLE IF NOT EXISTS customers (
             customer_id INT AUTO_INCREMENT PRIMARY KEY,
-            customer_name VARCHAR(255) NOT NULL,
-            segment VARCHAR(100) NOT NULL DEFAULT 'unknown',
-            region VARCHAR(100) NOT NULL DEFAULT 'unknown',
-            city VARCHAR(100) NOT NULL DEFAULT 'unknown',
-            source VARCHAR(255) NOT NULL DEFAULT 'unknown',
+            customer_name VARCHAR(120) NOT NULL,
+            segment VARCHAR(50) NOT NULL DEFAULT 'unknown',
+            region VARCHAR(50) NOT NULL DEFAULT 'unknown',
+            city VARCHAR(50) NOT NULL DEFAULT 'unknown',
+            source VARCHAR(64) NOT NULL DEFAULT 'unknown',
             UNIQUE KEY unique_customer (source, customer_name, segment, region, city)
         ) ENGINE=InnoDB
         """,
         """
         CREATE TABLE IF NOT EXISTS products (
             product_id INT AUTO_INCREMENT PRIMARY KEY,
-            product_name VARCHAR(255) NOT NULL,
-            category VARCHAR(100) NOT NULL DEFAULT 'unknown',
+            product_name VARCHAR(150) NOT NULL,
+            category VARCHAR(64) NOT NULL DEFAULT 'unknown',
             price DECIMAL(12, 2) NOT NULL,
-            source VARCHAR(255) NOT NULL DEFAULT 'unknown',
+            source VARCHAR(64) NOT NULL DEFAULT 'unknown',
             UNIQUE KEY unique_product (source, product_name, category)
         ) ENGINE=InnoDB
         """,
@@ -325,7 +325,7 @@ def create_tables(connection) -> None:
             product_id INT NOT NULL,
             quantity INT NOT NULL,
             order_date DATE NOT NULL,
-            source VARCHAR(255) NOT NULL DEFAULT 'unknown',
+            source VARCHAR(64) NOT NULL DEFAULT 'unknown',
             UNIQUE KEY unique_order (source, customer_id, product_id, quantity, order_date),
             CONSTRAINT fk_orders_customer
                 FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
@@ -342,7 +342,7 @@ def create_tables(connection) -> None:
             revenue DECIMAL(12, 2) NOT NULL,
             month TINYINT NOT NULL,
             year SMALLINT NOT NULL,
-            source VARCHAR(255) NOT NULL DEFAULT 'unknown',
+            source VARCHAR(64) NOT NULL DEFAULT 'unknown',
             UNIQUE KEY unique_sale (order_id),
             CONSTRAINT fk_fact_sales_customer
                 FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
@@ -359,10 +359,10 @@ def create_tables(connection) -> None:
         for query in table_queries:
             cursor.execute(query)
 
-        _ensure_column(connection, "customers", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
-        _ensure_column(connection, "products", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
-        _ensure_column(connection, "orders", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
-        _ensure_column(connection, "fact_sales", "source", "VARCHAR(255) NOT NULL DEFAULT 'unknown'")
+        _ensure_column(connection, "customers", "source", "VARCHAR(64) NOT NULL DEFAULT 'unknown'")
+        _ensure_column(connection, "products", "source", "VARCHAR(64) NOT NULL DEFAULT 'unknown'")
+        _ensure_column(connection, "orders", "source", "VARCHAR(64) NOT NULL DEFAULT 'unknown'")
+        _ensure_column(connection, "fact_sales", "source", "VARCHAR(64) NOT NULL DEFAULT 'unknown'")
         _ensure_unique_index(
             connection,
             "customers",

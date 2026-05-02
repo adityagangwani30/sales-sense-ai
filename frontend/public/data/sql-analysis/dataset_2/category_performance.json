@@ -1,0 +1,26 @@
+[
+  {
+    "category": "office supplies",
+    "product_count": 1037,
+    "order_count": 5723,
+    "total_revenue": 343240.01,
+    "avg_revenue_per_order": 59.98,
+    "revenue_per_product": 330.99
+  },
+  {
+    "category": "furniture",
+    "product_count": 362,
+    "order_count": 1652,
+    "total_revenue": 247309.95,
+    "avg_revenue_per_order": 149.7,
+    "revenue_per_product": 683.18
+  },
+  {
+    "category": "technology",
+    "product_count": 355,
+    "order_count": 1445,
+    "total_revenue": 228021.06,
+    "avg_revenue_per_order": 157.8,
+    "revenue_per_product": 642.31
+  }
+]

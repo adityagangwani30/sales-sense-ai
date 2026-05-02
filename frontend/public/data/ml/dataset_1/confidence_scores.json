@@ -1,0 +1,215 @@
+{
+  "summary": {
+    "mean_interval_width": 22.036418839340527,
+    "median_interval_width": 7.214066666666671,
+    "high_confidence_count": 218,
+    "medium_confidence_count": 70,
+    "low_confidence_count": 74
+  },
+  "thresholds": {
+    "high": 0.1,
+    "medium": 0.2
+  },
+  "samples": [
+    {
+      "prediction": 313.60107452380953,
+      "lower_bound": 251.9474666666667,
+      "upper_bound": 349.96500000000003,
+      "interval_width": 98.01753333333332,
+      "relative_width": 0.3125548389212918,
+      "confidence_level": "Low confidence"
+    },
+    {
+      "prediction": 196.96080404761898,
+      "lower_bound": 181.518,
+      "upper_bound": 224.76275,
+      "interval_width": 43.24475000000001,
+      "relative_width": 0.2195601820834605,
+      "confidence_level": "Low confidence"
+    },
+    {
+      "prediction": 48.46636939153436,
+      "lower_bound": 47.898666666666664,
+      "upper_bound": 48.8138,
+      "interval_width": 0.9151333333333369,
+      "relative_width": 0.0188818214531494,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 120.81067511904764,
+      "lower_bound": 116.37,
+      "upper_bound": 126.30000000000001,
+      "interval_width": 9.930000000000007,
+      "relative_width": 0.08219472319159643,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 42.00926844322344,
+      "lower_bound": 34.23416666666667,
+      "upper_bound": 59.05,
+      "interval_width": 24.81583333333333,
+      "relative_width": 0.5907228155346846,
+      "confidence_level": "Low confidence"
+    },
+    {
+      "prediction": 11.755765079365085,
+      "lower_bound": 11.2145,
+      "upper_bound": 12.210166666666668,
+      "interval_width": 0.9956666666666685,
+      "relative_width": 0.08469603296295568,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 172.81467846560858,
+      "lower_bound": 167.74,
+      "upper_bound": 175.968,
+      "interval_width": 8.22799999999998,
+      "relative_width": 0.047611696373565944,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 300.41917174603185,
+      "lower_bound": 253.67249999999999,
+      "upper_bound": 340.7041666666667,
+      "interval_width": 87.03166666666672,
+      "relative_width": 0.2897007742909347,
+      "confidence_level": "Low confidence"
+    },
+    {
+      "prediction": 73.28277838624336,
+      "lower_bound": 69.901,
+      "upper_bound": 76.09700000000001,
+      "interval_width": 6.196000000000012,
+      "relative_width": 0.08454919609274973,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 114.7563580952381,
+      "lower_bound": 113.42333333333333,
+      "upper_bound": 115.47,
+      "interval_width": 2.046666666666667,
+      "relative_width": 0.01783488689113074,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 146.27936952380952,
+      "lower_bound": 143.49824999999998,
+      "upper_bound": 148.90264285714287,
+      "interval_width": 5.404392857142881,
+      "relative_width": 0.03694569422014921,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 47.71318896825391,
+      "lower_bound": 47.5578,
+      "upper_bound": 47.8125,
+      "interval_width": 0.2546999999999997,
+      "relative_width": 0.005338146653108116,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 61.646530873015905,
+      "lower_bound": 59.5422,
+      "upper_bound": 64.82624999999999,
+      "interval_width": 5.284049999999986,
+      "relative_width": 0.08571528559951677,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 264.10292968253975,
+      "lower_bound": 258.98,
+      "upper_bound": 269.564,
+      "interval_width": 10.584000000000003,
+      "relative_width": 0.040075284332219685,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 83.25055037037032,
+      "lower_bound": 82.0625,
+      "upper_bound": 85.19749999999999,
+      "interval_width": 3.134999999999991,
+      "relative_width": 0.03765740870243865,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 98.43003711640219,
+      "lower_bound": 94.04,
+      "upper_bound": 103.52333333333333,
+      "interval_width": 9.48333333333332,
+      "relative_width": 0.09634592865304362,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 219.4676667857145,
+      "lower_bound": 210.8344,
+      "upper_bound": 227.3624,
+      "interval_width": 16.52800000000002,
+      "relative_width": 0.07530949885268409,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 147.61766416666686,
+      "lower_bound": 119.211,
+      "upper_bound": 163.36700000000002,
+      "interval_width": 44.15600000000002,
+      "relative_width": 0.2991240936460419,
+      "confidence_level": "Low confidence"
+    },
+    {
+      "prediction": 76.86057722222216,
+      "lower_bound": 75.42999999999999,
+      "upper_bound": 77.84366666666666,
+      "interval_width": 2.4136666666666713,
+      "relative_width": 0.03140318162961733,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 621.4926206878309,
+      "lower_bound": 557.0735714285714,
+      "upper_bound": 665.7502,
+      "interval_width": 108.67662857142852,
+      "relative_width": 0.17486390820079523,
+      "confidence_level": "Medium confidence"
+    },
+    {
+      "prediction": 28.945347478354986,
+      "lower_bound": 28.193600000000007,
+      "upper_bound": 29.77,
+      "interval_width": 1.5763999999999925,
+      "relative_width": 0.05446125672454985,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 564.182743333333,
+      "lower_bound": 487.8203333333333,
+      "upper_bound": 596.9533333333333,
+      "interval_width": 109.13299999999998,
+      "relative_width": 0.19343555131660867,
+      "confidence_level": "Medium confidence"
+    },
+    {
+      "prediction": 9.972093201058199,
+      "lower_bound": 9.647350000000001,
+      "upper_bound": 10.278,
+      "interval_width": 0.6306499999999993,
+      "relative_width": 0.06324148674553876,
+      "confidence_level": "High confidence"
+    },
+    {
+      "prediction": 118.44567424603169,
+      "lower_bound": 100.51208333333334,
+      "upper_bound": 147.399,
+      "interval_width": 46.886916666666664,
+      "relative_width": 0.39585165912665254,
+      "confidence_level": "Low confidence"
+    },
+    {
+      "prediction": 61.93350943121694,
+      "lower_bound": 61.407,
+      "upper_bound": 62.48279999999999,
+      "interval_width": 1.0757999999999939,
+      "relative_width": 0.017370241245488797,
+      "confidence_level": "High confidence"
+    }
+  ]
+}

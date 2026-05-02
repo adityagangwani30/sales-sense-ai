@@ -1,0 +1,4626 @@
+[
+  {
+    "region": "east",
+    "city": "new york city",
+    "order_count": 788,
+    "customer_count": 334,
+    "total_revenue": 75273.29,
+    "avg_order_revenue": 95.52
+  },
+  {
+    "region": "west",
+    "city": "los angeles",
+    "order_count": 653,
+    "customer_count": 295,
+    "total_revenue": 67544.08,
+    "avg_order_revenue": 103.44
+  },
+  {
+    "region": "east",
+    "city": "philadelphia",
+    "order_count": 482,
+    "customer_count": 228,
+    "total_revenue": 41602.48,
+    "avg_order_revenue": 86.31
+  },
+  {
+    "region": "west",
+    "city": "san francisco",
+    "order_count": 452,
+    "customer_count": 221,
+    "total_revenue": 37709.92,
+    "avg_order_revenue": 83.43
+  },
+  {
+    "region": "west",
+    "city": "seattle",
+    "order_count": 370,
+    "customer_count": 174,
+    "total_revenue": 34821.94,
+    "avg_order_revenue": 94.11
+  },
+  {
+    "region": "central",
+    "city": "houston",
+    "order_count": 340,
+    "customer_count": 164,
+    "total_revenue": 25826.1,
+    "avg_order_revenue": 75.96
+  },
+  {
+    "region": "central",
+    "city": "chicago",
+    "order_count": 286,
+    "customer_count": 149,
+    "total_revenue": 20715.04,
+    "avg_order_revenue": 72.43
+  },
+  {
+    "region": "central",
+    "city": "detroit",
+    "order_count": 100,
+    "customer_count": 47,
+    "total_revenue": 14697.88,
+    "avg_order_revenue": 146.98
+  },
+  {
+    "region": "west",
+    "city": "san diego",
+    "order_count": 140,
+    "customer_count": 76,
+    "total_revenue": 14444.38,
+    "avg_order_revenue": 103.17
+  },
+  {
+    "region": "central",
+    "city": "dallas",
+    "order_count": 148,
+    "customer_count": 74,
+    "total_revenue": 12175.64,
+    "avg_order_revenue": 82.27
+  },
+  {
+    "region": "east",
+    "city": "newark",
+    "order_count": 89,
+    "customer_count": 43,
+    "total_revenue": 9968.41,
+    "avg_order_revenue": 112.0
+  },
+  {
+    "region": "east",
+    "city": "columbus",
+    "order_count": 113,
+    "customer_count": 50,
+    "total_revenue": 9058.73,
+    "avg_order_revenue": 80.17
+  },
+  {
+    "region": "south",
+    "city": "columbus",
+    "order_count": 62,
+    "customer_count": 36,
+    "total_revenue": 8044.07,
+    "avg_order_revenue": 129.74
+  },
+  {
+    "region": "south",
+    "city": "jacksonville",
+    "order_count": 110,
+    "customer_count": 56,
+    "total_revenue": 6971.31,
+    "avg_order_revenue": 63.38
+  },
+  {
+    "region": "central",
+    "city": "san antonio",
+    "order_count": 51,
+    "customer_count": 27,
+    "total_revenue": 6230.44,
+    "avg_order_revenue": 122.17
+  },
+  {
+    "region": "west",
+    "city": "phoenix",
+    "order_count": 58,
+    "customer_count": 26,
+    "total_revenue": 5547.28,
+    "avg_order_revenue": 95.64
+  },
+  {
+    "region": "south",
+    "city": "charlotte",
+    "order_count": 43,
+    "customer_count": 23,
+    "total_revenue": 4787.9,
+    "avg_order_revenue": 111.35
+  },
+  {
+    "region": "south",
+    "city": "miami",
+    "order_count": 53,
+    "customer_count": 33,
+    "total_revenue": 4674.49,
+    "avg_order_revenue": 88.2
+  },
+  {
+    "region": "west",
+    "city": "san jose",
+    "order_count": 41,
+    "customer_count": 17,
+    "total_revenue": 4639.22,
+    "avg_order_revenue": 113.15
+  },
+  {
+    "region": "west",
+    "city": "tucson",
+    "order_count": 30,
+    "customer_count": 12,
+    "total_revenue": 4389.92,
+    "avg_order_revenue": 146.33
+  },
+  {
+    "region": "south",
+    "city": "richmond",
+    "order_count": 54,
+    "customer_count": 26,
+    "total_revenue": 4366.86,
+    "avg_order_revenue": 80.87
+  },
+  {
+    "region": "west",
+    "city": "denver",
+    "order_count": 35,
+    "customer_count": 15,
+    "total_revenue": 4256.25,
+    "avg_order_revenue": 121.61
+  },
+  {
+    "region": "central",
+    "city": "milwaukee",
+    "order_count": 38,
+    "customer_count": 19,
+    "total_revenue": 4233.44,
+    "avg_order_revenue": 111.41
+  },
+  {
+    "region": "south",
+    "city": "columbia",
+    "order_count": 41,
+    "customer_count": 20,
+    "total_revenue": 4083.23,
+    "avg_order_revenue": 99.59
+  },
+  {
+    "region": "south",
+    "city": "louisville",
+    "order_count": 28,
+    "customer_count": 15,
+    "total_revenue": 3909.56,
+    "avg_order_revenue": 139.63
+  },
+  {
+    "region": "east",
+    "city": "cleveland",
+    "order_count": 39,
+    "customer_count": 20,
+    "total_revenue": 3711.81,
+    "avg_order_revenue": 95.17
+  },
+  {
+    "region": "east",
+    "city": "baltimore",
+    "order_count": 40,
+    "customer_count": 20,
+    "total_revenue": 3655.88,
+    "avg_order_revenue": 91.4
+  },
+  {
+    "region": "east",
+    "city": "fairfield",
+    "order_count": 30,
+    "customer_count": 21,
+    "total_revenue": 3623.65,
+    "avg_order_revenue": 120.79
+  },
+  {
+    "region": "west",
+    "city": "springfield",
+    "order_count": 35,
+    "customer_count": 14,
+    "total_revenue": 3619.21,
+    "avg_order_revenue": 103.41
+  },
+  {
+    "region": "east",
+    "city": "lawrence",
+    "order_count": 30,
+    "customer_count": 15,
+    "total_revenue": 3510.18,
+    "avg_order_revenue": 117.01
+  },
+  {
+    "region": "west",
+    "city": "mesa",
+    "order_count": 27,
+    "customer_count": 13,
+    "total_revenue": 3485.72,
+    "avg_order_revenue": 129.1
+  },
+  {
+    "region": "west",
+    "city": "portland",
+    "order_count": 23,
+    "customer_count": 14,
+    "total_revenue": 3479.06,
+    "avg_order_revenue": 151.26
+  },
+  {
+    "region": "south",
+    "city": "fayetteville",
+    "order_count": 37,
+    "customer_count": 19,
+    "total_revenue": 3370.86,
+    "avg_order_revenue": 91.1
+  },
+  {
+    "region": "south",
+    "city": "springfield",
+    "order_count": 40,
+    "customer_count": 23,
+    "total_revenue": 3289.28,
+    "avg_order_revenue": 82.23
+  },
+  {
+    "region": "central",
+    "city": "jackson",
+    "order_count": 31,
+    "customer_count": 14,
+    "total_revenue": 3199.04,
+    "avg_order_revenue": 103.19
+  },
+  {
+    "region": "east",
+    "city": "lancaster",
+    "order_count": 38,
+    "customer_count": 21,
+    "total_revenue": 3098.08,
+    "avg_order_revenue": 81.53
+  },
+  {
+    "region": "south",
+    "city": "henderson",
+    "order_count": 37,
+    "customer_count": 15,
+    "total_revenue": 3019.95,
+    "avg_order_revenue": 81.62
+  },
+  {
+    "region": "central",
+    "city": "columbus",
+    "order_count": 29,
+    "customer_count": 16,
+    "total_revenue": 2956.43,
+    "avg_order_revenue": 101.95
+  },
+  {
+    "region": "central",
+    "city": "tulsa",
+    "order_count": 24,
+    "customer_count": 12,
+    "total_revenue": 2929.21,
+    "avg_order_revenue": 122.05
+  },
+  {
+    "region": "central",
+    "city": "aurora",
+    "order_count": 29,
+    "customer_count": 19,
+    "total_revenue": 2899.08,
+    "avg_order_revenue": 99.97
+  },
+  {
+    "region": "east",
+    "city": "rochester",
+    "order_count": 32,
+    "customer_count": 18,
+    "total_revenue": 2881.36,
+    "avg_order_revenue": 90.04
+  },
+  {
+    "region": "west",
+    "city": "long beach",
+    "order_count": 26,
+    "customer_count": 11,
+    "total_revenue": 2879.56,
+    "avg_order_revenue": 110.75
+  },
+  {
+    "region": "east",
+    "city": "lakewood",
+    "order_count": 36,
+    "customer_count": 22,
+    "total_revenue": 2856.48,
+    "avg_order_revenue": 79.35
+  },
+  {
+    "region": "west",
+    "city": "aurora",
+    "order_count": 32,
+    "customer_count": 15,
+    "total_revenue": 2844.99,
+    "avg_order_revenue": 88.91
+  },
+  {
+    "region": "south",
+    "city": "tampa",
+    "order_count": 33,
+    "customer_count": 14,
+    "total_revenue": 2832.01,
+    "avg_order_revenue": 85.82
+  },
+  {
+    "region": "east",
+    "city": "springfield",
+    "order_count": 32,
+    "customer_count": 17,
+    "total_revenue": 2819.0,
+    "avg_order_revenue": 88.09
+  },
+  {
+    "region": "central",
+    "city": "springfield",
+    "order_count": 33,
+    "customer_count": 12,
+    "total_revenue": 2817.79,
+    "avg_order_revenue": 85.39
+  },
+  {
+    "region": "west",
+    "city": "fresno",
+    "order_count": 23,
+    "customer_count": 10,
+    "total_revenue": 2815.83,
+    "avg_order_revenue": 122.43
+  },
+  {
+    "region": "south",
+    "city": "jackson",
+    "order_count": 36,
+    "customer_count": 20,
+    "total_revenue": 2802.45,
+    "avg_order_revenue": 77.85
+  },
+  {
+    "region": "west",
+    "city": "anaheim",
+    "order_count": 22,
+    "customer_count": 7,
+    "total_revenue": 2788.93,
+    "avg_order_revenue": 126.77
+  },
+  {
+    "region": "west",
+    "city": "pasadena",
+    "order_count": 23,
+    "customer_count": 10,
+    "total_revenue": 2780.78,
+    "avg_order_revenue": 120.9
+  },
+  {
+    "region": "central",
+    "city": "oklahoma city",
+    "order_count": 19,
+    "customer_count": 10,
+    "total_revenue": 2745.17,
+    "avg_order_revenue": 144.48
+  },
+  {
+    "region": "east",
+    "city": "wilmington",
+    "order_count": 23,
+    "customer_count": 9,
+    "total_revenue": 2693.25,
+    "avg_order_revenue": 117.1
+  },
+  {
+    "region": "south",
+    "city": "little rock",
+    "order_count": 23,
+    "customer_count": 6,
+    "total_revenue": 2678.42,
+    "avg_order_revenue": 116.45
+  },
+  {
+    "region": "west",
+    "city": "oakland",
+    "order_count": 22,
+    "customer_count": 12,
+    "total_revenue": 2664.45,
+    "avg_order_revenue": 121.11
+  },
+  {
+    "region": "south",
+    "city": "smyrna",
+    "order_count": 23,
+    "customer_count": 9,
+    "total_revenue": 2595.76,
+    "avg_order_revenue": 112.86
+  },
+  {
+    "region": "east",
+    "city": "troy",
+    "order_count": 27,
+    "customer_count": 13,
+    "total_revenue": 2584.67,
+    "avg_order_revenue": 95.73
+  },
+  {
+    "region": "east",
+    "city": "clinton",
+    "order_count": 25,
+    "customer_count": 10,
+    "total_revenue": 2567.04,
+    "avg_order_revenue": 102.68
+  },
+  {
+    "region": "south",
+    "city": "arlington",
+    "order_count": 28,
+    "customer_count": 19,
+    "total_revenue": 2558.59,
+    "avg_order_revenue": 91.38
+  },
+  {
+    "region": "south",
+    "city": "atlanta",
+    "order_count": 32,
+    "customer_count": 17,
+    "total_revenue": 2550.09,
+    "avg_order_revenue": 79.69
+  },
+  {
+    "region": "central",
+    "city": "austin",
+    "order_count": 35,
+    "customer_count": 17,
+    "total_revenue": 2462.97,
+    "avg_order_revenue": 70.37
+  },
+  {
+    "region": "east",
+    "city": "providence",
+    "order_count": 23,
+    "customer_count": 13,
+    "total_revenue": 2404.0,
+    "avg_order_revenue": 104.52
+  },
+  {
+    "region": "east",
+    "city": "paterson",
+    "order_count": 20,
+    "customer_count": 6,
+    "total_revenue": 2243.21,
+    "avg_order_revenue": 112.16
+  },
+  {
+    "region": "central",
+    "city": "richmond",
+    "order_count": 25,
+    "customer_count": 13,
+    "total_revenue": 2230.33,
+    "avg_order_revenue": 89.21
+  },
+  {
+    "region": "south",
+    "city": "memphis",
+    "order_count": 26,
+    "customer_count": 14,
+    "total_revenue": 2214.16,
+    "avg_order_revenue": 85.16
+  },
+  {
+    "region": "east",
+    "city": "everett",
+    "order_count": 17,
+    "customer_count": 7,
+    "total_revenue": 2117.28,
+    "avg_order_revenue": 124.55
+  },
+  {
+    "region": "east",
+    "city": "akron",
+    "order_count": 20,
+    "customer_count": 10,
+    "total_revenue": 2064.58,
+    "avg_order_revenue": 103.23
+  },
+  {
+    "region": "east",
+    "city": "concord",
+    "order_count": 14,
+    "customer_count": 10,
+    "total_revenue": 2002.68,
+    "avg_order_revenue": 143.05
+  },
+  {
+    "region": "east",
+    "city": "long beach",
+    "order_count": 28,
+    "customer_count": 20,
+    "total_revenue": 1981.37,
+    "avg_order_revenue": 70.76
+  },
+  {
+    "region": "west",
+    "city": "santa ana",
+    "order_count": 13,
+    "customer_count": 7,
+    "total_revenue": 1966.38,
+    "avg_order_revenue": 151.26
+  },
+  {
+    "region": "central",
+    "city": "indianapolis",
+    "order_count": 18,
+    "customer_count": 10,
+    "total_revenue": 1962.27,
+    "avg_order_revenue": 109.02
+  },
+  {
+    "region": "central",
+    "city": "omaha",
+    "order_count": 25,
+    "customer_count": 12,
+    "total_revenue": 1932.19,
+    "avg_order_revenue": 77.29
+  },
+  {
+    "region": "central",
+    "city": "huntsville",
+    "order_count": 20,
+    "customer_count": 8,
+    "total_revenue": 1926.69,
+    "avg_order_revenue": 96.33
+  },
+  {
+    "region": "central",
+    "city": "minneapolis",
+    "order_count": 18,
+    "customer_count": 10,
+    "total_revenue": 1864.02,
+    "avg_order_revenue": 103.56
+  },
+  {
+    "region": "central",
+    "city": "decatur",
+    "order_count": 20,
+    "customer_count": 9,
+    "total_revenue": 1821.36,
+    "avg_order_revenue": 91.07
+  },
+  {
+    "region": "south",
+    "city": "nashville",
+    "order_count": 26,
+    "customer_count": 15,
+    "total_revenue": 1812.2,
+    "avg_order_revenue": 69.7
+  },
+  {
+    "region": "east",
+    "city": "oceanside",
+    "order_count": 19,
+    "customer_count": 8,
+    "total_revenue": 1778.6,
+    "avg_order_revenue": 93.61
+  },
+  {
+    "region": "west",
+    "city": "colorado springs",
+    "order_count": 23,
+    "customer_count": 9,
+    "total_revenue": 1778.21,
+    "avg_order_revenue": 77.31
+  },
+  {
+    "region": "east",
+    "city": "columbia",
+    "order_count": 16,
+    "customer_count": 8,
+    "total_revenue": 1762.88,
+    "avg_order_revenue": 110.18
+  },
+  {
+    "region": "west",
+    "city": "inglewood",
+    "order_count": 14,
+    "customer_count": 4,
+    "total_revenue": 1757.78,
+    "avg_order_revenue": 125.56
+  },
+  {
+    "region": "south",
+    "city": "lafayette",
+    "order_count": 16,
+    "customer_count": 8,
+    "total_revenue": 1718.11,
+    "avg_order_revenue": 107.38
+  },
+  {
+    "region": "east",
+    "city": "toledo",
+    "order_count": 29,
+    "customer_count": 14,
+    "total_revenue": 1669.8,
+    "avg_order_revenue": 57.58
+  },
+  {
+    "region": "south",
+    "city": "virginia beach",
+    "order_count": 13,
+    "customer_count": 10,
+    "total_revenue": 1661.43,
+    "avg_order_revenue": 127.8
+  },
+  {
+    "region": "west",
+    "city": "westminster",
+    "order_count": 15,
+    "customer_count": 4,
+    "total_revenue": 1645.67,
+    "avg_order_revenue": 109.71
+  },
+  {
+    "region": "south",
+    "city": "lakeland",
+    "order_count": 17,
+    "customer_count": 5,
+    "total_revenue": 1636.29,
+    "avg_order_revenue": 96.25
+  },
+  {
+    "region": "west",
+    "city": "albuquerque",
+    "order_count": 13,
+    "customer_count": 7,
+    "total_revenue": 1625.17,
+    "avg_order_revenue": 125.01
+  },
+  {
+    "region": "east",
+    "city": "hempstead",
+    "order_count": 10,
+    "customer_count": 4,
+    "total_revenue": 1620.83,
+    "avg_order_revenue": 162.08
+  },
+  {
+    "region": "south",
+    "city": "knoxville",
+    "order_count": 23,
+    "customer_count": 10,
+    "total_revenue": 1614.06,
+    "avg_order_revenue": 70.18
+  },
+  {
+    "region": "west",
+    "city": "redlands",
+    "order_count": 15,
+    "customer_count": 4,
+    "total_revenue": 1595.18,
+    "avg_order_revenue": 106.35
+  },
+  {
+    "region": "south",
+    "city": "raleigh",
+    "order_count": 19,
+    "customer_count": 11,
+    "total_revenue": 1572.83,
+    "avg_order_revenue": 82.78
+  },
+  {
+    "region": "west",
+    "city": "gilbert",
+    "order_count": 12,
+    "customer_count": 4,
+    "total_revenue": 1553.76,
+    "avg_order_revenue": 129.48
+  },
+  {
+    "region": "south",
+    "city": "miramar",
+    "order_count": 8,
+    "customer_count": 3,
+    "total_revenue": 1531.2,
+    "avg_order_revenue": 191.4
+  },
+  {
+    "region": "south",
+    "city": "florence",
+    "order_count": 17,
+    "customer_count": 11,
+    "total_revenue": 1505.08,
+    "avg_order_revenue": 88.53
+  },
+  {
+    "region": "west",
+    "city": "costa mesa",
+    "order_count": 11,
+    "customer_count": 5,
+    "total_revenue": 1497.68,
+    "avg_order_revenue": 136.15
+  },
+  {
+    "region": "central",
+    "city": "des plaines",
+    "order_count": 6,
+    "customer_count": 2,
+    "total_revenue": 1493.21,
+    "avg_order_revenue": 248.87
+  },
+  {
+    "region": "central",
+    "city": "fort worth",
+    "order_count": 23,
+    "customer_count": 12,
+    "total_revenue": 1488.19,
+    "avg_order_revenue": 64.7
+  },
+  {
+    "region": "south",
+    "city": "tallahassee",
+    "order_count": 14,
+    "customer_count": 7,
+    "total_revenue": 1481.54,
+    "avg_order_revenue": 105.82
+  },
+  {
+    "region": "west",
+    "city": "scottsdale",
+    "order_count": 12,
+    "customer_count": 7,
+    "total_revenue": 1466.3,
+    "avg_order_revenue": 122.19
+  },
+  {
+    "region": "east",
+    "city": "marion",
+    "order_count": 13,
+    "customer_count": 8,
+    "total_revenue": 1461.99,
+    "avg_order_revenue": 112.46
+  },
+  {
+    "region": "south",
+    "city": "southaven",
+    "order_count": 7,
+    "customer_count": 2,
+    "total_revenue": 1455.39,
+    "avg_order_revenue": 207.91
+  },
+  {
+    "region": "central",
+    "city": "pasadena",
+    "order_count": 16,
+    "customer_count": 9,
+    "total_revenue": 1452.75,
+    "avg_order_revenue": 90.8
+  },
+  {
+    "region": "south",
+    "city": "chesapeake",
+    "order_count": 14,
+    "customer_count": 8,
+    "total_revenue": 1442.74,
+    "avg_order_revenue": 103.05
+  },
+  {
+    "region": "west",
+    "city": "salem",
+    "order_count": 27,
+    "customer_count": 9,
+    "total_revenue": 1404.71,
+    "avg_order_revenue": 52.03
+  },
+  {
+    "region": "west",
+    "city": "bakersfield",
+    "order_count": 16,
+    "customer_count": 8,
+    "total_revenue": 1377.28,
+    "avg_order_revenue": 86.08
+  },
+  {
+    "region": "east",
+    "city": "yonkers",
+    "order_count": 12,
+    "customer_count": 6,
+    "total_revenue": 1377.23,
+    "avg_order_revenue": 114.77
+  },
+  {
+    "region": "south",
+    "city": "roswell",
+    "order_count": 14,
+    "customer_count": 8,
+    "total_revenue": 1371.62,
+    "avg_order_revenue": 97.97
+  },
+  {
+    "region": "west",
+    "city": "louisville",
+    "order_count": 21,
+    "customer_count": 12,
+    "total_revenue": 1356.52,
+    "avg_order_revenue": 64.6
+  },
+  {
+    "region": "south",
+    "city": "alexandria",
+    "order_count": 15,
+    "customer_count": 6,
+    "total_revenue": 1355.52,
+    "avg_order_revenue": 90.37
+  },
+  {
+    "region": "east",
+    "city": "franklin",
+    "order_count": 13,
+    "customer_count": 7,
+    "total_revenue": 1355.37,
+    "avg_order_revenue": 104.26
+  },
+  {
+    "region": "central",
+    "city": "rochester",
+    "order_count": 16,
+    "customer_count": 8,
+    "total_revenue": 1349.88,
+    "avg_order_revenue": 84.37
+  },
+  {
+    "region": "west",
+    "city": "pocatello",
+    "order_count": 7,
+    "customer_count": 3,
+    "total_revenue": 1344.95,
+    "avg_order_revenue": 192.14
+  },
+  {
+    "region": "west",
+    "city": "peoria",
+    "order_count": 16,
+    "customer_count": 5,
+    "total_revenue": 1341.35,
+    "avg_order_revenue": 83.83
+  },
+  {
+    "region": "south",
+    "city": "salem",
+    "order_count": 12,
+    "customer_count": 5,
+    "total_revenue": 1337.59,
+    "avg_order_revenue": 111.47
+  },
+  {
+    "region": "east",
+    "city": "dublin",
+    "order_count": 12,
+    "customer_count": 4,
+    "total_revenue": 1330.81,
+    "avg_order_revenue": 110.9
+  },
+  {
+    "region": "south",
+    "city": "hialeah",
+    "order_count": 17,
+    "customer_count": 10,
+    "total_revenue": 1325.1,
+    "avg_order_revenue": 77.95
+  },
+  {
+    "region": "south",
+    "city": "hampton",
+    "order_count": 9,
+    "customer_count": 5,
+    "total_revenue": 1325.03,
+    "avg_order_revenue": 147.23
+  },
+  {
+    "region": "central",
+    "city": "amarillo",
+    "order_count": 9,
+    "customer_count": 7,
+    "total_revenue": 1319.63,
+    "avg_order_revenue": 146.63
+  },
+  {
+    "region": "west",
+    "city": "glendale",
+    "order_count": 21,
+    "customer_count": 13,
+    "total_revenue": 1312.36,
+    "avg_order_revenue": 62.49
+  },
+  {
+    "region": "central",
+    "city": "carol stream",
+    "order_count": 5,
+    "customer_count": 1,
+    "total_revenue": 1305.81,
+    "avg_order_revenue": 261.16
+  },
+  {
+    "region": "central",
+    "city": "el paso",
+    "order_count": 16,
+    "customer_count": 10,
+    "total_revenue": 1293.39,
+    "avg_order_revenue": 80.84
+  },
+  {
+    "region": "central",
+    "city": "brownsville",
+    "order_count": 7,
+    "customer_count": 4,
+    "total_revenue": 1292.22,
+    "avg_order_revenue": 184.6
+  },
+  {
+    "region": "west",
+    "city": "brentwood",
+    "order_count": 13,
+    "customer_count": 6,
+    "total_revenue": 1269.72,
+    "avg_order_revenue": 97.67
+  },
+  {
+    "region": "west",
+    "city": "santa barbara",
+    "order_count": 7,
+    "customer_count": 5,
+    "total_revenue": 1265.31,
+    "avg_order_revenue": 180.76
+  },
+  {
+    "region": "south",
+    "city": "decatur",
+    "order_count": 11,
+    "customer_count": 6,
+    "total_revenue": 1258.93,
+    "avg_order_revenue": 114.45
+  },
+  {
+    "region": "central",
+    "city": "franklin",
+    "order_count": 7,
+    "customer_count": 5,
+    "total_revenue": 1256.53,
+    "avg_order_revenue": 179.5
+  },
+  {
+    "region": "west",
+    "city": "pasco",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 1225.19,
+    "avg_order_revenue": 245.04
+  },
+  {
+    "region": "west",
+    "city": "edmonds",
+    "order_count": 13,
+    "customer_count": 5,
+    "total_revenue": 1225.14,
+    "avg_order_revenue": 94.24
+  },
+  {
+    "region": "south",
+    "city": "hattiesburg",
+    "order_count": 8,
+    "customer_count": 3,
+    "total_revenue": 1217.94,
+    "avg_order_revenue": 152.24
+  },
+  {
+    "region": "central",
+    "city": "trenton",
+    "order_count": 12,
+    "customer_count": 4,
+    "total_revenue": 1215.21,
+    "avg_order_revenue": 101.27
+  },
+  {
+    "region": "west",
+    "city": "hesperia",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 1213.17,
+    "avg_order_revenue": 303.29
+  },
+  {
+    "region": "south",
+    "city": "pembroke pines",
+    "order_count": 13,
+    "customer_count": 4,
+    "total_revenue": 1210.42,
+    "avg_order_revenue": 93.11
+  },
+  {
+    "region": "east",
+    "city": "cranston",
+    "order_count": 13,
+    "customer_count": 4,
+    "total_revenue": 1189.38,
+    "avg_order_revenue": 91.49
+  },
+  {
+    "region": "south",
+    "city": "saint petersburg",
+    "order_count": 13,
+    "customer_count": 6,
+    "total_revenue": 1173.83,
+    "avg_order_revenue": 90.29
+  },
+  {
+    "region": "east",
+    "city": "bangor",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 1164.45,
+    "avg_order_revenue": 232.89
+  },
+  {
+    "region": "central",
+    "city": "plano",
+    "order_count": 12,
+    "customer_count": 6,
+    "total_revenue": 1155.07,
+    "avg_order_revenue": 96.26
+  },
+  {
+    "region": "central",
+    "city": "sioux falls",
+    "order_count": 9,
+    "customer_count": 3,
+    "total_revenue": 1137.42,
+    "avg_order_revenue": 126.38
+  },
+  {
+    "region": "west",
+    "city": "chico",
+    "order_count": 10,
+    "customer_count": 3,
+    "total_revenue": 1135.04,
+    "avg_order_revenue": 113.5
+  },
+  {
+    "region": "central",
+    "city": "arlington",
+    "order_count": 23,
+    "customer_count": 10,
+    "total_revenue": 1123.09,
+    "avg_order_revenue": 48.83
+  },
+  {
+    "region": "east",
+    "city": "perth amboy",
+    "order_count": 7,
+    "customer_count": 4,
+    "total_revenue": 1120.08,
+    "avg_order_revenue": 160.01
+  },
+  {
+    "region": "east",
+    "city": "chester",
+    "order_count": 15,
+    "customer_count": 4,
+    "total_revenue": 1114.57,
+    "avg_order_revenue": 74.3
+  },
+  {
+    "region": "south",
+    "city": "monroe",
+    "order_count": 18,
+    "customer_count": 11,
+    "total_revenue": 1108.22,
+    "avg_order_revenue": 61.57
+  },
+  {
+    "region": "central",
+    "city": "rockford",
+    "order_count": 9,
+    "customer_count": 8,
+    "total_revenue": 1100.16,
+    "avg_order_revenue": 122.24
+  },
+  {
+    "region": "west",
+    "city": "redmond",
+    "order_count": 11,
+    "customer_count": 6,
+    "total_revenue": 1098.24,
+    "avg_order_revenue": 99.84
+  },
+  {
+    "region": "central",
+    "city": "westland",
+    "order_count": 12,
+    "customer_count": 3,
+    "total_revenue": 1092.13,
+    "avg_order_revenue": 91.01
+  },
+  {
+    "region": "east",
+    "city": "manchester",
+    "order_count": 10,
+    "customer_count": 4,
+    "total_revenue": 1082.36,
+    "avg_order_revenue": 108.24
+  },
+  {
+    "region": "south",
+    "city": "hollywood",
+    "order_count": 11,
+    "customer_count": 8,
+    "total_revenue": 1070.47,
+    "avg_order_revenue": 97.32
+  },
+  {
+    "region": "west",
+    "city": "tempe",
+    "order_count": 13,
+    "customer_count": 6,
+    "total_revenue": 1070.31,
+    "avg_order_revenue": 82.33
+  },
+  {
+    "region": "west",
+    "city": "lakewood",
+    "order_count": 7,
+    "customer_count": 5,
+    "total_revenue": 1065.41,
+    "avg_order_revenue": 152.2
+  },
+  {
+    "region": "central",
+    "city": "kenosha",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 1062.93,
+    "avg_order_revenue": 212.59
+  },
+  {
+    "region": "central",
+    "city": "columbia",
+    "order_count": 9,
+    "customer_count": 3,
+    "total_revenue": 1062.45,
+    "avg_order_revenue": 118.05
+  },
+  {
+    "region": "central",
+    "city": "lawton",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 1057.49,
+    "avg_order_revenue": 264.37
+  },
+  {
+    "region": "west",
+    "city": "pleasant grove",
+    "order_count": 6,
+    "customer_count": 2,
+    "total_revenue": 1048.42,
+    "avg_order_revenue": 174.74
+  },
+  {
+    "region": "east",
+    "city": "mount vernon",
+    "order_count": 7,
+    "customer_count": 4,
+    "total_revenue": 1034.21,
+    "avg_order_revenue": 147.74
+  },
+  {
+    "region": "east",
+    "city": "lowell",
+    "order_count": 12,
+    "customer_count": 6,
+    "total_revenue": 1031.95,
+    "avg_order_revenue": 86.0
+  },
+  {
+    "region": "central",
+    "city": "laredo",
+    "order_count": 13,
+    "customer_count": 4,
+    "total_revenue": 1024.34,
+    "avg_order_revenue": 78.8
+  },
+  {
+    "region": "central",
+    "city": "grand prairie",
+    "order_count": 13,
+    "customer_count": 7,
+    "total_revenue": 1012.49,
+    "avg_order_revenue": 77.88
+  },
+  {
+    "region": "south",
+    "city": "chattanooga",
+    "order_count": 10,
+    "customer_count": 6,
+    "total_revenue": 988.81,
+    "avg_order_revenue": 98.88
+  },
+  {
+    "region": "west",
+    "city": "concord",
+    "order_count": 7,
+    "customer_count": 6,
+    "total_revenue": 976.74,
+    "avg_order_revenue": 139.53
+  },
+  {
+    "region": "central",
+    "city": "eau claire",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 965.64,
+    "avg_order_revenue": 193.13
+  },
+  {
+    "region": "east",
+    "city": "bowling green",
+    "order_count": 7,
+    "customer_count": 4,
+    "total_revenue": 965.57,
+    "avg_order_revenue": 137.94
+  },
+  {
+    "region": "central",
+    "city": "bloomington",
+    "order_count": 14,
+    "customer_count": 9,
+    "total_revenue": 950.05,
+    "avg_order_revenue": 67.86
+  },
+  {
+    "region": "east",
+    "city": "quincy",
+    "order_count": 11,
+    "customer_count": 5,
+    "total_revenue": 946.18,
+    "avg_order_revenue": 86.02
+  },
+  {
+    "region": "central",
+    "city": "round rock",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 923.98,
+    "avg_order_revenue": 154.0
+  },
+  {
+    "region": "west",
+    "city": "longmont",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 915.09,
+    "avg_order_revenue": 305.03
+  },
+  {
+    "region": "south",
+    "city": "plantation",
+    "order_count": 10,
+    "customer_count": 3,
+    "total_revenue": 912.92,
+    "avg_order_revenue": 91.29
+  },
+  {
+    "region": "central",
+    "city": "lawrence",
+    "order_count": 10,
+    "customer_count": 5,
+    "total_revenue": 906.4,
+    "avg_order_revenue": 90.64
+  },
+  {
+    "region": "east",
+    "city": "dover",
+    "order_count": 16,
+    "customer_count": 11,
+    "total_revenue": 903.06,
+    "avg_order_revenue": 56.44
+  },
+  {
+    "region": "east",
+    "city": "passaic",
+    "order_count": 5,
+    "customer_count": 1,
+    "total_revenue": 899.25,
+    "avg_order_revenue": 179.85
+  },
+  {
+    "region": "central",
+    "city": "olathe",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 895.79,
+    "avg_order_revenue": 179.16
+  },
+  {
+    "region": "east",
+    "city": "watertown",
+    "order_count": 7,
+    "customer_count": 6,
+    "total_revenue": 895.63,
+    "avg_order_revenue": 127.95
+  },
+  {
+    "region": "west",
+    "city": "redondo beach",
+    "order_count": 7,
+    "customer_count": 3,
+    "total_revenue": 884.72,
+    "avg_order_revenue": 126.39
+  },
+  {
+    "region": "south",
+    "city": "durham",
+    "order_count": 9,
+    "customer_count": 5,
+    "total_revenue": 879.95,
+    "avg_order_revenue": 97.77
+  },
+  {
+    "region": "central",
+    "city": "lafayette",
+    "order_count": 9,
+    "customer_count": 6,
+    "total_revenue": 868.07,
+    "avg_order_revenue": 96.45
+  },
+  {
+    "region": "east",
+    "city": "parma",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 867.88,
+    "avg_order_revenue": 108.49
+  },
+  {
+    "region": "south",
+    "city": "auburn",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 866.75,
+    "avg_order_revenue": 173.35
+  },
+  {
+    "region": "central",
+    "city": "mcallen",
+    "order_count": 19,
+    "customer_count": 4,
+    "total_revenue": 866.71,
+    "avg_order_revenue": 45.62
+  },
+  {
+    "region": "west",
+    "city": "el cajon",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 865.62,
+    "avg_order_revenue": 432.81
+  },
+  {
+    "region": "east",
+    "city": "auburn",
+    "order_count": 16,
+    "customer_count": 6,
+    "total_revenue": 864.11,
+    "avg_order_revenue": 54.01
+  },
+  {
+    "region": "east",
+    "city": "revere",
+    "order_count": 7,
+    "customer_count": 3,
+    "total_revenue": 833.26,
+    "avg_order_revenue": 119.04
+  },
+  {
+    "region": "central",
+    "city": "buffalo grove",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 831.4,
+    "avg_order_revenue": 415.7
+  },
+  {
+    "region": "central",
+    "city": "wichita",
+    "order_count": 7,
+    "customer_count": 5,
+    "total_revenue": 825.27,
+    "avg_order_revenue": 117.9
+  },
+  {
+    "region": "south",
+    "city": "coral springs",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 824.99,
+    "avg_order_revenue": 103.12
+  },
+  {
+    "region": "central",
+    "city": "des moines",
+    "order_count": 11,
+    "customer_count": 5,
+    "total_revenue": 824.12,
+    "avg_order_revenue": 74.92
+  },
+  {
+    "region": "west",
+    "city": "sacramento",
+    "order_count": 11,
+    "customer_count": 7,
+    "total_revenue": 823.38,
+    "avg_order_revenue": 74.85
+  },
+  {
+    "region": "east",
+    "city": "york",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 817.98,
+    "avg_order_revenue": 163.6
+  },
+  {
+    "region": "south",
+    "city": "greenville",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 817.84,
+    "avg_order_revenue": 102.23
+  },
+  {
+    "region": "east",
+    "city": "bristol",
+    "order_count": 8,
+    "customer_count": 3,
+    "total_revenue": 814.58,
+    "avg_order_revenue": 101.82
+  },
+  {
+    "region": "south",
+    "city": "concord",
+    "order_count": 7,
+    "customer_count": 4,
+    "total_revenue": 814.2,
+    "avg_order_revenue": 116.31
+  },
+  {
+    "region": "east",
+    "city": "belleville",
+    "order_count": 9,
+    "customer_count": 4,
+    "total_revenue": 809.12,
+    "avg_order_revenue": 89.9
+  },
+  {
+    "region": "west",
+    "city": "temecula",
+    "order_count": 4,
+    "customer_count": 1,
+    "total_revenue": 808.67,
+    "avg_order_revenue": 202.17
+  },
+  {
+    "region": "west",
+    "city": "salt lake city",
+    "order_count": 8,
+    "customer_count": 5,
+    "total_revenue": 802.78,
+    "avg_order_revenue": 100.35
+  },
+  {
+    "region": "south",
+    "city": "montgomery",
+    "order_count": 7,
+    "customer_count": 6,
+    "total_revenue": 801.95,
+    "avg_order_revenue": 114.56
+  },
+  {
+    "region": "central",
+    "city": "carrollton",
+    "order_count": 14,
+    "customer_count": 7,
+    "total_revenue": 800.7,
+    "avg_order_revenue": 57.19
+  },
+  {
+    "region": "central",
+    "city": "roseville",
+    "order_count": 9,
+    "customer_count": 6,
+    "total_revenue": 792.71,
+    "avg_order_revenue": 88.08
+  },
+  {
+    "region": "central",
+    "city": "texas city",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 790.97,
+    "avg_order_revenue": 263.66
+  },
+  {
+    "region": "central",
+    "city": "madison",
+    "order_count": 7,
+    "customer_count": 3,
+    "total_revenue": 783.32,
+    "avg_order_revenue": 111.9
+  },
+  {
+    "region": "south",
+    "city": "orlando",
+    "order_count": 10,
+    "customer_count": 6,
+    "total_revenue": 780.11,
+    "avg_order_revenue": 78.01
+  },
+  {
+    "region": "west",
+    "city": "mission viejo",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 775.99,
+    "avg_order_revenue": 155.2
+  },
+  {
+    "region": "east",
+    "city": "cincinnati",
+    "order_count": 16,
+    "customer_count": 11,
+    "total_revenue": 771.99,
+    "avg_order_revenue": 48.25
+  },
+  {
+    "region": "west",
+    "city": "pomona",
+    "order_count": 6,
+    "customer_count": 5,
+    "total_revenue": 771.67,
+    "avg_order_revenue": 128.61
+  },
+  {
+    "region": "south",
+    "city": "fort lauderdale",
+    "order_count": 10,
+    "customer_count": 8,
+    "total_revenue": 770.3,
+    "avg_order_revenue": 77.03
+  },
+  {
+    "region": "south",
+    "city": "waynesboro",
+    "order_count": 7,
+    "customer_count": 3,
+    "total_revenue": 769.01,
+    "avg_order_revenue": 109.86
+  },
+  {
+    "region": "south",
+    "city": "johnson city",
+    "order_count": 12,
+    "customer_count": 3,
+    "total_revenue": 765.85,
+    "avg_order_revenue": 63.82
+  },
+  {
+    "region": "east",
+    "city": "waterbury",
+    "order_count": 10,
+    "customer_count": 5,
+    "total_revenue": 759.09,
+    "avg_order_revenue": 75.91
+  },
+  {
+    "region": "central",
+    "city": "lakeville",
+    "order_count": 13,
+    "customer_count": 5,
+    "total_revenue": 755.84,
+    "avg_order_revenue": 58.14
+  },
+  {
+    "region": "east",
+    "city": "medina",
+    "order_count": 7,
+    "customer_count": 3,
+    "total_revenue": 749.75,
+    "avg_order_revenue": 107.11
+  },
+  {
+    "region": "south",
+    "city": "wilmington",
+    "order_count": 9,
+    "customer_count": 9,
+    "total_revenue": 743.17,
+    "avg_order_revenue": 82.57
+  },
+  {
+    "region": "central",
+    "city": "port arthur",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 737.05,
+    "avg_order_revenue": 122.84
+  },
+  {
+    "region": "west",
+    "city": "roseville",
+    "order_count": 14,
+    "customer_count": 7,
+    "total_revenue": 734.78,
+    "avg_order_revenue": 52.48
+  },
+  {
+    "region": "south",
+    "city": "sandy springs",
+    "order_count": 13,
+    "customer_count": 4,
+    "total_revenue": 730.17,
+    "avg_order_revenue": 56.17
+  },
+  {
+    "region": "west",
+    "city": "salinas",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 728.9,
+    "avg_order_revenue": 91.11
+  },
+  {
+    "region": "south",
+    "city": "suffolk",
+    "order_count": 9,
+    "customer_count": 4,
+    "total_revenue": 724.96,
+    "avg_order_revenue": 80.55
+  },
+  {
+    "region": "west",
+    "city": "tigard",
+    "order_count": 7,
+    "customer_count": 3,
+    "total_revenue": 724.7,
+    "avg_order_revenue": 103.53
+  },
+  {
+    "region": "west",
+    "city": "las vegas",
+    "order_count": 12,
+    "customer_count": 8,
+    "total_revenue": 710.89,
+    "avg_order_revenue": 59.24
+  },
+  {
+    "region": "south",
+    "city": "harrisonburg",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 702.93,
+    "avg_order_revenue": 140.59
+  },
+  {
+    "region": "east",
+    "city": "mentor",
+    "order_count": 6,
+    "customer_count": 1,
+    "total_revenue": 693.14,
+    "avg_order_revenue": 115.52
+  },
+  {
+    "region": "west",
+    "city": "vancouver",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 686.84,
+    "avg_order_revenue": 137.37
+  },
+  {
+    "region": "central",
+    "city": "naperville",
+    "order_count": 7,
+    "customer_count": 5,
+    "total_revenue": 685.66,
+    "avg_order_revenue": 97.95
+  },
+  {
+    "region": "central",
+    "city": "park ridge",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 685.0,
+    "avg_order_revenue": 228.33
+  },
+  {
+    "region": "west",
+    "city": "north las vegas",
+    "order_count": 11,
+    "customer_count": 6,
+    "total_revenue": 683.24,
+    "avg_order_revenue": 62.11
+  },
+  {
+    "region": "south",
+    "city": "athens",
+    "order_count": 7,
+    "customer_count": 5,
+    "total_revenue": 670.88,
+    "avg_order_revenue": 95.84
+  },
+  {
+    "region": "central",
+    "city": "superior",
+    "order_count": 8,
+    "customer_count": 2,
+    "total_revenue": 670.63,
+    "avg_order_revenue": 83.83
+  },
+  {
+    "region": "west",
+    "city": "thornton",
+    "order_count": 9,
+    "customer_count": 3,
+    "total_revenue": 662.9,
+    "avg_order_revenue": 73.66
+  },
+  {
+    "region": "east",
+    "city": "utica",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 655.04,
+    "avg_order_revenue": 81.88
+  },
+  {
+    "region": "west",
+    "city": "des moines",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 654.49,
+    "avg_order_revenue": 130.9
+  },
+  {
+    "region": "central",
+    "city": "san angelo",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 650.64,
+    "avg_order_revenue": 162.66
+  },
+  {
+    "region": "east",
+    "city": "vineland",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 647.97,
+    "avg_order_revenue": 81.0
+  },
+  {
+    "region": "west",
+    "city": "gresham",
+    "order_count": 4,
+    "customer_count": 4,
+    "total_revenue": 646.39,
+    "avg_order_revenue": 161.6
+  },
+  {
+    "region": "west",
+    "city": "reno",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 644.06,
+    "avg_order_revenue": 161.02
+  },
+  {
+    "region": "south",
+    "city": "burlington",
+    "order_count": 7,
+    "customer_count": 5,
+    "total_revenue": 636.41,
+    "avg_order_revenue": 90.92
+  },
+  {
+    "region": "west",
+    "city": "sunnyvale",
+    "order_count": 6,
+    "customer_count": 2,
+    "total_revenue": 636.21,
+    "avg_order_revenue": 106.04
+  },
+  {
+    "region": "east",
+    "city": "plainfield",
+    "order_count": 10,
+    "customer_count": 7,
+    "total_revenue": 635.91,
+    "avg_order_revenue": 63.59
+  },
+  {
+    "region": "east",
+    "city": "new rochelle",
+    "order_count": 8,
+    "customer_count": 5,
+    "total_revenue": 623.44,
+    "avg_order_revenue": 77.93
+  },
+  {
+    "region": "west",
+    "city": "spokane",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 620.75,
+    "avg_order_revenue": 124.15
+  },
+  {
+    "region": "south",
+    "city": "clarksville",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 619.68,
+    "avg_order_revenue": 103.28
+  },
+  {
+    "region": "east",
+    "city": "morristown",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 614.0,
+    "avg_order_revenue": 122.8
+  },
+  {
+    "region": "central",
+    "city": "overland park",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 606.91,
+    "avg_order_revenue": 101.15
+  },
+  {
+    "region": "central",
+    "city": "waco",
+    "order_count": 6,
+    "customer_count": 4,
+    "total_revenue": 606.11,
+    "avg_order_revenue": 101.02
+  },
+  {
+    "region": "central",
+    "city": "irving",
+    "order_count": 8,
+    "customer_count": 5,
+    "total_revenue": 605.51,
+    "avg_order_revenue": 75.69
+  },
+  {
+    "region": "south",
+    "city": "gastonia",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 603.1,
+    "avg_order_revenue": 201.03
+  },
+  {
+    "region": "east",
+    "city": "middletown",
+    "order_count": 8,
+    "customer_count": 5,
+    "total_revenue": 602.05,
+    "avg_order_revenue": 75.26
+  },
+  {
+    "region": "east",
+    "city": "hackensack",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 601.22,
+    "avg_order_revenue": 120.24
+  },
+  {
+    "region": "west",
+    "city": "stockton",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 597.96,
+    "avg_order_revenue": 119.59
+  },
+  {
+    "region": "east",
+    "city": "lorain",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 593.45,
+    "avg_order_revenue": 74.18
+  },
+  {
+    "region": "central",
+    "city": "lubbock",
+    "order_count": 6,
+    "customer_count": 4,
+    "total_revenue": 592.57,
+    "avg_order_revenue": 98.76
+  },
+  {
+    "region": "west",
+    "city": "encinitas",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 591.98,
+    "avg_order_revenue": 118.4
+  },
+  {
+    "region": "central",
+    "city": "oak park",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 591.05,
+    "avg_order_revenue": 197.02
+  },
+  {
+    "region": "central",
+    "city": "highland park",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 582.0,
+    "avg_order_revenue": 116.4
+  },
+  {
+    "region": "west",
+    "city": "san gabriel",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 573.97,
+    "avg_order_revenue": 286.99
+  },
+  {
+    "region": "central",
+    "city": "skokie",
+    "order_count": 11,
+    "customer_count": 5,
+    "total_revenue": 568.82,
+    "avg_order_revenue": 51.71
+  },
+  {
+    "region": "west",
+    "city": "danville",
+    "order_count": 5,
+    "customer_count": 1,
+    "total_revenue": 568.53,
+    "avg_order_revenue": 113.71
+  },
+  {
+    "region": "west",
+    "city": "kent",
+    "order_count": 7,
+    "customer_count": 3,
+    "total_revenue": 564.78,
+    "avg_order_revenue": 80.68
+  },
+  {
+    "region": "south",
+    "city": "mobile",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 564.17,
+    "avg_order_revenue": 70.52
+  },
+  {
+    "region": "south",
+    "city": "newport news",
+    "order_count": 9,
+    "customer_count": 5,
+    "total_revenue": 559.27,
+    "avg_order_revenue": 62.14
+  },
+  {
+    "region": "west",
+    "city": "provo",
+    "order_count": 8,
+    "customer_count": 3,
+    "total_revenue": 555.54,
+    "avg_order_revenue": 69.44
+  },
+  {
+    "region": "south",
+    "city": "marietta",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 549.3,
+    "avg_order_revenue": 109.86
+  },
+  {
+    "region": "south",
+    "city": "lake charles",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 547.41,
+    "avg_order_revenue": 182.47
+  },
+  {
+    "region": "east",
+    "city": "buffalo",
+    "order_count": 6,
+    "customer_count": 4,
+    "total_revenue": 545.07,
+    "avg_order_revenue": 90.85
+  },
+  {
+    "region": "west",
+    "city": "morgan hill",
+    "order_count": 4,
+    "customer_count": 1,
+    "total_revenue": 545.01,
+    "avg_order_revenue": 136.25
+  },
+  {
+    "region": "central",
+    "city": "moorhead",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 543.86,
+    "avg_order_revenue": 271.93
+  },
+  {
+    "region": "west",
+    "city": "orem",
+    "order_count": 7,
+    "customer_count": 4,
+    "total_revenue": 542.6,
+    "avg_order_revenue": 77.51
+  },
+  {
+    "region": "east",
+    "city": "wheeling",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 536.48,
+    "avg_order_revenue": 178.83
+  },
+  {
+    "region": "south",
+    "city": "huntsville",
+    "order_count": 8,
+    "customer_count": 6,
+    "total_revenue": 535.31,
+    "avg_order_revenue": 66.91
+  },
+  {
+    "region": "east",
+    "city": "rome",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 534.85,
+    "avg_order_revenue": 89.14
+  },
+  {
+    "region": "central",
+    "city": "green bay",
+    "order_count": 4,
+    "customer_count": 4,
+    "total_revenue": 527.32,
+    "avg_order_revenue": 131.83
+  },
+  {
+    "region": "central",
+    "city": "grand rapids",
+    "order_count": 7,
+    "customer_count": 6,
+    "total_revenue": 526.13,
+    "avg_order_revenue": 75.16
+  },
+  {
+    "region": "south",
+    "city": "hoover",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 525.85,
+    "avg_order_revenue": 131.46
+  },
+  {
+    "region": "central",
+    "city": "la porte",
+    "order_count": 9,
+    "customer_count": 3,
+    "total_revenue": 525.28,
+    "avg_order_revenue": 58.36
+  },
+  {
+    "region": "central",
+    "city": "dearborn",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 524.62,
+    "avg_order_revenue": 174.87
+  },
+  {
+    "region": "east",
+    "city": "freeport",
+    "order_count": 6,
+    "customer_count": 4,
+    "total_revenue": 523.33,
+    "avg_order_revenue": 87.22
+  },
+  {
+    "region": "south",
+    "city": "greensboro",
+    "order_count": 11,
+    "customer_count": 7,
+    "total_revenue": 523.06,
+    "avg_order_revenue": 47.55
+  },
+  {
+    "region": "east",
+    "city": "westfield",
+    "order_count": 6,
+    "customer_count": 4,
+    "total_revenue": 519.72,
+    "avg_order_revenue": 86.62
+  },
+  {
+    "region": "south",
+    "city": "jonesboro",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 508.63,
+    "avg_order_revenue": 63.58
+  },
+  {
+    "region": "south",
+    "city": "cary",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 505.22,
+    "avg_order_revenue": 84.2
+  },
+  {
+    "region": "west",
+    "city": "arvada",
+    "order_count": 4,
+    "customer_count": 1,
+    "total_revenue": 503.4,
+    "avg_order_revenue": 125.85
+  },
+  {
+    "region": "central",
+    "city": "coon rapids",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 503.13,
+    "avg_order_revenue": 251.57
+  },
+  {
+    "region": "east",
+    "city": "cambridge",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 502.09,
+    "avg_order_revenue": 83.68
+  },
+  {
+    "region": "south",
+    "city": "georgetown",
+    "order_count": 6,
+    "customer_count": 2,
+    "total_revenue": 501.62,
+    "avg_order_revenue": 83.6
+  },
+  {
+    "region": "central",
+    "city": "peoria",
+    "order_count": 7,
+    "customer_count": 4,
+    "total_revenue": 501.48,
+    "avg_order_revenue": 71.64
+  },
+  {
+    "region": "west",
+    "city": "oceanside",
+    "order_count": 8,
+    "customer_count": 5,
+    "total_revenue": 499.61,
+    "avg_order_revenue": 62.45
+  },
+  {
+    "region": "central",
+    "city": "pearland",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 495.0,
+    "avg_order_revenue": 165.0
+  },
+  {
+    "region": "south",
+    "city": "lebanon",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 488.9,
+    "avg_order_revenue": 162.97
+  },
+  {
+    "region": "west",
+    "city": "missoula",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 487.98,
+    "avg_order_revenue": 487.98
+  },
+  {
+    "region": "west",
+    "city": "murrieta",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 484.65,
+    "avg_order_revenue": 484.65
+  },
+  {
+    "region": "west",
+    "city": "great falls",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 479.61,
+    "avg_order_revenue": 79.94
+  },
+  {
+    "region": "west",
+    "city": "lancaster",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 477.45,
+    "avg_order_revenue": 95.49
+  },
+  {
+    "region": "central",
+    "city": "beaumont",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 472.12,
+    "avg_order_revenue": 94.42
+  },
+  {
+    "region": "central",
+    "city": "harlingen",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 471.39,
+    "avg_order_revenue": 94.28
+  },
+  {
+    "region": "east",
+    "city": "rockville",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 469.77,
+    "avg_order_revenue": 93.95
+  },
+  {
+    "region": "south",
+    "city": "boynton beach",
+    "order_count": 10,
+    "customer_count": 4,
+    "total_revenue": 469.58,
+    "avg_order_revenue": 46.96
+  },
+  {
+    "region": "west",
+    "city": "caldwell",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 455.63,
+    "avg_order_revenue": 151.88
+  },
+  {
+    "region": "west",
+    "city": "manteca",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 452.18,
+    "avg_order_revenue": 150.73
+  },
+  {
+    "region": "south",
+    "city": "tamarac",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 452.03,
+    "avg_order_revenue": 150.68
+  },
+  {
+    "region": "west",
+    "city": "oxnard",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 445.16,
+    "avg_order_revenue": 55.65
+  },
+  {
+    "region": "west",
+    "city": "whittier",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 444.77,
+    "avg_order_revenue": 444.77
+  },
+  {
+    "region": "west",
+    "city": "helena",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 443.84,
+    "avg_order_revenue": 147.95
+  },
+  {
+    "region": "south",
+    "city": "bristol",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 436.6,
+    "avg_order_revenue": 87.32
+  },
+  {
+    "region": "east",
+    "city": "andover",
+    "order_count": 4,
+    "customer_count": 1,
+    "total_revenue": 435.85,
+    "avg_order_revenue": 108.96
+  },
+  {
+    "region": "south",
+    "city": "warner robins",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 434.8,
+    "avg_order_revenue": 217.4
+  },
+  {
+    "region": "east",
+    "city": "warwick",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 426.88,
+    "avg_order_revenue": 106.72
+  },
+  {
+    "region": "west",
+    "city": "vacaville",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 423.28,
+    "avg_order_revenue": 423.28
+  },
+  {
+    "region": "central",
+    "city": "saint charles",
+    "order_count": 8,
+    "customer_count": 6,
+    "total_revenue": 421.68,
+    "avg_order_revenue": 52.71
+  },
+  {
+    "region": "west",
+    "city": "moreno valley",
+    "order_count": 9,
+    "customer_count": 5,
+    "total_revenue": 419.75,
+    "avg_order_revenue": 46.64
+  },
+  {
+    "region": "west",
+    "city": "carlsbad",
+    "order_count": 11,
+    "customer_count": 5,
+    "total_revenue": 419.35,
+    "avg_order_revenue": 38.12
+  },
+  {
+    "region": "east",
+    "city": "meriden",
+    "order_count": 10,
+    "customer_count": 5,
+    "total_revenue": 417.33,
+    "avg_order_revenue": 41.73
+  },
+  {
+    "region": "west",
+    "city": "olympia",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 416.53,
+    "avg_order_revenue": 104.13
+  },
+  {
+    "region": "east",
+    "city": "norwich",
+    "order_count": 4,
+    "customer_count": 4,
+    "total_revenue": 414.04,
+    "avg_order_revenue": 103.51
+  },
+  {
+    "region": "west",
+    "city": "covington",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 413.68,
+    "avg_order_revenue": 103.42
+  },
+  {
+    "region": "central",
+    "city": "odessa",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 412.69,
+    "avg_order_revenue": 103.17
+  },
+  {
+    "region": "central",
+    "city": "noblesville",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 412.24,
+    "avg_order_revenue": 137.41
+  },
+  {
+    "region": "east",
+    "city": "burlington",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 407.29,
+    "avg_order_revenue": 67.88
+  },
+  {
+    "region": "central",
+    "city": "south bend",
+    "order_count": 5,
+    "customer_count": 1,
+    "total_revenue": 407.13,
+    "avg_order_revenue": 81.43
+  },
+  {
+    "region": "south",
+    "city": "summerville",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 406.94,
+    "avg_order_revenue": 203.47
+  },
+  {
+    "region": "east",
+    "city": "gaithersburg",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 405.92,
+    "avg_order_revenue": 202.96
+  },
+  {
+    "region": "west",
+    "city": "boise",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 398.05,
+    "avg_order_revenue": 132.68
+  },
+  {
+    "region": "central",
+    "city": "saginaw",
+    "order_count": 6,
+    "customer_count": 2,
+    "total_revenue": 395.86,
+    "avg_order_revenue": 65.98
+  },
+  {
+    "region": "central",
+    "city": "lincoln park",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 387.6,
+    "avg_order_revenue": 129.2
+  },
+  {
+    "region": "central",
+    "city": "midland",
+    "order_count": 9,
+    "customer_count": 5,
+    "total_revenue": 379.19,
+    "avg_order_revenue": 42.13
+  },
+  {
+    "region": "west",
+    "city": "torrance",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 377.3,
+    "avg_order_revenue": 188.65
+  },
+  {
+    "region": "east",
+    "city": "east orange",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 377.27,
+    "avg_order_revenue": 75.45
+  },
+  {
+    "region": "west",
+    "city": "chula vista",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 375.74,
+    "avg_order_revenue": 187.87
+  },
+  {
+    "region": "west",
+    "city": "riverside",
+    "order_count": 12,
+    "customer_count": 9,
+    "total_revenue": 369.1,
+    "avg_order_revenue": 30.76
+  },
+  {
+    "region": "south",
+    "city": "wilson",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 368.73,
+    "avg_order_revenue": 61.46
+  },
+  {
+    "region": "central",
+    "city": "fremont",
+    "order_count": 7,
+    "customer_count": 6,
+    "total_revenue": 368.33,
+    "avg_order_revenue": 52.62
+  },
+  {
+    "region": "west",
+    "city": "la mesa",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 367.53,
+    "avg_order_revenue": 183.77
+  },
+  {
+    "region": "central",
+    "city": "normal",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 366.74,
+    "avg_order_revenue": 366.74
+  },
+  {
+    "region": "central",
+    "city": "lansing",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 366.23,
+    "avg_order_revenue": 61.04
+  },
+  {
+    "region": "south",
+    "city": "macon",
+    "order_count": 6,
+    "customer_count": 4,
+    "total_revenue": 364.01,
+    "avg_order_revenue": 60.67
+  },
+  {
+    "region": "central",
+    "city": "league city",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 363.01,
+    "avg_order_revenue": 72.6
+  },
+  {
+    "region": "central",
+    "city": "dearborn heights",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 361.75,
+    "avg_order_revenue": 72.35
+  },
+  {
+    "region": "central",
+    "city": "marion",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 358.36,
+    "avg_order_revenue": 59.73
+  },
+  {
+    "region": "west",
+    "city": "fort collins",
+    "order_count": 6,
+    "customer_count": 5,
+    "total_revenue": 356.12,
+    "avg_order_revenue": 59.35
+  },
+  {
+    "region": "central",
+    "city": "taylor",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 353.7,
+    "avg_order_revenue": 117.9
+  },
+  {
+    "region": "east",
+    "city": "reading",
+    "order_count": 4,
+    "customer_count": 4,
+    "total_revenue": 351.76,
+    "avg_order_revenue": 87.94
+  },
+  {
+    "region": "central",
+    "city": "tyler",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 347.2,
+    "avg_order_revenue": 69.44
+  },
+  {
+    "region": "east",
+    "city": "kent",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 346.31,
+    "avg_order_revenue": 69.26
+  },
+  {
+    "region": "central",
+    "city": "orland park",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 339.96,
+    "avg_order_revenue": 339.96
+  },
+  {
+    "region": "south",
+    "city": "murfreesboro",
+    "order_count": 11,
+    "customer_count": 4,
+    "total_revenue": 337.32,
+    "avg_order_revenue": 30.67
+  },
+  {
+    "region": "east",
+    "city": "clifton",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 336.82,
+    "avg_order_revenue": 168.41
+  },
+  {
+    "region": "west",
+    "city": "redding",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 333.58,
+    "avg_order_revenue": 333.58
+  },
+  {
+    "region": "central",
+    "city": "la crosse",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 330.46,
+    "avg_order_revenue": 82.62
+  },
+  {
+    "region": "central",
+    "city": "quincy",
+    "order_count": 9,
+    "customer_count": 6,
+    "total_revenue": 330.28,
+    "avg_order_revenue": 36.7
+  },
+  {
+    "region": "west",
+    "city": "meridian",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 329.05,
+    "avg_order_revenue": 82.26
+  },
+  {
+    "region": "east",
+    "city": "hamilton",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 328.23,
+    "avg_order_revenue": 82.06
+  },
+  {
+    "region": "west",
+    "city": "modesto",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 326.15,
+    "avg_order_revenue": 108.72
+  },
+  {
+    "region": "east",
+    "city": "milford",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 322.92,
+    "avg_order_revenue": 64.58
+  },
+  {
+    "region": "central",
+    "city": "oswego",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 321.98,
+    "avg_order_revenue": 107.33
+  },
+  {
+    "region": "east",
+    "city": "bethlehem",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 319.87,
+    "avg_order_revenue": 79.97
+  },
+  {
+    "region": "south",
+    "city": "hendersonville",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 319.53,
+    "avg_order_revenue": 63.91
+  },
+  {
+    "region": "west",
+    "city": "visalia",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 318.78,
+    "avg_order_revenue": 79.7
+  },
+  {
+    "region": "central",
+    "city": "wausau",
+    "order_count": 4,
+    "customer_count": 1,
+    "total_revenue": 317.48,
+    "avg_order_revenue": 79.37
+  },
+  {
+    "region": "south",
+    "city": "deltona",
+    "order_count": 4,
+    "customer_count": 4,
+    "total_revenue": 317.32,
+    "avg_order_revenue": 79.33
+  },
+  {
+    "region": "central",
+    "city": "canton",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 316.32,
+    "avg_order_revenue": 158.16
+  },
+  {
+    "region": "central",
+    "city": "evanston",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 313.83,
+    "avg_order_revenue": 104.61
+  },
+  {
+    "region": "central",
+    "city": "garden city",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 312.38,
+    "avg_order_revenue": 62.48
+  },
+  {
+    "region": "west",
+    "city": "west jordan",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 311.85,
+    "avg_order_revenue": 62.37
+  },
+  {
+    "region": "east",
+    "city": "holyoke",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 301.96,
+    "avg_order_revenue": 301.96
+  },
+  {
+    "region": "south",
+    "city": "conway",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 301.96,
+    "avg_order_revenue": 301.96
+  },
+  {
+    "region": "west",
+    "city": "san bernardino",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 295.97,
+    "avg_order_revenue": 37.0
+  },
+  {
+    "region": "central",
+    "city": "college station",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 291.04,
+    "avg_order_revenue": 97.01
+  },
+  {
+    "region": "west",
+    "city": "laguna niguel",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 290.98,
+    "avg_order_revenue": 72.75
+  },
+  {
+    "region": "central",
+    "city": "allen",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 290.21,
+    "avg_order_revenue": 72.55
+  },
+  {
+    "region": "south",
+    "city": "woodstock",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 286.65,
+    "avg_order_revenue": 143.33
+  },
+  {
+    "region": "central",
+    "city": "saint louis",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 285.96,
+    "avg_order_revenue": 57.19
+  },
+  {
+    "region": "south",
+    "city": "north charleston",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 284.25,
+    "avg_order_revenue": 142.13
+  },
+  {
+    "region": "west",
+    "city": "lake elsinore",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 283.92,
+    "avg_order_revenue": 283.92
+  },
+  {
+    "region": "west",
+    "city": "ontario",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 283.92,
+    "avg_order_revenue": 283.92
+  },
+  {
+    "region": "central",
+    "city": "muskogee",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 281.78,
+    "avg_order_revenue": 93.93
+  },
+  {
+    "region": "west",
+    "city": "logan",
+    "order_count": 5,
+    "customer_count": 1,
+    "total_revenue": 280.28,
+    "avg_order_revenue": 56.06
+  },
+  {
+    "region": "central",
+    "city": "dubuque",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 279.2,
+    "avg_order_revenue": 139.6
+  },
+  {
+    "region": "central",
+    "city": "cedar rapids",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 278.4,
+    "avg_order_revenue": 278.4
+  },
+  {
+    "region": "south",
+    "city": "palm coast",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 274.43,
+    "avg_order_revenue": 54.89
+  },
+  {
+    "region": "central",
+    "city": "manhattan",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 273.96,
+    "avg_order_revenue": 273.96
+  },
+  {
+    "region": "south",
+    "city": "daytona beach",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 272.33,
+    "avg_order_revenue": 68.08
+  },
+  {
+    "region": "central",
+    "city": "haltom city",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 269.33,
+    "avg_order_revenue": 67.33
+  },
+  {
+    "region": "central",
+    "city": "ann arbor",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 269.32,
+    "avg_order_revenue": 67.33
+  },
+  {
+    "region": "south",
+    "city": "east point",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 268.4,
+    "avg_order_revenue": 89.47
+  },
+  {
+    "region": "west",
+    "city": "parker",
+    "order_count": 7,
+    "customer_count": 2,
+    "total_revenue": 266.38,
+    "avg_order_revenue": 38.05
+  },
+  {
+    "region": "west",
+    "city": "woodland",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 264.66,
+    "avg_order_revenue": 88.22
+  },
+  {
+    "region": "south",
+    "city": "murray",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 264.62,
+    "avg_order_revenue": 132.31
+  },
+  {
+    "region": "west",
+    "city": "draper",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 263.65,
+    "avg_order_revenue": 87.88
+  },
+  {
+    "region": "central",
+    "city": "elmhurst",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 257.51,
+    "avg_order_revenue": 85.84
+  },
+  {
+    "region": "central",
+    "city": "west allis",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 250.48,
+    "avg_order_revenue": 125.24
+  },
+  {
+    "region": "south",
+    "city": "port saint lucie",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 248.95,
+    "avg_order_revenue": 82.98
+  },
+  {
+    "region": "south",
+    "city": "hot springs",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 245.83,
+    "avg_order_revenue": 61.46
+  },
+  {
+    "region": "south",
+    "city": "delray beach",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 242.53,
+    "avg_order_revenue": 80.84
+  },
+  {
+    "region": "central",
+    "city": "kirkwood",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 241.34,
+    "avg_order_revenue": 120.67
+  },
+  {
+    "region": "west",
+    "city": "yuma",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 240.89,
+    "avg_order_revenue": 80.3
+  },
+  {
+    "region": "central",
+    "city": "greenwood",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 240.15,
+    "avg_order_revenue": 80.05
+  },
+  {
+    "region": "west",
+    "city": "thousand oaks",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 238.8,
+    "avg_order_revenue": 47.76
+  },
+  {
+    "region": "east",
+    "city": "new bedford",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 235.97,
+    "avg_order_revenue": 47.19
+  },
+  {
+    "region": "west",
+    "city": "camarillo",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 235.21,
+    "avg_order_revenue": 78.4
+  },
+  {
+    "region": "west",
+    "city": "chandler",
+    "order_count": 6,
+    "customer_count": 6,
+    "total_revenue": 234.37,
+    "avg_order_revenue": 39.06
+  },
+  {
+    "region": "south",
+    "city": "apopka",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 233.01,
+    "avg_order_revenue": 38.84
+  },
+  {
+    "region": "west",
+    "city": "rancho cucamonga",
+    "order_count": 4,
+    "customer_count": 4,
+    "total_revenue": 231.85,
+    "avg_order_revenue": 57.96
+  },
+  {
+    "region": "west",
+    "city": "rio rancho",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 230.35,
+    "avg_order_revenue": 230.35
+  },
+  {
+    "region": "east",
+    "city": "malden",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 228.38,
+    "avg_order_revenue": 76.13
+  },
+  {
+    "region": "south",
+    "city": "franklin",
+    "order_count": 10,
+    "customer_count": 6,
+    "total_revenue": 228.16,
+    "avg_order_revenue": 22.82
+  },
+  {
+    "region": "central",
+    "city": "bedford",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 226.24,
+    "avg_order_revenue": 45.25
+  },
+  {
+    "region": "south",
+    "city": "sanford",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 225.54,
+    "avg_order_revenue": 112.77
+  },
+  {
+    "region": "west",
+    "city": "santa clara",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 222.19,
+    "avg_order_revenue": 37.03
+  },
+  {
+    "region": "central",
+    "city": "corpus christi",
+    "order_count": 8,
+    "customer_count": 3,
+    "total_revenue": 220.54,
+    "avg_order_revenue": 27.57
+  },
+  {
+    "region": "central",
+    "city": "bolingbrook",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 218.31,
+    "avg_order_revenue": 36.39
+  },
+  {
+    "region": "east",
+    "city": "washington",
+    "order_count": 8,
+    "customer_count": 4,
+    "total_revenue": 217.57,
+    "avg_order_revenue": 27.2
+  },
+  {
+    "region": "east",
+    "city": "leominster",
+    "order_count": 6,
+    "customer_count": 2,
+    "total_revenue": 217.49,
+    "avg_order_revenue": 36.25
+  },
+  {
+    "region": "central",
+    "city": "freeport",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 215.82,
+    "avg_order_revenue": 53.96
+  },
+  {
+    "region": "central",
+    "city": "fargo",
+    "order_count": 6,
+    "customer_count": 2,
+    "total_revenue": 215.15,
+    "avg_order_revenue": 35.86
+  },
+  {
+    "region": "central",
+    "city": "eagan",
+    "order_count": 8,
+    "customer_count": 3,
+    "total_revenue": 214.28,
+    "avg_order_revenue": 26.79
+  },
+  {
+    "region": "south",
+    "city": "pine bluff",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 212.91,
+    "avg_order_revenue": 106.46
+  },
+  {
+    "region": "south",
+    "city": "bowling green",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 211.81,
+    "avg_order_revenue": 105.91
+  },
+  {
+    "region": "east",
+    "city": "orange",
+    "order_count": 6,
+    "customer_count": 5,
+    "total_revenue": 211.11,
+    "avg_order_revenue": 35.19
+  },
+  {
+    "region": "central",
+    "city": "new albany",
+    "order_count": 4,
+    "customer_count": 1,
+    "total_revenue": 209.55,
+    "avg_order_revenue": 52.39
+  },
+  {
+    "region": "east",
+    "city": "marlborough",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 206.64,
+    "avg_order_revenue": 103.32
+  },
+  {
+    "region": "west",
+    "city": "avondale",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 204.47,
+    "avg_order_revenue": 40.89
+  },
+  {
+    "region": "west",
+    "city": "renton",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 202.64,
+    "avg_order_revenue": 101.32
+  },
+  {
+    "region": "west",
+    "city": "henderson",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 202.18,
+    "avg_order_revenue": 101.09
+  },
+  {
+    "region": "east",
+    "city": "niagara falls",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 199.84,
+    "avg_order_revenue": 66.61
+  },
+  {
+    "region": "south",
+    "city": "bossier city",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 197.86,
+    "avg_order_revenue": 49.47
+  },
+  {
+    "region": "east",
+    "city": "woonsocket",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 195.55,
+    "avg_order_revenue": 48.89
+  },
+  {
+    "region": "central",
+    "city": "saint paul",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 192.83,
+    "avg_order_revenue": 96.42
+  },
+  {
+    "region": "central",
+    "city": "richardson",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 190.92,
+    "avg_order_revenue": 190.92
+  },
+  {
+    "region": "east",
+    "city": "allentown",
+    "order_count": 6,
+    "customer_count": 2,
+    "total_revenue": 190.19,
+    "avg_order_revenue": 31.7
+  },
+  {
+    "region": "west",
+    "city": "eugene",
+    "order_count": 4,
+    "customer_count": 1,
+    "total_revenue": 185.49,
+    "avg_order_revenue": 46.37
+  },
+  {
+    "region": "east",
+    "city": "bayonne",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 183.4,
+    "avg_order_revenue": 61.13
+  },
+  {
+    "region": "south",
+    "city": "tuscaloosa",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 175.7,
+    "avg_order_revenue": 87.85
+  },
+  {
+    "region": "west",
+    "city": "farmington",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 172.87,
+    "avg_order_revenue": 86.44
+  },
+  {
+    "region": "west",
+    "city": "vallejo",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 172.21,
+    "avg_order_revenue": 34.44
+  },
+  {
+    "region": "central",
+    "city": "elkhart",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 171.43,
+    "avg_order_revenue": 85.72
+  },
+  {
+    "region": "west",
+    "city": "lake forest",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 167.46,
+    "avg_order_revenue": 41.87
+  },
+  {
+    "region": "south",
+    "city": "gulfport",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 166.5,
+    "avg_order_revenue": 55.5
+  },
+  {
+    "region": "west",
+    "city": "sparks",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 165.56,
+    "avg_order_revenue": 82.78
+  },
+  {
+    "region": "central",
+    "city": "gladstone",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 164.34,
+    "avg_order_revenue": 82.17
+  },
+  {
+    "region": "west",
+    "city": "coachella",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 163.55,
+    "avg_order_revenue": 81.78
+  },
+  {
+    "region": "east",
+    "city": "jamestown",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 159.98,
+    "avg_order_revenue": 159.98
+  },
+  {
+    "region": "central",
+    "city": "glenview",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 158.38,
+    "avg_order_revenue": 158.38
+  },
+  {
+    "region": "west",
+    "city": "apple valley",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 157.0,
+    "avg_order_revenue": 31.4
+  },
+  {
+    "region": "central",
+    "city": "rapid city",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 152.64,
+    "avg_order_revenue": 76.32
+  },
+  {
+    "region": "east",
+    "city": "laurel",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 152.59,
+    "avg_order_revenue": 76.3
+  },
+  {
+    "region": "central",
+    "city": "champaign",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 151.96,
+    "avg_order_revenue": 151.96
+  },
+  {
+    "region": "south",
+    "city": "thomasville",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 151.29,
+    "avg_order_revenue": 50.43
+  },
+  {
+    "region": "central",
+    "city": "urbandale",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 149.12,
+    "avg_order_revenue": 49.71
+  },
+  {
+    "region": "central",
+    "city": "pharr",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 147.01,
+    "avg_order_revenue": 73.51
+  },
+  {
+    "region": "central",
+    "city": "maple grove",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 146.89,
+    "avg_order_revenue": 48.96
+  },
+  {
+    "region": "west",
+    "city": "commerce city",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 146.35,
+    "avg_order_revenue": 146.35
+  },
+  {
+    "region": "west",
+    "city": "murray",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 146.32,
+    "avg_order_revenue": 48.77
+  },
+  {
+    "region": "west",
+    "city": "pico rivera",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 145.9,
+    "avg_order_revenue": 145.9
+  },
+  {
+    "region": "central",
+    "city": "cottage grove",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 144.36,
+    "avg_order_revenue": 72.18
+  },
+  {
+    "region": "west",
+    "city": "fairfield",
+    "order_count": 7,
+    "customer_count": 2,
+    "total_revenue": 142.38,
+    "avg_order_revenue": 20.34
+  },
+  {
+    "region": "central",
+    "city": "the colony",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 142.16,
+    "avg_order_revenue": 47.39
+  },
+  {
+    "region": "east",
+    "city": "beverly",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 141.76,
+    "avg_order_revenue": 141.76
+  },
+  {
+    "region": "south",
+    "city": "west palm beach",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 141.32,
+    "avg_order_revenue": 47.11
+  },
+  {
+    "region": "central",
+    "city": "apple valley",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 137.94,
+    "avg_order_revenue": 68.97
+  },
+  {
+    "region": "central",
+    "city": "holland",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 137.86,
+    "avg_order_revenue": 45.95
+  },
+  {
+    "region": "west",
+    "city": "pueblo",
+    "order_count": 6,
+    "customer_count": 3,
+    "total_revenue": 137.5,
+    "avg_order_revenue": 22.92
+  },
+  {
+    "region": "west",
+    "city": "lodi",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 136.98,
+    "avg_order_revenue": 68.49
+  },
+  {
+    "region": "central",
+    "city": "coppell",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 135.93,
+    "avg_order_revenue": 33.98
+  },
+  {
+    "region": "central",
+    "city": "wheeling",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 135.68,
+    "avg_order_revenue": 67.84
+  },
+  {
+    "region": "south",
+    "city": "homestead",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 132.54,
+    "avg_order_revenue": 44.18
+  },
+  {
+    "region": "central",
+    "city": "rochester hills",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 132.52,
+    "avg_order_revenue": 132.52
+  },
+  {
+    "region": "west",
+    "city": "broomfield",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 130.63,
+    "avg_order_revenue": 32.66
+  },
+  {
+    "region": "west",
+    "city": "citrus heights",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 129.39,
+    "avg_order_revenue": 129.39
+  },
+  {
+    "region": "central",
+    "city": "mishawaka",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 128.4,
+    "avg_order_revenue": 128.4
+  },
+  {
+    "region": "west",
+    "city": "huntington beach",
+    "order_count": 5,
+    "customer_count": 4,
+    "total_revenue": 127.86,
+    "avg_order_revenue": 25.57
+  },
+  {
+    "region": "west",
+    "city": "englewood",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 124.06,
+    "avg_order_revenue": 62.03
+  },
+  {
+    "region": "east",
+    "city": "grove city",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 123.59,
+    "avg_order_revenue": 61.8
+  },
+  {
+    "region": "central",
+    "city": "cedar hill",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 122.38,
+    "avg_order_revenue": 61.19
+  },
+  {
+    "region": "west",
+    "city": "longview",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 119.21,
+    "avg_order_revenue": 39.74
+  },
+  {
+    "region": "central",
+    "city": "palatine",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 116.31,
+    "avg_order_revenue": 116.31
+  },
+  {
+    "region": "west",
+    "city": "santa maria",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 115.44,
+    "avg_order_revenue": 115.44
+  },
+  {
+    "region": "east",
+    "city": "linden",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 115.36,
+    "avg_order_revenue": 115.36
+  },
+  {
+    "region": "central",
+    "city": "conroe",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 111.67,
+    "avg_order_revenue": 111.67
+  },
+  {
+    "region": "west",
+    "city": "clovis",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 111.42,
+    "avg_order_revenue": 55.71
+  },
+  {
+    "region": "south",
+    "city": "asheville",
+    "order_count": 6,
+    "customer_count": 5,
+    "total_revenue": 111.41,
+    "avg_order_revenue": 18.57
+  },
+  {
+    "region": "west",
+    "city": "burbank",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 111.0,
+    "avg_order_revenue": 111.0
+  },
+  {
+    "region": "central",
+    "city": "sterling heights",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 110.04,
+    "avg_order_revenue": 36.68
+  },
+  {
+    "region": "central",
+    "city": "san marcos",
+    "order_count": 4,
+    "customer_count": 1,
+    "total_revenue": 108.44,
+    "avg_order_revenue": 27.11
+  },
+  {
+    "region": "east",
+    "city": "lewiston",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 106.08,
+    "avg_order_revenue": 35.36
+  },
+  {
+    "region": "west",
+    "city": "bellevue",
+    "order_count": 6,
+    "customer_count": 5,
+    "total_revenue": 103.63,
+    "avg_order_revenue": 17.27
+  },
+  {
+    "region": "south",
+    "city": "charlottesville",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 102.61,
+    "avg_order_revenue": 51.31
+  },
+  {
+    "region": "west",
+    "city": "marysville",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 102.18,
+    "avg_order_revenue": 51.09
+  },
+  {
+    "region": "west",
+    "city": "santa fe",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 100.92,
+    "avg_order_revenue": 50.46
+  },
+  {
+    "region": "west",
+    "city": "las cruces",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 98.77,
+    "avg_order_revenue": 32.92
+  },
+  {
+    "region": "central",
+    "city": "frankfort",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 97.63,
+    "avg_order_revenue": 48.82
+  },
+  {
+    "region": "south",
+    "city": "melbourne",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 95.62,
+    "avg_order_revenue": 95.62
+  },
+  {
+    "region": "west",
+    "city": "escondido",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 94.55,
+    "avg_order_revenue": 31.52
+  },
+  {
+    "region": "east",
+    "city": "mason",
+    "order_count": 3,
+    "customer_count": 1,
+    "total_revenue": 94.26,
+    "avg_order_revenue": 31.42
+  },
+  {
+    "region": "south",
+    "city": "pompano beach",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 90.44,
+    "avg_order_revenue": 30.15
+  },
+  {
+    "region": "west",
+    "city": "medford",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 90.22,
+    "avg_order_revenue": 22.56
+  },
+  {
+    "region": "west",
+    "city": "san clemente",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 90.06,
+    "avg_order_revenue": 45.03
+  },
+  {
+    "region": "south",
+    "city": "kenner",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 89.32,
+    "avg_order_revenue": 44.66
+  },
+  {
+    "region": "south",
+    "city": "bartlett",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 88.96,
+    "avg_order_revenue": 88.96
+  },
+  {
+    "region": "central",
+    "city": "edinburg",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 88.28,
+    "avg_order_revenue": 29.43
+  },
+  {
+    "region": "central",
+    "city": "bryan",
+    "order_count": 5,
+    "customer_count": 2,
+    "total_revenue": 88.23,
+    "avg_order_revenue": 17.65
+  },
+  {
+    "region": "west",
+    "city": "hillsboro",
+    "order_count": 4,
+    "customer_count": 2,
+    "total_revenue": 87.84,
+    "avg_order_revenue": 21.96
+  },
+  {
+    "region": "central",
+    "city": "jefferson city",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 86.62,
+    "avg_order_revenue": 86.62
+  },
+  {
+    "region": "central",
+    "city": "new castle",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 84.61,
+    "avg_order_revenue": 42.31
+  },
+  {
+    "region": "central",
+    "city": "sheboygan",
+    "order_count": 4,
+    "customer_count": 1,
+    "total_revenue": 79.74,
+    "avg_order_revenue": 19.94
+  },
+  {
+    "region": "west",
+    "city": "sierra vista",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 76.07,
+    "avg_order_revenue": 25.36
+  },
+  {
+    "region": "west",
+    "city": "san mateo",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 75.18,
+    "avg_order_revenue": 75.18
+  },
+  {
+    "region": "east",
+    "city": "shelton",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 73.33,
+    "avg_order_revenue": 36.67
+  },
+  {
+    "region": "west",
+    "city": "littleton",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 72.29,
+    "avg_order_revenue": 72.29
+  },
+  {
+    "region": "central",
+    "city": "woodbury",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 72.24,
+    "avg_order_revenue": 36.12
+  },
+  {
+    "region": "central",
+    "city": "saint cloud",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 72.0,
+    "avg_order_revenue": 72.0
+  },
+  {
+    "region": "south",
+    "city": "owensboro",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 71.18,
+    "avg_order_revenue": 35.59
+  },
+  {
+    "region": "central",
+    "city": "garland",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 67.7,
+    "avg_order_revenue": 16.93
+  },
+  {
+    "region": "south",
+    "city": "coral gables",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 64.25,
+    "avg_order_revenue": 32.13
+  },
+  {
+    "region": "central",
+    "city": "norman",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 63.88,
+    "avg_order_revenue": 63.88
+  },
+  {
+    "region": "south",
+    "city": "boca raton",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 63.01,
+    "avg_order_revenue": 21.0
+  },
+  {
+    "region": "central",
+    "city": "frisco",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 57.51,
+    "avg_order_revenue": 28.76
+  },
+  {
+    "region": "central",
+    "city": "burlington",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 57.43,
+    "avg_order_revenue": 19.14
+  },
+  {
+    "region": "east",
+    "city": "lindenhurst",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 55.48,
+    "avg_order_revenue": 55.48
+  },
+  {
+    "region": "central",
+    "city": "waukesha",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 54.5,
+    "avg_order_revenue": 54.5
+  },
+  {
+    "region": "east",
+    "city": "bridgeton",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 52.41,
+    "avg_order_revenue": 26.21
+  },
+  {
+    "region": "central",
+    "city": "mesquite",
+    "order_count": 5,
+    "customer_count": 3,
+    "total_revenue": 52.15,
+    "avg_order_revenue": 10.43
+  },
+  {
+    "region": "west",
+    "city": "yucaipa",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 50.8,
+    "avg_order_revenue": 50.8
+  },
+  {
+    "region": "south",
+    "city": "texarkana",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 48.9,
+    "avg_order_revenue": 48.9
+  },
+  {
+    "region": "west",
+    "city": "la quinta",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 46.32,
+    "avg_order_revenue": 46.32
+  },
+  {
+    "region": "east",
+    "city": "hagerstown",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 43.8,
+    "avg_order_revenue": 43.8
+  },
+  {
+    "region": "west",
+    "city": "bozeman",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 43.66,
+    "avg_order_revenue": 21.83
+  },
+  {
+    "region": "central",
+    "city": "danville",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 43.37,
+    "avg_order_revenue": 43.37
+  },
+  {
+    "region": "west",
+    "city": "redwood city",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 41.9,
+    "avg_order_revenue": 41.9
+  },
+  {
+    "region": "central",
+    "city": "grapevine",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 41.53,
+    "avg_order_revenue": 20.77
+  },
+  {
+    "region": "central",
+    "city": "mansfield",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 41.47,
+    "avg_order_revenue": 41.47
+  },
+  {
+    "region": "south",
+    "city": "hickory",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 40.76,
+    "avg_order_revenue": 20.38
+  },
+  {
+    "region": "south",
+    "city": "rogers",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 40.41,
+    "avg_order_revenue": 40.41
+  },
+  {
+    "region": "east",
+    "city": "nashua",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 35.94,
+    "avg_order_revenue": 17.97
+  },
+  {
+    "region": "central",
+    "city": "royal oak",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 35.34,
+    "avg_order_revenue": 17.67
+  },
+  {
+    "region": "south",
+    "city": "goldsboro",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 34.94,
+    "avg_order_revenue": 34.94
+  },
+  {
+    "region": "west",
+    "city": "davis",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 32.4,
+    "avg_order_revenue": 32.4
+  },
+  {
+    "region": "west",
+    "city": "greeley",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 30.35,
+    "avg_order_revenue": 15.18
+  },
+  {
+    "region": "central",
+    "city": "waterloo",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 30.32,
+    "avg_order_revenue": 30.32
+  },
+  {
+    "region": "east",
+    "city": "cuyahoga falls",
+    "order_count": 3,
+    "customer_count": 3,
+    "total_revenue": 29.09,
+    "avg_order_revenue": 9.7
+  },
+  {
+    "region": "west",
+    "city": "montebello",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 27.88,
+    "avg_order_revenue": 27.88
+  },
+  {
+    "region": "east",
+    "city": "danbury",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 27.46,
+    "avg_order_revenue": 27.46
+  },
+  {
+    "region": "central",
+    "city": "aberdeen",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 25.5,
+    "avg_order_revenue": 25.5
+  },
+  {
+    "region": "west",
+    "city": "bellingham",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 25.12,
+    "avg_order_revenue": 25.12
+  },
+  {
+    "region": "central",
+    "city": "broken arrow",
+    "order_count": 3,
+    "customer_count": 2,
+    "total_revenue": 24.74,
+    "avg_order_revenue": 8.25
+  },
+  {
+    "region": "east",
+    "city": "atlantic city",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 23.36,
+    "avg_order_revenue": 23.36
+  },
+  {
+    "region": "west",
+    "city": "bullhead city",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 22.29,
+    "avg_order_revenue": 11.15
+  },
+  {
+    "region": "central",
+    "city": "tinley park",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 22.29,
+    "avg_order_revenue": 22.29
+  },
+  {
+    "region": "south",
+    "city": "north miami",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 22.13,
+    "avg_order_revenue": 11.07
+  },
+  {
+    "region": "west",
+    "city": "dublin",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 22.0,
+    "avg_order_revenue": 22.0
+  },
+  {
+    "region": "central",
+    "city": "appleton",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 21.56,
+    "avg_order_revenue": 21.56
+  },
+  {
+    "region": "west",
+    "city": "loveland",
+    "order_count": 4,
+    "customer_count": 3,
+    "total_revenue": 20.96,
+    "avg_order_revenue": 5.24
+  },
+  {
+    "region": "east",
+    "city": "altoona",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 20.45,
+    "avg_order_revenue": 10.23
+  },
+  {
+    "region": "west",
+    "city": "twin falls",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 20.42,
+    "avg_order_revenue": 20.42
+  },
+  {
+    "region": "west",
+    "city": "antioch",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 19.44,
+    "avg_order_revenue": 19.44
+  },
+  {
+    "region": "central",
+    "city": "norfolk",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 17.43,
+    "avg_order_revenue": 17.43
+  },
+  {
+    "region": "central",
+    "city": "mount pleasant",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 17.14,
+    "avg_order_revenue": 17.14
+  },
+  {
+    "region": "west",
+    "city": "lehi",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 16.78,
+    "avg_order_revenue": 16.78
+  },
+  {
+    "region": "central",
+    "city": "portage",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 16.28,
+    "avg_order_revenue": 16.28
+  },
+  {
+    "region": "central",
+    "city": "grand island",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 15.96,
+    "avg_order_revenue": 15.96
+  },
+  {
+    "region": "south",
+    "city": "margate",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 15.55,
+    "avg_order_revenue": 15.55
+  },
+  {
+    "region": "east",
+    "city": "new brunswick",
+    "order_count": 2,
+    "customer_count": 1,
+    "total_revenue": 14.77,
+    "avg_order_revenue": 7.39
+  },
+  {
+    "region": "central",
+    "city": "edmond",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 14.62,
+    "avg_order_revenue": 14.62
+  },
+  {
+    "region": "central",
+    "city": "arlington heights",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 14.11,
+    "avg_order_revenue": 14.11
+  },
+  {
+    "region": "south",
+    "city": "chapel hill",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 14.02,
+    "avg_order_revenue": 14.02
+  },
+  {
+    "region": "south",
+    "city": "rock hill",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 11.85,
+    "avg_order_revenue": 11.85
+  },
+  {
+    "region": "central",
+    "city": "woodstock",
+    "order_count": 2,
+    "customer_count": 2,
+    "total_revenue": 11.76,
+    "avg_order_revenue": 5.88
+  },
+  {
+    "region": "central",
+    "city": "baytown",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 10.37,
+    "avg_order_revenue": 10.37
+  },
+  {
+    "region": "central",
+    "city": "iowa city",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 9.99,
+    "avg_order_revenue": 9.99
+  },
+  {
+    "region": "west",
+    "city": "lewiston",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 9.58,
+    "avg_order_revenue": 9.58
+  },
+  {
+    "region": "central",
+    "city": "romeoville",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 8.95,
+    "avg_order_revenue": 8.95
+  },
+  {
+    "region": "west",
+    "city": "billings",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 8.29,
+    "avg_order_revenue": 8.29
+  },
+  {
+    "region": "south",
+    "city": "port orange",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 7.82,
+    "avg_order_revenue": 7.82
+  },
+  {
+    "region": "central",
+    "city": "deer park",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 6.92,
+    "avg_order_revenue": 6.92
+  },
+  {
+    "region": "central",
+    "city": "missouri city",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 6.37,
+    "avg_order_revenue": 6.37
+  },
+  {
+    "region": "central",
+    "city": "keller",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 6.0,
+    "avg_order_revenue": 6.0
+  },
+  {
+    "region": "west",
+    "city": "layton",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 4.96,
+    "avg_order_revenue": 4.96
+  },
+  {
+    "region": "south",
+    "city": "springdale",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 4.3,
+    "avg_order_revenue": 4.3
+  },
+  {
+    "region": "west",
+    "city": "auburn",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 4.18,
+    "avg_order_revenue": 4.18
+  },
+  {
+    "region": "west",
+    "city": "everett",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 3.86,
+    "avg_order_revenue": 3.86
+  },
+  {
+    "region": "west",
+    "city": "san luis obispo",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 3.62,
+    "avg_order_revenue": 3.62
+  },
+  {
+    "region": "south",
+    "city": "ormond beach",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 2.81,
+    "avg_order_revenue": 2.81
+  },
+  {
+    "region": "south",
+    "city": "pensacola",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 2.21,
+    "avg_order_revenue": 2.21
+  },
+  {
+    "region": "south",
+    "city": "jupiter",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 2.06,
+    "avg_order_revenue": 2.06
+  },
+  {
+    "region": "east",
+    "city": "elyria",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 1.82,
+    "avg_order_revenue": 1.82
+  },
+  {
+    "region": "central",
+    "city": "abilene",
+    "order_count": 1,
+    "customer_count": 1,
+    "total_revenue": 1.39,
+    "avg_order_revenue": 1.39
+  }
+]

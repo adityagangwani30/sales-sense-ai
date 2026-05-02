@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import re
 from pathlib import Path
 from typing import Dict, Mapping, Sequence
@@ -463,5 +464,12 @@ def main(
     return results
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run the SalesSense AI data pipeline.")
+    parser.add_argument("--dataset", default=None, help="dataset_1, dataset_2, or all")
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
-    main()
+    args = parse_args()
+    main(dataset_choice=args.dataset)

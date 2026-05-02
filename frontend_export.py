@@ -17,17 +17,17 @@ FRONTEND_VISUALIZATION_DIR = FRONTEND_PUBLIC_DIR / "visualizations"
 
 DATASET_CONFIGS = [
     {
-        "id": "global_ecommerce_sales",
+        "id": "dataset_1",
         "label": "Global E-Commerce Sales",
         "description": "E-Commerce sales analytics with global customer and product data",
-        "source_path": OUTPUTS_DIR / "global_ecommerce_sales" / "global_ecommerce_sales_cleaned.csv",
+        "source_path": OUTPUTS_DIR / "dataset_1" / "dataset_1_cleaned.csv",
         "ml_id": "dataset_1",
     },
     {
-        "id": "retail_supply_chain_sales",
+        "id": "dataset_2",
         "label": "Retail Supply Chain Sales",
         "description": "Retail supply chain performance and sales metrics",
-        "source_path": OUTPUTS_DIR / "retail_supply_chain_sales" / "retail_supply_chain_sales_cleaned.csv",
+        "source_path": OUTPUTS_DIR / "dataset_2" / "dataset_2_cleaned.csv",
         "ml_id": "dataset_2",
     },
 ]
@@ -43,6 +43,11 @@ ML_ARTIFACTS_TO_COPY = [
     "cross_validation.json",
     "metrics_detailed.json",
 ]
+
+ROOT_ML_ARTIFACTS = {
+    "business_insights.txt",
+    "model_metrics.json",
+}
 
 VISUALIZATION_TITLES = {
     "monthly_revenue_trend.png": "Monthly Revenue Trend",
@@ -137,8 +142,10 @@ def copy_ml_artifacts(dataset_id: str, ml_dataset_id: str) -> None:
         print(f"  ⚠ No ML artifacts found for {dataset_id} (looking in {ml_output_dir})")
         return
 
-    target_dir = FRONTEND_DATA_DIR / dataset_id / "ml"
+    target_dir = FRONTEND_DATA_DIR / "ml" / ml_dataset_id
     target_dir.mkdir(parents=True, exist_ok=True)
+    root_dataset_dir = FRONTEND_DATA_DIR / dataset_id
+    root_dataset_dir.mkdir(parents=True, exist_ok=True)
 
     copied_count = 0
     for artifact_name in ML_ARTIFACTS_TO_COPY:
@@ -147,6 +154,9 @@ def copy_ml_artifacts(dataset_id: str, ml_dataset_id: str) -> None:
             target_path = target_dir / artifact_name
             shutil.copy2(source_path, target_path)
             copied_count += 1
+
+            if artifact_name in ROOT_ML_ARTIFACTS:
+                shutil.copy2(source_path, root_dataset_dir / artifact_name)
 
     if copied_count > 0:
         print(f"  ✓ Copied {copied_count} ML artifacts for {dataset_id}")

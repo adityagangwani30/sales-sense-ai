@@ -1,116 +1,116 @@
 {
-  "defaultDatasetId": "global_ecommerce_sales",
+  "defaultDatasetId": "dataset_1",
   "datasets": [
     {
-      "id": "global_ecommerce_sales",
+      "id": "dataset_1",
       "label": "Global E-Commerce Sales",
       "description": "E-Commerce sales analytics with global customer and product data",
-      "dataPath": "/data/datasets/global_ecommerce_sales.json"
+      "dataPath": "/data/datasets/dataset_1.json"
     },
     {
-      "id": "retail_supply_chain_sales",
+      "id": "dataset_2",
       "label": "Retail Supply Chain Sales",
       "description": "Retail supply chain performance and sales metrics",
-      "dataPath": "/data/datasets/retail_supply_chain_sales.json"
+      "dataPath": "/data/datasets/dataset_2.json"
     }
   ],
   "sqlAnalysis": {
-    "global_ecommerce_sales": {
-      "category_performance": "/data/sql-analysis/global_ecommerce_sales/category_performance.json",
-      "customer_lifetime_value": "/data/sql-analysis/global_ecommerce_sales/customer_lifetime_value.json",
-      "customer_segmentation": "/data/sql-analysis/global_ecommerce_sales/customer_segmentation.json",
-      "inactive_customers": "/data/sql-analysis/global_ecommerce_sales/inactive_customers.json",
-      "monthly_revenue_trend": "/data/sql-analysis/global_ecommerce_sales/monthly_revenue_trend.json",
-      "overall_metrics": "/data/sql-analysis/global_ecommerce_sales/overall_metrics.json",
-      "product_ranking": "/data/sql-analysis/global_ecommerce_sales/product_ranking.json",
-      "regional_performance": "/data/sql-analysis/global_ecommerce_sales/regional_performance.json",
-      "repeat_purchase_rate": "/data/sql-analysis/global_ecommerce_sales/repeat_purchase_rate.json",
-      "revenue_growth": "/data/sql-analysis/global_ecommerce_sales/revenue_growth.json",
-      "top_products": "/data/sql-analysis/global_ecommerce_sales/top_products.json"
+    "dataset_1": {
+      "category_performance": "/data/sql-analysis/dataset_1/category_performance.json",
+      "customer_lifetime_value": "/data/sql-analysis/dataset_1/customer_lifetime_value.json",
+      "customer_segmentation": "/data/sql-analysis/dataset_1/customer_segmentation.json",
+      "inactive_customers": "/data/sql-analysis/dataset_1/inactive_customers.json",
+      "monthly_revenue_trend": "/data/sql-analysis/dataset_1/monthly_revenue_trend.json",
+      "overall_metrics": "/data/sql-analysis/dataset_1/overall_metrics.json",
+      "product_ranking": "/data/sql-analysis/dataset_1/product_ranking.json",
+      "regional_performance": "/data/sql-analysis/dataset_1/regional_performance.json",
+      "repeat_purchase_rate": "/data/sql-analysis/dataset_1/repeat_purchase_rate.json",
+      "revenue_growth": "/data/sql-analysis/dataset_1/revenue_growth.json",
+      "top_products": "/data/sql-analysis/dataset_1/top_products.json"
     },
-    "retail_supply_chain_sales": {
-      "category_performance": "/data/sql-analysis/retail_supply_chain_sales/category_performance.json",
-      "customer_lifetime_value": "/data/sql-analysis/retail_supply_chain_sales/customer_lifetime_value.json",
-      "customer_segmentation": "/data/sql-analysis/retail_supply_chain_sales/customer_segmentation.json",
-      "inactive_customers": "/data/sql-analysis/retail_supply_chain_sales/inactive_customers.json",
-      "monthly_revenue_trend": "/data/sql-analysis/retail_supply_chain_sales/monthly_revenue_trend.json",
-      "overall_metrics": "/data/sql-analysis/retail_supply_chain_sales/overall_metrics.json",
-      "product_ranking": "/data/sql-analysis/retail_supply_chain_sales/product_ranking.json",
-      "regional_performance": "/data/sql-analysis/retail_supply_chain_sales/regional_performance.json",
-      "repeat_purchase_rate": "/data/sql-analysis/retail_supply_chain_sales/repeat_purchase_rate.json",
-      "revenue_growth": "/data/sql-analysis/retail_supply_chain_sales/revenue_growth.json",
-      "top_products": "/data/sql-analysis/retail_supply_chain_sales/top_products.json"
+    "dataset_2": {
+      "category_performance": "/data/sql-analysis/dataset_2/category_performance.json",
+      "customer_lifetime_value": "/data/sql-analysis/dataset_2/customer_lifetime_value.json",
+      "customer_segmentation": "/data/sql-analysis/dataset_2/customer_segmentation.json",
+      "inactive_customers": "/data/sql-analysis/dataset_2/inactive_customers.json",
+      "monthly_revenue_trend": "/data/sql-analysis/dataset_2/monthly_revenue_trend.json",
+      "overall_metrics": "/data/sql-analysis/dataset_2/overall_metrics.json",
+      "product_ranking": "/data/sql-analysis/dataset_2/product_ranking.json",
+      "regional_performance": "/data/sql-analysis/dataset_2/regional_performance.json",
+      "repeat_purchase_rate": "/data/sql-analysis/dataset_2/repeat_purchase_rate.json",
+      "revenue_growth": "/data/sql-analysis/dataset_2/revenue_growth.json",
+      "top_products": "/data/sql-analysis/dataset_2/top_products.json"
     }
   },
   "visualizations": [
     {
       "title": "Category Revenue Distribution",
-      "src": "/visualizations/global_ecommerce_sales/category_distribution.png",
+      "src": "/visualizations/dataset_1/category_distribution.png",
       "filename": "category_distribution.png"
     },
     {
       "title": "Customer Segmentation Overview",
-      "src": "/visualizations/global_ecommerce_sales/customer_segmentation.png",
+      "src": "/visualizations/dataset_1/customer_segmentation.png",
       "filename": "customer_segmentation.png"
     },
     {
       "title": "Monthly Revenue Trend",
-      "src": "/visualizations/global_ecommerce_sales/monthly_revenue_trend.png",
+      "src": "/visualizations/dataset_1/monthly_revenue_trend.png",
       "filename": "monthly_revenue_trend.png"
     },
     {
       "title": "Order Value Distribution",
-      "src": "/visualizations/global_ecommerce_sales/order_value_distribution.png",
+      "src": "/visualizations/dataset_1/order_value_distribution.png",
       "filename": "order_value_distribution.png"
     },
     {
       "title": "Price vs Sales Correlation",
-      "src": "/visualizations/global_ecommerce_sales/price_vs_sales_scatter.png",
+      "src": "/visualizations/dataset_1/price_vs_sales_scatter.png",
       "filename": "price_vs_sales_scatter.png"
     },
     {
       "title": "Executive Analytics Dashboard",
-      "src": "/visualizations/global_ecommerce_sales/sales_dashboard.png",
+      "src": "/visualizations/dataset_1/sales_dashboard.png",
       "filename": "sales_dashboard.png"
     },
     {
       "title": "Top Products Performance",
-      "src": "/visualizations/global_ecommerce_sales/top_products.png",
+      "src": "/visualizations/dataset_1/top_products.png",
       "filename": "top_products.png"
     },
     {
       "title": "Category Revenue Distribution",
-      "src": "/visualizations/retail_supply_chain_sales/category_distribution.png",
+      "src": "/visualizations/dataset_2/category_distribution.png",
       "filename": "category_distribution.png"
     },
     {
       "title": "Customer Segmentation Overview",
-      "src": "/visualizations/retail_supply_chain_sales/customer_segmentation.png",
+      "src": "/visualizations/dataset_2/customer_segmentation.png",
       "filename": "customer_segmentation.png"
     },
     {
       "title": "Monthly Revenue Trend",
-      "src": "/visualizations/retail_supply_chain_sales/monthly_revenue_trend.png",
+      "src": "/visualizations/dataset_2/monthly_revenue_trend.png",
       "filename": "monthly_revenue_trend.png"
     },
     {
       "title": "Order Value Distribution",
-      "src": "/visualizations/retail_supply_chain_sales/order_value_distribution.png",
+      "src": "/visualizations/dataset_2/order_value_distribution.png",
       "filename": "order_value_distribution.png"
     },
     {
       "title": "Price vs Sales Correlation",
-      "src": "/visualizations/retail_supply_chain_sales/price_vs_sales_scatter.png",
+      "src": "/visualizations/dataset_2/price_vs_sales_scatter.png",
       "filename": "price_vs_sales_scatter.png"
     },
     {
       "title": "Executive Analytics Dashboard",
-      "src": "/visualizations/retail_supply_chain_sales/sales_dashboard.png",
+      "src": "/visualizations/dataset_2/sales_dashboard.png",
       "filename": "sales_dashboard.png"
     },
     {
       "title": "Top Products Performance",
-      "src": "/visualizations/retail_supply_chain_sales/top_products.png",
+      "src": "/visualizations/dataset_2/top_products.png",
       "filename": "top_products.png"
     }
   ]

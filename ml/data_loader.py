@@ -23,8 +23,8 @@ DATASET_ALIASES: Final[dict[str, str]] = {
 }
 
 SOURCE_DATASET_IDS: Final[dict[str, str]] = {
-    "dataset_1": "global_ecommerce_sales",
-    "dataset_2": "retail_supply_chain_sales",
+    "dataset_1": "dataset_1",
+    "dataset_2": "dataset_2",
 }
 
 MYSQL_FEATURE_QUERY: Final[str] = """
@@ -58,8 +58,7 @@ def resolve_dataset_id(dataset_choice: str) -> str:
 
 def get_cleaned_dataset_path(dataset_id: str) -> Path:
     """Return the dataset-specific cleaned CSV path."""
-    source_dataset_id = SOURCE_DATASET_IDS[dataset_id]
-    return OUTPUTS_DIR / source_dataset_id / f"{source_dataset_id}_cleaned.csv"
+    return OUTPUTS_DIR / dataset_id / f"{dataset_id}_cleaned.csv"
 
 
 def _load_dataset_from_mysql(dataset_id: str) -> pd.DataFrame | None:

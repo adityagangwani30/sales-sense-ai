@@ -1,0 +1,82 @@
+[
+  {
+    "product_id": 904,
+    "product_name": "ki adjustable-height table",
+    "category": "furniture",
+    "order_count": 17,
+    "total_revenue": 4036.74,
+    "avg_order_revenue": 237.46
+  },
+  {
+    "product_id": 736,
+    "product_name": "global wood trimmed manager's task chair, khaki",
+    "category": "furniture",
+    "order_count": 13,
+    "total_revenue": 3621.01,
+    "avg_order_revenue": 278.54
+  },
+  {
+    "product_id": 1371,
+    "product_name": "situations contoured folding chairs, 4/set",
+    "category": "furniture",
+    "order_count": 14,
+    "total_revenue": 2959.85,
+    "avg_order_revenue": 211.42
+  },
+  {
+    "product_id": 719,
+    "product_name": "global high-back leather tilter, burgundy",
+    "category": "furniture",
+    "order_count": 11,
+    "total_revenue": 2841.06,
+    "avg_order_revenue": 258.28
+  },
+  {
+    "product_id": 1109,
+    "product_name": "nortel meridian m3904 professional digital phone",
+    "category": "technology",
+    "order_count": 8,
+    "total_revenue": 2802.62,
+    "avg_order_revenue": 350.33
+  },
+  {
+    "product_id": 839,
+    "product_name": "ibico hi-tech manual binding system",
+    "category": "office supplies",
+    "order_count": 8,
+    "total_revenue": 2653.39,
+    "avg_order_revenue": 331.67
+  },
+  {
+    "product_id": 619,
+    "product_name": "fellowes officeware wire shelving",
+    "category": "office supplies",
+    "order_count": 8,
+    "total_revenue": 2515.24,
+    "avg_order_revenue": 314.41
+  },
+  {
+    "product_id": 510,
+    "product_name": "easy-staple paper",
+    "category": "office supplies",
+    "order_count": 46,
+    "total_revenue": 2504.18,
+    "avg_order_revenue": 54.44
+  },
+  {
+    "product_id": 951,
+    "product_name": "logitech gaming g510s - keyboard",
+    "category": "technology",
+    "order_count": 8,
+    "total_revenue": 2362.72,
+    "avg_order_revenue": 295.34
+  },
+  {
+    "product_id": 1396,
+    "product_name": "space solutions hd industrial steel shelving.",
+    "category": "office supplies",
+    "order_count": 7,
+    "total_revenue": 2345.39,
+    "avg_order_revenue": 335.06
+  }
+]

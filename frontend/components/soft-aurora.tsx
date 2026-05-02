@@ -194,6 +194,10 @@ export function SoftAurora({
 
     let renderer: InstanceType<typeof Renderer> | undefined
     let gl: WebGLRenderingContext | undefined
+    let animationFrameId = 0
+    let resize = () => {}
+    let handleMouseMove = (_e: MouseEvent) => {}
+    let handleMouseLeave = () => {}
 
     try {
     renderer = new Renderer({ alpha: true, premultipliedAlpha: false })
@@ -204,7 +208,7 @@ export function SoftAurora({
     let currentMouse = [0.5, 0.5]
     let targetMouse = [0.5, 0.5]
 
-    function handleMouseMove(e: MouseEvent) {
+    handleMouseMove = (e: MouseEvent) => {
       const rect = gl.canvas.getBoundingClientRect()
       targetMouse = [
         (e.clientX - rect.left) / rect.width,
@@ -212,11 +216,11 @@ export function SoftAurora({
       ]
     }
 
-    function handleMouseLeave() {
+    handleMouseLeave = () => {
       targetMouse = [0.5, 0.5]
     }
 
-    function resize() {
+    resize = () => {
       renderer.setSize(container.offsetWidth, container.offsetHeight)
       if (program) {
         program.uniforms.uResolution.value = [
@@ -263,8 +267,6 @@ export function SoftAurora({
       gl.canvas.addEventListener('mouseleave', handleMouseLeave)
     }
 
-    let animationFrameId: number
-
     function update(time: number) {
       animationFrameId = requestAnimationFrame(update)
       program.uniforms.uTime.value = time * 0.001
@@ -289,8 +291,6 @@ export function SoftAurora({
     }
 
     const capturedGl = gl!
-    const capturedRenderer = renderer!
-
     return () => {
       cancelAnimationFrame(animationFrameId)
       window.removeEventListener('resize', resize)
