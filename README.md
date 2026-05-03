@@ -166,20 +166,22 @@ On both datasets, Random Forest consistently achieved higher R² and lower error
 
 ## 📈 Results & Performance
 
-### Dataset 1 — `Retail_Transactions_2024` (Global E-Commerce Sales)
+### Dataset 1 – Model Performance
 
-| Metric | Random Forest | XGBoost | Linear Regression |
+**Dataset:** `Retail_Transactions_2024` — Global E-Commerce Sales | 1,810 samples | 80/20 train-test split
+
+| Metric | ⭐ Random Forest | XGBoost | Linear Regression |
 |---|---|---|---|
-| **R²** | **0.985** | — | — |
-| **Adjusted R²** | **0.985** | — | — |
-| **MAE** | **$5.34** | — | — |
-| **RMSE** | **$18.37** | — | — |
-| **MAPE** | **2.50%** | — | — |
-| **CV Mean R²** | **0.9911** | — | — |
-| **CV Std R²** | **0.0061** | — | — |
-| **Fit Assessment** | Good fit | — | — |
+| **R²** | **0.9853** | 0.9841 | 0.6846 |
+| **Adjusted R²** | **0.9849** | 0.9837 | 0.6766 |
+| **MAE** | **$5.34** | $9.70 | $54.41 |
+| **RMSE** | **$18.37** | $19.08 | $85.08 |
+| **MAPE** | **2.50%** | 8.40% | 74.44% |
+| **CV Mean R²** | **0.9911** | N/A¹ | N/A¹ |
+| **CV Std R²** | **0.0061** | N/A¹ | N/A¹ |
+| **Fit Assessment** | Good fit | Good fit | Good fit |
 
-> Random Forest was selected as the best model. 5-fold cross-validation confirmed strong generalization with mean R² of 0.9911 and very low variance (std = 0.0061) across folds.
+> ¹ 5-fold cross-validation was performed on the best model only (Random Forest). CV Mean R² = **0.9911**, CV Std R² = **0.0061** — confirming strong generalization with minimal variance across folds.
 
 **Key Insights — Dataset 1:**
 - `price` (63.04%) and `quantity` (36.56%) account for ~99.6% of all feature importance
@@ -189,20 +191,22 @@ On both datasets, Random Forest consistently achieved higher R² and lower error
 
 ---
 
-### Dataset 2 — `Market_Trend_Data_2025` (Retail Supply Chain Sales)
+### Dataset 2 – Model Performance
 
-| Metric | Random Forest | XGBoost | Linear Regression |
+**Dataset:** `Market_Trend_Data_2025` — Retail Supply Chain Sales | 8,820 samples | 80/20 train-test split
+
+| Metric | ⭐ Random Forest | XGBoost | Linear Regression |
 |---|---|---|---|
-| **R²** | **0.938** | — | — |
-| **Adjusted R²** | **0.938** | — | — |
-| **MAE** | **$13.94** | — | — |
-| **RMSE** | **$28.71** | — | — |
-| **MAPE** | **25.47%** | — | — |
-| **CV Mean R²** | **0.9352** | — | — |
-| **CV Std R²** | **0.0109** | — | — |
-| **Fit Assessment** | Good fit | — | — |
+| **R²** | **0.9384** | 0.9374 | 0.7142 |
+| **Adjusted R²** | **0.9381** | 0.9371 | 0.7128 |
+| **MAE** | **$13.94** | $14.70 | $36.89 |
+| **RMSE** | **$28.71** | $28.95 | $61.85 |
+| **MAPE** | **25.47%** | 30.20% | 103.52% |
+| **CV Mean R²** | **0.9352** | N/A¹ | N/A¹ |
+| **CV Std R²** | **0.0109** | N/A¹ | N/A¹ |
+| **Fit Assessment** | Good fit | Good fit | Good fit |
 
-> `price` dominates feature importance at 77.98%. Strong predictive performance maintained across all 5 CV folds (min R² = 0.924).
+> ¹ 5-fold cross-validation was performed on the best model only (Random Forest). CV Mean R² = **0.9352**, CV Std R² = **0.0109** — strong predictive performance maintained across all 5 folds (min fold R² = 0.924).
 
 **Key Insights — Dataset 2:**
 - `price` correlation with revenue: **0.784** (strongest driver)
