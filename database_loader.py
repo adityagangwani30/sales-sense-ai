@@ -134,14 +134,6 @@ def _count_conflicting_order_rows(cleaned_df: pd.DataFrame) -> int:
     return int(revenue_variants.gt(1).sum())
 
 
-def _count_rows(connection, table_name: str) -> int:
-    cursor = connection.cursor()
-    cursor.execute(f"SELECT COUNT(*) FROM `{table_name}`")
-    row_count = int(cursor.fetchone()[0])
-    cursor.close()
-    return row_count
-
-
 def _count_rows_for_source(connection, table_name: str, source: str) -> int:
     cursor = connection.cursor()
     cursor.execute(f"SELECT COUNT(*) FROM `{table_name}` WHERE `source` = %s", (source,))

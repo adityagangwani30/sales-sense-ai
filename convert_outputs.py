@@ -15,8 +15,6 @@ Notes for Vercel:
 
 from __future__ import annotations
 
-import sys
-
 from frontend_export import export_frontend_dashboard_assets
 
 

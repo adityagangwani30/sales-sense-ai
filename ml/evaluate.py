@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 
 from ml.data_loader import load_cleaned_dataset
 from ml.models import build_model_specs
-from ml.preprocessing import FEATURE_COLUMNS, PreprocessingArtifacts, build_feature_target_frame
+from ml.preprocessing import PreprocessingArtifacts, build_feature_target_frame
 from ml.train_test_split import split_data
 
 

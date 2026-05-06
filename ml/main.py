@@ -18,6 +18,9 @@ import matplotlib.pyplot as plt
 if __package__ is None or __package__ == "":
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 from ml.data_loader import load_cleaned_dataset
 from ml.evaluate import build_results_dataframe, evaluate_regression_model, extract_feature_importance, run_week8_evaluation
 from ml.models import build_model_specs

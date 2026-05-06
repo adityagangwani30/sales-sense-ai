@@ -6,6 +6,4 @@ matplotlib
 scikit-learn
 xgboost
 scipy
-seaborn
-PyYAML
 python-dotenv
