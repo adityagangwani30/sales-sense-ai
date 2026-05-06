@@ -72,6 +72,12 @@ def _resolve_text_series(df: pd.DataFrame, aliases: tuple[str, ...], default_val
     return _normalize_text_series(df[column_name]).fillna(default_value)
 
 
+def _default_numeric_series(df: pd.DataFrame, column_name: str) -> pd.Series:
+    if column_name not in df.columns:
+        return pd.Series(np.nan, index=df.index)
+    return _coerce_numeric(df[column_name])
+
+
 def _fit_mapping(series: pd.Series) -> dict[str, int]:
     normalized = _normalize_text_series(series).fillna("unknown").astype(str)
     unique_values = sorted(value for value in normalized.unique() if value and value != "unknown")
@@ -148,8 +154,8 @@ def _build_derived_feature_frame(df: pd.DataFrame, target: pd.Series, require_ta
         else:
             is_weekend_series = (day_of_week_series >= 5).astype(int)
 
-    quantity_series = _coerce_numeric(df["quantity"]) if "quantity" in df.columns else pd.Series(np.nan, index=df.index)
-    price_series = _coerce_numeric(df["price"]) if "price" in df.columns else pd.Series(np.nan, index=df.index)
+    quantity_series = _default_numeric_series(df, "quantity")
+    price_series = _default_numeric_series(df, "price")
 
     category_source = _resolve_text_series(df, CATEGORY_ALIASES)
     customer_source = _resolve_text_series(df, CUSTOMER_ALIASES)
@@ -183,6 +189,69 @@ def _build_derived_feature_frame(df: pd.DataFrame, target: pd.Series, require_ta
     return feature_frame.loc[valid_rows].reset_index(drop=True)
 
 
+def _build_artifacts(
+    category_source: pd.Series,
+    customer_source: pd.Series,
+    product_source: pd.Series,
+) -> PreprocessingArtifacts:
+    label_encoder = LabelEncoder()
+    label_encoder.fit(_normalize_text_series(category_source).fillna("unknown").astype(str))
+    return PreprocessingArtifacts(
+        label_encoder=label_encoder,
+        customer_mapping=_fit_mapping(customer_source),
+        product_mapping=_fit_mapping(product_source),
+        numeric_medians={},
+    )
+
+
+def _encode_identifier_columns(
+    feature_frame: pd.DataFrame,
+    artifacts: PreprocessingArtifacts,
+) -> pd.DataFrame:
+    encoded_frame = feature_frame.copy()
+    category_source = encoded_frame.pop("category")
+    customer_source = encoded_frame.pop("customer_source")
+    product_source = encoded_frame.pop("product_source")
+
+    encoded_frame["category_encoded"] = _safe_label_encode(category_source, artifacts.label_encoder)
+    encoded_frame["customer_id"] = _map_with_default(customer_source, artifacts.customer_mapping)
+    encoded_frame["product_id"] = _map_with_default(product_source, artifacts.product_mapping)
+    return encoded_frame
+
+
+def _ensure_numeric_medians(feature_frame: pd.DataFrame, artifacts: PreprocessingArtifacts) -> None:
+    if artifacts.numeric_medians:
+        return
+
+    artifacts.numeric_medians = {
+        column_name: float(feature_frame[column_name].median(skipna=True)) if feature_frame[column_name].notna().any() else 0.0
+        for column_name in NUMERIC_FILL_COLUMNS
+    }
+
+
+def _fill_numeric_feature_columns(feature_frame: pd.DataFrame, artifacts: PreprocessingArtifacts) -> pd.DataFrame:
+    filled_frame = feature_frame.copy()
+
+    for column_name in FEATURE_COLUMNS:
+        filled_frame[column_name] = pd.to_numeric(filled_frame[column_name], errors="coerce")
+        filled_frame[column_name] = filled_frame[column_name].fillna(artifacts.numeric_medians.get(column_name, 0.0))
+
+    filled_frame["revenue_per_unit"] = pd.to_numeric(filled_frame["revenue_per_unit"], errors="coerce")
+    revenue_fill_value = float(filled_frame["revenue_per_unit"].median(skipna=True)) if filled_frame["revenue_per_unit"].notna().any() else 0.0
+    filled_frame["revenue_per_unit"] = filled_frame["revenue_per_unit"].fillna(revenue_fill_value)
+    return filled_frame
+
+
+def _finalize_integer_feature_columns(feature_frame: pd.DataFrame) -> pd.DataFrame:
+    finalized = feature_frame.copy()
+    integer_columns = ("month", "quarter", "day_of_week", "is_weekend", "category_encoded", "customer_id", "product_id")
+
+    for column_name in integer_columns:
+        finalized[column_name] = finalized[column_name].round().astype(int)
+
+    return finalized
+
+
 def prepare_ml_dataset(
     df: pd.DataFrame,
     artifacts: PreprocessingArtifacts | None = None,
@@ -199,25 +268,14 @@ def prepare_ml_dataset(
         feature_frame = _build_derived_feature_frame(df, target, require_target=require_target)
 
     if existing_feature_frame is None:
-        category_source = feature_frame.pop("category")
-        customer_source = feature_frame.pop("customer_source")
-        product_source = feature_frame.pop("product_source")
-
         if artifacts is None or fit_artifacts:
-            label_encoder = LabelEncoder()
-            label_encoder.fit(_normalize_text_series(category_source).fillna("unknown").astype(str))
-            customer_mapping = _fit_mapping(customer_source)
-            product_mapping = _fit_mapping(product_source)
-            artifacts = PreprocessingArtifacts(
-                label_encoder=label_encoder,
-                customer_mapping=customer_mapping,
-                product_mapping=product_mapping,
-                numeric_medians={},
+            artifacts = _build_artifacts(
+                category_source=feature_frame["category"],
+                customer_source=feature_frame["customer_source"],
+                product_source=feature_frame["product_source"],
             )
 
-        feature_frame["category_encoded"] = _safe_label_encode(category_source, artifacts.label_encoder)
-        feature_frame["customer_id"] = _map_with_default(customer_source, artifacts.customer_mapping)
-        feature_frame["product_id"] = _map_with_default(product_source, artifacts.product_mapping)
+        feature_frame = _encode_identifier_columns(feature_frame, artifacts)
 
     feature_frame = feature_frame.reindex(columns=[*FEATURE_COLUMNS, "revenue_per_unit"])
 
@@ -225,23 +283,9 @@ def prepare_ml_dataset(
         quantity_series = feature_frame["quantity"].replace(0, pd.NA)
         feature_frame["revenue_per_unit"] = target / quantity_series
 
-    if not artifacts.numeric_medians:
-        artifacts.numeric_medians = {
-            column_name: float(feature_frame[column_name].median(skipna=True)) if feature_frame[column_name].notna().any() else 0.0
-            for column_name in NUMERIC_FILL_COLUMNS
-        }
-
-    for column_name in FEATURE_COLUMNS:
-        feature_frame[column_name] = pd.to_numeric(feature_frame[column_name], errors="coerce")
-        feature_frame[column_name] = feature_frame[column_name].fillna(artifacts.numeric_medians.get(column_name, 0.0))
-
-    feature_frame["revenue_per_unit"] = pd.to_numeric(feature_frame["revenue_per_unit"], errors="coerce")
-    feature_frame["revenue_per_unit"] = feature_frame["revenue_per_unit"].fillna(
-        float(feature_frame["revenue_per_unit"].median(skipna=True)) if feature_frame["revenue_per_unit"].notna().any() else 0.0
-    )
-
-    for column_name in ("month", "quarter", "day_of_week", "is_weekend", "category_encoded", "customer_id", "product_id"):
-        feature_frame[column_name] = feature_frame[column_name].round().astype(int)
+    _ensure_numeric_medians(feature_frame, artifacts)
+    feature_frame = _fill_numeric_feature_columns(feature_frame, artifacts)
+    feature_frame = _finalize_integer_feature_columns(feature_frame)
 
     if target is not None:
         target = target.reset_index(drop=True)

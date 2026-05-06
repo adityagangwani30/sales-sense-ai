@@ -209,6 +209,76 @@ def _ensure_unique_index(connection, table_name: str, index_name: str, columns: 
         cursor.close()
 
 
+def _count_table_rows_for_dataset(connection, dataset_name: str, table_names: Iterable[str]) -> dict[str, int]:
+    return {
+        table_name: _count_rows_for_source(connection, table_name, dataset_name)
+        for table_name in table_names
+    }
+
+
+def _print_table_load_stats(
+    dataset_name: str,
+    table_counts_before: dict[str, int],
+    inserted_counts: dict[str, int],
+    duplicate_skips: dict[str, int],
+) -> None:
+    for table_name in ("customers", "products", "orders", "fact_sales"):
+        print(f"{table_name} [{dataset_name}] -> Existing rows in DB: {table_counts_before[table_name]}")
+        print(f"{table_name} [{dataset_name}] -> Rows inserted: {inserted_counts[table_name]}")
+        print(f"{table_name} [{dataset_name}] -> Duplicates skipped: {duplicate_skips[table_name]}")
+
+    print("Rows inserted:", inserted_counts)
+    print("Duplicates skipped:", duplicate_skips)
+
+
+def _fetch_lookup_frame(connection, query: str, dataset_name: str) -> pd.DataFrame:
+    return _fetch_dataframe(connection, query, (dataset_name,))
+
+
+def _execute_many_if_rows(cursor, query: str, rows: list[tuple[object, ...]]) -> None:
+    if rows:
+        cursor.executemany(query, rows)
+
+
+def _prepare_order_components(cleaned_df: pd.DataFrame) -> pd.DataFrame:
+    customers = _build_customer_frame(cleaned_df)
+    products = _build_product_frame(cleaned_df)[["product_name", "category"]]
+    quantity = _numeric_series(cleaned_df, "quantity", default_value=1).round().clip(lower=1).astype(int)
+    order_dates = pd.to_datetime(cleaned_df["date"], errors="coerce").dt.date
+
+    return pd.concat(
+        [
+            customers,
+            products,
+            quantity.rename("quantity"),
+            order_dates.rename("order_date"),
+        ],
+        axis=1,
+    )
+
+
+def _prepare_fact_sales_components(cleaned_df: pd.DataFrame) -> pd.DataFrame:
+    customers = _build_customer_frame(cleaned_df)
+    products = _build_product_frame(cleaned_df)[["product_name", "category"]]
+    quantity = _numeric_series(cleaned_df, "quantity", default_value=1).round().clip(lower=1)
+    price = _numeric_series(cleaned_df, "price")
+    sales = _numeric_series(cleaned_df, "sales")
+    order_dates = pd.to_datetime(cleaned_df["date"], errors="coerce")
+
+    return pd.concat(
+        [
+            customers,
+            products,
+            quantity.astype(int).rename("quantity"),
+            order_dates.dt.date.rename("order_date"),
+            (price * quantity).fillna(sales).round(2).rename("revenue"),
+            cleaned_df.get("month", order_dates.dt.month).rename("month"),
+            cleaned_df.get("year", order_dates.dt.year).rename("year"),
+        ],
+        axis=1,
+    )
+
+
 def reset_database(connection) -> None:
     """Drop child tables first so a new run starts from a clean relational state."""
     reset_queries = [
@@ -359,28 +429,16 @@ def create_tables(connection) -> None:
         for query in table_queries:
             cursor.execute(query)
 
-        _ensure_column(connection, "customers", "source", "VARCHAR(64) NOT NULL DEFAULT 'unknown'")
-        _ensure_column(connection, "products", "source", "VARCHAR(64) NOT NULL DEFAULT 'unknown'")
-        _ensure_column(connection, "orders", "source", "VARCHAR(64) NOT NULL DEFAULT 'unknown'")
-        _ensure_column(connection, "fact_sales", "source", "VARCHAR(64) NOT NULL DEFAULT 'unknown'")
-        _ensure_unique_index(
-            connection,
-            "customers",
-            "unique_customer",
-            ["source", "customer_name", "segment", "region", "city"],
-        )
-        _ensure_unique_index(
-            connection,
-            "products",
-            "unique_product",
-            ["source", "product_name", "category"],
-        )
-        _ensure_unique_index(
-            connection,
-            "orders",
-            "unique_order",
-            ["source", "customer_id", "product_id", "quantity", "order_date"],
-        )
+        for table_name in ("customers", "products", "orders", "fact_sales"):
+            _ensure_column(connection, table_name, "source", "VARCHAR(64) NOT NULL DEFAULT 'unknown'")
+
+        index_specs = {
+            "customers": ("unique_customer", ["source", "customer_name", "segment", "region", "city"]),
+            "products": ("unique_product", ["source", "product_name", "category"]),
+            "orders": ("unique_order", ["source", "customer_id", "product_id", "quantity", "order_date"]),
+        }
+        for table_name, (index_name, columns) in index_specs.items():
+            _ensure_unique_index(connection, table_name, index_name, columns)
 
         connection.commit()
         print(f"Database `{connection.database}` is ready.")
@@ -418,18 +476,7 @@ def prepare_orders(
     product_lookup: pd.DataFrame,
 ) -> pd.DataFrame:
     """Map cleaned order rows to surrogate customer and product keys."""
-    customers = _build_customer_frame(cleaned_df)
-    products = _build_product_frame(cleaned_df)[["product_name", "category"]]
-
-    orders = pd.concat(
-        [
-            customers,
-            products,
-            _numeric_series(cleaned_df, "quantity", default_value=1).round().clip(lower=1).astype(int).rename("quantity"),
-            pd.to_datetime(cleaned_df["date"], errors="coerce").dt.date.rename("order_date"),
-        ],
-        axis=1,
-    )
+    orders = _prepare_order_components(cleaned_df)
 
     orders = orders.merge(
         customer_lookup,
@@ -463,25 +510,7 @@ def prepare_fact_sales(
     order_lookup: pd.DataFrame,
 ) -> pd.DataFrame:
     """Build the analytical fact table using order and dimension keys."""
-    customers = _build_customer_frame(cleaned_df)
-    products = _build_product_frame(cleaned_df)[["product_name", "category"]]
-    quantity = _numeric_series(cleaned_df, "quantity", default_value=1).round().clip(lower=1)
-    price = _numeric_series(cleaned_df, "price")
-    sales = _numeric_series(cleaned_df, "sales")
-    order_dates = pd.to_datetime(cleaned_df["date"], errors="coerce")
-
-    fact_sales = pd.concat(
-        [
-            customers,
-            products,
-            quantity.astype(int).rename("quantity"),
-            order_dates.dt.date.rename("order_date"),
-            (price * quantity).fillna(sales).round(2).rename("revenue"),
-            cleaned_df.get("month", order_dates.dt.month).rename("month"),
-            cleaned_df.get("year", order_dates.dt.year).rename("year"),
-        ],
-        axis=1,
-    )
+    fact_sales = _prepare_fact_sales_components(cleaned_df)
 
     fact_sales = fact_sales.merge(
         customer_lookup,
@@ -550,10 +579,7 @@ def insert_data(connection, cleaned_df: pd.DataFrame, dataset_name: str) -> dict
         "orders": 0,
         "fact_sales": 0,
     }
-    table_counts_before = {
-        table_name: _count_rows_for_source(connection, table_name, dataset_name)
-        for table_name in inserted_counts
-    }
+    table_counts_before = _count_table_rows_for_dataset(connection, dataset_name, inserted_counts)
     duplicate_skips = inserted_counts.copy()
 
     print(f"Loading dataset into MySQL: {dataset_name}")
@@ -576,97 +602,97 @@ def insert_data(connection, cleaned_df: pd.DataFrame, dataset_name: str) -> dict
         print("Transaction started")
 
         customer_rows = list(customers.itertuples(index=False, name=None))
-        if customer_rows:
-            cursor.executemany(
-                """
-                INSERT INTO customers (customer_name, segment, region, city, source)
-                VALUES (%s, %s, %s, %s, %s)
-                ON DUPLICATE KEY UPDATE
-                    segment = VALUES(segment),
-                    region = VALUES(region),
-                    city = VALUES(city)
-                """,
-                customer_rows,
-            )
+        _execute_many_if_rows(
+            cursor,
+            """
+            INSERT INTO customers (customer_name, segment, region, city, source)
+            VALUES (%s, %s, %s, %s, %s)
+            ON DUPLICATE KEY UPDATE
+                segment = VALUES(segment),
+                region = VALUES(region),
+                city = VALUES(city)
+            """,
+            customer_rows,
+        )
 
         product_rows = list(products.itertuples(index=False, name=None))
-        if product_rows:
-            cursor.executemany(
-                """
-                INSERT INTO products (product_name, category, price, source)
-                VALUES (%s, %s, %s, %s)
-                ON DUPLICATE KEY UPDATE
-                    price = VALUES(price)
-                """,
-                product_rows,
-            )
+        _execute_many_if_rows(
+            cursor,
+            """
+            INSERT INTO products (product_name, category, price, source)
+            VALUES (%s, %s, %s, %s)
+            ON DUPLICATE KEY UPDATE
+                price = VALUES(price)
+            """,
+            product_rows,
+        )
 
-        customer_lookup = _fetch_dataframe(
+        customer_lookup = _fetch_lookup_frame(
             connection,
             """
             SELECT customer_id, customer_name, segment, region, city, source
             FROM customers
             WHERE source = %s
             """,
-            (dataset_name,),
+            dataset_name,
         )
-        product_lookup = _fetch_dataframe(
+        product_lookup = _fetch_lookup_frame(
             connection,
             """
             SELECT product_id, product_name, category, source
             FROM products
             WHERE source = %s
             """,
-            (dataset_name,),
+            dataset_name,
         )
 
         orders = prepare_orders(isolated_df, customer_lookup, product_lookup)
         order_rows = list(orders.itertuples(index=False, name=None))
-        if order_rows:
-            cursor.executemany(
-                """
-                INSERT INTO orders (customer_id, product_id, quantity, order_date, source)
-                VALUES (%s, %s, %s, %s, %s)
-                ON DUPLICATE KEY UPDATE
-                    source = CASE
-                        WHEN orders.source = VALUES(source) OR VALUES(source) = 'unknown' THEN orders.source
-                        WHEN orders.source = 'unknown' THEN VALUES(source)
-                        ELSE CONCAT(orders.source, '|', VALUES(source))
-                    END
-                """,
-                order_rows,
-            )
+        _execute_many_if_rows(
+            cursor,
+            """
+            INSERT INTO orders (customer_id, product_id, quantity, order_date, source)
+            VALUES (%s, %s, %s, %s, %s)
+            ON DUPLICATE KEY UPDATE
+                source = CASE
+                    WHEN orders.source = VALUES(source) OR VALUES(source) = 'unknown' THEN orders.source
+                    WHEN orders.source = 'unknown' THEN VALUES(source)
+                    ELSE CONCAT(orders.source, '|', VALUES(source))
+                END
+            """,
+            order_rows,
+        )
 
-        order_lookup = _fetch_dataframe(
+        order_lookup = _fetch_lookup_frame(
             connection,
             """
             SELECT order_id, customer_id, product_id, quantity, order_date, source
             FROM orders
             WHERE source = %s
             """,
-            (dataset_name,),
+            dataset_name,
         )
         fact_sales = prepare_fact_sales(isolated_df, customer_lookup, product_lookup, order_lookup)
         fact_sales_rows = list(fact_sales.itertuples(index=False, name=None))
-        if fact_sales_rows:
-            cursor.executemany(
-                """
-                INSERT INTO fact_sales (customer_id, product_id, order_id, revenue, month, year, source)
-                VALUES (%s, %s, %s, %s, %s, %s, %s)
-                ON DUPLICATE KEY UPDATE
-                    customer_id = VALUES(customer_id),
-                    product_id = VALUES(product_id),
-                    revenue = VALUES(revenue),
-                    month = VALUES(month),
-                    year = VALUES(year),
-                    source = CASE
-                        WHEN fact_sales.source = VALUES(source) OR VALUES(source) = 'unknown' THEN fact_sales.source
-                        WHEN fact_sales.source = 'unknown' THEN VALUES(source)
-                        ELSE CONCAT(fact_sales.source, '|', VALUES(source))
-                    END
-                """,
-                fact_sales_rows,
-            )
+        _execute_many_if_rows(
+            cursor,
+            """
+            INSERT INTO fact_sales (customer_id, product_id, order_id, revenue, month, year, source)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+            ON DUPLICATE KEY UPDATE
+                customer_id = VALUES(customer_id),
+                product_id = VALUES(product_id),
+                revenue = VALUES(revenue),
+                month = VALUES(month),
+                year = VALUES(year),
+                source = CASE
+                    WHEN fact_sales.source = VALUES(source) OR VALUES(source) = 'unknown' THEN fact_sales.source
+                    WHEN fact_sales.source = 'unknown' THEN VALUES(source)
+                    ELSE CONCAT(fact_sales.source, '|', VALUES(source))
+                END
+            """,
+            fact_sales_rows,
+        )
 
         table_batches = {
             "customers": len(customer_rows),
@@ -674,10 +700,7 @@ def insert_data(connection, cleaned_df: pd.DataFrame, dataset_name: str) -> dict
             "orders": len(order_rows),
             "fact_sales": len(fact_sales_rows),
         }
-        table_counts_after = {
-            table_name: _count_rows_for_source(connection, table_name, dataset_name)
-            for table_name in inserted_counts
-        }
+        table_counts_after = _count_table_rows_for_dataset(connection, dataset_name, inserted_counts)
 
         for table_name, batch_size in table_batches.items():
             inserted_counts[table_name] = max(table_counts_after[table_name] - table_counts_before[table_name], 0)
@@ -692,13 +715,7 @@ def insert_data(connection, cleaned_df: pd.DataFrame, dataset_name: str) -> dict
     finally:
         cursor.close()
 
-    for table_name in ("customers", "products", "orders", "fact_sales"):
-        print(f"{table_name} [{dataset_name}] -> Existing rows in DB: {table_counts_before[table_name]}")
-        print(f"{table_name} [{dataset_name}] -> Rows inserted: {inserted_counts[table_name]}")
-        print(f"{table_name} [{dataset_name}] -> Duplicates skipped: {duplicate_skips[table_name]}")
-
-    print("Rows inserted:", inserted_counts)
-    print("Duplicates skipped:", duplicate_skips)
+    _print_table_load_stats(dataset_name, table_counts_before, inserted_counts, duplicate_skips)
     return inserted_counts
 
 

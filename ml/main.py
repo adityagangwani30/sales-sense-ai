@@ -26,6 +26,15 @@ from ml.train_test_split import split_data
 
 
 _ACTIVE_DATASET_ID: str | None = None
+MODEL_NAME_ALIASES = {
+    "lr": "linear_regression",
+    "linear": "linear_regression",
+    "linear_regression": "linear_regression",
+    "rf": "random_forest",
+    "random_forest": "random_forest",
+    "xgb": "xgboost",
+    "xgboost": "xgboost",
+}
 
 
 def _set_active_dataset(dataset_id: str) -> None:
@@ -57,6 +66,12 @@ def _model_path(output_dir: Path, model_name: str) -> Path:
     return output_dir / f"{model_name}.pkl"
 
 
+def _save_plot(fig, output_path: Path) -> None:
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=160, bbox_inches="tight")
+    plt.close(fig)
+
+
 def _plot_actual_vs_predicted(output_path: Path, y_test: pd.Series, predictions: np.ndarray, display_name: str) -> None:
     fig, axis = plt.subplots(figsize=(7.5, 6))
     axis.scatter(y_test, predictions, alpha=0.7, color="#1f77b4", edgecolors="none")
@@ -67,9 +82,7 @@ def _plot_actual_vs_predicted(output_path: Path, y_test: pd.Series, predictions:
     axis.set_xlabel("Actual Revenue")
     axis.set_ylabel("Predicted Revenue")
     axis.grid(alpha=0.25)
-    fig.tight_layout()
-    fig.savefig(output_path, dpi=160, bbox_inches="tight")
-    plt.close(fig)
+    _save_plot(fig, output_path)
 
 
 def _plot_error_distribution(output_path: Path, residuals: np.ndarray, display_name: str) -> None:
@@ -80,9 +93,7 @@ def _plot_error_distribution(output_path: Path, residuals: np.ndarray, display_n
     axis.set_xlabel("Prediction Error")
     axis.set_ylabel("Frequency")
     axis.grid(alpha=0.2)
-    fig.tight_layout()
-    fig.savefig(output_path, dpi=160, bbox_inches="tight")
-    plt.close(fig)
+    _save_plot(fig, output_path)
 
 
 def _plot_model_comparison(output_path: Path, results_df: pd.DataFrame) -> None:
@@ -96,9 +107,7 @@ def _plot_model_comparison(output_path: Path, results_df: pd.DataFrame) -> None:
         axis.grid(axis="y", alpha=0.2)
 
     fig.suptitle("Model Comparison")
-    fig.tight_layout()
-    fig.savefig(output_path, dpi=160, bbox_inches="tight")
-    plt.close(fig)
+    _save_plot(fig, output_path)
 
 
 def _plot_fit_comparison(output_path: Path, results_df: pd.DataFrame) -> None:
@@ -148,17 +157,25 @@ def _as_dataframe(data: Any) -> pd.DataFrame:
 
 
 def _load_model(output_dir: Path, model_name: str):
-    normalized_name = {
-        "lr": "linear_regression",
-        "linear": "linear_regression",
-        "linear_regression": "linear_regression",
-        "rf": "random_forest",
-        "random_forest": "random_forest",
-        "xgb": "xgboost",
-        "xgboost": "xgboost",
-    }.get(model_name.strip().lower(), model_name.strip().lower())
+    normalized_name = MODEL_NAME_ALIASES.get(model_name.strip().lower(), model_name.strip().lower())
     model_path = _model_path(output_dir, normalized_name)
     return load_pickle(model_path)
+
+
+def _build_metrics_payload(dataset_id: str, source_reference: str, features: pd.DataFrame) -> dict[str, Any]:
+    return {
+        "dataset": dataset_id,
+        "source_reference": source_reference,
+        "feature_columns": list(features.columns),
+        "target_column": "revenue",
+        "sample_count": int(len(features)),
+        "split": {
+            "test_size": 0.2,
+            "random_state": 42,
+        },
+        "models": [],
+        "best_model": None,
+    }
 
 
 def run_week7_ml(dataset_choice: str) -> dict[str, Any]:
@@ -176,19 +193,7 @@ def run_week7_ml(dataset_choice: str) -> dict[str, Any]:
     save_pickle(output_dir / "preprocessing_artifacts.pkl", artifacts)
     save_pickle(output_dir / "label_encoder.pkl", artifacts.label_encoder)
 
-    model_metrics: dict[str, Any] = {
-        "dataset": dataset_id,
-        "source_reference": source_reference,
-        "feature_columns": list(features.columns),
-        "target_column": "revenue",
-        "sample_count": int(len(features)),
-        "split": {
-            "test_size": 0.2,
-            "random_state": 42,
-        },
-        "models": [],
-        "best_model": None,
-    }
+    model_metrics: dict[str, Any] = _build_metrics_payload(dataset_id, source_reference, features)
     feature_importance_payload: dict[str, Any] = {
         "dataset": dataset_id,
         "source_reference": source_reference,
@@ -203,7 +208,6 @@ def run_week7_ml(dataset_choice: str) -> dict[str, Any]:
         model.fit(x_train, y_train)
 
         metrics = evaluate_regression_model(model, x_train, y_train, x_test, y_test)
-        train_predictions = np.asarray(model.predict(x_train))
         test_predictions = np.asarray(model.predict(x_test))
 
         save_pickle(_model_path(output_dir, spec.name), model)

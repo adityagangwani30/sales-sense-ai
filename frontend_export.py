@@ -76,8 +76,8 @@ def ensure_frontend_dirs() -> None:
         FRONTEND_VISUALIZATION_DIR,
     ):
         directory.mkdir(parents=True, exist_ok=True)
-    
-    # Create ML subdirectories for each dataset
+
+    # Keep dataset-specific ML directories available for older frontend paths.
     for config in DATASET_CONFIGS:
         ml_dir = FRONTEND_DATA_DIR / config["id"] / "ml"
         ml_dir.mkdir(parents=True, exist_ok=True)
@@ -143,6 +143,10 @@ def normalize_roi_payload(raw: Any) -> dict[str, Any]:
     payload["implementation_cost"] = cost
     payload["roi_pct"] = roi
     return payload
+
+
+def write_json_file(path: Path, payload: Any) -> None:
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
 def read_json_file(path: Path) -> Any:
@@ -232,25 +236,24 @@ def copy_ml_artifacts(dataset_id: str, ml_dataset_id: str) -> None:
     root_dataset_dir = FRONTEND_DATA_DIR / dataset_id
     root_dataset_dir.mkdir(parents=True, exist_ok=True)
 
+    def copy_artifact(target_path: Path, source_path: Path, artifact_name: str) -> None:
+        if artifact_name == "roi_analysis.json":
+            roi_payload = normalize_roi_payload(read_json_file(source_path) or {})
+            write_json_file(target_path, roi_payload)
+            return
+        shutil.copy2(source_path, target_path)
+
     copied_count = 0
     for artifact_name in ML_ARTIFACTS_TO_COPY:
         source_path = ml_output_dir / artifact_name
         if source_path.exists():
             target_path = target_dir / artifact_name
-            if artifact_name == "roi_analysis.json":
-                roi_payload = normalize_roi_payload(read_json_file(source_path) or {})
-                target_path.write_text(json.dumps(roi_payload, indent=2), encoding="utf-8")
-            else:
-                shutil.copy2(source_path, target_path)
+            copy_artifact(target_path, source_path, artifact_name)
             copied_count += 1
 
             if artifact_name in ROOT_ML_ARTIFACTS:
                 root_target = root_dataset_dir / artifact_name
-                if artifact_name == "roi_analysis.json":
-                    roi_payload = normalize_roi_payload(read_json_file(source_path) or {})
-                    root_target.write_text(json.dumps(roi_payload, indent=2), encoding="utf-8")
-                else:
-                    shutil.copy2(source_path, root_target)
+                copy_artifact(root_target, source_path, artifact_name)
 
     if copied_count > 0:
         print(f"  [OK] Copied {copied_count} ML artifacts for {dataset_id}")
@@ -280,7 +283,7 @@ def export_sql_analysis_json(dataset_id: str) -> dict[str, str]:
                 frame["share_pct"] = 0.0
 
         output_path = target_dir / f"{csv_path.stem}.json"
-        output_path.write_text(json.dumps(format_records(frame), indent=2), encoding="utf-8")
+        write_json_file(output_path, format_records(frame))
         exported_files[csv_path.stem] = f"/data/sql-analysis/{dataset_id}/{csv_path.stem}.json"
     return exported_files
 
@@ -444,6 +447,57 @@ def build_dataset_payload(
     return payload
 
 
+def build_metrics_payload(kpis: dict[str, Any]) -> dict[str, Any]:
+    """Keep both old and new KPI key styles in one place."""
+    return {
+        "total_revenue": kpis.get("totalRevenue"),
+        "totalRevenue": kpis.get("totalRevenue"),
+        "total_orders": kpis.get("totalOrders"),
+        "totalOrders": kpis.get("totalOrders"),
+        "total_customers": kpis.get("totalCustomers"),
+        "totalCustomers": kpis.get("totalCustomers"),
+        "avg_order_value": kpis.get("averageOrderValue"),
+        "averageOrderValue": kpis.get("averageOrderValue"),
+        "repeat_purchase_rate": kpis.get("repeatPurchaseRate"),
+        "repeatPurchaseRate": kpis.get("repeatPurchaseRate"),
+        "trend_change_pct": kpis.get("trendChangePct"),
+        "trendChangePct": kpis.get("trendChangePct"),
+    }
+
+
+def write_dataset_support_files(dataset_id: str, payload: dict[str, Any]) -> None:
+    """Publish compatibility JSON files expected by the dashboard."""
+    per_dataset_dir = FRONTEND_DATA_DIR / dataset_id
+    per_dataset_dir.mkdir(parents=True, exist_ok=True)
+
+    kpis = payload.get("kpis", {})
+    file_payloads = {
+        "metrics.json": build_metrics_payload(kpis),
+        "revenue_trend.json": payload.get("revenueTrend", []),
+        "top_products.json": payload.get("topProducts", []),
+        "customer_segmentation.json": payload.get("customerSegmentation", []),
+        "category_performance.json": payload.get("categoryDistribution", []),
+        "repeat_rate.json": {"repeat_purchase_rate": kpis.get("repeatPurchaseRate")},
+        "insights.json": payload.get("highlights", {}),
+    }
+
+    for filename, file_payload in file_payloads.items():
+        write_json_file(per_dataset_dir / filename, file_payload)
+
+
+def _copy_tree_files(source_dir: Path, target_dir: Path) -> None:
+    if not source_dir.exists():
+        return
+
+    target_dir.mkdir(parents=True, exist_ok=True)
+    for file_path in source_dir.rglob("*"):
+        if not file_path.is_file():
+            continue
+        target_path = target_dir / file_path.relative_to(source_dir)
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(file_path, target_path)
+
+
 def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, str]], list[dict[str, Any]]]:
     """Build a dataset payload for each source file the dashboard can switch between."""
     dataset_entries: list[dict[str, str]] = []
@@ -469,47 +523,9 @@ def export_dataset_jsons() -> tuple[list[dict[str, str]], dict[str, dict[str, st
             visualizations=visualizations,
         )
         output_path = FRONTEND_DATASETS_DIR / f"{config['id']}.json"
-        output_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-        # Also write individual dataset JSON files under /public/data/<dataset>/
-        per_dataset_dir = FRONTEND_DATA_DIR / config["id"]
-        per_dataset_dir.mkdir(parents=True, exist_ok=True)
-
-        # metrics.json: include both snake_case and camelCase keys for compatibility
+        write_json_file(output_path, payload)
+        write_dataset_support_files(config["id"], payload)
         kpis = payload.get("kpis", {})
-        metrics_obj = {
-            "total_revenue": kpis.get("totalRevenue"),
-            "totalRevenue": kpis.get("totalRevenue"),
-            "total_orders": kpis.get("totalOrders"),
-            "totalOrders": kpis.get("totalOrders"),
-            "total_customers": kpis.get("totalCustomers"),
-            "totalCustomers": kpis.get("totalCustomers"),
-            "avg_order_value": kpis.get("averageOrderValue"),
-            "averageOrderValue": kpis.get("averageOrderValue"),
-            "repeat_purchase_rate": kpis.get("repeatPurchaseRate"),
-            "repeatPurchaseRate": kpis.get("repeatPurchaseRate"),
-            "trend_change_pct": kpis.get("trendChangePct"),
-            "trendChangePct": kpis.get("trendChangePct"),
-        }
-        (per_dataset_dir / "metrics.json").write_text(json.dumps(metrics_obj, indent=2), encoding="utf-8")
-
-        # revenue_trend.json
-        (per_dataset_dir / "revenue_trend.json").write_text(json.dumps(payload.get("revenueTrend", []), indent=2), encoding="utf-8")
-
-        # top_products.json
-        (per_dataset_dir / "top_products.json").write_text(json.dumps(payload.get("topProducts", []), indent=2), encoding="utf-8")
-
-        # customer_segmentation.json
-        (per_dataset_dir / "customer_segmentation.json").write_text(json.dumps(payload.get("customerSegmentation", []), indent=2), encoding="utf-8")
-
-        # category_performance.json
-        (per_dataset_dir / "category_performance.json").write_text(json.dumps(payload.get("categoryDistribution", []), indent=2), encoding="utf-8")
-
-        # repeat_rate.json
-        repeat_obj = {"repeat_purchase_rate": kpis.get("repeatPurchaseRate")} 
-        (per_dataset_dir / "repeat_rate.json").write_text(json.dumps(repeat_obj, indent=2), encoding="utf-8")
-
-        # insights.json (highlights)
-        (per_dataset_dir / "insights.json").write_text(json.dumps(payload.get("highlights", {}), indent=2), encoding="utf-8")
         dataset_summaries.append(build_dataset_summary(config["id"], config["ml_id"], kpis))
         dataset_entries.append(
             {
@@ -533,29 +549,9 @@ def copy_to_alias_dirs(dataset_id: str, aliases: list[str]) -> None:
         alias_sql_dir = FRONTEND_SQL_DIR / alias
         alias_viz_dir = FRONTEND_VISUALIZATION_DIR / alias
 
-        if source_dir.exists():
-            alias_dir.mkdir(parents=True, exist_ok=True)
-            for f in source_dir.rglob("*"):
-                if f.is_file():
-                    target = alias_dir / f.relative_to(source_dir)
-                    target.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copy2(f, target)
-
-        if source_sql_dir.exists():
-            alias_sql_dir.mkdir(parents=True, exist_ok=True)
-            for f in source_sql_dir.rglob("*"):
-                if f.is_file():
-                    target = alias_sql_dir / f.relative_to(source_sql_dir)
-                    target.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copy2(f, target)
-
-        if source_viz_dir.exists():
-            alias_viz_dir.mkdir(parents=True, exist_ok=True)
-            for f in source_viz_dir.rglob("*"):
-                if f.is_file():
-                    target = alias_viz_dir / f.relative_to(source_viz_dir)
-                    target.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copy2(f, target)
+        _copy_tree_files(source_dir, alias_dir)
+        _copy_tree_files(source_sql_dir, alias_sql_dir)
+        _copy_tree_files(source_viz_dir, alias_viz_dir)
 
         print(f"  [OK] Created alias directory: {alias}")
 
@@ -584,7 +580,7 @@ def export_frontend_dashboard_assets() -> dict[str, Any]:
         "visualizations": visualization_assets,
     }
     manifest_path = FRONTEND_DATA_DIR / "dataset-manifest.json"
-    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    write_json_file(manifest_path, manifest)
 
     total_records = int(sum(int(item.get("total_records", 0)) for item in dataset_summaries))
     savings = float(sum(to_safe_number(item.get("savings", 0.0), 0.0) for item in dataset_summaries))
@@ -600,7 +596,7 @@ def export_frontend_dashboard_assets() -> dict[str, Any]:
         "datasets": dataset_summaries,
     }
     overview_path = FRONTEND_DATA_DIR / "overview.json"
-    overview_path.write_text(json.dumps(overview_payload, indent=2), encoding="utf-8")
+    write_json_file(overview_path, overview_payload)
 
     print("Frontend dashboard assets exported successfully")
     print(f"Public data directory: {FRONTEND_DATA_DIR.resolve()}")

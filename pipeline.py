@@ -20,6 +20,17 @@ DATASET_FILES: Dict[str, Path] = {
     "dataset_1": DATA_DIR / "global_ecommerce_sales.csv",
     "dataset_2": DATA_DIR / "Retail-Supply-Chain-Sales-Dataset.xlsx",
 }
+DATASET_ALIASES: Dict[str, str] = {
+    "all": "all",
+    "1": "dataset_1",
+    "2": "dataset_2",
+    "global_ecommerce_sales": "dataset_1",
+    "global_ecommerce_sales.csv": "dataset_1",
+    "retail-supply-chain-sales-dataset": "dataset_2",
+    "retail-supply-chain-sales-dataset.xlsx": "dataset_2",
+    "retail_supply_chain_sales": "dataset_2",
+    "retail_supply_chain_sales.xlsx": "dataset_2",
+}
 
 DEFAULT_COLUMN_MAP: Dict[str, list[str]] = {
     "date": ["order_date", "order date", "date"],
@@ -43,23 +54,11 @@ def normalize_column_name(column_name: str) -> str:
 
 def get_dataset_paths(dataset_choice: str | None = None) -> list[tuple[str, Path]]:
     """Resolve one dataset or all datasets inside original_dataset."""
-    dataset_aliases = {
-        "all": "all",
-        "1": "dataset_1",
-        "2": "dataset_2",
-        "global_ecommerce_sales": "dataset_1",
-        "global_ecommerce_sales.csv": "dataset_1",
-        "retail-supply-chain-sales-dataset": "dataset_2",
-        "retail-supply-chain-sales-dataset.xlsx": "dataset_2",
-        "retail_supply_chain_sales": "dataset_2",
-        "retail_supply_chain_sales.xlsx": "dataset_2",
-    }
-
     if dataset_choice is None:
         dataset_items = list(DATASET_FILES.items())
     else:
         normalized_choice = dataset_choice.strip().lower()
-        dataset_name = dataset_aliases.get(normalized_choice, normalized_choice)
+        dataset_name = DATASET_ALIASES.get(normalized_choice, normalized_choice)
 
         if dataset_name == "all":
             dataset_items = list(DATASET_FILES.items())
@@ -173,6 +172,121 @@ def fill_missing_numeric_values(
     return completed
 
 
+def normalize_text_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Clean text columns in one place so the main cleaning flow stays readable."""
+    normalized = df.copy()
+
+    for column_name in normalized.select_dtypes(include=["object", "string"]).columns:
+        text_series = normalized[column_name].astype("string")
+        text_series = text_series.str.lower()
+        text_series = text_series.str.replace(r"\s+", " ", regex=True).str.strip()
+        normalized[column_name] = text_series.replace({"": pd.NA})
+
+    return normalized
+
+
+def derive_sales_columns(
+    df: pd.DataFrame,
+    detected_columns: Mapping[str, str],
+) -> tuple[pd.DataFrame, Dict[str, str]]:
+    """Fill missing sales-related columns using the same business rules as before."""
+    enriched = df.copy()
+    updated_mapping = dict(detected_columns)
+
+    if "sales" not in enriched.columns and {"price", "quantity"}.issubset(enriched.columns):
+        enriched["sales"] = enriched["price"] * enriched["quantity"]
+        updated_mapping["sales"] = "derived_from_price_quantity"
+
+    if "price" not in enriched.columns and {"sales", "quantity"}.issubset(enriched.columns):
+        enriched["price"] = enriched["sales"] / enriched["quantity"].replace(0, pd.NA)
+        updated_mapping["price"] = "derived_from_sales_quantity"
+
+    if {"sales", "price", "quantity"}.issubset(enriched.columns):
+        enriched["sales"] = enriched["sales"].fillna(enriched["price"] * enriched["quantity"])
+        derived_price = enriched["sales"] / enriched["quantity"].replace(0, pd.NA)
+        enriched["price"] = enriched["price"].fillna(derived_price)
+
+    return enriched, updated_mapping
+
+
+def report_missing_value_changes(handled_missing: pd.Series) -> None:
+    """Print only the missing-value fixes that actually changed the dataset."""
+    print("\nMissing values handled:")
+    handled_missing = handled_missing[handled_missing > 0]
+
+    if handled_missing.empty:
+        print("  No missing values needed filling.")
+        return
+
+    for column_name, filled_count in handled_missing.items():
+        print(f"  {column_name}: {int(filled_count)} values filled")
+
+
+def ensure_final_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Keep the final cleaned CSV schema stable for downstream steps."""
+    required_final_columns = ["date", "customer", "product", "quantity", "price", "sales", "month", "year"]
+    default_values = {
+        "customer": "unknown",
+        "product": "unknown",
+        "quantity": pd.NA,
+        "price": pd.NA,
+        "sales": pd.NA,
+        "month": pd.NA,
+        "year": pd.NA,
+    }
+
+    ordered_df = df.copy()
+    for column_name in required_final_columns:
+        if column_name not in ordered_df.columns:
+            ordered_df[column_name] = default_values.get(column_name, pd.NA)
+
+    ordered_columns = required_final_columns + [
+        column_name for column_name in ordered_df.columns if column_name not in required_final_columns
+    ]
+    return ordered_df[ordered_columns]
+
+
+def report_mapping_results(dataset_name: str, mapping: Mapping[str, str]) -> None:
+    print(f"\nMapping results for {dataset_name}:")
+    for standard_name in sorted(mapping):
+        print(f"  {standard_name:<10} -> {mapping[standard_name]}")
+
+
+def report_data_quality(cleaned_df: pd.DataFrame) -> None:
+    print("\nData quality report:")
+    print("Missing values summary:")
+    missing_summary = cleaned_df.isna().sum()
+    print(missing_summary[missing_summary > 0].to_string() if (missing_summary > 0).any() else "  No missing values.")
+
+    duplicate_subset = [column_name for column_name in ["date", "product", "customer"] if column_name in cleaned_df.columns]
+    duplicate_count = int(cleaned_df.duplicated(subset=duplicate_subset).sum()) if duplicate_subset else 0
+    print(f"Duplicate count: {duplicate_count}")
+
+    print("Data types:")
+    print(cleaned_df.dtypes.to_string())
+
+
+def report_business_metrics(cleaned_df: pd.DataFrame) -> None:
+    total_revenue = float(cleaned_df["revenue"].sum()) if "revenue" in cleaned_df.columns else float(cleaned_df["sales"].sum())
+    total_orders = int(len(cleaned_df))
+    average_order_value = total_revenue / total_orders if total_orders else 0.0
+
+    print("\nBusiness metrics:")
+    print(f"Total Revenue: {total_revenue:.2f}")
+    print(f"Total Orders: {total_orders}")
+    print(f"Average Order Value (AOV): {average_order_value:.2f}")
+
+
+def run_optional_stage(action, failure_message: str) -> bool:
+    """Run one optional pipeline step and keep the original fail-soft behavior."""
+    try:
+        action()
+    except Exception as error:
+        print(f"{failure_message}: {error}")
+        return False
+    return True
+
+
 def clean_data(
     df: pd.DataFrame,
     column_map: Mapping[str, Sequence[str]],
@@ -195,11 +309,7 @@ def clean_data(
             f"{', '.join(missing_required)}. Available columns: {available_columns}"
         )
 
-    for column_name in cleaned.select_dtypes(include=["object", "string"]).columns:
-        cleaned[column_name] = cleaned[column_name].astype("string")
-        cleaned[column_name] = cleaned[column_name].str.lower()
-        cleaned[column_name] = cleaned[column_name].str.replace(r"\s+", " ", regex=True).str.strip()
-        cleaned[column_name] = cleaned[column_name].replace({"": pd.NA})
+    cleaned = normalize_text_columns(cleaned)
 
     cleaned["date"] = parse_date_series(cleaned["date"])
 
@@ -207,20 +317,7 @@ def clean_data(
         if column_name in cleaned.columns:
             cleaned[column_name] = to_numeric_series(cleaned[column_name])
 
-    if "sales" not in cleaned.columns and {"price", "quantity"}.issubset(cleaned.columns):
-        cleaned["sales"] = cleaned["price"] * cleaned["quantity"]
-        detected_columns = dict(detected_columns)
-        detected_columns["sales"] = "derived_from_price_quantity"
-
-    if "price" not in cleaned.columns and {"sales", "quantity"}.issubset(cleaned.columns):
-        cleaned["price"] = cleaned["sales"] / cleaned["quantity"].replace(0, pd.NA)
-        detected_columns = dict(detected_columns)
-        detected_columns["price"] = "derived_from_sales_quantity"
-
-    if {"sales", "price", "quantity"}.issubset(cleaned.columns):
-        cleaned["sales"] = cleaned["sales"].fillna(cleaned["price"] * cleaned["quantity"])
-        derived_price = cleaned["sales"] / cleaned["quantity"].replace(0, pd.NA)
-        cleaned["price"] = cleaned["price"].fillna(derived_price)
+    cleaned, detected_columns = derive_sales_columns(cleaned, detected_columns)
 
     for column_name in ("customer", "product"):
         if column_name not in cleaned.columns:
@@ -268,14 +365,7 @@ def clean_data(
             outlier_rows_removed = int(outlier_mask.sum())
             cleaned = cleaned.loc[~outlier_mask].reset_index(drop=True)
 
-    print("\nMissing values handled:")
-    handled_missing = handled_missing[handled_missing > 0]
-    if handled_missing.empty:
-        print("  No missing values needed filling.")
-    else:
-        for column_name, filled_count in handled_missing.items():
-            print(f"  {column_name}: {int(filled_count)} values filled")
-
+    report_missing_value_changes(handled_missing)
     print(f"Duplicates removed: {duplicate_count}")
     print(f"Rows removed for invalid dates: {invalid_date_rows}")
     print(f"Rows removed for invalid sales: {invalid_sales_rows}")
@@ -351,81 +441,47 @@ def run_pipeline(
     cleaned_df = feature_engineering(cleaned_df)
     cleaned_df["source"] = selected_dataset_name
 
-    required_final_columns = ["date", "customer", "product", "quantity", "price", "sales", "month", "year"]
-    default_values = {
-        "customer": "unknown",
-        "product": "unknown",
-        "quantity": pd.NA,
-        "price": pd.NA,
-        "sales": pd.NA,
-        "month": pd.NA,
-        "year": pd.NA,
-    }
-
-    for column_name in required_final_columns:
-        if column_name not in cleaned_df.columns:
-            cleaned_df[column_name] = default_values.get(column_name, pd.NA)
-
-    ordered_columns = required_final_columns + [
-        column_name for column_name in cleaned_df.columns if column_name not in required_final_columns
-    ]
-    cleaned_df = cleaned_df[ordered_columns]
-
-    print(f"\nMapping results for {selected_dataset_name}:")
-    for standard_name in sorted(mapping):
-        print(f"  {standard_name:<10} -> {mapping[standard_name]}")
-
+    cleaned_df = ensure_final_columns(cleaned_df)
+    report_mapping_results(selected_dataset_name, mapping)
     print(f"Cleaned shape: {cleaned_df.shape}")
-
-    print("\nData quality report:")
-    print("Missing values summary:")
-    missing_summary = cleaned_df.isna().sum()
-    print(missing_summary[missing_summary > 0].to_string() if (missing_summary > 0).any() else "  No missing values.")
-
-    duplicate_subset = [column_name for column_name in ["date", "product", "customer"] if column_name in cleaned_df.columns]
-    duplicate_count = int(cleaned_df.duplicated(subset=duplicate_subset).sum()) if duplicate_subset else 0
-    print(f"Duplicate count: {duplicate_count}")
-
-    print("Data types:")
-    print(cleaned_df.dtypes.to_string())
-
-    total_revenue = float(cleaned_df["revenue"].sum()) if "revenue" in cleaned_df.columns else float(cleaned_df["sales"].sum())
-    total_orders = int(len(cleaned_df))
-    average_order_value = total_revenue / total_orders if total_orders else 0.0
-
-    print("\nBusiness metrics:")
-    print(f"Total Revenue: {total_revenue:.2f}")
-    print(f"Total Orders: {total_orders}")
-    print(f"Average Order Value (AOV): {average_order_value:.2f}")
+    report_data_quality(cleaned_df)
+    report_business_metrics(cleaned_df)
 
     output_path = save_cleaned_data(cleaned_df, selected_dataset_name)
     print(f"Saved cleaned dataset to: {output_path.resolve()}")
 
-    if load_to_db:
-        print("\nStarting Week 3 database load...")
-        print(f"RESET_DB mode: {reset_db}")
-        try:
-            load_cleaned_data_to_mysql(cleaned_df, dataset_name=selected_dataset_name, reset_db=reset_db)
-        except Exception as error:
-            print(f"Database load failed for {selected_dataset_name}: {error}")
-        else:
-            if run_sql:
-                try:
-                    run_sql_analysis(dataset_name=selected_dataset_name)
-                except Exception as error:
-                    print(f"SQL analysis failed for {selected_dataset_name}: {error}")
-                else:
-                    if run_visuals:
-                        try:
-                            run_visualizations(dataset_name=selected_dataset_name, cleaned_df=cleaned_df)
-                        except Exception as error:
-                            print(f"Visualization generation failed for {selected_dataset_name}: {error}")
-                        else:
-                            if sync_frontend_assets:
-                                try:
-                                    export_frontend_dashboard_assets()
-                                except Exception as error:
-                                    print(f"Frontend asset export failed: {error}")
+    if not load_to_db:
+        return cleaned_df
+
+    print("\nStarting Week 3 database load...")
+    print(f"RESET_DB mode: {reset_db}")
+    if not run_optional_stage(
+        lambda: load_cleaned_data_to_mysql(cleaned_df, dataset_name=selected_dataset_name, reset_db=reset_db),
+        f"Database load failed for {selected_dataset_name}",
+    ):
+        return cleaned_df
+
+    if not run_sql:
+        return cleaned_df
+    if not run_optional_stage(
+        lambda: run_sql_analysis(dataset_name=selected_dataset_name),
+        f"SQL analysis failed for {selected_dataset_name}",
+    ):
+        return cleaned_df
+
+    if not run_visuals:
+        return cleaned_df
+    if not run_optional_stage(
+        lambda: run_visualizations(dataset_name=selected_dataset_name, cleaned_df=cleaned_df),
+        f"Visualization generation failed for {selected_dataset_name}",
+    ):
+        return cleaned_df
+
+    if sync_frontend_assets:
+        run_optional_stage(
+            export_frontend_dashboard_assets,
+            "Frontend asset export failed",
+        )
 
     return cleaned_df
 
