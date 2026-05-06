@@ -420,14 +420,10 @@ sales-sense-ai/
 ## 👨‍💻 Author
 
 **Aditya Gangwani**  
-B.Tech Student | Data Science & AI Enthusiast
+B.E Student | Data Science & AI Enthusiast
 
 Building systems that bridge the gap between raw data and real decisions. SalesSense AI was designed to demonstrate a complete, production-style analytics pipeline — not just isolated notebook experiments.
 
 - GitHub: [@adityagangwani30](https://github.com/adityagangwani30)
 
 ---
-
-## 📄 License
-
-This project is intended for academic and portfolio demonstration purposes.
